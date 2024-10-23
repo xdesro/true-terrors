@@ -1,0 +1,31 @@
+<footer class="footer themed dark">
+        <nav class="footer__nav">
+            <section class="footer__section footer__section--breadcrumb">
+                <div class="footer__meta-title">You are here</div>
+                <div>
+                    <a href="#">Home ↴</a>
+                    <a href="#">Articles ↴</a>
+                    <a href="#">Using Focal Points, Aspect Ratio & Object-Fit To Crop Images Correctly</a>
+                </div>
+            </section>
+            <section class="footer__section">
+                <div class="footer__meta-title">✷ SS24</div>
+                <a class="footer__link" href="#">Home</a>
+            </section>
+            {% for linkGroup in footer.nav %}
+            <section class="footer__section">
+                <div class="footer__meta-title">{{ linkGroup.title }}</div>
+                {% for link in linkGroup.links %}
+                <div>
+                    <a class="footer__link" href="{{ link.url }}">{{ link.text }}</a>
+                    <span class="footer__link-description">{{ link.description }}</span>
+                </div>
+                {% endfor %}
+            </section>
+            {% endfor %}
+        </nav>
+        <div class="footer__colophon">
+            <span>`© ${new Date().getCurrentYear()}`</span>
+            <span>made with :emoji: in Denver, Colorado</span>
+        </div>
+    </footer>

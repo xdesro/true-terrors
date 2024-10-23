@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <section class="home-hero">
+        <hgroup>
+            <h1 class="home-hero__title">
+                <span>True Terrors</span>
+                <span>of the</span>
+                <span>New Dark Web</span>
+            </h1>
+            <p class="home-hero__description">The personal site and portfolio of Denver-based creative web developer and
+                designer Henry Desroches.</p>
+        </hgroup>
+        <span class="home-hero__warning">(Scroll with caution and with care.)</span>
+        <img class="home-hero__accent-image" src="https://placehold.co/189x315" alt="">
+        <marquee class="home-hero__marquee">
+            <span>“Fortune Teller”, Stray From The Path</span> — <span>48ºF @ N 39º 43’ 31.56” W 104º 58’ 0.94” (Denver,
+                Colorado)</span> — <span>11:03AM</span>
+        </marquee>
+    </section>
+    <section class="home-letter themed dark">
+        <h2 class="home-letter__title">A brief letter from the editor</h2>
+        <div class="home-letter__text">
+            <p>dear reader <i>(and in fact, dear friend)</i>,</p>
+            <p>this version of my website represents my first attempt at growing a digital garden — a place for rough
+                drafts
+                and indecipherable scrawling; for seedlings of ideas to be tended and stand tall in the fields.</p>
+            <p>tread carefully, as the ground</br>
+                may have shifted.</p>
+            <p>love,<br />
+                henry <i>(from online)</i></p>
+        </div>
+    </section>
+    <section class="home-about">
+        <div class="container">
+            <h2 class="home-about__title">about the author</h2>
+            <marquee class="home-about__marquee">As the people here grow colder, I turn to my computer, And spend my
+                evenings with it Like a friend.
+                "Hello, I know that you've been feeling tired. I bring you love and deeper understanding</marquee>
+            <div class="home-about__text">
+                <div>
+                    <p>I’m a creative developer <span class="text-mid text-serif text-italic">(he/him/él)</span>
+                        currently
+                        based in <del>New York City</del>
+                        <ins>Denver,
+                            Colorado</ins>. I’m
+                        really into CSS, animation, accessibility, and deleting code.
+                    </p>
+                    <p>I create websites, design systems, and interactive digital experiences.</p>
+                </div>
+                <div>
+                    <h3>now</h3>
+                    <p>Read more about <a href="/now">what I’ve been focused on recently →</a></p>
+                </div>
+                <div>
+                    <h3>Availability</h3>
+                    <p>I'm still taking on freelance projects on a case-by-case basis. Reach out and touch faith. ↓</p>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>I’m most active and reachable <a href="#">via email</a>. You can also <a
+                            href="https://resume.henry.codes">check out my resume</a>, if you’re into that sort of
+                        thing.
+                    </p>
+                </div>
+            </div>
+            <img class="home-about__image" src="https://placehold.co/400x400">
+            <aside class="home-about__aside window">
+                <h3>Elsewhere</h3>
+                <ul class="social-list">
+                    {% for socialLink in social %}
+                        {% include "social-link-list-item.njk" %}
+                    {% endfor %}
+                </ul>
+            </aside>
+        </div>
+    </section>
+    <section class="home-work themed dark">
+        <h2 class="home-work__title">Recent work</h2>
+        <ul class="case-study-list" role="list">
+            <li>{% include 'case-study-block.njk' %}</li>
+            <li>{% include 'case-study-block.njk' %}</li>
+        </ul>
+        <a class="link-block" href="#">View all case studies →</a>
+    </section>
+    <section class="home-articles">
+        <h2 class="home-articles__title">Articles</h2>
+        <ul class="articles-list" role="list">
+            <li>{% include 'article-block.njk' %}</li>
+        </ul>
+        <a class="link-block" href="#">View all articles →</a>
+    </section>
+        <img class="footer__border" src="/img/footer-border.png">
+   {% include 'footer.njk' %}
+</body>
+
+</html>
