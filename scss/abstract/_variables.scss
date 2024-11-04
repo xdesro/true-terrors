@@ -1,0 +1,17 @@
+$color-text: #{var(--color-text)};
+$color-text-mid: #{var(--color-text-mid)};
+$color-background: #{var(--color-background)};
+$color-border-mid: #{var(--color-border-mid)};
+
+$font-sans: "Neue Montreal", sans-serif;
+$font-display: "Manuka Condensed", sans-serif;
+$font-serif: "Louize", serif;
+$font-serif-display: "Louize Display", serif;
+
+$default-border-radius: 0.75rem; // 12px
+
+$bdrs: $default-border-radius;
+
+$breakpoints: (
+    sm: 600px
+)

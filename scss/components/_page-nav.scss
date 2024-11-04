@@ -1,0 +1,42 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.page-nav {
+  margin-block-end: 12.5rem;
+  padding-block-start: 1rem;
+  margin-inline: 1rem;
+  text-transform: uppercase;
+  text-wrap: balance;
+
+  @include screen(sm) {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+  &__brand {
+    display: inline-block;
+    padding-block-end: 1em;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    > span {
+      color: $color-text-mid;
+    }
+  }
+  &__tagline {
+    max-width: 30ch;
+    margin-block-end: 1em;
+    @include screen(sm) {
+      text-align: right;
+      grid-row-end: span 2;
+    }
+  }
+  &__back-link {
+    display: inline-block;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

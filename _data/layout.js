@@ -1,0 +1,1 @@
+export default 'layouts/base.njk'

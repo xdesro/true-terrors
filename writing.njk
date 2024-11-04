@@ -1,0 +1,92 @@
+---js
+{
+    eleventyComputed: {
+        footerLinks: (data) => [
+            ...data.footerLinks,
+            { name: "Writing", url: "/work" },
+        ],
+    },
+    toc: [
+        {
+            text: "Heaters From Friends & Brighter Minds Than Mine",
+            id: "from-friends"
+        },
+        {
+            text: "Medium-Length Blog Posts & Tutorials",
+            id: "blog"
+        },
+        {
+            text: "Code Snippets & Brave Beginnings of Ideas",
+            id: "notes"
+        }
+    ]
+}
+---
+{# {{ page_nnpm install @11ty/eleventy-plugin-webcav(backlink='/', backlink_text='Back to home') }} #}
+{# <nav class="page-nav">
+    <a href="/" class="page-nav__brand">✷ season fw24</a>
+    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
+    <a href="/" class="page-nav__back-link">← Back to home</a>
+</nav> #}
+
+{% renderTemplate "webc" %}
+<page-nav></page-nav>
+{% endrenderTemplate %}
+
+<header class="page-header">
+    <div class="page-header__inner">
+        <h1 class="page-header__title">Writing</h1>
+        <img class="page-header__image page-header__image--first" src="https://placehold.co/180x180">
+        {% include 'table-of-contents.njk' %}
+    </div>
+</header>
+
+<section class="writing-section" id="from-friends">
+    <div class="container">
+        <header class="writing-section-header">
+            <h2 class="writing-section-header__title">Heaters From Friends & Brighter Minds Than Mine</h2>
+            <p class="writing-section-header__description">Blogroll of posts I’ve recently read and recommend. You can <a href="#">subscribe to this feed via RSS</a>. </p>
+        </header>
+        <div class="recent-reading-list">
+            <aside class="recent-reading-list__warning">
+                <p>(These links will take you far away from this place. <em>Go with care,</em> and come on back sometime soon.)</p>
+            </aside>
+            {% for post in recentReading.posts %}
+                <article class="card">
+                    <h1 class="card__title">{{ post.title }}</h1>
+                    <div class="card__author">{{ post.author }}</div>
+                    <a class="card__link" href="{{ post.url }}">Read more →</a>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="writing-section" id="blog">
+    <div class="container">
+        <header class="writing-section-header">
+            <h2 class="writing-section-header__title">Medium-Length Blog Posts & Tutorials</h2>
+            <p class="writing-section-header__description">The greatest trick the devil ever pulled was getting us to use the word “blog” in everyday conversation. You can <a href="#">subscribe to this feed via RSS.</a>. </p>
+        </header>
+        <div class="articles-list">
+            {% for article in collections['article'] | sortedByPublishDate %}
+            {# {{ caseStudy }} #}
+            {% include 'article-block.njk' %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="writing-section" id="notes">
+    <div class="container">
+        <header class="writing-section-header">
+            <h2 class="writing-section-header__title">Code Snippets and Brave Beginnings of Ideas</h2>
+            <p class="writing-section-header__description">Usually one-liners that don't need a whole blog post tutorial breaking them down.</p>
+        </header>
+        {% for article in collections['note'] | sortedByPublishDate %}
+        {# {{ caseStudy }} #}
+        {% include 'article-block.njk' %}
+        {% endfor %}
+    </div>
+</section>
+{% include 'footer.njk' %}

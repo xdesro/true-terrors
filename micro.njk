@@ -1,0 +1,75 @@
+---js
+{
+    eleventyComputed: {
+        footerLinks: (data) => [
+            ...data.footerLinks,
+            { name: "Micro", url: "/micro" },
+        ],
+    },
+    feedLinks: [
+        {
+            "name": "RSS",
+            "text": "View this feed via RSS",
+            "url": "/rss/micro.xml"
+        },
+        {
+            "name": "Bluesky",
+            "text": "View this feed on Bluesky",
+            "url": "https://bsky.app/profile/strange.website"
+        },
+        {
+            "name": "Mastodon",
+            "text": "View this feed on Mastodon",
+            "url": "https://front-end.social/@henry"
+        }
+    ]
+}
+---
+<nav class="page-nav">
+    <a href="/" class="page-nav__brand">✷ season fw24</a>
+    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
+    <a href="/" class="page-nav__back-link">← Back to home</a>
+</nav>
+
+<div class="infinite-scroll">
+
+    <header class="page-header">
+        <div class="page-header__inner">
+            <h1 class="page-header__title">Micro</h1>
+            <p class="page-header__description">Temporal, fleeting whims and outright shitposts. This feed syndicates to common social media targets across the web.</p>
+            {# {% include 'table-of-contents.njk' %} #}
+            <aside class="page-header__aside window">
+                <h3>Elsewhere</h3>
+                <ul class="social-list">
+                    {% for socialLink in feedLinks %}
+                        {% include "social-link-list-item.njk" %}
+                    {% endfor %}
+                </ul>
+            </aside>
+        </div>
+    </header>
+    <div class="feed container">
+        <p class="feed-title">Read the latest, scroll infinitely.</p>
+        <svg class="feed-indicator" xmlns="http://www.w3.org/2000/svg" fill="#dadada" viewBox="0 0 16 87">
+            <path fill-rule="evenodd" d="M8.7068 86.7071c-.3905.3905-1.0237.3905-1.4142 0l-6.364-6.364c-.3905-.3905-.3905-1.0236 0-1.4142.3906-.3905 1.0237-.3905 1.4143 0l4.6568 4.6569V0h2v83.5858l4.6569-4.6569c.3905-.3905 1.0236-.3905 1.4142 0 .3905.3906.3905 1.0237 0 1.4142l-6.364 6.364Z" clip-rule="evenodd"/>
+        </svg>
+
+    {% for post in collections['micro'] | sortedByPublishDate %}
+    <article class="post post--by-self">
+        <div class="post__content">{{ post.content | safe }}</div>
+        <footer class="post__footer">
+            <time class="post__date">{{ post.data.date | humanReadableDateTime }}</time>
+            <a class="post__permalink" href="/micro/{{ post.data.date | toISOString | slugify }}">Permalink</a>
+        </footer>
+        
+    </article>
+    {% if not loop.last %}
+        <svg class="feed-divider" xmlns="http://www.w3.org/2000/svg" fill="#dadada" viewBox="0 0 2 86">
+            <path fill-rule="evenodd" d="M2 0v86H0V0h2Z" clip-rule="evenodd"/>
+        </svg>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+{% include 'footer.njk' %}

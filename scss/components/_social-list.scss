@@ -1,0 +1,31 @@
+@use "../abstract/variables" as *;
+
+.social-list {
+    margin: 0;
+    padding: 0;
+    &__list-item {
+      line-height: 1.5;
+      display: flex;
+      column-gap: 0.75rem;
+      align-items: center;
+      &--disabled {
+        text-decoration: line-through;
+        cursor: not-allowed;
+        color: $color-text-mid;
+        a { 
+          cursor: not-allowed;
+        }
+      }
+    }
+    &__icon {
+      width: 1rem;
+      object-fit: contain;
+      aspect-ratio: 1;
+    }
+    &__link {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }

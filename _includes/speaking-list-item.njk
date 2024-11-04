@@ -1,0 +1,13 @@
+{# {{ speaking | dump }} #}
+<article class="speaking-list-item">
+    <time class="speaking-list-item__date">{{ talk.date | monthYearDate }}</time>
+    <h1 class="speaking-list-item__title">{{ talk.data.title }}</h1>
+    <div class="speaking-list-item__description">{{ talk.content | safe }}</div>
+    {% if talk.data.eventUrl %}
+        <a class="speaking-list-item__link" href="{{ talk.data.eventUrl }}">View the talk →</a>
+    {% endif %}
+    {% if talk.data.youtubeUrl %}
+        <iframe class="speaking-list-item__embed" src="https://www.youtube.com/embed/{{ talk.data.youtubeUrl | youtubeIdFromUrl }}" title="Digital Frontiers, IndieWeb Cowboys, and A Place Online To Call… — Henry Desroches (11ty Conf 2024)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    {% endif %}
+</article>
+    {# <iframe width="1512" height="631" src="https://www.youtube.com/embed/P-I5D6BlejM" title="Digital Frontiers, IndieWeb Cowboys, and A Place Online To Call… — Henry Desroches (11ty Conf 2024)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> #}

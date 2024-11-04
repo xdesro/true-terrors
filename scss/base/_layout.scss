@@ -1,0 +1,77 @@
+@use "../abstract/variables" as *;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Neue Montreal", sans-serif;
+  margin: 0;
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+
+  --color-text: #2a2722;
+  --color-background: #fafafa;
+  --color-text-mid: #777;
+  --color-border-mid: #bdbdbd;
+}
+a {
+  color: inherit;
+}
+h1 {
+  // text-transform: uppercase;
+}
+ul, ol {
+  padding-left: 1rem;
+}
+del {
+  color: $color-text-mid;
+}
+ins {
+  text-decoration: none;
+}
+
+code,
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+:not(pre) > code {
+  background-color: #eee;
+  // white-space: nowrap;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    inset: -0.5ex;
+    background-color: #eee;
+    border-radius: 4px;
+    z-index: -1;
+  }
+}
+
+.link-block {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  display: block;
+  padding: 3.5rem 2rem 1rem;
+  text-align: right;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid $color-text;
+  border-radius: $bdrs;
+  &:hover {
+    color: $color-background;
+    background-color: $color-text;
+  }
+}
+
+.container {
+  margin-inline: 1rem;
+}

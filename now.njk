@@ -1,0 +1,48 @@
+---js
+{
+    eleventyComputed: {
+        footerLinks: (data) => [
+            ...data.footerLinks,
+            { name: "Now", url: "/now" },
+        ],
+    },
+}
+---
+<nav class="page-nav">
+    <a href="/" class="page-nav__brand">✷ season fw24</a>
+    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
+    <a href="/" class="page-nav__back-link">← Back to home</a>
+</nav>
+
+<header class="page-header">
+    <div class="page-header__inner">
+        <h1 class="page-header__title">Now</h1>
+        <img class="page-header__image page-header__image--first" src="https://placehold.co/180x180">
+        <p class="page-header__description">Current focus, hobbies, projects and interests. (Read more at <a href="https://nownownow.com/about">nownownow.com/about</a>.)</p>
+    </div>
+</header>
+
+<div class="container rendered">
+
+<h2>Professional Focus</h2>
+
+<p>I’ve really enjoyed taking the Summer off after my role was eliminated by YouTube last Spring, shaking loose some of the scale and rust of Big Tech Burnout, but I can feel the fires of ambition and drive lighting beneath me once more, and I’m looking to get back to work.</p>
+
+<p>I’ve always been a front-of-the-front-end engineer & designer, and I still adore building for the web. I think it’d be fantastic to find another role where my passions for design, HTML, CSS, and accessibility can really supercharge an engineering team.</p>
+
+<p>It’s been a few years since I’ve really been a CSS “expert”, and I’m thrilled to get back to a more junior mindset, steadfast once again in the pursuit of knowledge and mastery.</p>
+
+<h2>Hobbies</h2>
+
+<h3>Motorcycles & The Metal Menace</h3>
+
+<p>Lately I’ve been spending a lot of time tending to motors. I have a few ’70s vintage German motorcycles, a more recent cafe racer project, and a soon-to-be-classic sports car, and all of them require constant attention. My garage is a nest, baring four gaping mechanical maws. I cannot satisfy their endless hunger, and I cannot turn my gaze from them, for fear of what they will do when unsupervised.</p>
+
+<p>I read <cite>Zen and the Art of Motorcycle Maintenance</cite> in the Spring and Persig’s concepts of Quality and <em>gumption</em> really resonated with me. It felt like a framework and a path forward for “debugging” projects of all stripes, online or not.</p>
+
+<h3>Writing</h3>
+
+<p>I find a lot of peace and home in poetry and prose, and I’ve allowed my hubris to swell and my self-awareness to dwindle in just such a way that I’d like to pursue the craft. I publish my writing semi-frequently on twin blogs <a href="https://stillness.digital">stillness.digital</a> and <a href="https://strange.website">strange.website</a>, and I’ve also recently built a word processor project out of a Raspberry Pi (think FreeWrite but for a fraction of the cost and I can use my own keyboard).</p>
+</div>
+
+{% include 'footer.njk' %}

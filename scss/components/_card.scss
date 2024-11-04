@@ -1,0 +1,32 @@
+@use "../abstract/variables" as *;
+
+.card {
+    display: grid;
+    padding: 1rem;
+    border: 2px solid $color-text;
+    border-radius: $bdrs;
+    &__title {
+font-family: $font-serif-display;
+font-size: 2rem;
+font-weight: 400;
+line-height: 1;
+margin-block-end: .5rem;
+    }
+    &__author {
+        font-size: .75rem;
+text-transform: uppercase;
+    }
+    &__link {
+        font-size: .75rem;
+        font-weight: bold;
+        align-self: end;
+        margin-block-end: -.5rem;
+        margin-block-start: 1rem;
+        padding-block: .5rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

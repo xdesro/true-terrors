@@ -1,0 +1,43 @@
+@use '../abstract/variables' as *;
+
+.table-of-contents {
+    margin-block-end: 3rem;
+    &__title {
+      font-size: 1rem;
+      font-weight: normal;
+      line-height: 1.5;
+      margin: 0;
+      text-transform: uppercase;
+      color: $color-text-mid;
+    }
+    &__list {
+      margin-block: 0;
+      padding: 0;
+      counter-reset: toc;
+      > li {
+        line-height: 1.3;
+        counter-increment: toc;
+        display: grid;
+        gap: 0.5ch;
+        grid-template-columns: auto 1fr;
+  
+        // font-variant-numeric: tabular-nums;
+        &:before {
+          display: inline-block;
+          width: 5ch;
+          text-align: right;
+          content: "(0" counter(toc) ") —";
+          // text-align: right;
+          color: $color-text-mid;
+        }
+      }
+      a {
+        text-decoration: none;
+        text-wrap: balance;
+        margin-block-end: .2em;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }

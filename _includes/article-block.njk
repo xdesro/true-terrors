@@ -2,27 +2,30 @@
     <dl class="article-block__meta">
         <div>
             <dt class="visually-hidden">Category</dt>
-            <dd>Tutorials</dd>
+            <dd>{{- article.data.category -}}</dd>
         </div>
         <div>
             <dt class="visually-hidden">Tags</dt>
             <dd>
-                math | javascript
+                {% for topic in article.data.topics %}
+                    {{ topic }}
+                    {%- if not loop.last %} | {% endif %}
+                {% endfor %}
             </dd>
         </div>
     </dl>
-    <h1 class="article-block__title">Using Focal Points, Aspect Ratio & Object-Fit To Crop Images Correctly</h1>
+    <h1 class="article-block__title">{{ article.data.title }}</h1>
     <dl class="article-block__meta">
         <div>
             <dt class="visually-hidden">Reading Time</dt>
-            <dd>7 minute read</dd>
+            <dd>{{ article.content | readTime }}</dd>
         </div>
         <div>
             <dt class="visually-hidden">Last updated</dt>
             <dd>
-                <date>Oct 2023</date>
+                <date>Last updated {{ (article.data.publishDate or article.date) | humanReadableDate }}</date>
             </dd>
         </div>
     </dl>
-    <a class="article-block__link" href="#">Read more →</a>
+    <a class="article-block__link" href="/writing/{% if article.data.slug %}{{ article.data.slug | slugify }}{% else %}{{ article.data.title | slugify }}{% endif %}">Read more →</a>
 </article>

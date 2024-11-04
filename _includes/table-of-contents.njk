@@ -1,0 +1,12 @@
+<aside class="table-of-contents">
+        <h2 class="table-of-contents__title">Table of Contents</h2>
+        <ol class="table-of-contents__list" role="list">
+            {% for entry in toc %}
+                <li>
+                    {% if entry.id %}<a href="#{{ entry.id }}">{% endif %}
+                        {{- entry.text -}}
+                    {% if entry.id %}</a>{% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+    </aside>

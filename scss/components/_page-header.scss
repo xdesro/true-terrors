@@ -1,0 +1,57 @@
+@use "../abstract/variables" as *;
+.page-header {
+  margin-block-end: 4rem;
+  // margin-inline: 1rem;
+  padding-block-end: 2rem;
+  border-block-end: 2px solid #dadada;
+  &__inner {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-inline: 1rem;
+  }
+  &__title {
+    font-family: $font-display;
+    font-size: 10rem;
+    line-height: 0.8;
+    // margin-block-end: 0.5rem;
+    margin-block-end: 2rem;
+    text-transform: uppercase;
+  }
+  &__image {
+    max-height: 8rem;
+    margin-block-end: 0.5rem;
+    border: 2px solid $color-text;
+    border-radius: $bdrs;
+
+    &--first {
+
+      order: -1;
+    }
+  }
+&__description {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-block-end: 1em;;
+}
+  &__aside {
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: inherit;
+      margin-block-end: 0.75rem;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: $color-text-mid;
+    }
+    ul {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      list-style: none;
+    }
+  }
+
+  .table-of-contents {
+    margin-block-end: 0;
+  }
+}

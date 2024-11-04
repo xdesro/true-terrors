@@ -1,13 +1,15 @@
 <footer class="footer themed dark">
         <nav class="footer__nav">
+            {% if footerLinks.length > 1 %}
             <section class="footer__section footer__section--breadcrumb">
                 <div class="footer__meta-title">You are here</div>
-                <div>
-                    <a href="#">Home ↴</a>
-                    <a href="#">Articles ↴</a>
-                    <a href="#">Using Focal Points, Aspect Ratio & Object-Fit To Crop Images Correctly</a>
+                <div class="footer__breadcrumbs">
+                    {% for link in footerLinks %}
+                        <a class="footer__breadcrumb{% if link.isTitle %} footer__breadcrumb--title{% endif %}" href="{{ link.url }}">{{- link.name -}}</a>
+                    {% endfor %}
                 </div>
             </section>
+            {% endif %}
             <section class="footer__section">
                 <div class="footer__meta-title">✷ SS24</div>
                 <a class="footer__link" href="#">Home</a>
@@ -27,5 +29,8 @@
         <div class="footer__colophon">
             <span>`© ${new Date().getCurrentYear()}`</span>
             <span>made with :emoji: in Denver, Colorado</span>
+        </div>
+        <div class="footer__graphic">
+            {% include 'graphics/crown.svg' %}
         </div>
     </footer>

@@ -1,0 +1,22 @@
+@use "../abstract/variables" as *;
+
+.window {
+    position: relative;
+    display: inline-block;
+    padding: 2rem;
+    border: 2px solid $color-text;
+    border-radius: $bdrs;
+    background-color: $color-background;
+
+    &:before {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      display: block;
+      width: 1.25rem;
+      aspect-ratio: 1;
+      content: "";
+      border: 2px solid #bdbdbd;
+      border-radius: 100%;
+    }
+  }

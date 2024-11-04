@@ -1,0 +1,38 @@
+---js
+{
+    eleventyComputed: {
+        footerLinks: (data) => [
+            ...data.footerLinks,
+            { name: "Notes", url: "/notes" },
+        ],
+    },
+}
+---
+<nav class="page-nav">
+    <a href="/" class="page-nav__brand">✷ season fw24</a>
+    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
+    <a href="/" class="page-nav__back-link">← Back to home</a>
+</nav>
+
+<header class="page-header">
+    <div class="page-header__inner">
+        <h1 class="page-header__title">Notes</h1>
+        <img class="page-header__image" src="https://placehold.co/180x180">
+        {# {% include 'table-of-contents.njk' %} #}
+    </div>
+</header>
+
+<section id="notes">
+    <div class="container">
+    {# <div class="container">
+        <header class="writing-section-header">
+            <h2 class="writing-section-header__title">Medium-Length Blog Posts & Tutorials</h2>
+            <p class="writing-section-header__description">The greatest trick the devil ever pulled was getting us to use the word “blog” in everyday conversation. You can <a href="#">subscribe to this feed via RSS.</a>. </p>
+        </header> #}
+        {% for article in collections['note'] | sortedByPublishDate %}
+        {# {{ caseStudy }} #}
+        {% include 'article-block.njk' %}
+        {% endfor %}
+    </div>
+</section>
+{% include 'footer.njk' %}
