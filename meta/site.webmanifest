@@ -1,0 +1,20 @@
+{
+  "name": "Personal Site & Portfolio of Henry Desrocehs",
+  "short_name": "Henry From Online",
+  "icons": [
+    {
+      "src": "/meta/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/meta/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#F5F5F5",
+  "background_color": "#F5F5F5",
+  "display": "minimal-ui"
+}

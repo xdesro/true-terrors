@@ -165,7 +165,7 @@ Then if I want to do something like use an `IntersectionObserver` to reveal the 
 
 ```js
 // main.js
-import { CardReveal } from "./animations/cardReveal.animation";
+import { CardRevealAnimation } from "./animations/cardReveal.animation";
 
 const revealHandler = (entries, observer) => {
   entries.forEach((entry) => {
@@ -192,7 +192,7 @@ There are a lot of ways to do the partial AJAX SPA-style of routing we're talkin
 
 ## Conclusion
 
-I'd like to make this rant into a resource, more robust guidelines, etc. If there's something I didn't cover that you'd like to learn about, something I _did_ cover that I didn't cover well enough, or if you just think I'm wrong and stupid, please don't hesitate to hit me up [via email](mailto:yo@henry.codes) or [on Mastodon](https://front-end.social/@henry).
+I'd like to make this rant into a resource, more robust guidelines, etc. If there's something I didn't cover that you'd like to learn about, something I _did_ cover that I didn't cover well enough, or if you just think I'm wrong and stupid, please don't hesitate to hit me up [via email](mailto:yo@henry.codes) or [on Bluesky](https://bsky.app/profile/strange.website).
 
 Candidly, I hope this hasn't felt too pedantic or peremptory. Websites are fun, the internet is a gift. It's important to remember the experience of your users is ten thousand times more important than your developer experience. Have fun, be safe, protect each other, and don't talk to cops.
 

@@ -14,8 +14,8 @@
                 <div class="footer__meta-title">✷ SS24</div>
                 <a class="footer__link" href="#">Home</a>
             </section>
-            {% for linkGroup in footer.nav %}
-            <section class="footer__section">
+            {% for linkGroup in site.nav %}
+            <section class="footer__section footer__section--link-group">
                 <div class="footer__meta-title">{{ linkGroup.title }}</div>
                 {% for link in linkGroup.links %}
                 <div>
@@ -25,6 +25,19 @@
                 {% endfor %}
             </section>
             {% endfor %}
+            <section class="footer__section footer__section--social">
+                <div class="footer__meta-title">Elsewhere</div>
+                <ul class="social-list">
+                    {% for socialLink in social %}
+                        {% include "social-link-list-item.njk" %}
+                    {% endfor %}
+                </ul>
+            </section>
+            <section class="footer__section">
+                <div class="footer__meta-title">Contact</div>
+                <a class="footer__link" href="mailto:yo@henry.codes">yo@henry.codes</a>
+
+            </section>
         </nav>
         <div class="footer__colophon">
             <span>`© ${new Date().getCurrentYear()}`</span>

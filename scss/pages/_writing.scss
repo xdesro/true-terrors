@@ -1,20 +1,44 @@
 @use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 .writing-section {
   margin-block-end: 4rem;
   scroll-margin-block-start: 4rem;
   padding-block-end: 4rem;
   border-block-end: 2px solid #dadada;
+  &:last-of-type {
+    border: none;
+  }
 }
 
 .writing-section-header {
   margin-block-end: 3rem;
+  @include screen(lg) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+  }
   &__title {
     font-family: $font-serif-display;
     font-size: 2rem;
     font-weight: 400;
     line-height: 1;
     margin-block-end: 1rem;
+
+    @include screen(sm) {
+      font-size: 3rem;
+      max-width: 37.5rem;
+      align-self: last baseline;
+    }
+  }
+  &__description {
+    @include screen(sm) {
+      font-size: 1.25rem;
+      align-self: last baseline;
+    }
+    &--full {
+      grid-column: 1 / -1;
+    }
   }
 }
 
@@ -30,7 +54,7 @@
   padding-inline: 1rem;
 
   scrollbar-width: none;
-  overscroll-behavior: none;
+  overscroll-behavior-x: none;
   &::-webkit-scrollbar {
     // height: 0px;
     display: none;

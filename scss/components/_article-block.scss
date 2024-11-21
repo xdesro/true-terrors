@@ -1,42 +1,88 @@
 @use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 .article-block {
-    position: relative;
-    margin-block-end: 1rem;
-    padding: 2rem 1.5rem;
-    border: 2px solid currentColor;
-    border-radius: $bdrs;
-    &__meta {
-      font-size: 0.75rem;
-      line-height: 1.1;
-      margin-block-end: 0.75rem;
-      // margin-block-end: 1rem;
-      text-transform: uppercase;
-      color: $color-text-mid;
-      &:nth-of-type(2) {
-        margin-block-end: 0;
-        text-align: right;
-      }
+  position: relative;
+  margin-block-end: 1rem;
+  padding: 2rem 1.5rem;
+  border: 2px solid $color-border-light;
+  border-radius: $bdrs;
+
+  @include screen(sm) {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    height: 100%;
+    margin-block-end: 0;
+  }
+  &:has(a:hover, a:focus) {
+    border-color: $color-border-mid;
+  }
+  // &--contrast {
+  //   &:has(a:hover, a:focus) {
+  //     color: $color-background;
+  //     background-color: $color-text;
+  //     border-color: $color-text;
+  //   }
+  // }
+  &--featured {
+    // background-color: $color-text;
+    // color: $color-background;
+    border-color: $color-background;
+    outline-offset: -6px;
+    &:has(a:hover, a:focus) {
+      border-color: $color-background;
+      outline: 2px solid $color-border-light;
     }
-    &__title {
-      font-family: $font-serif-display;
-      font-size: 2rem;
-      font-weight: 400;
-      line-height: 1;
-      margin-block-end: 2rem;
-    }
-    &__link {
-      font-size: 0.75rem;
-      font-weight: bold;
-      line-height: 1.3;
-      display: block;
-      margin-block-end: -1rem;
-      padding-block: 1rem;
-      text-align: right;
-      text-decoration: none;
-      text-transform: uppercase;
-      &:hover {
-        text-decoration: underline;
+    &:first-child {
+      &:before {
+        font-size: 0.75rem;
+        font-weight: bold;
+        position: absolute;
+        top: -1.3rem;
+        margin-left: 0;
+        content: "Featured Reading";
+        text-transform: uppercase;
+        color: $color-text-unthemed;
       }
     }
   }
+  &__meta {
+    font-size: 0.75rem;
+    line-height: 1.1;
+    margin-block-end: 0.75rem;
+    // margin-block-end: 1rem;
+    text-transform: uppercase;
+    color: $color-text-mid;
+    &:nth-of-type(2) {
+      margin-block-end: 0;
+      text-align: right;
+    }
+  }
+  &__title {
+    font-family: $font-serif-display;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-block-end: 2rem;
+  }
+  &__link {
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1.3;
+    display: block;
+    margin-block-end: -1rem;
+    padding-block: 1rem;
+    text-align: right;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:before {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      content: "";
+    }
+    &:hover {
+      // text-decoration: underline;
+    }
+  }
+}

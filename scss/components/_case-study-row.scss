@@ -1,0 +1,196 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+$duration: 0.15s;
+$transition: transform $duration ease-in;
+
+.case-study-rows {
+  display: grid;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  counter-reset: rows;
+}
+.case-study-row {
+  position: relative;
+  counter-increment: rows;
+
+  --color-echo: #3e3b36;
+  &:has(a:hover) {
+    // --color-echo: #{$color-text};
+  }
+  &:nth-of-type(1) {
+    @include screen(sm) {
+      padding-inline-start: 5rem;
+    }
+    @include screen(lg) {
+      padding-inline-start: calc(10vw)
+    }
+  }
+  &:nth-of-type(2) {
+    @include screen(sm) {
+      padding-inline-start: 10rem;
+    }
+    @include screen(lg) {
+      padding-inline-start: calc(20vw)
+    }
+  }
+  &:nth-of-type(3) {
+    @include screen(sm) {
+      padding-inline-start: 8rem;
+    }
+    @include screen(lg) {
+      padding-inline-start: calc(40vw)
+    }
+  }
+  &:nth-of-type(4) {
+    @include screen(sm) {
+      padding-inline-start: 6rem;
+    }
+    @include screen(lg) {
+      padding-inline-start: calc(35vw)
+    }
+  }
+  &:nth-of-type(5) {
+    @include screen(sm) {
+      padding-inline-start: 0rem;
+    }
+    @include screen(lg) {
+      padding-inline-start: calc(25vw)
+    }
+  }
+  &:nth-of-type(6) {
+    @include screen(sm) {
+      padding-inline-start: 2rem;
+    }
+    @include screen(lg) {
+      padding-inline-start: calc(5vw)
+    }
+  }
+  &__inner {
+    position: relative;
+    display: inline-block;
+  }
+  &__logo {
+    width: 100%;
+    max-height: 0.8em;
+    object-fit: contain;
+    aspect-ratio: 1;
+  }
+  &__title,
+  &__echoes {
+    font-family: $font-serif-display;
+    font-size: min(8vw, 2.5rem);
+    font-weight: normal;
+
+    @include screen(lg) {
+      font-size: clamp(2.5rem, -1.3603rem + 6.8627vw, 5.125rem);
+    }
+  }
+  &__title {
+    position: relative;
+    display: flex;
+    column-gap: 0.5ch;
+    align-items: center;
+
+    @include screen(sm) {
+      transition: $transition;
+      .case-study-row:has(a:hover) & {
+        transform: translateX(-1.5ch);
+      }
+    }
+    &:before {
+      font-family: $font-sans;
+      font-size: 0.75rem;
+      // margin-top: 0.5rem;
+      // margin-inline-end: 0.5ch;
+      display: inline-block;
+      align-self: start;
+      content: "(0" counter(rows) ")";
+    }
+  }
+  &__title-text {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+  }
+  &__echoes {
+    position: absolute;
+    right: calc(100% + 0.5ch);
+    transition: $transition, color $duration, filter $duration;
+    white-space: nowrap;
+    color: var(--color-echo);
+    @include screen(sm) {
+
+      filter: blur(1.5px);
+    }
+    .case-study-row:has(a:hover) & {
+      @include screen(sm) {
+        filter: blur(0);
+        transform: translateX(-1.5ch);
+      }
+    }
+    &--after {
+      top: 0;
+      right: unset;
+      left: calc(100% + 0.5ch);
+      .case-study-row:has(a:hover) & {
+        transform: translateX(3ch);
+
+        @include screen(sm) {
+          transform: translateX(1.5ch);
+        }
+      }
+    }
+  }
+  &__echo {
+    &:before {
+      font-family: $font-sans;
+      font-size: 0.75rem;
+      display: inline-block;
+      // margin-top: 0.5rem;
+      margin-inline-end: 0.5ch;
+      content: "(0" counter(rows) ")";
+      vertical-align: top;
+    }
+  }
+  &__link {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__title-divider {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 0;
+    height: 3px;
+    // transition: transform 0.2s ease-in, width 0s .2s;
+    transition: width $duration ease-in;
+    transform: translateY(-50%);
+    transform-origin: 50% 0;
+    transform-origin: 0% 0;
+    background-color: currentColor;
+    .case-study-row:has(a:hover) & {
+      width: 3ch;
+    }
+  }
+  &__half {
+    display: inline-block;
+    transition: $transition;
+    .case-study-row:has(a:hover) & {
+      @include screen(sm) {
+        // transform: translateX(-1.5ch);
+      }
+    }
+    .case-study-row:has(a:hover) &:last-child {
+      transform: translateX(3ch);
+
+      @include screen(sm) {
+        // transform: translateX(1.5ch);
+      }
+    }
+  }
+}

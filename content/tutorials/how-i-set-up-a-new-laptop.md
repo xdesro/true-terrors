@@ -114,6 +114,6 @@ And that ought to do it for installs for my default setup.
 
 ## Last Steps
 
-Believe it or not, that should be everything sorted. Homebrew does _so_ much of the heavy lifting, usually all that remains is to do some logins (easily done if one uses [a password manager](https://1password.com/) 👀) and configure final Mac settings! I personally set auto-keyboard intervention to off as a default (I can’t with the auto-capitalization and spellcheck), as well as turn on the battery percentage in the top bar.
+Believe it or not, that should be everything sorted. Homebrew does _so_ much of the heavy lifting, usually all that remains is to do some logins (easily done if one uses [a password manager](https://1password.com/) 👀) and configure final Mac settings. I personally set auto-keyboard intervention to off as a default (I can’t with the auto-capitalization and spellcheck), as well as turn on the battery percentage in the top bar.
 
 Thanks for reading! Hope it was useful, and I hope you find some meaningful, fitting way to get revenge on me for the time wasted if not. If you're following this like it's a tutorial and run into any issues, please [definitely let me know](mailto:yo@henry.codes?subject=You%20dog%2C%20you%20rat%20bastard.%20Your%20tutorial%20has%20holes%20like%20the%20Titanic.)!

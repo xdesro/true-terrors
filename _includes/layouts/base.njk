@@ -1,18 +1,41 @@
+{% set pageTitle = site.baseTitle %}
+{% if title %}
+    {% set pageTitle = pageTitle + ' | ' + title %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
-    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css"/> #}
+    <title>{{ pageTitle }}</title>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png" />
+    <link rel="me" href="https://front-end.social/@henry" />
+    <link rel="me" href="https://github.com/xdesro">
+    <link rel="manifest" href="/meta/site.webmanifest" />
+    <link rel="mask-icon" href="/meta/safari-pinned-tab.svg" color="#000000" />
+    <meta name="msapplication-TileColor" content="#f5f5f5" />
+    <meta name="theme-color" content="#F5F5F5" />
+    <meta name="generator" content="eleventy">
+
+    <!-- Indieweb -->
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+
+    <!-- Webmentions -->
+    <link rel="webmention" href="https://webmention.io/henry.codes/webmention" />
+    <link rel="pingback" href="https://webmention.io/henry.codes/xmlrpc" />
+
+    <!-- Aperture -->
+    <link rel="microsub" href="https://aperture.p3k.io/microsub/816">
+
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
     {{ content | safe }}
 </body>
-
 </html>

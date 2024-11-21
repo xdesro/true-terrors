@@ -3,8 +3,8 @@
 
 .page-nav {
   margin-block-end: 12.5rem;
-  padding-block-start: 1rem;
   margin-inline: 1rem;
+  padding-block-start: 1rem;
   text-transform: uppercase;
   text-wrap: balance;
 
@@ -13,28 +13,105 @@
     grid-template-columns: auto auto;
     justify-content: space-between;
   }
+  @include screen(lg) {
+    // font-size: 0.75rem;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    margin-block-end: 0;
+  }
   &__brand {
+    position: relative;
     display: inline-block;
+    justify-self: start;
     padding-block-end: 1em;
     text-decoration: none;
+
+    @include screen(lg) {
+      grid-column: 2;
+    }
     &:hover {
       text-decoration: underline;
     }
-    > span {
-      color: $color-text-mid;
+  }
+  &__brand-flag {
+    position: absolute;
+    left: calc(100% + 0.5ch);
+    width: max-content;
+    transition: all 0.2s;
+    transform: translateX(-1rem);
+    opacity: 0;
+    color: $color-text-mid;
+
+    @include screen(lg) {
+      top: 1em;
+      left: 0;
+      width: 100%;
+      transform: translateY(-1rem);
+      text-align: center;
+      &:before {
+        display: none;
+      }
+    }
+    @include screen(1270px) {
+      top: unset;
+      left: calc(100% + 0.5ch);
+      width: max-content;
+      transform: translateX(-1rem);
+      text-align: left;
+
+      &:before {
+        display: inline-block;
+        transform: translateX(0.5rem);
+      }
+    }
+    &:before {
+      display: inline-block;
+      margin-right: 0.5ch;
+      content: "—";
+      transition: all 0.2s;
+      transform: translateX(0.5rem);
+    }
+    a:hover & {
+      transform: translateX(0);
+      opacity: 1;
+
+      @include screen(lg) {
+        transform: translateY(0);
+      }
+      @include screen(1270px) {
+        transform: translateX(0);
+      }
+      &:before {
+        transform: translateX(0);
+
+        @include screen(lg) {
+          transform: translateY(0);
+        }
+        @include screen(1270px) {
+          transform: translateX(0);
+        }
+      }
     }
   }
   &__tagline {
     max-width: 30ch;
     margin-block-end: 1em;
+
     @include screen(sm) {
-      text-align: right;
       grid-row-end: span 2;
+      text-align: right;
+    }
+    @include screen(lg) {
+      max-width: unset;
     }
   }
   &__back-link {
     display: inline-block;
     text-decoration: none;
+
+    @include screen(lg) {
+      grid-column: 1;
+      grid-row: 1;
+    }
     &:hover {
       text-decoration: underline;
     }

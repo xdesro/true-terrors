@@ -2,6 +2,8 @@
 bodyClass: "home"
 footerLinks: false
 ---
+{% from './_includes/article-block.njk' import articleBlock %}
+
 <section class="home-hero">
     <hgroup>
         <h1 class="home-hero__title">
@@ -15,10 +17,21 @@ footerLinks: false
     <span class="home-hero__warning">(Scroll with caution and with care.)</span>
     {# <img class="home-hero__accent-image" src="https://placehold.co/189x315" alt=""> #}
     <img class="home-hero__accent-image" src="/img/gargoyle-with-texture.png" alt="">
-    <marquee class="home-hero__marquee">
-        <span>“Fortune Teller”, Stray From The Path</span> — <span>48ºF @ N 39º 43’ 31.56” W 104º 58’ 0.94” (Denver,
-            Colorado)</span> — <span>11:03AM</span>
-    </marquee>
+    {% renderTemplate 'webc', {recentListening: recentListening} %}
+    <home-marquee class="home-hero__marquee" :@recent-listening="recentListening"></home-marquee>
+    {% endrenderTemplate %}
+    <nav class="home-nav">
+        {% for linkGroup in site.nav %}
+            <p class="home-nav__meta-title">{{ linkGroup.title }}</p>
+            <ul class="home-nav__list" role="list">
+                {% for link in linkGroup.links %}
+                    <li class="home-nav__list-item">
+                        <a class="home-nav__link" href="{{ link.url }}">{{ link.text }} <span class="home-nav__link-description">— {{ link.description }}</span></a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </nav>
 </section>
 <section class="home-letter themed dark">
     <h2 class="home-letter__title">A brief letter from the editor</h2>
@@ -38,67 +51,73 @@ footerLinks: false
         <h2 class="home-about__title">about the author</h2>
         <marquee class="home-about__marquee">As the people here grow colder, I turn to my computer, And spend my
             evenings with it Like a friend.
-            "Hello, I know that you've been feeling tired. I bring you love and deeper understanding</marquee>
-        <div class="home-about__text">
-            <div>
-                <p>I’m a creative developer <span class="text-mid text-serif text-italic">(he/him/él)</span>
-                    currently
-                    based in <del>New York City</del>
-                    <ins>Denver,
-                        Colorado</ins>. I’m
-                    really into CSS, animation, accessibility, and deleting code.
-                </p>
-                <p>I create websites, design systems, and interactive digital experiences.</p>
+            “Hello, I know that you've been feeling tired. I bring you love and deeper understanding.”</marquee>
+        <div class="home-about__layout">
+            <div class="home-about__text">
+                <div>
+                    <p>I’m a creative developer <span class="text-mid text-serif text-italic">(he/him/él)</span>
+                        currently
+                        based in <del>New York City</del>
+                        <ins>Denver,
+                            Colorado</ins>. I’m
+                        really into CSS, animation, accessibility, and deleting code.
+                    </p>
+                    <p>I create websites, design systems, and interactive digital experiences.</p>
+                </div>
+                <div>
+                    <h3>now</h3>
+                    <p>Read more about <a href="/now">what I’ve been focused on recently →</a></p>
+                </div>
+                <div>
+                    <h3>Availability</h3>
+                    <p>I'm still taking on freelance projects on a case-by-case basis. Reach out and touch faith. ↓</p>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>I’m most active and reachable <a href="#">via email</a>. You can also <a
+                            href="https://resume.henry.codes">check out my resume</a>, if you’re into that sort of
+                        thing.
+                    </p>
+                </div>
             </div>
-            <div>
-                <h3>now</h3>
-                <p>Read more about <a href="/now">what I’ve been focused on recently →</a></p>
+            <div class="home-about__image">
+                {% include 'graphics/knight.svg' %}
             </div>
-            <div>
-                <h3>Availability</h3>
-                <p>I'm still taking on freelance projects on a case-by-case basis. Reach out and touch faith. ↓</p>
-            </div>
-            <div>
-                <h3>Contact</h3>
-                <p>I’m most active and reachable <a href="#">via email</a>. You can also <a
-                        href="https://resume.henry.codes">check out my resume</a>, if you’re into that sort of
-                    thing.
-                </p>
-            </div>
+            {# <img class="home-about__image" src="https://placehold.co/400x400"> #}
+            <aside class="home-about__aside window to-elsewhere">
+                <h3>Elsewhere</h3>
+                <ul class="social-list">
+                    {% for socialLink in social %}
+                        {% include "social-link-list-item.njk" %}
+                    {% endfor %}
+                </ul>
+            </aside>
         </div>
-        <img class="home-about__image" src="https://placehold.co/400x400">
-        <aside class="home-about__aside window">
-            <h3>Elsewhere</h3>
-            <ul class="social-list">
-                {% for socialLink in social %}
-                    {% include "social-link-list-item.njk" %}
-                {% endfor %}
-            </ul>
-        </aside>
     </div>
 </section>
 <section class="home-work themed dark">
-    <h2 class="home-work__title">Recent work</h2>
-    <ul class="case-study-list" role="list">
-          {% for caseStudy in collections['case study'] | sortedByPublishDate %}
-          {% if caseStudy.data.isFeatured %}
-    {# {{ caseStudy }} #}
-    {% include 'case-study-block.njk' %}
-          {% endif %}
-    {% endfor %}
+    <h2 class="home-work__title">Selected works</h2>
+    <ul class="case-study-rows" role="list">
+        {% for caseStudy in collections['case study'] | sortedByPublishDate %}
+            {% if caseStudy.data.isFeatured %}
+                {% include 'case-study-row.njk' %}
+            {% endif %}
+        {% endfor %}
     </ul>
-    <a class="link-block" href="/work">View all case studies →</a>
+    <a class="home-work__link" href="/work">View all case studies →</a>
 </section>
 <section class="home-articles">
     <h2 class="home-articles__title">Articles</h2>
     <ul class="articles-list" role="list">
         {% for article in collections['article'] | sortedByPublishDate %}
         {% if loop.index0 < 6 %}
-                <li>{% include 'article-block.njk' %}</li>
+                <li>
+                     {{ articleBlock(article) }}
+                </li>
             {% endif %}
         {% endfor %}
     </ul>
-    <a class="link-block" href="/writing">View all articles →</a>
+    <a class="home-articles__link" href="/writing">View all articles →</a>
 </section>
 <img class="footer-border" src="/img/footer-border.png">
 {% include 'footer.njk' %}

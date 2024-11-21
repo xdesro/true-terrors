@@ -1,31 +1,57 @@
 @use "../abstract/variables" as *;
 
 .social-list {
-    margin: 0;
-    padding: 0;
-    &__list-item {
-      line-height: 1.5;
-      display: flex;
-      column-gap: 0.75rem;
-      align-items: center;
-      &--disabled {
-        text-decoration: line-through;
+  margin: 0;
+  padding: 0;
+  &__list-item {
+    line-height: 1.5;
+    display: flex;
+    column-gap: 0.75rem;
+    align-items: center;
+    &--disabled {
+      cursor: not-allowed;
+      text-decoration: line-through;
+      color: $color-text-mid;
+      a {
         cursor: not-allowed;
-        color: $color-text-mid;
-        a { 
-          cursor: not-allowed;
-        }
-      }
-    }
-    &__icon {
-      width: 1rem;
-      object-fit: contain;
-      aspect-ratio: 1;
-    }
-    &__link {
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
+        pointer-events: none;
       }
     }
   }
+  &__icon {
+    width: 1rem;
+    object-fit: contain;
+    aspect-ratio: 1;
+  }
+  &__link {
+    $padding-left: 2rem;
+    margin-left: -2rem;
+    padding-left: $padding-left;
+    text-decoration: none;
+    position: relative;
+    -webkit-text-stroke: 2px $color-background;
+  paint-order: stroke fill;
+  z-index: 0;
+
+    &:after {
+        position: absolute;
+        bottom: round(.25em, 1px);
+        left: $padding-left;
+        width: calc(100% - #{$padding-left});
+        height: 1px;
+        content: "";
+        transition: transform .2s $ease-out-editorial;
+        z-index: -1;
+        
+        transform: scaleX(0);
+        transform-origin: 0 0;
+        background-color: currentColor;
+    }
+    &:hover {
+      // text-decoration: underline;
+    &:after {
+transform: scaleX(1);
+    }
+    }
+  }
+}

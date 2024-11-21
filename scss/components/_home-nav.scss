@@ -1,0 +1,67 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.home-nav {
+  grid-column-end: span 2;
+  margin-block-start: 2rem;
+  &__meta-title {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-block-end: 0.5rem;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: $color-text-mid;
+
+    @include screen(lg) {
+      font-size: 1rem;
+    }
+  }
+  &__list {
+    margin: 0;
+    margin-block-end: 1rem;
+    padding: 0;
+  }
+  &__link {
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    margin-inline-end: 0.5ch;
+    padding-block: 0.25rem;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+
+    @include screen(lg) {
+      font-size: 1.25rem;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__link-description {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 0.5ch);
+    width: 100%;
+    transition: all 0.2s;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    color: $color-text-mid;
+
+    @include screen(lg) {
+      font-size: 1rem;
+    }
+    @media (hover: hover) {
+      opacity: 0.2;
+      filter: blur(2px);
+
+      a:hover & {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+  }
+}

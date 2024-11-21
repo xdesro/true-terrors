@@ -1,32 +1,66 @@
 @use "../abstract/variables" as *;
 
 .card {
-    display: grid;
-    padding: 1rem;
+  display: grid;
+  padding: 1rem;
+  border: 2px solid $color-border-light;
+  border-radius: $bdrs;
+  &--linked {
+    position: relative;
+    transition: border-color 0.1s ease;
+    &:has(a:hover) {
+      border-color: $color-border-mid;
+    }
+  }
+  &__title {
+    font-family: $font-serif-display;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-block-end: 0.5rem;
+  }
+  &__author {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  &__link {
+    font-size: 0.75rem;
+    font-weight: bold;
+    align-self: end;
+    margin-block-start: 1rem;
+    margin-block-end: -0.5rem;
+    padding-block: 0.5rem;
+    text-decoration: none;
+    font-family: $font-sans;
+    text-transform: uppercase;
+    display: block;
+    .card--linked & {
+      &:before {
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+        content: "";
+      }
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.card-figure {
+  --aspect: auto;
+  img {
+    width: 100%;
+    max-width: 14rem;
+    object-fit: cover;
+    aspect-ratio: var(--aspect);
+    margin-block-end: 0.5rem;
     border: 2px solid $color-text;
     border-radius: $bdrs;
-    &__title {
-font-family: $font-serif-display;
-font-size: 2rem;
-font-weight: 400;
-line-height: 1;
-margin-block-end: .5rem;
-    }
-    &__author {
-        font-size: .75rem;
-text-transform: uppercase;
-    }
-    &__link {
-        font-size: .75rem;
-        font-weight: bold;
-        align-self: end;
-        margin-block-end: -.5rem;
-        margin-block-start: 1rem;
-        padding-block: .5rem;
-        text-decoration: none;
-        text-transform: uppercase;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+  }
+  figcaption {
+    font-size: 0.75rem;
+    color: $color-text-mid;
+  }
 }

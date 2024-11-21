@@ -3,36 +3,32 @@
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
+            { name: "Articles", url: "/writing" },
             { name: "Notes", url: "/notes" },
         ],
     },
 }
 ---
-<nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24</a>
-    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
-    <a href="/" class="page-nav__back-link">← Back to home</a>
-</nav>
+{% from './_includes/article-block.njk' import articleBlock %}
+{% renderTemplate "webc" %}
+    <page-nav></page-nav>
+{% endrenderTemplate %}
 
 <header class="page-header">
     <div class="page-header__inner">
         <h1 class="page-header__title">Notes</h1>
-        <img class="page-header__image" src="https://placehold.co/180x180">
-        {# {% include 'table-of-contents.njk' %} #}
+        <img class="page-header__image page-header__image--first page-header__image--scroll" src="/img/scroll.svg">
+        <p class="page-header__description">Posts not-quite-ready-for-prime-time. Code snippets & brave beginnings of ideas.
     </div>
 </header>
 
-<section id="notes">
+<section class="writing-section" id="notes">
     <div class="container">
-    {# <div class="container">
-        <header class="writing-section-header">
-            <h2 class="writing-section-header__title">Medium-Length Blog Posts & Tutorials</h2>
-            <p class="writing-section-header__description">The greatest trick the devil ever pulled was getting us to use the word “blog” in everyday conversation. You can <a href="#">subscribe to this feed via RSS.</a>. </p>
-        </header> #}
-        {% for article in collections['note'] | sortedByPublishDate %}
-        {# {{ caseStudy }} #}
-        {% include 'article-block.njk' %}
-        {% endfor %}
+        <div class="articles-list">
+            {% for article in collections['note'] | sortedByPublishDate %}
+                {{ articleBlock(article) }}
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% include 'footer.njk' %}

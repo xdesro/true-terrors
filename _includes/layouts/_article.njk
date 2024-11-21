@@ -2,18 +2,11 @@
 layout: "layouts/base.njk"
 bodyClass: "article"
 ---
+{% from '../article-block.njk' import articleBlock %}
+
 {% renderTemplate "webc" %}
 <page-nav back-link="/writing" back-link-text="Back to all articles"></page-nav>
 {% endrenderTemplate %}
-
-{# <nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24 <span>— go home</span></a>
-    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
-    <a href="/writing" class="page-nav__back-link">← Back to all articles</a>
-</nav> #}
-{# <div class="container">
-<img class="masthead-image" src="https://placehold.co/551x178">
-</div> #}
 
 <header class="article-header">
     <div class="article-header__inner container">
@@ -44,15 +37,29 @@ bodyClass: "article"
             </div>
         </dl>
     </div>
-    <!-- <div webc:if="abstract" class="article__abstract" @text="abstract"></div> -->
-    {% set toc = content | getTOC %}
-    {% include 'table-of-contents.njk' %}
-    <img src="https://placehold.co/396x168" class="article-header__image">
+    {% if hasToc %}
+        {% set toc = content | getTOC %}
+        {% include 'table-of-contents.njk' %}
+        <img src="/img/cdf-landscape.png" class="article-header__image">
+    {% endif %}
 </header>
 
 <article class="article-content rendered" @raw="content">
     {{ content | safe }}
 </article>
+
+{% set nextPost = collections.article | getNextCollectionItem %}
+{% set prevPost = collections.article | getPreviousCollectionItem %}
+{% if nextPost or prevPost %}
+    <aside class="further-reading container">
+        <h2>Further Reading</h2>
+        {% if nextPost %}
+            {{ articleBlock(nextPost) }}
+        {% else %}
+            {{ articleBlock(prevPost) }}
+        {% endif %}
+    </aside>
+{% endif %}
 
 <!-- TODO: Next post doesn't work -->
 <!-- <script webc:setup>
@@ -69,5 +76,8 @@ bodyClass: "article"
 </div> -->
 
 <!-- <template webc:nokeep @raw="this.getNextCollectionItem(collections.articles)"></template> -->
+
+
+
 </div>
 {% include 'footer.njk' %}

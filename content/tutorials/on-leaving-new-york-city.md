@@ -40,8 +40,9 @@ Philosophically, I’m moving back to Denver because New York answered for me em
 
 I’ve always been enamored with the staggering drama of the Rockies and Wild Western skies and I do think it was goofy to deny myself access to those things. There’s a great Cy Warman poem<sup><a href="#footnote-1">1</a></sup> where he identifies the unique feeling of being in the Rocky Mountains:
 
-> And when I walk where the flowers talk
+> And when I walk where the flowers talk  
 > I just feel good all over.
+
 
 I miss my friends, the DIY punk kids and queers and cyclists and car nerds and Arcteryx hiking fiends. New York has all types of people; in fact I’m sure there are these sorts of people here too, but they’re not _my_ people like these old Coloradan friends. You can’t replace your community.
 
@@ -49,7 +50,7 @@ Finally, I’m honestly a huge mama’s boy, and it’s taxing to be so far away
 
 ## The Bittersweet Part
 
-There’s something poignant about saying goodbye to a city like New York. It’s taken me month to shake loose the fear that I’m somehow giving up on a version of myself I fantasized about being for years. I’m still learning to part with all those imagined futures of SoHo loftdom and weekly West Village diner mornings and painfully well-dressed see-and-be-seen Central Park walks.
+There’s something poignant about saying goodbye to a city like New York. It’s taken me month to shake loose the fear that I’m somehow giving up on a version of myself I fantasized about being for years. I’m still learning to part with all those imagined futures of SoHo loftdom and weekly West Village diner mornings and painfully-well-dressed see-and-be-seen Central Park walks.
 
 It’s the hidden cost of romanticizing and daydreaming about a million possible lives: you can live all of those lives a little bit if you want, but never at the same time. I think the growth I need to do here is getting comfortable with viewing my lifetime as a collage of lifetimes. It’s the end of this NYC chapter _for now_, but not necessarily forever, and the tapestry becomes more thoroughly woven with each life I weave into it.
 
@@ -69,7 +70,7 @@ I dread the thought of returning to Denver and realizing all the things I ought 
 
 The thing a lot of these Why I’m Leaving City posts get wrong is that the way to live in a city is to invest personally in its development. It is each of our responsibilities to engage with your community and help make it safe and wonderful and accessible for everyone. The things about the _city_ of New York that still excite me most are the trains and the diversity of experience:
 
-You can take a $2 train 30 minutes from my Upper East Side (xoxo) apartment and make it most of the way to any neighborhood in the city, and that’s almost more liberating than owning a car and having access to the entire American interstate system. Denver is a great city and they’ve made leaps with their transit system over the last 10 years, but there’s plenty more progress to be made. I’m resolving to spend my first year back getting involved in the Coloradan public transit infrastructure community, and working to get more accessible, comprehensive, and publicly-funded transit built.
+You can take a $2 train 30 minutes from my Upper East Side (_xoxo_) apartment and make it most of the way to any neighborhood in the city, and that’s almost more liberating than owning a car and having access to the entire American interstate system. Denver is a great city and they’ve made leaps with their transit system over the last 10 years, but there’s plenty more progress to be made. I’m resolving to spend my first year back getting involved in the Coloradan public transit infrastructure community, and working to get more accessible, comprehensive, and publicly-funded transit built.
 
 Secondly, you can meet so many thousands of types of people in New York — every time I leave my house I discover a new sort of wonderful and spectral person, and I want to find that sort of diversity and community in Denver too. This is a much more complex pool to wade into as an individual than the aforementioned “lol just build more trains forehead”, but I think I can focus my efforts firstly in the scope of my new neighborhood; as Pratt Institute professor Courtney Knapp writes:
 

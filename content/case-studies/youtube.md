@@ -3,11 +3,13 @@ title: YouTube
 abstract: Design systems work for the YouTube Art Department and larger design organization, and quality-of-life and accessibility improvements shipped out to 122 million daily active users.
 isFeatured: true
 categories:
-  - ux engineering
+  # - ux engineering
   - design systems
   - accessibility
 duration: April 2022—May 2024
 publishDate: 2024-03-01T22:27-05:00
+tenure: October 2022—may 2023
+titleSplitIndex: 4
 toc:
   - { title: Design systems & standards, url: "#design-systems-and-standards" }
   - {
@@ -16,6 +18,9 @@ toc:
     }
   - { title: Interactive web experiences, url: "#interactive-web-experiences" }
   - { title: Conclusion, url: "#conclusion" }
+theme:
+  fill: '#FF0000'
+  contrast: '#fff'
 ---
 
 I worked full-time at YouTube for two years as one of three UX Engineers in the Art Department. This role was super eclectic, and primarily consisted of a 30:70 hybrid between design and front-end development work. We were primarily responsible for maintaining Standards, which is an extremely robust documentation platform that allows designers to learn about and access related resources to the YouTube design system. I also led an in-depth audit of the web application's focus states for visual and interactive accessibility. As the resident web development enthusiast on the team, I also built a few different really cool website projects for internal events and for the marketing team.

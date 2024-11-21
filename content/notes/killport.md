@@ -3,6 +3,7 @@ title: Find and kill processes at a given port
 topics:
   - code snippet
   - shell scripting
+date: 2021-10-13T06:00:00.000Z
 ---
 
 In your terminal or `.zshrc`, etc:

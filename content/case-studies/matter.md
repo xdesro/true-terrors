@@ -7,6 +7,10 @@ categories:
   - webGL
 duration: September 2023—November 2023
 publishDate: 2022-11-01T12:00-00:00
+titleSplitIndex: 4
+theme:
+  fill: '#121517'
+  contrast: '#fff'
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ad consequuntur ab perferendis facilis nam illo saepe exercitationem ex? Soluta cupiditate ex quos. Non tenetur sed ad minus ipsam veniam.

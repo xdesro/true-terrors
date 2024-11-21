@@ -2,8 +2,9 @@ export default {
   permalink: function ({ title }) {
     return `/work/${this.slugify(title)}/index.html`;
   },
-  // layout: "_case.webc",
+  layout: "layouts/_case.njk",
   tags: ["case study"],
+  hasToc: true,
   // templateEngineOverride: "md, webc",
   briefAbstract: false,
   tocHasTitle: true,

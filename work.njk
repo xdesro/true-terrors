@@ -1,5 +1,7 @@
 ---js
 {
+    bodyClass: 'layout-case-studies',
+    title: 'Case Studies',
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
@@ -8,23 +10,30 @@
     }
 }
 ---
-<nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24</a>
-    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
-    <a href="/" class="page-nav__back-link">← Back to home</a>
-</nav>
+{% renderTemplate "webc" %}
+<page-nav></page-nav>
+{% endrenderTemplate %}
 
 <header class="page-header">
     <div class="page-header__inner">
         <h1 class="page-header__title">Case Studies</h1>
-        <img class="page-header__image" src="https://placehold.co/400x128">
+        <div class="page-header__bar">
     </div>
 </header>
 
 <section class="container">
-    {% for caseStudy in collections['case study'] | sortedByPublishDate %}
-    {# {{ caseStudy }} #}
-    {% include 'case-study-block.njk' %}
-    {% endfor %}
+    <div class="cases-block-list">
+        {% for caseStudy in collections['case study'] | sortedByPublishDate %}
+            {% include 'case-study-block.njk' %}
+        {% endfor %}
+        <span class="list-design-element"></span>
+        <span class="list-design-element"></span>
+        <span class="list-design-element"></span>
+        <span class="list-design-element"></span>
+        <span class="list-design-element"></span>
+        <span class="list-design-element"></span>
+        <span class="list-design-element"></span>
+        <span class="list-design-element"></span>
+    </div>
 </section>
 {% include 'footer.njk' %}

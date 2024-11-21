@@ -2,9 +2,12 @@ $color-text: #{var(--color-text)};
 $color-text-mid: #{var(--color-text-mid)};
 $color-background: #{var(--color-background)};
 $color-border-mid: #{var(--color-border-mid)};
+$color-border-light: #{var(--color-border-light)};
+
+$color-text-unthemed: #2a2722;
 
 $font-sans: "Neue Montreal", sans-serif;
-$font-display: "Manuka Condensed", sans-serif;
+$font-display: "Manuka", sans-serif;
 $font-serif: "Louize", serif;
 $font-serif-display: "Louize Display", serif;
 
@@ -13,5 +16,10 @@ $default-border-radius: 0.75rem; // 12px
 $bdrs: $default-border-radius;
 
 $breakpoints: (
-    sm: 600px
-)
+    sm: 600px,
+    lg: 900px,
+    magazine: 1000px,
+    xl: 1100px
+);
+
+$ease-out-editorial: cubic-bezier(0.645, 0.045, 0.355, 1);

@@ -1,6 +1,6 @@
 // const { exec } = require("child_process");
-import {  EleventyRenderPlugin as pluginRender } from "@11ty/eleventy";
-import pluginWebc  from "@11ty/eleventy-plugin-webc";
+import { EleventyRenderPlugin as pluginRender } from "@11ty/eleventy";
+import pluginWebc from "@11ty/eleventy-plugin-webc";
 // const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 import slugify from "@sindresorhus/slugify";
 
@@ -19,9 +19,13 @@ import { JSDOM } from "jsdom";
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRender);
   eleventyConfig.addPlugin(syntaxHighlight);
-    eleventyConfig.addPlugin(pluginWebc, {
-      components: ["./_components/**/*.webc", "npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc"],
-    });
+
+  eleventyConfig.addPlugin(pluginWebc, {
+    components: [
+      "./_components/**/*.webc",
+      "npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc",
+    ],
+  });
   //   eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-syntaxhighlight"));
 
   //   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -30,9 +34,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./scss/**/*");
 
   //   eleventyConfig.addPassthroughCopy("./css");
-  //   eleventyConfig.addPassthroughCopy("./js");
+  eleventyConfig.addPassthroughCopy("./js");
+  eleventyConfig.addPassthroughCopy("./meta");
   eleventyConfig.addPassthroughCopy("./fonts");
   eleventyConfig.addPassthroughCopy("./img");
+  eleventyConfig.addPassthroughCopy("./functions");
 
   //   eleventyConfig.on("eleventy.beforeWatch", (changedFiles) => {
   //     if (!changedFiles.some((filePath) => filePath.includes("_components"))) {
@@ -54,16 +60,15 @@ export default function (eleventyConfig) {
     return tocData;
   });
 
-  eleventyConfig.addFilter('youtubeIdFromUrl', youtubeUrl => {
+  eleventyConfig.addFilter("youtubeIdFromUrl", (youtubeUrl) => {
     // https://www.youtube.com/watch?v=P-I5D6BlejM
     const url = new URL(youtubeUrl);
     const params = new URLSearchParams(url.search);
-    if (params.get('v')) {
-      return params.get('v');
+    if (params.get("v")) {
+      return params.get("v");
     }
-    return youtubeUrl
-    
-  })
+    return youtubeUrl;
+  });
 
   //   eleventyConfig.addFilter("sortedByDate", (arr) => {
   //     return arr.sort((a, b) => b.date - a.date);
@@ -82,9 +87,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("readTime", (str) => {
     const { document } = new JSDOM(`${str}`).window;
     // Calculate read time without code samples or mathJax.
-    const elementsToRemove = [...document.querySelectorAll('pre, mjx-container')]
-    elementsToRemove.forEach(element => element.remove());
-    const text = document.body.textContent
+    const elementsToRemove = [
+      ...document.querySelectorAll("pre, mjx-container"),
+    ];
+    elementsToRemove.forEach((element) => element.remove());
+    const text = document.body.textContent;
 
     const wordCount = text.split(" ").length;
     const wordsPerMinute = 200;
@@ -99,41 +106,39 @@ export default function (eleventyConfig) {
     });
   });
 
-    eleventyConfig.addFilter("humanReadableDateTime", (dateStr) => {
-      const date = new Date(dateStr)
-      const timezoneDiff = date.getTimezoneOffset() * 60000;
-      const adjustedDate = new Date(date.valueOf() + timezoneDiff);
-      return adjustedDate.toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      });
+  eleventyConfig.addFilter("humanReadableDateTime", (dateStr) => {
+    const date = new Date(dateStr);
+    const timezoneDiff = date.getTimezoneOffset() * 60000;
+    const adjustedDate = new Date(date.valueOf() + timezoneDiff);
+    return adjustedDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
+  });
 
-    eleventyConfig.addFilter("humanReadableDate", (dateStr) => {
-      const date = new Date(dateStr)
-      const timezoneDiff = date.getTimezoneOffset() * 60000;
-      const adjustedDate = new Date(date.valueOf() + timezoneDiff);
-      return adjustedDate.toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric"
-      });
+  eleventyConfig.addFilter("humanReadableDate", (dateStr) => {
+    const date = new Date(dateStr);
+    const timezoneDiff = date.getTimezoneOffset() * 60000;
+    const adjustedDate = new Date(date.valueOf() + timezoneDiff);
+    return adjustedDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
     });
+  });
 
-    eleventyConfig.addFilter('toISOString', str => {
-      return str.toISOString();
-    })
+  eleventyConfig.addFilter("toISOString", (str) => {
+    return str.toISOString();
+  });
 
   //   eleventyConfig.addFilter("dateTimeForUrl", (date) => {
   //     const timezoneDiff = date.getTimezoneOffset() * 60000;
   //     const adjustedDate = new Date(date.valueOf() + timezoneDiff);
   //     // return `${adjustedDate.getUTCFullYear()}-${adjustedDate.getUTCMonth()}-${adjustedDate.getUTCDate()}-${adjustedDate.getUTCHours()}-${adjustedDate.getUTCMinutes()}-${adjustedDate.getUTCSeconds()}`;
   //   });
-
-  //   console.log(`🚨🚨🚨 ${eleventyConfig.slugify}`);
 
   eleventyConfig.setLibrary(
     "md",
@@ -143,7 +148,7 @@ export default function (eleventyConfig) {
       typographer: true,
     })
       .use(markdownItMathJax, {
-        chtml: { displayAlign: 'left' }
+        chtml: { displayAlign: "left" },
       })
       .use(markdownItAttr)
       //       .use(require("markdown-it-implicit-figures"))

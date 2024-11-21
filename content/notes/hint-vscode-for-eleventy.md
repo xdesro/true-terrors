@@ -4,6 +4,8 @@ topics:
   - code snippet
   - javascript
   - typescript
+date: 2021-10-13T06:00:00.000Z
+
 ---
 
 Allows VS Code to start offering intellisense and autocompletion options for the `eleventyConfig` object. Super useful when you're trying to remember the capitalization on `eleventy.addPassthroughCopy()`.

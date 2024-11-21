@@ -1,11 +1,5 @@
 ---js
 {
-    eleventyComputed: {
-        footerLinks: (data) => [
-            ...data.footerLinks,
-            { name: "Micro", url: "/micro" },
-        ],
-    },
     feedLinks: [
         {
             "name": "RSS",
@@ -25,18 +19,17 @@
     ]
 }
 ---
-<nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24</a>
-    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
-    <a href="/" class="page-nav__back-link">← Back to home</a>
-</nav>
+{% from './_includes/social-icon.njk' import socialIcon %}
+
+{% renderTemplate "webc" %}
+    <page-nav></page-nav>
+{% endrenderTemplate %}
 
 <div class="infinite-scroll">
-
-    <header class="page-header">
-        <div class="page-header__inner">
-            <h1 class="page-header__title">Micro</h1>
-            <p class="page-header__description">Temporal, fleeting whims and outright shitposts. This feed syndicates to common social media targets across the web.</p>
+    <header class="micro-header">
+        <div class="micro-header__inner">
+            <h1 class="page-header__title micro-header__title">Micro</h1>
+            <p class="micro-header__description">Temporal, fleeting whims and outright shitposts. This feed syndicates to common social media targets across the web.</p>
             {# {% include 'table-of-contents.njk' %} #}
             <aside class="page-header__aside window">
                 <h3>Elsewhere</h3>
@@ -55,19 +48,34 @@
         </svg>
 
     {% for post in collections['micro'] | sortedByPublishDate %}
-    <article class="post post--by-self">
-        <div class="post__content">{{ post.content | safe }}</div>
-        <footer class="post__footer">
-            <time class="post__date">{{ post.data.date | humanReadableDateTime }}</time>
-            <a class="post__permalink" href="/micro/{{ post.data.date | toISOString | slugify }}">Permalink</a>
-        </footer>
-        
-    </article>
-    {% if not loop.last %}
-        <svg class="feed-divider" xmlns="http://www.w3.org/2000/svg" fill="#dadada" viewBox="0 0 2 86">
-            <path fill-rule="evenodd" d="M2 0v86H0V0h2Z" clip-rule="evenodd"/>
-        </svg>
-    {% endif %}
+        <article class="post post--by-self">
+            <div class="post__content">
+            <p>{{ post.data.text }}</p>
+            </div>
+            <footer class="post__footer">
+                <time class="post__date">{{ post.data.date | humanReadableDateTime }}</time>
+                <div class="post__links">
+                    {% if post.data.blueskyUrl %}
+                    <a class="post__link" href="{{ post.data.blueskyUrl }}">
+                        {{ socialIcon({ icon: 'bluesky' }) }}
+                        <span class="visually-hidden">View on Bluesky</span>
+                    </a>
+                    {% endif %}
+                    {% if post.data.mastodonUrl %}
+                    <a class="post__link" href="{{ post.data.mastodonUrl }}">
+                        {{ socialIcon({ icon: 'mastodon' }) }}
+                        <span class="visually-hidden">View on Mastodon</span>
+                    </a>
+                    {% endif %}
+                    <a class="post__permalink" href="/micro/{{ post.data.date | toISOString | slugify }}">Permalink</a>
+                </div>
+            </footer>
+        </article>
+        {% if not loop.last %}
+            <svg class="feed-divider" xmlns="http://www.w3.org/2000/svg" fill="#dadada" viewBox="0 0 2 86">
+                <path fill-rule="evenodd" d="M2 0v86H0V0h2Z" clip-rule="evenodd"/>
+            </svg>
+        {% endif %}
     {% endfor %}
 
   </div>

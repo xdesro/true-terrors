@@ -1,9 +1,14 @@
 @use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,9 +23,28 @@ body {
   --color-background: #fafafa;
   --color-text-mid: #777;
   --color-border-mid: #bdbdbd;
+  --color-border-light: #eee;
 }
 a {
   color: inherit;
+
+  &.with-arrow {
+    &:after {
+margin-inline-start: .5ch;
+display: inline-block;
+      content: "→"
+    }
+  }
+  &.with-arrow--out {
+    &:after {
+    content: "↗"
+    }
+  }
+}
+a:not([class]) {
+  &:hover {
+    color: $color-text-mid;
+  }
 }
 h1 {
   // text-transform: uppercase;
@@ -66,6 +90,11 @@ pre {
   text-transform: uppercase;
   border: 2px solid $color-text;
   border-radius: $bdrs;
+  text-wrap: balance;
+  @include screen(sm) {
+    line-height: 1;
+    padding-block-start: 2rem;
+  }
   &:hover {
     color: $color-background;
     background-color: $color-text;

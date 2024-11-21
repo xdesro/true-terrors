@@ -4,6 +4,7 @@ drafted: true
 topics:
   - code snippet
   - svg
+date: 2021-10-13T06:00:00.000Z
 ---
 
 Alright this isn't actually usable yet, I created this for a [specific side project](https://reading.henry.codes) and have yet to sanitize it for reusability in new contexts.{.under-construction}

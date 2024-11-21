@@ -20,3 +20,19 @@
       border-radius: 100%;
     }
   }
+
+  .to-elsewhere {
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: inherit;
+      margin-block-end: 0.75rem;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: $color-text-mid;
+    }
+    ul {
+      font-size: 1.25rem;
+      list-style: none;
+    }
+  }

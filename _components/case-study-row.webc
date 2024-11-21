@@ -1,0 +1,3 @@
+<article>
+    <h1 :text="caseStudy"></h1>
+</article>

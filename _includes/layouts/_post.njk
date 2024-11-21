@@ -2,20 +2,27 @@
 layout: "layouts/base.njk"
 bodyClass: "article"
 ---
+{% from '../social-icon.njk' import socialIcon %}
 
-<nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24 <span>— go home</span></a>
-    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
-    <a href="/writing" class="page-nav__back-link">← Back to all articles</a>
-</nav>
-<div class="container">
+{# {% renderTemplate "webc" %}
+<page-nav back-link="/micro" back-link-text="Back to all posts"></page-nav>
+{% endrenderTemplate %} #}
+
+<div class="layout-post container">
  <article class="post post--by-self">
-        <div class="post__content">{{ content | safe }}</div>
+        {# <div class="post__content">{{ content | safe }}</div> #}
         <footer class="post__footer">
-            <time class="post__date">{{ date | humanReadableDateTime }}</time>
-            <a class="post__permalink" href="/micro/{{ date | toISOString | slugify }}">Permalink</a>
+            {# <time class="post__date">{{ date | humanReadableDateTime }}</time> #}
+            <div class="post__links">
+                {% if blueskyUrl %}
+                <a href="{{ blueskyUrl }}">
+                    {{ socialIcon({ icon: 'bluesky' }) }}
+                    <span class="visually-hidden">View on Bluesky</span>
+                </a>
+                {% endif %}
+                <a class="post__permalink" href="/micro/{{ date | toISOString | slugify }}">Permalink</a>
+            </div>
         </footer>
-        
     </article>
 </div>
 

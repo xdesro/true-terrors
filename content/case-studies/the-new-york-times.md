@@ -7,6 +7,5 @@ categories:
   - accessibility
 duration: may 2022—january 2023
 publishDate: 2023-01-01T12:00-00:00
+titleSplitIndex: 6
 ---
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ad consequuntur ab perferendis facilis nam illo saepe exercitationem ex? Soluta cupiditate ex quos. Non tenetur sed ad minus ipsam veniam.

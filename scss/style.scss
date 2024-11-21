@@ -11,101 +11,173 @@
 @use "base/math";
 
 @use "components/page-nav";
+@use "components/home-nav";
+@use "components/spotify-widget";
 @use "components/footer";
 @use "components/social-list";
 @use "components/card";
 @use "components/window";
 @use "components/article-block";
 @use "components/case-study-block";
+@use "components/case-study-row";
 @use "components/table-of-contents";
 @use "components/page-header";
 @use "components/article-header";
+@use "components/case-header";
 @use "components/speaking-list";
+@use "components/post";
 
 @use "pages/home";
+@use "pages/work";
 @use "pages/writing";
+@use "pages/about";
 
 .case-study-list,
 .articles-list {
   margin: 0;
   padding: 0;
+
+  @include screen(sm) {
+    display: grid;
+    grid-column-end: span 2;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  @include screen(lg) {
+    grid-template-columns: repeat(auto-fit, minmax(346px, 1fr));
+  }
+}
+
+.case-study-list {
   counter-reset: case-studies;
 }
 
-.masthead-image {
-  width: 35rem;
-  margin-block-end: 7rem;
-  border: 2px solid $color-text;
-  border-radius: $bdrs;
+// .masthead-image {
+//   width: 35rem;
+//   margin-block-end: 7rem;
+//   border: 2px solid $color-text;
+//   border-radius: $bdrs;
+// }
+
+.layout-post {
+  display: grid;
+  place-content: center;
+  min-height: 30rem;
 }
 
 .article-content {
   margin-block-end: 4.5rem;
   counter-reset: h2s;
-}
 
+  @include screen(magazine) {
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    --standard-column: 4 / span 6;
+    --pre-column: 4 / span 6;
+    > * {
+      grid-column: var(--standard-column);
+    }
+    > .cp_embed_wrapper {
+      grid-column-end: span 6;
+    }
+  }
+  @include screen(1200px) {
+    --standard-column: 5 / span 4;
+    --pre-column: 5 / span 5;
+
+    // > .cp_embed_wrapper {
+    //   grid-column-end: span 6;
+    // }
+  }
+  h2 {
+    @include screen(magazine) {
+      position: relative;
+      &:before {
+        font-size: 1em;
+        position: absolute;
+        left: -5ch;
+        content: "0" counter(h2s) " —";
+        color: $color-text;
+      }
+    }
+  }
+  pre {
+    grid-column: var(--pre-column);
+    max-width: 80ch;
+    margin-block-end: 2rem;
+
+    @include screen(magazine) {
+      max-width: unset;
+    }
+  }
+}
+.further-reading {
+  max-width: 50ch;
+  margin-block-end: 4.5rem;
+
+  --standard-column: 4 / span 6;
+  @include screen(magazine) {
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    max-width: unset;
+  }
+  @include screen(1200px) {
+    --standard-column: 5 / span 4;
+  }
+
+  h2 {
+    font-family: $font-serif-display;
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1;
+    grid-column: var(--standard-column);
+    margin-block-end: 1.5rem;
+    scroll-margin-block-start: 4.5rem;
+    counter-increment: h2s;
+  }
+  .article-block {
+    grid-column: var(--standard-column);
+  }
+}
 .feed {
   margin-block-end: 4rem;
 }
 .feed-title {
-  text-align: center;
-  margin-block-end: 1rem;
   font-size: 1.25rem;
   line-height: 1.3;
+  margin-block-end: 1rem;
+  text-align: center;
 }
 .feed-indicator {
-  max-width: 1rem;
-  margin-inline: auto;
   display: block;
+  max-width: 1rem;
   margin-block-end: 1rem;
+  margin-inline: auto;
 }
 .feed-divider {
-  max-width: 2px;
-  margin-inline: auto;
-
   display: block;
+  max-width: 2px;
   margin-block-end: 1rem;
+  margin-inline: auto;
 }
 
-.post {
-  margin-block-end: 2.5rem;
-  &--by-self {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-column-gap:1rem;
+.barb-bar {
+  width: 100%;
+  height: 7.6rem;
+  border: 2px solid $color-text;
+  border-radius: $bdrs;
+  background-image: url("/img/thorn.svg");
+  background-repeat: repeat-x;
+  background-position-y: 50%;
+  background-size: 75px;
 
-    &:before {
-      content: "";
-      background-image: url('/img/avatar.png');
-      width: 2rem;
-      aspect-ratio: 1;
-      border-radius: 100%;
-      border: 2px solid #dadada;
-      display: inline-block;
-      grid-row-end: span 2;
-    }
-  }
-  &__content {
-font-family: $font-serif;
-font-size: 1.25rem;
-line-height: 1.3;
-margin-block-end: 2rem;;
-
-  }
-  &__footer {
-font-size: .75rem;
-line-height: 1.1;
-text-transform: uppercase;
-
-display: flex;
-justify-content: space-between;;
-color: $color-text-mid;
-
-  }
-  &__permalink {
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;;
-    }
+  @include screen(lg) {
+    width: auto;
+    height: clamp(7.6rem, 1.8647rem + 10.1961vw, 11.5rem);
+    margin-block-end: 0;
+    background-size: min(7vw, 105px);
   }
 }

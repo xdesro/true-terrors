@@ -1,0 +1,45 @@
+{
+    "baseTitle": "Henry From Online",
+    "nav": [
+        {
+            "title": "Garden",
+            "links": [
+                {
+                    "text": "Case Studies",
+                    "description": "Long-form project write-ups",
+                    "url": "/work"
+                },
+                {
+                    "text": "Articles",
+                    "description": "Polished, complete guides and essays.",
+                    "url": "/writing"
+                },
+                {
+                    "text": "Notes",
+                    "description": "The tending of seeds and saplings of ideas",
+                    "url": "/notes"
+                },
+                {
+                    "text": "Micro",
+                    "description": "Temporal, fleeting whims and outright shitposts",
+                    "url": "/micro"
+                }
+            ]
+        },
+        {
+            "title": "Meta",
+            "links": [
+                {
+                    "text": "About",
+                    "description": "A portrait of the author as a young man",
+                    "url": "/about"
+                },
+                {
+                    "text": "Now",
+                    "description": "Current focus, soaring dreams and steady sightlines",
+                    "url": "/now"
+                }                
+            ]
+        }
+    ]
+}

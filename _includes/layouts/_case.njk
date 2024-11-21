@@ -1,0 +1,70 @@
+---
+layout: "layouts/base.njk"
+bodyClass: "case"
+---
+{% from '../client-logo.njk' import clientLogo %}
+
+{% renderTemplate "webc" %}
+<page-nav back-link="/work" back-link-text="Back to all case studies"></page-nav>
+{% endrenderTemplate %}
+
+<header class="case-header" style="--brand-fill: {{ theme.fill }}; --brand-contrast: {{ theme.contrast }}">
+    <div class="case-header__inner container">
+    <div class="case-header__mast">
+        <div class="case-header__logo">
+            {{ clientLogo(title = title.toLowerCase(), class ='') }}
+        </div>
+        <h1 class="case-header__title" @text="title">{{ title }}</h1>
+        <p class="case-header__abstract">{{ abstract }}</p>
+        <dl class="case-header__meta">
+            {% if categories %}
+            <div class="case-header__categories" webc:if="topics">
+                <dt>Discipline</dt>
+                <dd @text="categories.join(' — ')">
+                    <ul class="case-header__topics-list" role="list">
+                    {%- for category in categories -%}
+                        <li>{{ category }}</li>
+                    {# {% if not loop.last%} — {% endif %} #}
+                    {%- endfor -%}
+                    </ul>
+                </dd>
+            </div>
+            {% endif %}
+            {% if tenure %}
+            <div>
+                <dt>Tenure</dt>
+                <dd>{{ tenure }}</dd>
+            </div>
+            {% endif %}
+        </dl>
+    </div>
+    {% if hasToc %}
+        {% set toc = content | getTOC %}
+        {% if toc.length %}
+        {% include 'table-of-contents.njk' %}
+        {% endif %}
+        {# <img src="/img/cdf-landscape.png" class="article-header__image"> #}
+    {% endif %}
+</header>
+
+<article class="article-content rendered" @raw="content">
+    {{ content | safe }}
+</article>
+
+<!-- TODO: Next post doesn't work -->
+<!-- <script webc:setup>
+    console.log(this.page)
+    const nextPost = this.getNextCollectionItem(collections.article, this.page);
+</script>
+
+<div class="article__next">
+    <article class="card">
+        <h1 class="card__title card__title--small card__title--compact" @text="nextPost.data.title"></h1>
+        <p class="card__content" @text="nextPost.data.excerpt"></p>
+        <a :href="nextPost.url" class="card__link">Read More →</a>
+    </article>
+</div> -->
+
+<!-- <template webc:nokeep @raw="this.getNextCollectionItem(collections.articles)"></template> -->
+</div>
+{% include 'footer.njk' %}

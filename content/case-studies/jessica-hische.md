@@ -11,6 +11,8 @@ duration: Summer 2020
 abstract: Like a lot of small businesses,  New York Times best-selling author and world-class illustrator Jessica Hische relied on an off-the-shelf ecommerce platform. It was cost-effective and fulfilled her basic needs but she knew there was room for improvement in the experience for her customers, and she tasked me and the team at Faculty with this improvement.
 briefAbstract: Reworking an off-the-shelf ecommerce platform to be as unique and expressive as its iconic shopkeeper.
 link: https://www.jessicahische.shop/
+isFeatured: true
+titleSplitIndex: 3
 ---
 
 In the summer of 2020, I had the great opportunity to redesign and code [jessicahische.shop](https://www.jessicahische.shop), the eCommerce platform through which _New York Times_ best-selling letterer and type designer Jessica Hische sells her prints, letterhead, pins, and more. I worked closely with Jessica and my esteemed team at Faculty to realize a more polished, more animated, and more well-featured vision of the site.

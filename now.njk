@@ -8,21 +8,20 @@
     },
 }
 ---
-<nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24</a>
-    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
-    <a href="/" class="page-nav__back-link">← Back to home</a>
-</nav>
+{% renderTemplate "webc" %}
+    <page-nav></page-nav>
+{% endrenderTemplate %}
 
 <header class="page-header">
     <div class="page-header__inner">
         <h1 class="page-header__title">Now</h1>
-        <img class="page-header__image page-header__image--first" src="https://placehold.co/180x180">
+        <div class="page-header__bar"></div>
+        {# <img class="page-header__bar" src="https://placehold.co/180x180"> #}
         <p class="page-header__description">Current focus, hobbies, projects and interests. (Read more at <a href="https://nownownow.com/about">nownownow.com/about</a>.)</p>
     </div>
 </header>
-
 <div class="container rendered">
+<article class="article-content">
 
 <h2>Professional Focus</h2>
 
@@ -43,6 +42,6 @@
 <h3>Writing</h3>
 
 <p>I find a lot of peace and home in poetry and prose, and I’ve allowed my hubris to swell and my self-awareness to dwindle in just such a way that I’d like to pursue the craft. I publish my writing semi-frequently on twin blogs <a href="https://stillness.digital">stillness.digital</a> and <a href="https://strange.website">strange.website</a>, and I’ve also recently built a word processor project out of a Raspberry Pi (think FreeWrite but for a fraction of the cost and I can use my own keyboard).</p>
+</article>
 </div>
-
 {% include 'footer.njk' %}

@@ -44,7 +44,7 @@ The initial discovery conversations to determine information architecture and si
 - **Content Navigation** — Refine the fractalized content type architecture of the existing site into two sections: _Blogs_, for lifestyle sharing, storytelling, guest posting, etc, and _Articles_, for education of new converts, and more logistical posting.
 - **Video** — Enough with the `<iframes>`! Existing video content was hosted on an external site, which was unavoidable, but it needed to be embedded in a visually-pleasing way in the new design.
 
-After these principles were established, I got into laying out pages in Sketch
+After these principles were established, I got into laying out pages in Sketch.
 
 No, I hadn't switched to Figma/Framer X yet. Yes, I did almost immediately after this project.{.editors-note}
 
@@ -112,4 +112,4 @@ You can view the finished project at [divinegoddessjessica.com](https://divinego
 
 ## Addendum RE: Language
 
-_Throughout this article, I did not refer to any of this content, nor DGJ's labor or endeavors as "NSFW". The term "Not Safe For Work" implies that what DGJ does isn't work, which is laughably untrue. While it's true that you probably shouldn't bust open her site in front of your boss, making the distinction between "adult content" and "SFW content" is super important in the fight for sex workers' rights. Sex work is work._
+Throughout this article, I did not refer to any of this content, nor DGJ's labor or endeavors as "NSFW". The term "Not Safe For Work" implies that what DGJ does isn't work, which is laughably untrue. While it's true that you probably shouldn't bust open her site in front of your boss, making the distinction between "adult content" and "SFW content" is super important in the fight for sex workers' rights. Sex work is work.

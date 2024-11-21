@@ -1,6 +1,12 @@
 {
-    "[html]": {
-
-        "editor.formatOnSave": true
-    }
+  "[html]": {
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    // extension as blob: language
+    "*.webc": "html"
+  }
 }

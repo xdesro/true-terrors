@@ -8,8 +8,13 @@ involvement: [brand identity, web design]
 date: 2020-10-01T00:00-07:00
 publishDate: 2020-10-01T00:00-07:00
 abstract: A modernized, thoughtful brand identity and digital presence for a family-owned, Greenville-based labeling team, founded in regimented interface principles and tempered by the neighborhoodliness of DTC design language.
-briefAbstract: A modernized, thoughtful brand identity and digital presence for a family-owned, Greenville-based labeling team.
+briefAbstract: A modernized, thoughtful brand identity and digital presence for a family-owned labeling team.
 duration: Fall 2020
+
+
+theme:
+  fill: '#F8F5F2' 
+  contrast: '#26313A'
 ---
 
 In October 2020, I worked with Greenville, South Carolina custom labeling business on a reimagining of their digital presence. Modern but friendly, capturing a meticulously-crafted ecommerce browsing experience through strong interaction and interface principles, and wrapped up in a clean, boutique DTC design language, I designed the updated digital brand identity of Frontier Label as well as their new marketing website and mass-ordering customizer tool.

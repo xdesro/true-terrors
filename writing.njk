@@ -1,9 +1,10 @@
 ---js
 {
+    title: 'Writing',
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
-            { name: "Writing", url: "/work" },
+            { name: "Writing", url: "/writing" },
         ],
     },
     toc: [
@@ -22,12 +23,7 @@
     ]
 }
 ---
-{# {{ page_nnpm install @11ty/eleventy-plugin-webcav(backlink='/', backlink_text='Back to home') }} #}
-{# <nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24</a>
-    <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
-    <a href="/" class="page-nav__back-link">← Back to home</a>
-</nav> #}
+{% from './_includes/article-block.njk' import articleBlock %}
 
 {% renderTemplate "webc" %}
 <page-nav></page-nav>
@@ -36,7 +32,7 @@
 <header class="page-header">
     <div class="page-header__inner">
         <h1 class="page-header__title">Writing</h1>
-        <img class="page-header__image page-header__image--first" src="https://placehold.co/180x180">
+        <img class="page-header__image page-header__image--first page-header__image--scroll" src="/img/scroll.svg">
         {% include 'table-of-contents.njk' %}
     </div>
 </header>
@@ -45,14 +41,14 @@
     <div class="container">
         <header class="writing-section-header">
             <h2 class="writing-section-header__title">Heaters From Friends & Brighter Minds Than Mine</h2>
-            <p class="writing-section-header__description">Blogroll of posts I’ve recently read and recommend. You can <a href="#">subscribe to this feed via RSS</a>. </p>
+            <p class="writing-section-header__description">Blogroll of posts I’ve recently read and recommend. You can <a href="#">subscribe to this feed via RSS</a>.</p>
         </header>
         <div class="recent-reading-list">
             <aside class="recent-reading-list__warning">
                 <p>(These links will take you far away from this place. <em>Go with care,</em> and come on back sometime soon.)</p>
             </aside>
             {% for post in recentReading.posts %}
-                <article class="card">
+                <article class="card card--linked">
                     <h1 class="card__title">{{ post.title }}</h1>
                     <div class="card__author">{{ post.author }}</div>
                     <a class="card__link" href="{{ post.url }}">Read more →</a>
@@ -66,12 +62,18 @@
     <div class="container">
         <header class="writing-section-header">
             <h2 class="writing-section-header__title">Medium-Length Blog Posts & Tutorials</h2>
-            <p class="writing-section-header__description">The greatest trick the devil ever pulled was getting us to use the word “blog” in everyday conversation. You can <a href="#">subscribe to this feed via RSS.</a>. </p>
+            <p class="writing-section-header__description">The greatest trick the devil ever pulled was getting us to use the word “blog” in everyday conversation. You can <a href="#">subscribe to this feed via RSS</a>.</p>
         </header>
         <div class="articles-list">
             {% for article in collections['article'] | sortedByPublishDate %}
-            {# {{ caseStudy }} #}
-            {% include 'article-block.njk' %}
+                {% if article.data.featured %}
+                    {{ articleBlock(article, isFeatured = true) }}
+                {% endif %}
+            {% endfor %}
+            {% for article in collections['article'] | sortedByPublishDate %}
+                {% if not article.data.isFeatured %}
+                    {{ articleBlock(article) }}
+                {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -81,12 +83,13 @@
     <div class="container">
         <header class="writing-section-header">
             <h2 class="writing-section-header__title">Code Snippets and Brave Beginnings of Ideas</h2>
-            <p class="writing-section-header__description">Usually one-liners that don't need a whole blog post tutorial breaking them down.</p>
+            <p class="writing-section-header__description">Usually one-liners that don't need a whole blog post tutorial breaking them down. Read more of these on <a href="/notes">the notes page</a>.</p>
         </header>
-        {% for article in collections['note'] | sortedByPublishDate %}
-        {# {{ caseStudy }} #}
-        {% include 'article-block.njk' %}
-        {% endfor %}
+        <div class="articles-list">
+            {% for article in collections['note'] | sortedByPublishDate %}
+                {{ articleBlock(article) }}
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% include 'footer.njk' %}
