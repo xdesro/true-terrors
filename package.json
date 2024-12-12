@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently 'sass --no-source-map --watch scss:_site/css' 'rollup --config --watch' 'npx @11ty/eleventy --serve'",
+    "build": "sass --no-source-map scss:_site/css && rollup --config && npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
