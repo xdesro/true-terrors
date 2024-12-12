@@ -30,5 +30,8 @@
     "markdown-it-attrs": "^4.2.0",
     "markdown-it-mathjax3": "^4.3.2",
     "sass": "^1.80.1"
+  },
+  "patchedDependencies": {
+    "@unseenco/taxi@1.7.0": "patches/@unseenco%2Ftaxi@1.7.0.patch"
   }
 }
