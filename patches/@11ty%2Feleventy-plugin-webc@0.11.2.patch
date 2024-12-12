@@ -1,0 +1,39 @@
+diff --git a/src/eleventyWebcTemplate.js b/src/eleventyWebcTemplate.js
+index 6e5f75739d975d3d2846decb930c0bc973874483..d7852452cfda321b739758042cbdbd7746c9e644 100644
+--- a/src/eleventyWebcTemplate.js
++++ b/src/eleventyWebcTemplate.js
+@@ -151,21 +151,23 @@ module.exports = function(eleventyConfig, options = {}) {
+ 				// 2.0.0-canary.19+
+ 				this.addDependencies(inputPath, components);
+ 
+-				// Add CSS to bundle
+-				this.config.javascriptFunctions.css(css, "default", data.page.url);
++				if (data.page.url) {
++					// Add CSS to bundle
++					this.config.javascriptFunctions.css(css, "default", data.page.url);
+ 
+-				if(buckets.css) {
+-					for(let bucket in buckets.css) {
+-						this.config.javascriptFunctions.css(buckets.css[bucket], bucket, data.page.url);
++					if(buckets.css) {
++						for(let bucket in buckets.css) {
++							this.config.javascriptFunctions.css(buckets.css[bucket], bucket, data.page.url);
++						}
+ 					}
+-				}
+ 
+-				// Add JS to bundle
+-				this.config.javascriptFunctions.js(js, "default", data.page.url);
++					// Add JS to bundle
++					this.config.javascriptFunctions.js(js, "default", data.page.url);
+ 
+-				if(buckets.js) {
+-					for(let bucket in buckets.js) {
+-						this.config.javascriptFunctions.js(buckets.js[bucket], bucket, data.page.url);
++					if(buckets.js) {
++						for(let bucket in buckets.js) {
++							this.config.javascriptFunctions.js(buckets.js[bucket], bucket, data.page.url);
++						}
+ 					}
+ 				}
+ 
