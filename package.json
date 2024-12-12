@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently 'sass --no-source-map --watch scss:_site/css' 'npx @11ty/eleventy --serve'",
+    "start": "concurrently 'sass --no-source-map --watch scss:_site/css' 'rollup --config --watch' 'npx @11ty/eleventy --serve'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -13,14 +13,18 @@
   "description": "",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "dotenv": "^16.4.5"
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "dotenv": "^16.4.5",
+    "rollup": "^4.28.1"
   },
   "dependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
     "@sindresorhus/slugify": "^2.2.1",
+    "@unseenco/taxi": "1.7.0",
     "concurrently": "^9.0.1",
     "eleventy-plugin-toc": "^1.1.5",
+    "gsap": "^3.12.5",
     "jsdom": "^25.0.1",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.2.0",

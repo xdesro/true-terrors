@@ -2,6 +2,6 @@
     <a href="/" class="page-nav__brand">✷ season fw24 <span class="page-nav__brand-flag">Go Home</span></a>
     <p class="page-nav__tagline">the Personal site & Portfolio of Henry Desroches</p>
     <a :href="backLink || '/'" class="page-nav__back-link">
-        ← <template webc:nokeep @text="backLinkText || 'Back to home'">
+        ← <span @text="backLinkText || 'Back to home'"></span>
     </a>
 </nav>

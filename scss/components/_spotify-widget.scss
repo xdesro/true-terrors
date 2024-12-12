@@ -3,4 +3,12 @@
   &__inner {
     display: inline-block;
   }
+  > a {
+    display: inline-block;
+  }
+  &__icon {
+    max-width: 0.75rem;
+    width: 100%;
+    display: inline-block;
+  }
 }

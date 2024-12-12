@@ -36,6 +36,15 @@
 </head>
 
 <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
-    {{ content | safe }}
+    {% renderTemplate "webc", {site: site, backLink: backLink, backLinkText: backLinkText} %}
+        <page-nav :@back-link="backLink" :@back-link-text="backLinkText"></page-nav>
+    {% endrenderTemplate %}
+    <div data-taxi>
+        <div data-taxi-view>
+        {{ content | safe }}
+        </div>
+    </div>
+    {% include 'footer.njk' %}
+    <script src="/js/index.js" type="module"></script>
 </body>
 </html>

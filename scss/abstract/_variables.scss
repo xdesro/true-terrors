@@ -16,10 +16,10 @@ $default-border-radius: 0.75rem; // 12px
 $bdrs: $default-border-radius;
 
 $breakpoints: (
-    sm: 600px,
-    lg: 900px,
-    magazine: 1000px,
-    xl: 1100px
+  sm: 600px,
+  lg: 900px,
+  magazine: 1000px,
+  xl: 1100px,
 );
 
 $ease-out-editorial: cubic-bezier(0.645, 0.045, 0.355, 1);

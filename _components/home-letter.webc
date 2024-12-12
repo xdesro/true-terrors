@@ -1,0 +1,13 @@
+<section class="home-letter themed dark">
+    <h2 class="home-letter__title">A brief letter from the editor</h2>
+    <div class="home-letter__text">
+        <p>dear reader <i>(and in fact, dear friend)</i>,</p>
+        <p>this version of my website represents my first attempt at growing a digital garden — a place for rough
+            drafts
+            and indecipherable scrawling; for seedlings of ideas to be tended and stand tall in the fields.</p>
+        <p>tread carefully, as the ground</br>
+            may have shifted.</p>
+        <p>love,<br />
+            henry <i>(from online)</i></p>
+    </div>
+</section>

@@ -6,9 +6,9 @@ categories:
   # - ux engineering
   - design systems
   - accessibility
-duration: April 2022—May 2024
+duration: february 2022—May 2024
 publishDate: 2024-03-01T22:27-05:00
-tenure: October 2022—may 2023
+tenure: february 2022—may 2024
 titleSplitIndex: 4
 toc:
   - { title: Design systems & standards, url: "#design-systems-and-standards" }

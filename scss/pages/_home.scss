@@ -11,6 +11,8 @@
   align-content: start;
   padding: 1rem;
 
+  overflow: hidden;
+
   @include screen(364px) {
     grid-template-rows: auto 1fr repeat(4, auto);
     min-height: 100vh;
@@ -49,10 +51,25 @@
     grid-row: 1 / span 5;
     grid-template-columns: inherit;
     grid-template-rows: inherit;
-    span:nth-child(1) {
+    .segment {
+      .word {
+        @include screen(sm) {
+          display: block;
+        }
+        @include screen(lg) {
+          display: inline-block;
+        }
+      }
+      .char {
+        display: inline-block;
+      }
+    }
+    .segment--first {
       font-family: $font-display;
       font-size: 37.6cqmin;
       font-weight: 400;
+      // clip-path: polygon(0% 0%, 100% 0, 100% 110%, 0 110%);
+
       line-height: 0.8;
       line-height: 0.72;
       grid-column: 1;
@@ -82,7 +99,7 @@
         font-size: 25.8vw;
       }
     }
-    span:nth-child(2) {
+    .segment--second {
       font-family: $font-serif-display;
       font-size: 62px;
       font-weight: normal;
@@ -112,7 +129,7 @@
         font-size: 8.2vw;
       }
     }
-    span:nth-child(3) {
+    .segment--third {
       font-family: $font-serif-display;
       font-size: 17.5vw;
       font-weight: normal;
@@ -339,6 +356,11 @@
     text-transform: uppercase;
     color: $color-text-mid;
     border-block-end: 2px solid $color-text;
+    display: grid;
+    grid-auto-flow: column;
+  }
+  &__marquee-inner {
+    width: max-content;
   }
   &__layout {
     @include screen(sm) {

@@ -6,7 +6,14 @@
   // margin-inline: 1rem;
   padding-block-end: 2rem;
   border-block-end: 2px solid $color-border-light;
-  .layout-case-studies & {
+  padding-block-start: 20rem;
+  @include screen(lg) {
+    padding-block-start: 4rem;
+  }
+  @include screen(1064px) {
+    padding-block-start: 3rem;
+  }
+  &--case-studies {
     margin-block-end: 1.5rem;
     padding-block-end: 0;
     border-block-end: none;
@@ -48,7 +55,7 @@
       }
     }
   }
-  
+
   &__bar {
     order: 1;
     width: 100%;
@@ -88,7 +95,6 @@
 
     &--first {
       order: -1;
-
       @include screen(lg) {
         order: unset;
       }

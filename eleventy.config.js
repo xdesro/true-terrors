@@ -32,9 +32,10 @@ export default function (eleventyConfig) {
 
   //   eleventyConfig.addWatchTarget("./_components/*");
   eleventyConfig.addWatchTarget("./scss/**/*");
+  eleventyConfig.addWatchTarget("./js/**/*");
 
   //   eleventyConfig.addPassthroughCopy("./css");
-  eleventyConfig.addPassthroughCopy("./js");
+  // eleventyConfig.addPassthroughCopy("./js");
   eleventyConfig.addPassthroughCopy("./meta");
   eleventyConfig.addPassthroughCopy("./fonts");
   eleventyConfig.addPassthroughCopy("./img");

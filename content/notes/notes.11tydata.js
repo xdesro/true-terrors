@@ -8,6 +8,8 @@ export default {
   layout: "layouts/_article.njk",
   tags: ["note"],
   date: "Last Modified",
+  backLink: '/notes',
+  backLinkText: 'Back to all notes',
   eleventyComputed: {
     readTime: getReadTime,
     footerLinks: (data) => [

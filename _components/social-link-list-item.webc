@@ -1,0 +1,4 @@
+<li :class="`social-list__list-item${socialLink.disabled ? ' social-list__list-item--disabled' : ''}`">
+    <social-icon :icon="socialLink.name.toLowerCase()" @class="social-list__icon"></social-icon>
+    <a class="social-list__link" :href="socialLink.url" @text="socialLink.text || socialLink.name"></a>
+</li>

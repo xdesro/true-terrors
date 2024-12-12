@@ -16,7 +16,7 @@ body {
   margin: 0;
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-background);
 
   --color-text: #2a2722;
@@ -30,14 +30,14 @@ a {
 
   &.with-arrow {
     &:after {
-margin-inline-start: .5ch;
-display: inline-block;
-      content: "→"
+      margin-inline-start: 0.5ch;
+      display: inline-block;
+      content: "→";
     }
   }
   &.with-arrow--out {
     &:after {
-    content: "↗"
+      content: "↗";
     }
   }
 }
@@ -49,7 +49,8 @@ a:not([class]) {
 h1 {
   // text-transform: uppercase;
 }
-ul, ol {
+ul,
+ol {
   padding-left: 1rem;
 }
 del {

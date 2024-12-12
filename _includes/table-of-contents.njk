@@ -3,6 +3,7 @@
         <ol class="table-of-contents__list" role="list">
             {% for entry in toc %}
                 <li>
+                    {# TODO: Figure out why this triggers taxi without `target=""` #}
                     {% if entry.id %}<a href="#{{ entry.id }}">{% endif %}
                         {{- entry.text -}}
                     {% if entry.id %}</a>{% endif %}

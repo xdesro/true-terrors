@@ -1,0 +1,55 @@
+<section class="home-about">
+    <div class="container">
+        <h2 class="home-about__title">about the author</h2>
+        <div class="home-about__marquee">
+            <div webc:for="n of [1, 2]" class="home-about__marquee-inner">As the people here grow colder, I turn to my
+                computer, And spend my
+                evenings with it Like a friend.
+                “Hello, I know that you've been feeling tired. I bring you love and deeper understanding.”</div>
+        </div>
+        <div class="home-about__layout">
+            <div class="home-about__text">
+                <div>
+                    <p>I’m a creative developer <span class="text-mid text-serif text-italic">(he/him/él)</span>
+                        currently
+                        based in <del>New York City</del>
+                        <ins>Denver,
+                            Colorado</ins>. I’m
+                        really into CSS, animation, accessibility, and deleting code.
+                    </p>
+                    <p>I create websites, design systems, and interactive digital experiences.</p>
+                </div>
+                <div>
+                    <h3>now</h3>
+                    <p>Read more about <a href="/now">what I’ve been focused on recently →</a></p>
+                </div>
+                <div>
+                    <h3>Availability</h3>
+                    <p>I'm still taking on freelance projects on a case-by-case basis. Reach out and touch faith. ↓</p>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>I’m most active and reachable <a href="#">via email</a>. You can also <a
+                            href="https://resume.henry.codes">check out my resume</a>, if you’re into that sort of
+                        thing.
+                    </p>
+                </div>
+            </div>
+            <div class="home-about__image">
+                <knight-svg></knight-svg>
+                <!-- {% include 'graphics/knight.svg' %} -->
+            </div>
+            <!-- {# <img class="home-about__image" src="https://placehold.co/400x400"> #} -->
+            <aside class="home-about__aside window to-elsewhere">
+                <h3>Elsewhere</h3>
+                <ul class="social-list">
+                    <social-link-list-item webc:for="socialLink of social"
+                        :@socialLink="socialLink"></social-link-list-item>
+                    <!-- {% for socialLink in social %}
+                    {% include "social-link-list-item.njk" %}
+                    {% endfor %} -->
+                </ul>
+            </aside>
+        </div>
+    </div>
+</section>

@@ -4,9 +4,9 @@ bodyClass: "article"
 ---
 {% from '../article-block.njk' import articleBlock %}
 
-{% renderTemplate "webc" %}
+{# {% renderTemplate "webc" %}
 <page-nav back-link="/writing" back-link-text="Back to all articles"></page-nav>
-{% endrenderTemplate %}
+{% endrenderTemplate %} #}
 
 <header class="article-header">
     <div class="article-header__inner container">
@@ -77,7 +77,4 @@ bodyClass: "article"
 
 <!-- <template webc:nokeep @raw="this.getNextCollectionItem(collections.articles)"></template> -->
 
-
-
-</div>
-{% include 'footer.njk' %}
+{# {% include 'footer.njk' %} #}

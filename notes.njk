@@ -1,5 +1,7 @@
 ---js
 {
+    backLink: '/writing',
+    backLinkText: 'Back to all articles',
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
@@ -10,14 +12,14 @@
 }
 ---
 {% from './_includes/article-block.njk' import articleBlock %}
-{% renderTemplate "webc" %}
+{# {% renderTemplate "webc" %}
     <page-nav></page-nav>
-{% endrenderTemplate %}
+{% endrenderTemplate %} #}
 
 <header class="page-header">
     <div class="page-header__inner">
         <h1 class="page-header__title">Notes</h1>
-        <img class="page-header__image page-header__image--first page-header__image--scroll" src="/img/scroll.svg">
+        {# <img class="page-header__image page-header__image--first page-header__image--scroll" src="/img/scroll.svg"> #}
         <p class="page-header__description">Posts not-quite-ready-for-prime-time. Code snippets & brave beginnings of ideas.
     </div>
 </header>
@@ -31,4 +33,9 @@
         </div>
     </div>
 </section>
-{% include 'footer.njk' %}
+
+{% renderTemplate "webc", { backLink: backLink, backLinkText: backLinkText } %}
+<page-nav-data :@back-link="backLink" :@back-link-text="backLinkText"></page-nav-data>
+{% endrenderTemplate %}
+
+{# {% include 'footer.njk' %} #}

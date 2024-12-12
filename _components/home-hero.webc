@@ -1,0 +1,42 @@
+<section class="home-hero">
+    <hgroup>
+        <h1 class="home-hero__title">
+            <span class="segment segment--first">True Terrors</span>
+            <span class="segment segment--second">of the</span>
+            <span class="segment segment--third">New Dark Web</span>
+        </h1>
+        <p class="home-hero__description">The personal site and portfolio of Denver-based creative web developer and
+            designer Henry Desroches.</p>
+    </hgroup>
+    <span class="home-hero__warning">(Scroll with caution and with care.)</span>
+    <!-- {# <img class="home-hero__accent-image" src="https://placehold.co/189x315" alt=""> #} -->
+    <img class="home-hero__accent-image" src="/img/gargoyle-with-texture.png" alt="">
+    <home-marquee class="home-hero__marquee" :@recent-listening="recentListening"></home-marquee>
+    <nav class="home-nav">
+        <template webc:nokeep webc:for="linkGroup of site.nav">
+            <p class="home-nav__meta-title" @text="linkGroup.title">{{ linkGroup.title }}</p>
+            <ul class="home-nav__list" role="list">
+                <!-- {% for link in linkGroup.links %} -->
+                <li class="home-nav__list-item" webc:for="link of linkGroup.links">
+                    <a class="home-nav__link" :href="link.url">
+                        <template webc:nokeep @text="link.text"></template>
+                        <span class="home-nav__link-description" @text="`— ${link.description}`">— {{
+                            link.description
+                            }}</span></a>
+                </li>
+                <!-- {% endfor %} -->
+            </ul>
+        </template>
+        <!-- {% for linkGroup in site.nav %}
+        <p class="home-nav__meta-title">{{ linkGroup.title }}</p>
+        <ul class="home-nav__list" role="list">
+            {% for link in linkGroup.links %}
+            <li class="home-nav__list-item">
+                <a class="home-nav__link" href="{{ link.url }}">{{ link.text }} <span
+                        class="home-nav__link-description">— {{ link.description }}</span></a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endfor %} -->
+    </nav>
+</section>
