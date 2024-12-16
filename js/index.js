@@ -1,17 +1,44 @@
-import { Core } from "@unseenco/taxi";
+import { Core, Renderer } from "@unseenco/taxi";
 import DefaultTransition from "./transitions/Default.transition";
 import NavManager from "./NavManager";
+import gsap from "gsap";
+// import WorkTransition from "./transitions/Work.transitions";
+// import WorkAltTransition from "./transitions/WorkAlt.transition";
+window.navManager = new NavManager();
+history.scrollRestoration = "auto";
+
+class DefaultRenderer extends Renderer {
+  onEnter() {
+    navManager.updateLink();
+  }
+
+  onEnterCompleted() {
+  }
+
+  onLeave() {
+  }
+
+  onLeaveCompleted() {
+  }
+}
 
 const taxi = new Core({
-  links: "a[href]:not([target]):not([href^=\"#\"]):not([data-taxi-ignore])",
+  allowInterruption: true,
+  links: 'a[href]:not([target]):not([href^="#"]):not([data-taxi-ignore])',
+  renderers: {
+    default: DefaultRenderer,
+  },
   transitions: {
     default: DefaultTransition,
   },
-  reloadJsFilter: (element) => element.dataset.taxiReload !== undefined || element.src.includes('codepen.io')
+  reloadJsFilter: (element) =>
+    element.dataset.taxiReload !== undefined ||
+    element.src.includes("codepen.io"),
 });
 
-const navManager = new NavManager();
-navManager.init();
+// taxi.addRoute('.*', '/work', 'work');
+// taxi.addRoute('/work', '.*', 'work');
+
 // import SessionManager from "./utils/SessionManager.js";
 // const taxi = new Core()
 

@@ -9,7 +9,7 @@ export default {
   tags: ["note"],
   date: "Last Modified",
   backLink: '/notes',
-  backLinkText: 'Back to all notes',
+  backLinkText: 'All notes',
   eleventyComputed: {
     readTime: getReadTime,
     footerLinks: (data) => [

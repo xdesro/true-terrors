@@ -18,8 +18,6 @@
     object-fit: contain;
     aspect-ratio: auto;
   }
- 
-
 }
 
 .footer {
@@ -50,7 +48,7 @@
     @include screen(lg) {
       display: flex;
       line-height: 1;
-      gap: .5ch;
+      gap: 0.5ch;
     }
   }
   &__breadcrumb {
@@ -84,7 +82,7 @@
         // text-indent: #{($nth - 1) * 2ch};
         margin-left: #{($nth - 1) * 1ch};
         @include screen(lg) {
-          margin-left:0;
+          margin-left: 0;
         }
       }
     }
@@ -197,21 +195,21 @@
     }
     &:after {
       position: absolute;
-      bottom:.3em;
-      left:0;
+      bottom: 0.3em;
+      left: 0;
       width: 100%;
       height: 1px;
       content: "";
-      transition: transform .2s $ease-out-editorial;
+      transition: transform 0.2s $ease-out-editorial;
       transform: scaleX(0);
       transform-origin: 0 0;
       background-color: currentColor;
     }
     &:hover {
       // text-decoration: underline;
-    &:after {
-transform: scaleX(1);
-    }
+      &:after {
+        transform: scaleX(1);
+      }
     }
   }
   &__link-description {

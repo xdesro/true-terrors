@@ -1,43 +1,90 @@
 import gsap from "gsap";
 
+const hidingNav = (nav) => {
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(
+    nav.querySelectorAll(":scope > *"),
+    {
+      opacity: 1,
+      y: 0,
+    },
+    {
+      y: "-100%",
+      ease: "power3.in",
+      opacity: 0,
+      duration: 0.3,
+    }
+  );
+
+  return tl;
+};
+
 export default class NavManager {
   constructor() {
     this.nav = document.querySelector(".page-nav");
-    this.backLink = this.nav.querySelector(".page-nav__back-link");
-    this.backLinkText = this.backLink.querySelector("span");
+
+    this.hidingNav = hidingNav(this.nav);
 
     this.init();
 
-    this.newDataEl = document.querySelector("#page-nav-data");
-    if (!this.newDataEl) {
-      return;
-    }
-    this.newData = JSON.parse(this.newDataEl.textContent);
-    this.mount();
+    // this.mount();
   }
   init() {
     if (window.location.pathname === "/") {
-      this.nav.classList.add("page-nav--hidden");
+      this.hidingNav.seek(1);
     } else {
-      this.nav.classList.remove("page-nav--hidden");
+      this.hidingNav.seek(0);
+      this.hidingNav.reversed(true);
     }
   }
-  mount() {
-    const { backLink, backLinkText, newData } = this;
-    const tl = gsap.timeline();
+  hide() {
+    console.log("hide was called");
+    this.hidingNav.play();
+    // console.log(this.hidingNav.reversed(), this.hidingNav.progress())
+  }
+  show() {
+    const isReversed = this.hidingNav.reversed();
+    const isAtStart = this.hidingNav.progress() === 0;
 
-    tl.to(this.backLinkText, {
-      opacity: 0,
-      duration: 0.2,
-      x: "-50%",
-      onComplete() {
-        backLink.setAttribute("href", newData.backLink);
-        backLinkText.textContent = newData.backLinkText;
-      },
-    }).to(this.backLinkText, {
-      opacity: 1,
-      duration: 0.2,
-      x: 0,
-    });
+    console.log({ isReversed, isAtStart });
+
+    if (isReversed && isAtStart) {
+      return;
+    } else {
+      this.hidingNav.reverse(0);
+    }
+  }
+  updateLink() {
+    const tl = gsap.timeline();
+    const backLink = this.nav.querySelector(".page-nav__back-link");
+    const backLinkText = backLink.querySelector("span");
+    const newDataEl = document.querySelector("#page-nav-data");
+    if (!newDataEl) {
+      return;
+    }
+    const newData = JSON.parse(newDataEl.textContent);
+
+    if (backLinkText.textContent.toLowerCase() === newData.backLinkText.toLowerCase()) {
+      console.log('matches, wont change')
+      return;
+    } else {
+      tl.to(backLinkText, {
+        opacity: 0,
+        duration: 0.3,
+        x: "-100%",
+        ease: "power3.in",
+        clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+        onComplete() {
+          backLink.setAttribute("href", newData.backLink);
+          backLinkText.textContent = newData.backLinkText;
+        },
+      }).to(backLinkText, {
+        opacity: 1,
+        ease: "power3.out",
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        x: 0,
+        duration: 0.3,
+      });
+    }
   }
 }

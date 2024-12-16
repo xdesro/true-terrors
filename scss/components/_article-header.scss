@@ -2,12 +2,13 @@
 @use "../abstract/mixins" as *;
 
 .article-header {
+  margin-block-start: 18rem;
   margin-block-end: 3rem;
   padding-block-end: 1rem;
   border-block-end: 1px solid #dadada;
-  @include screen(lg) {
-    margin-block-start: 18rem
-  }
+  // @include screen(lg) {
+  //   margin-block-start: 18rem;
+  // }
   &__inner {
     @include screen(sm) {
       display: grid;
@@ -62,6 +63,9 @@
     @include screen(magazine) {
       font-size: 4.5rem;
       grid-column-end: span 6;
+    }
+    .line {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
     }
   }
   &__meta {

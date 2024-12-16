@@ -2,22 +2,17 @@
 @use "../abstract/mixins" as *;
 
 .page-nav {
+  position: absolute;
+  z-index: 3;
+  inset-inline: 0;
+  top: 0;
   margin-inline: 1rem;
   padding-block-start: 1rem;
+  transition: opacity 0.2s;
+  transform: translateY(0);
   text-transform: uppercase;
   text-wrap: balance;
-  position: absolute;
-  top: 0;
-  inset-inline: 0;
-  transform: translateY(0);
   opacity: 1;
-  transition: opacity 0.2s;
-
-  + div:has(.home-hero) {
-    // border: 1px solid red;
-    transition: transform 0.2s;
-    transform: translateY(3rem);
-  }
 
   @include screen(sm) {
     display: grid;
@@ -30,10 +25,16 @@
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     margin-block-end: 0;
   }
+
+  + div:has(.home-hero) {
+    // border: 1px solid red;
+    // transition: transform 0.2s;
+    // transform: translateY(3rem);
+  }
   &--hidden {
+    transition: all 0.2s;
     transform: translateY(-100%);
     opacity: 0;
-    transition: all 0.2s;
 
     + div:has(.home-hero) {
       // border: 1px solid red;
@@ -70,7 +71,6 @@
       transform: translateY(-1rem);
       text-align: center;
       &:before {
-        display: none;
       }
     }
     @include screen(1270px) {
@@ -91,6 +91,14 @@
       content: "—";
       transition: all 0.2s;
       transform: translateX(0.5rem);
+
+      @include screen(lg) {
+        display: none;
+      }
+      @include screen(1270px) {
+        display: inline-block;
+        transform: translateX(0.5rem);
+      }
     }
     a:hover & {
       transform: translateX(0);
@@ -127,9 +135,9 @@
     }
   }
   &__back-link {
+    position: relative;
     display: inline-block;
     text-decoration: none;
-    position: relative;
 
     @include screen(lg) {
       grid-column: 1;
@@ -138,14 +146,38 @@
 
     span {
       position: absolute;
-      display: inline-block;
       left: 1.5ch;
+      display: inline-block;
       width: max-content;
+      transform-origin: 0 0;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    span:after {
+      position: absolute;
+      // bottom: 0.3em;
+      bottom: 0.1em;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      content: "";
+      transition: transform 0.2s $ease-out-editorial;
+      transform: scaleX(0);
+      transform-origin: 100% 0;
+      background-color: currentColor;
+    }
+    &:hover,
+    &:active {
+      // text-decoration: underline;
+      span:after {
+        transform: scaleX(1);
+        transform-origin: 0 0;
+      }
     }
 
     &:hover {
       span {
-        text-decoration: underline;
+        // text-decoration: underline;
       }
     }
   }

@@ -1,6 +1,7 @@
 ---js
 {
-    bodyClass: 'layout-case-studies',
+    backLink: '/',
+    backLinkText: 'Go home',
     title: 'Case Studies',
     eleventyComputed: {
         footerLinks: (data) => [
@@ -10,9 +11,6 @@
     }
 }
 ---
-{# {% renderTemplate "webc" %}
-<page-nav></page-nav>
-{% endrenderTemplate %} #}
 
 <header class="page-header page-header--case-studies">
     <div class="page-header__inner">
@@ -36,5 +34,3 @@
         <span class="list-design-element"></span>
     </div>
 </section>
-
-{# {% include 'footer.njk' %} #}

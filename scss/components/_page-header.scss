@@ -3,10 +3,11 @@
 
 .page-header {
   margin-block-end: 4rem;
+  padding-block-start: 20rem;
   // margin-inline: 1rem;
   padding-block-end: 2rem;
   border-block-end: 2px solid $color-border-light;
-  padding-block-start: 20rem;
+
   @include screen(lg) {
     padding-block-start: 4rem;
   }
@@ -41,11 +42,29 @@
     line-height: 0.8;
     // margin-block-end: 0.5rem;
     margin-block-end: 2rem;
+    letter-spacing: -0.002em;
     text-transform: uppercase;
 
+    font-kerning: none;
     @include screen(lg) {
       font-size: clamp(10rem, 2.6471rem + 13.0719vw, 15rem);
       margin-block-end: 0;
+    }
+    &.splitting {
+      // letter-spacing: -0.003em;
+    }
+
+    .word {
+      display: block;
+
+      @include screen(sm) {
+        display: initial;
+      }
+    }
+
+    .char {
+      display: inline-block;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     &--about-adjust {
       font-size: 8rem;
@@ -55,11 +74,16 @@
       }
     }
   }
-
+  &__description {
+    .line {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+    }
+  }
   &__bar {
     order: 1;
     width: 100%;
     height: 7.6rem;
+    transform-origin: 0 0;
     border: 2px solid $color-text;
     border-radius: $bdrs;
     background-image: url("/img/thorn.svg");
@@ -95,6 +119,7 @@
 
     &--first {
       order: -1;
+
       @include screen(lg) {
         order: unset;
       }
@@ -141,10 +166,21 @@
     @include screen(lg) {
       align-self: end;
     }
+    :is(h2, li) {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+    }
   }
 }
 
 .infinite-scroll {
+  padding-block-start: 20rem;
+
+  @include screen(lg) {
+    padding-block-start: 4rem;
+  }
+  @include screen(1064px) {
+    padding-block-start: 3rem;
+  }
   @include screen(magazine) {
     display: grid;
     column-gap: 1rem;

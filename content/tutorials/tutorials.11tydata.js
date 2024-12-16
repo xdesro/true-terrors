@@ -5,6 +5,8 @@ export default {
     if (slug) return `/writing/${slug}/`;
     return `/writing/${this.slugify(title)}/`;
   },
+  backLink: "/writing",
+  backLinkText: "All articles",
   eleventyComputed: {
     readTime: getReadTime,
     footerLinks: (data) => [

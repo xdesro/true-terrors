@@ -31,11 +31,29 @@
     text-decoration: none;
     letter-spacing: -0.01em;
 
+    &:after {
+      position: absolute;
+      bottom: 0.3em;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      content: "";
+      transition: transform 0.2s $ease-out-editorial;
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      background-color: currentColor;
+    }
+    &:hover {
+      // text-decoration: underline;
+      &:after {
+        transform: scaleX(1);
+      }
+    }
     @include screen(lg) {
       font-size: 1.25rem;
     }
     &:hover {
-      text-decoration: underline;
+      // text-decoration: underline;
     }
   }
   &__link-description {

@@ -40,11 +40,16 @@
         <page-nav :@back-link="backLink" :@back-link-text="backLinkText"></page-nav>
     {% endrenderTemplate %}
     <div data-taxi>
-        <div data-taxi-view>
+        <div data-taxi-view view={{ page.url }}>
         {{ content | safe }}
+        {% renderTemplate "webc", { backLink: backLink, backLinkText: backLinkText } %}
+<page-nav-data :@back-link="backLink" :@back-link-text="backLinkText"></page-nav-data>
+{% endrenderTemplate %}
         </div>
     </div>
     {% include 'footer.njk' %}
+     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     <script src="/js/index.js" type="module"></script>
+    <script src="/js/index.map.js" type="module"></script>
 </body>
 </html>

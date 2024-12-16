@@ -1,7 +1,7 @@
 ---js
 {
     backLink: '/writing',
-    backLinkText: 'Back to all articles',
+    backLinkText: 'All articles',
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
@@ -33,9 +33,3 @@
         </div>
     </div>
 </section>
-
-{% renderTemplate "webc", { backLink: backLink, backLinkText: backLinkText } %}
-<page-nav-data :@back-link="backLink" :@back-link-text="backLinkText"></page-nav-data>
-{% endrenderTemplate %}
-
-{# {% include 'footer.njk' %} #}
