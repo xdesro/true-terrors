@@ -36,7 +36,6 @@
     "splitting": "^1.1.0"
   },
   "patchedDependencies": {
-    "@unseenco/taxi@1.7.0": "patches/@unseenco%2Ftaxi@1.7.0.patch",
     "@11ty/eleventy-plugin-webc@0.11.2": "patches/@11ty%2Feleventy-plugin-webc@0.11.2.patch"
   }
 }
