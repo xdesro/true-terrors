@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently 'sass --no-source-map --watch scss:_site/css' 'rollup --config --watch' 'npx @11ty/eleventy --serve'",
+    "start:quiet": "concurrently 'sass --no-source-map --watch scss:_site/css' 'rollup --config --watch' 'npx @11ty/eleventy --serve --quiet'",
     "build": "sass --no-source-map scss:_site/css && rollup --config && npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,8 +22,9 @@
   "dependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
+    "@rollup/plugin-terser": "^0.4.4",
     "@sindresorhus/slugify": "^2.2.1",
-    "@unseenco/taxi": "1.7.0",
+    "@unseenco/taxi": "1.8.0",
     "concurrently": "^9.0.1",
     "eleventy-plugin-toc": "^1.1.5",
     "gsap": "^3.12.5",
@@ -30,7 +32,8 @@
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.2.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "sass": "^1.80.1"
+    "sass": "^1.80.1",
+    "splitting": "^1.1.0"
   },
   "patchedDependencies": {
     "@unseenco/taxi@1.7.0": "patches/@unseenco%2Ftaxi@1.7.0.patch",
