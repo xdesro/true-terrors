@@ -10,7 +10,9 @@
     </hgroup>
     <span class="home-hero__warning">(Scroll with caution and with care.)</span>
     <!-- {# <img class="home-hero__accent-image" src="https://placehold.co/189x315" alt=""> #} -->
-    <img class="home-hero__accent-image" src="/img/gargoyle-with-texture.png" alt="">
+    <div class="home-hero__accent-image">
+        <img src="/img/gargoyle-with-texture.png" alt="">
+    </div>
     <home-marquee class="home-hero__marquee" :@recent-listening="recentListening"></home-marquee>
     <nav class="home-nav">
         <template webc:nokeep webc:for="linkGroup of site.nav">

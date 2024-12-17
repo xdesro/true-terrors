@@ -1,7 +1,9 @@
 import { Core, Renderer } from "@unseenco/taxi";
 import DefaultTransition from "./transitions/Default.transition";
 import NavManager from "./NavManager";
-import gsap from "gsap";
+// import gsap from "gsap";
+import Marquee from "./Marquee";
+import Clock from "./Clock";
 // import WorkTransition from "./transitions/Work.transitions";
 // import WorkAltTransition from "./transitions/WorkAlt.transition";
 window.navManager = new NavManager();
@@ -10,16 +12,28 @@ history.scrollRestoration = "auto";
 class DefaultRenderer extends Renderer {
   onEnter() {
     navManager.updateLink();
+    if (document.querySelector('[data-tag="currentTime"]')) {
+      new Clock(document.querySelector('[data-tag="currentTime"]'))
+    }
+    if (document.querySelector(".home-hero__marquee")) {
+      new Marquee({
+        wrapperEl: document.querySelector(".home-hero__marquee"),
+        listEl: document.querySelector(".home-hero__marquee-inner"),
+      });
+    }
+    if (document.querySelector('.home-about__marquee')) {
+      new Marquee({
+        wrapperEl: document.querySelector('.home-about__marquee'),
+        listEl: document.querySelector('.home-about__marquee-inner')
+      })
+    }
   }
 
-  onEnterCompleted() {
-  }
+  onEnterCompleted() {}
 
-  onLeave() {
-  }
+  onLeave() {}
 
-  onLeaveCompleted() {
-  }
+  onLeaveCompleted() {}
 }
 
 const taxi = new Core({

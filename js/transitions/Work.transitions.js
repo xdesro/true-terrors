@@ -90,7 +90,9 @@ export const WorkExitTransition = (transitioningView) => {
       ".page-header__bar",
       {
         //   scaleX: 0,
-        y: "-100%",
+        height: 0,
+        yPercent: 0,
+        y: "-3rem",
         opacity: 0,
         duration: 0.4,
         ease: 'power3.in'

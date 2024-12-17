@@ -1,6 +1,15 @@
 {% from './client-logo.njk' import clientLogo %}
-
-<article class="case-study-row">
+{# {% if caseStudy.data.viewTheWork %}
+        <a class="case-study-block__link" href="{{ caseStudy.data.link }}">View the work →</a>
+    {% elif caseStudy.content.length > 0 %}
+        <a class="case-study-block__link" href="/work/{{ caseStudy.data.title | slugify }}">Read more <span class="visually-hidden">about my work with {{ caseStudy.data.title }}</span>→</a>
+    {% else %}
+        <p class="case-study-block__coming-soon">(Case study coming soon)</a>
+    {% endif %} #}
+{% if (not caseStudy.data.viewTheWork) and (not caseStudy.content.length > 0) %}
+    {% set inert = true %}
+{% endif %}
+<article class="case-study-row{% if inert %} case-study-row--coming-soon{% endif %}">
     <div class="case-study-row__inner">
         <div class="case-study-row__echoes" aria-hidden="true">
             <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>

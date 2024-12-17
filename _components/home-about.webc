@@ -1,11 +1,17 @@
+<script webc:setup>
+    const kateBushQuote = `As the people here grow colder, I turn to my computer, And spend my evenings with it Like a friend. “Hello, I know that you've been feeling tired. I bring you love and deeper understanding.”`
+    const splitQuote = kateBushQuote.split(' ');
+    const quoteTemplate = splitQuote.map(fragment => {
+        return `<span>${fragment} </span>`
+    }).join('')
+</script>
 <section class="home-about">
     <div class="container">
         <h2 class="home-about__title">about the author</h2>
         <div class="home-about__marquee">
-            <div webc:for="n of [1, 2]" class="home-about__marquee-inner">As the people here grow colder, I turn to my
-                computer, And spend my
-                evenings with it Like a friend.
-                “Hello, I know that you've been feeling tired. I bring you love and deeper understanding.”</div>
+            <div webc:for="n of [1, 2]" class="home-about__marquee-inner">
+                <template webc:nokeep @raw="quoteTemplate"></template>
+            </div>
         </div>
         <div class="home-about__layout">
             <div class="home-about__text">

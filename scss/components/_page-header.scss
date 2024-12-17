@@ -55,7 +55,7 @@
     }
 
     .word {
-      display: block;
+      display: inline-block;
 
       @include screen(sm) {
         display: initial;

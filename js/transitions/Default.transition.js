@@ -23,10 +23,10 @@ export default class DefaultTransition extends Transition {
         // new NavManager();
       },
       onComplete() {
-        // window.scrollTo({
-        //   top: 0,
-        //   behavior: "instant",
-        // });
+        window.scrollTo({
+          top: 0,
+          behavior: "instant",
+        });
         done();
       },
     });
