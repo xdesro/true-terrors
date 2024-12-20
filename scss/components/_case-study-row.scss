@@ -25,15 +25,16 @@ $transition: transform $duration ease-in;
     color: #777;
     position: relative;
     &:before {
+      backdrop-filter: blur(2px);
       position: absolute;
-      inset-inline: 0;
+      inset: 0;
       text-transform: uppercase;
       font-weight: bold;
-      display: inline-block;
-      width: max-content;
-      transform: translateY(-50%);
-
-      top: 50%;
+      display: grid;
+      place-content: center;
+      // width: max-content;
+      // transform: translateY(-50%);
+      // top: 50%;
       content: "Coming soon";
       color: $color-text;
       z-index: 2;

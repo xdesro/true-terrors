@@ -43,8 +43,8 @@
         <div data-taxi-view view={{ page.url }}>
         {{ content | safe }}
         {% renderTemplate "webc", { backLink: backLink, backLinkText: backLinkText } %}
-<page-nav-data :@back-link="backLink" :@back-link-text="backLinkText"></page-nav-data>
-{% endrenderTemplate %}
+            <page-nav-data :@back-link="backLink" :@back-link-text="backLinkText"></page-nav-data>
+        {% endrenderTemplate %}
         </div>
     </div>
     {% include 'footer.njk' %}

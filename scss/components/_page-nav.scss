@@ -125,6 +125,10 @@
   &__tagline {
     max-width: 30ch;
     margin-block-end: 1em;
+    color: $color-text-mid;
+    > span {
+      color: $color-text;
+    }
 
     @include screen(sm) {
       grid-row-end: span 2;

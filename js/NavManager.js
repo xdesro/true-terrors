@@ -38,15 +38,12 @@ export default class NavManager {
     }
   }
   hide() {
-    console.log("hide was called");
     this.hidingNav.play();
     // console.log(this.hidingNav.reversed(), this.hidingNav.progress())
   }
   show() {
     const isReversed = this.hidingNav.reversed();
     const isAtStart = this.hidingNav.progress() === 0;
-
-    console.log({ isReversed, isAtStart });
 
     if (isReversed && isAtStart) {
       return;
@@ -65,7 +62,6 @@ export default class NavManager {
     const newData = JSON.parse(newDataEl.textContent);
 
     if (backLinkText.textContent.toLowerCase() === newData.backLinkText.toLowerCase()) {
-      console.log('matches, wont change')
       return;
     } else {
       tl.to(backLinkText, {

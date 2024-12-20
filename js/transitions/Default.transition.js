@@ -1,10 +1,18 @@
 import { Transition } from "@unseenco/taxi";
 import gsap from "gsap";
+
 import NavManager from "../NavManager";
-import workEntryTimeline from "./work.timeline";
+
 import { WorkEnterTransition, WorkExitTransition } from "./Work.transitions";
-import { ArticleEnterTransition } from "./Article.transitions";
-import { WritingEnterTransition } from "./Writing.transitions";
+import {
+  ArticleEnterTransition,
+  ArticleExitTransition,
+} from "./Article.transitions";
+import {
+  WritingEnterTransition,
+  WritingExitTransition,
+} from "./Writing.transitions";
+import { CaseExitTransition } from "./Case.transitions";
 
 export default class DefaultTransition extends Transition {
   /**
@@ -12,13 +20,15 @@ export default class DefaultTransition extends Transition {
    * @param { { from: HTMLElement, trigger: string|HTMLElement|false, done: function } } props
    */
   onLeave({ from, trigger, done }) {
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: "instant",
-    // });
+    if (/\/(writing|notes)\/[\w-]+/.test(new URL(trigger.href).pathname)) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
     const tl = new gsap.timeline({
       paused: true,
-      duration: 0.15,
+      // duration: 0.15,
       onStart() {
         // new NavManager();
       },
@@ -31,18 +41,26 @@ export default class DefaultTransition extends Transition {
       },
     });
     const path = window.location.pathname;
-    switch (path) {
-      case "/work/": {
+    switch (true) {
+      case /^\/(writing|notes)\/?$/.test(path): {
+        console.log("writing list page exit");
+        tl.add(WritingExitTransition(from));
+        break;
+      }
+      case /\/writing\/[\w-]+/.test(path): {
+        tl.add(ArticleExitTransition(from));
+        break;
+      }
+      case /^\/(work)\/?$/.test(path): {
+        console.log("work list page exit");
         tl.add(WorkExitTransition(from));
         break;
       }
-      // case /\/writing\/[\w-]+/.test(path): {
-      //   console.log('this is a writing path')
-      //   tl.to(from, {
-      //     opacity: 0,
-      //   });
-      //   break;
-      // }
+      case /\/work\/[\w-]+/.test(path): {
+        console.log("case study article page exit", CaseExitTransition(from));
+        tl.add(CaseExitTransition(from));
+        break;
+      }
       default: {
         tl.to(from, {
           opacity: 0,
@@ -61,8 +79,10 @@ export default class DefaultTransition extends Transition {
   onEnter({ to, trigger, done }) {
     if (window.location.pathname === "/") {
       navManager.hide();
+      document.body.classList.add('home')
     } else {
       navManager.show();
+      document.body.classList.remove('home')
     }
     // done();
     // return;
@@ -84,14 +104,14 @@ export default class DefaultTransition extends Transition {
         tl.add(WorkEnterTransition(to));
         break;
       }
-      case /\/writing\/[\w-]+/.test(path): {
-        console.log("this is a writing path");
-        tl.add(ArticleEnterTransition(to));
-        break;
-      }
       case /^\/(writing|notes)\/?$/.test(path): {
         console.log("this is a writing list path");
         tl.add(WritingEnterTransition(to));
+        break;
+      }
+      case /\/writing\/[\w-]+/.test(path): {
+        console.log("this is a writing path");
+        tl.add(ArticleEnterTransition(to));
         break;
       }
       case /^\/(about)\/?$/.test(path): {

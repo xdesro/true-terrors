@@ -105,3 +105,13 @@ pre {
 .container {
   margin-inline: 1rem;
 }
+
+.overlay-window {
+  background-color: var(--color-background);
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.5;
+  border-radius: 1rem;
+  border: 2px solid var(--color-border-mid);
+}

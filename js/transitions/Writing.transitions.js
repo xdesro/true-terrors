@@ -102,23 +102,23 @@ export const WritingExitTransition = (transitioningView) => {
       },
       "<"
     )
+    .to('.page-header__description, .table-of-contents__title, .table-of-contents__list li', {
+      y: '-50%',
+      opacity: 0,
+      ease: "power3.in",
+      stagger: .1,
+      duration: .3
+    }, '<+=.2')
     .to(
-      ".cases-block-list",
+      ".page-header, .writing-section",
       {
         opacity: 0,
-      },
-      "<"
-    )
-    .to(
-      ".page-header__bar",
-      {
-        //   scaleX: 0,
-        y: "-100%",
-        opacity: 0,
+        y: '-1rem',
         duration: 0.4,
+        stagger: .03,
         ease: "power3.in",
       },
-      ">-=.3"
+      "<"
     );
 
   return exitTl;

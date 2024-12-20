@@ -63,7 +63,7 @@ export const ArticleEnterTransition = (transitioningView) => {
       "<"
     )
     .from(
-      ".article-content",
+      ".article-content, .further-reading",
       {
         opacity: 0,
         duration: 0.3,
@@ -75,13 +75,17 @@ export const ArticleEnterTransition = (transitioningView) => {
   return enterTl;
 };
 
-export const WorkExitTransition = (transitioningView) => {
-  const title = transitioningView.querySelector(".page-header__title");
-  if (title && !title.classList.contains("splitting")) {
-    Splitting({ target: title, by: "chars" });
-  }
-
+export const ArticleExitTransition = (transitioningView) => {
   const exitTl = gsap.timeline();
-
+  exitTl
+    .to(
+      ".article-header__category, .article-header__title, .article-header__meta > div, .table-of-contents, .article-header__image, .article-content, .further-reading",
+      {
+        opacity: 0,
+        ease: "power3.in",
+        stagger: 0.04,
+        duration: 0.4,
+      }
+    )
   return exitTl;
 };
