@@ -13,6 +13,10 @@
   text-transform: uppercase;
   text-wrap: balance;
   opacity: 1;
+  &--inert {
+    pointer-events: none;
+    user-select: none;
+  }
 
   @include screen(sm) {
     display: grid;

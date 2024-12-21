@@ -1,4 +1,4 @@
-import gsap from "gsap";
+import gsap from 'gsap';
 const INIT_SCALE_FACTOR = 0.4;
 export default class Marquee {
   constructor({ wrapperEl, listEl, items, reverse = false }) {
@@ -22,7 +22,7 @@ export default class Marquee {
     this.animationLoop();
   }
   animationLoop() {
-    const firstListItem = this.listEl.querySelector("*:first-child");
+    const firstListItem = this.listEl.querySelector('*:first-child');
     let rightSideOfFirstItem = firstListItem.getBoundingClientRect().right;
 
     if (rightSideOfFirstItem <= this.leftSideOfContainer) {
@@ -40,15 +40,13 @@ export default class Marquee {
   handleHover() {}
   addListeners() {
     const { handleResize } = this;
-    window.addEventListener("resize", (e) => {
-      handleResize();
-    });
-    this.wrapperEl.addEventListener("mouseover", (e) => {
+    window.addEventListener('resize', this.handleResize.bind(this));
+    this.wrapperEl.addEventListener('mouseover', (e) => {
       gsap.to(this, {
         scaleFactor: 0.05,
       });
     });
-    this.wrapperEl.addEventListener("mouseout", (e) => {
+    this.wrapperEl.addEventListener('mouseout', (e) => {
       gsap.to(this, {
         scaleFactor: INIT_SCALE_FACTOR,
       });

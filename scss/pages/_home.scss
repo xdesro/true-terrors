@@ -1,17 +1,16 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .home-hero {
   position: relative;
   display: grid;
+  overflow: hidden;
   grid-auto-flow: dense;
   column-gap: 1rem;
   grid-template-columns: 28cqmin minmax(0, 1fr);
   grid-template-rows: auto 4rem repeat(4, auto);
   align-content: start;
   padding: 1rem;
-
-  overflow: hidden;
 
   @include screen(364px) {
     grid-template-rows: auto 1fr repeat(4, auto);
@@ -53,15 +52,15 @@
     grid-template-rows: inherit;
     .segment {
       .word {
+        display: inline-block;
+
         @include screen(sm) {
-          display: block;
-        }
-        @include screen(lg) {
-          display: inline-block;
         }
       }
       .char {
-        display: inline-block;
+        @include screen(sm) {
+          display: inline-block;
+        }
       }
     }
     .segment--first {
@@ -69,7 +68,6 @@
       font-size: 37.6cqmin;
       font-weight: 400;
       // clip-path: polygon(0% 0%, 100% 0, 100% 110%, 0 110%);
-
       line-height: 0.8;
       line-height: 0.72;
       grid-column: 1;
@@ -98,13 +96,16 @@
       @include screen(1512px) {
         font-size: 25.8vw;
       }
+      .char {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+      }
     }
     .segment--second {
       font-family: $font-serif-display;
       font-size: 62px;
       font-weight: normal;
       font-style: italic;
-      z-index: 0;
+      z-index: 1;
       grid-row: 3;
       margin-block-end: -0.9rem;
       color: #fafafa;
@@ -153,6 +154,9 @@
       }
       @include screen(1512px) {
         font-size: 9.2vw;
+      }
+      .char {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
     }
   }
@@ -204,21 +208,19 @@
       grid-row: -2 / span 2;
       align-self: end;
     }
+    .word {
+      display: inline-block;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
   }
   &__accent-image {
+    overflow: hidden;
     grid-column: 2;
     grid-row: 1;
     max-width: 100%;
     margin-block-end: 0.75rem;
     border: 2px solid currentColor;
     border-radius: $bdrs;
-    overflow: hidden;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
 
     @include screen(sm) {
       justify-self: end;
@@ -231,6 +233,12 @@
       grid-row: 2 / span 5;
       aspect-ratio: 0.8;
     }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   &__marquee {
     line-height: 1;
@@ -242,6 +250,7 @@
     margin-block-start: 2rem;
     padding-block: 0.5rem;
     text-transform: uppercase;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 
     border-block: 2px solid currentColor;
     @include screen(sm) {
@@ -288,7 +297,7 @@
     position: absolute;
     inset: 1rem;
     display: block;
-    content: "";
+    content: '';
     user-select: none;
     pointer-events: none;
     border: 1px solid currentColor;
@@ -297,7 +306,7 @@
     display: block;
     margin-block-end: 1rem;
     margin-inline: auto;
-    content: "A brief letter from the editor";
+    content: 'A brief letter from the editor';
     transform: rotate(180deg);
   }
   &__title,
@@ -362,13 +371,13 @@
   }
   &__marquee {
     font-size: 0.75rem;
+    display: grid;
+    grid-auto-flow: column;
     margin-block-end: 2rem;
     padding-block-end: 0.4rem;
     text-transform: uppercase;
     color: $color-text-mid;
     border-block-end: 2px solid $color-text;
-    display: grid;
-    grid-auto-flow: column;
   }
   &__marquee-inner {
     width: max-content;
@@ -472,7 +481,7 @@
         display: block;
         flex: 1;
         height: 0.1em;
-        content: "";
+        content: '';
         background-color: currentColor;
       }
     }
@@ -514,7 +523,7 @@
         display: block;
         width: 100%;
         height: 0.1em;
-        content: "";
+        content: '';
         background-color: currentColor;
       }
     }

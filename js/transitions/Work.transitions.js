@@ -7,11 +7,11 @@ export const WorkEnterTransition = (transitioningView) => {
 
   const enterTl = gsap.timeline();
   enterTl
-    .set(title.querySelectorAll(".char"), {
+    .set(".page-header__title .char", {
       display: "inline-block",
     })
     .from(
-      title.querySelectorAll(".char"),
+      ".page-header__title .char",
       {
         y: "100%",
         clipPath: "polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)",
