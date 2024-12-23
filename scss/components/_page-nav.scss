@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .page-nav {
   position: absolute;
@@ -29,12 +29,6 @@
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     margin-block-end: 0;
   }
-
-  + div:has(.home-hero) {
-    // border: 1px solid red;
-    // transition: transform 0.2s;
-    // transform: translateY(3rem);
-  }
   &--hidden {
     transition: all 0.2s;
     transform: translateY(-100%);
@@ -44,6 +38,9 @@
       // border: 1px solid red;
       transform: translateY(0);
     }
+  }
+  .no-js.home & {
+    display: none;
   }
   &__brand {
     position: relative;
@@ -92,7 +89,7 @@
     &:before {
       display: inline-block;
       margin-right: 0.5ch;
-      content: "—";
+      content: '—';
       transition: all 0.2s;
       transform: translateX(0.5rem);
 
@@ -168,7 +165,7 @@
       left: 0;
       width: 100%;
       height: 1px;
-      content: "";
+      content: '';
       transition: transform 0.2s $ease-out-editorial;
       transform: scaleX(0);
       transform-origin: 100% 0;

@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ pageTitle }}</title>
-<meta name="description" content="The personal site and portfolio of creative web developer Henry from Online" />
+    <meta name="description" content="The personal site and portfolio of creative web developer Henry from Online" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
@@ -49,9 +49,13 @@
 
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/style.css">
+
+    <script>
+        document.body.classList.remove('no-js')
+    </script>
 </head>
 
-<body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
+<body class="no-js {% if bodyClass %}{{ bodyClass }}{% endif %}">
     {% renderTemplate "webc", {site: site, backLink: backLink, backLinkText: backLinkText} %}
         <page-nav :@back-link="backLink" :@back-link-text="backLinkText"></page-nav>
     {% endrenderTemplate %}
