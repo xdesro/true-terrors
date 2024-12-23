@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 $duration: 0.15s;
 $transition: transform $duration ease-in;
@@ -22,7 +22,7 @@ $transition: transform $duration ease-in;
   &--coming-soon {
     pointer-events: none;
     cursor: disabled;
-    color: #777;
+    color: $color-text-mid;
     position: relative;
     &:before {
       backdrop-filter: blur(2px);
@@ -35,13 +35,13 @@ $transition: transform $duration ease-in;
       // width: max-content;
       // transform: translateY(-50%);
       // top: 50%;
-      content: "Coming soon";
+      content: 'Coming soon';
       color: $color-text;
       z-index: 2;
       margin-inline: auto;
     }
   }
-  &:nth-of-type(1) {
+  li:nth-of-type(1) & {
     @include screen(sm) {
       padding-inline-start: 5rem;
     }
@@ -49,7 +49,7 @@ $transition: transform $duration ease-in;
       padding-inline-start: calc(10vw);
     }
   }
-  &:nth-of-type(2) {
+  li:nth-of-type(2) & {
     @include screen(sm) {
       padding-inline-start: 10rem;
     }
@@ -57,7 +57,7 @@ $transition: transform $duration ease-in;
       padding-inline-start: calc(20vw);
     }
   }
-  &:nth-of-type(3) {
+  li:nth-of-type(3) & {
     @include screen(sm) {
       padding-inline-start: 8rem;
     }
@@ -65,7 +65,7 @@ $transition: transform $duration ease-in;
       padding-inline-start: calc(40vw);
     }
   }
-  &:nth-of-type(4) {
+  li:nth-of-type(4) & {
     @include screen(sm) {
       padding-inline-start: 6rem;
     }
@@ -73,7 +73,7 @@ $transition: transform $duration ease-in;
       padding-inline-start: calc(35vw);
     }
   }
-  &:nth-of-type(5) {
+  li:nth-of-type(5) & {
     @include screen(sm) {
       padding-inline-start: 0rem;
     }
@@ -81,7 +81,7 @@ $transition: transform $duration ease-in;
       padding-inline-start: calc(25vw);
     }
   }
-  &:nth-of-type(6) {
+  li:nth-of-type(6) & {
     @include screen(sm) {
       padding-inline-start: 2rem;
     }
@@ -128,7 +128,7 @@ $transition: transform $duration ease-in;
       // margin-inline-end: 0.5ch;
       display: inline-block;
       align-self: start;
-      content: "(0" counter(rows) ")";
+      content: '(0' counter(rows) ')';
     }
   }
   &__title-text {
@@ -171,7 +171,7 @@ $transition: transform $duration ease-in;
       display: inline-block;
       // margin-top: 0.5rem;
       margin-inline-end: 0.5ch;
-      content: "(0" counter(rows) ")";
+      content: '(0' counter(rows) ')';
       vertical-align: top;
     }
   }

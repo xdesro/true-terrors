@@ -2,7 +2,6 @@ export const convertSplitElIntoLines = (el) => {
   const words = el.querySelectorAll('.word');
   const lines = [];
   words.forEach((word) => {
-    // console.log(getComputedStyle(word))
     const lineIndex = getComputedStyle(word).getPropertyValue('--line-index');
     if (lines[lineIndex]) {
       lines[lineIndex].push(word);
@@ -11,7 +10,6 @@ export const convertSplitElIntoLines = (el) => {
       lines[lineIndex].push(word);
     }
   });
-  console.log(lines);
   const template = `${lines
     .map((line) => {
       return `<div class="line">${line

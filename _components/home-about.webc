@@ -9,8 +9,8 @@
     <div class="container">
         <h2 class="home-about__title">about the author</h2>
         <div class="home-about__marquee">
-            <div webc:for="n of [1, 2]" class="home-about__marquee-inner">
-                <template webc:nokeep @raw="quoteTemplate"></template>
+            <div class="home-about__marquee-inner">
+                <template webc:for="n of [1, 2]" webc:nokeep @raw="quoteTemplate"></template>
             </div>
         </div>
         <div class="home-about__layout">

@@ -1,30 +1,40 @@
 import { Core, Renderer } from '@unseenco/taxi';
-import DefaultTransition from './transitions/Default.transition';
-import HomeToWorkTransition from './transitions/HomeToWork.transition';
-import WorkToHomeTransition from './transitions/WorkToHome.transition';
+import gsap from 'gsap';
 
 import NavManager from './NavManager';
-// import gsap from "gsap";
+import MatchMediaManager from './MatchMediaManager';
 import Marquee from './Marquee';
 import Clock from './Clock';
-import {
-  HomeToWritingTransition,
-  WritingToHomeTransition,
-} from './transitions/WritingToHome.transition';
-import {
-  ArticleToWritingTransition,
-  WritingToArticleTransition,
-} from './transitions/WritingToArticle.transition';
-// import WorkTransition from "./transitions/Work.transitions";
-// import WorkAltTransition from "./transitions/WorkAlt.transition";
+
+import DefaultTransition from './transitions/Default';
+import HomeToWorkTransition from './routes/HomeToWork';
+import WorkToHomeTransition from './routes/WorkToHome';
+import HomeToWritingTransition from './routes/HomeToWriting';
+import WritingToHomeTransition from './routes/WritingToHome';
+import WritingToArticleTransition from './routes/WritingToArticle';
+import ArticleToWritingTransition from './routes/ArticleToWriting';
+import WritingToWritingTransition from './routes/WritingToWriting';
+
 window.navManager = new NavManager();
 history.scrollRestoration = 'auto';
 
+// A utility function to create and configure matchMedia
+const breakpoints = {
+  tablet: 600,
+  desktop: 900,
+};
 
-window.addEventListener('resize', e => {
-  console.log('resizing')
-  document.querySelector('.segment--third')?.innerHTML = document.querySelector('.segment--third').textContent
-})
+mm.add(
+  {
+    isMobile: `(max-width: ${breakpoints.tablet - 1}px)`,
+    isTablet: `(min-width: ${breakpoints.tablet}px) and (max-width: ${
+      breakpoints.desktop - 1
+    }px)`,
+    isDesktop: `(min-width: ${breakpoints.desktop}px)`,
+    prefersReducedMotion: '(prefers-reduced-motion: reduce)',
+  },
+  () => {}
+);
 
 const Transitions = {
   default: DefaultTransition,
@@ -34,6 +44,7 @@ const Transitions = {
   writingToHome: WritingToHomeTransition,
   writingToArticle: WritingToArticleTransition,
   articleToWriting: ArticleToWritingTransition,
+  writingToWriting: WritingToWritingTransition,
 };
 
 class DefaultRenderer extends Renderer {
@@ -83,12 +94,26 @@ const taxi = new Core({
     element.src.includes('codepen.io'),
 });
 // taxi.addRoute('.*', '\/work\/', 'homeToWork');
-taxi.addRoute('/', '/work', 'homeToWork');
-taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
-taxi.addRoute(`\/work`, '', 'workToHome');
-taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
-taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)\/.*`, 'writingToArticle');
-taxi.addRoute(`\/(writing|notes)\/.*`, `\/(writing|notes)`, 'articleToWriting');
+MatchMediaManager.add(({ conditions }) => {
+  if (!conditions.prefersReducedMotion) {
+    taxi.addRoute('/', '/work', 'homeToWork');
+    taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
+    taxi.addRoute(`\/work`, '', 'workToHome');
+    taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
+    taxi.addRoute(
+      `\/(writing|notes)`,
+      `\/(writing|notes)\/.*`,
+      'writingToArticle'
+    );
+    taxi.addRoute(
+      `\/(writing|notes)\/.*`,
+      `\/(writing|notes)`,
+      'articleToWriting'
+    );
+    taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');
+  }
+});
+
 // taxi.addRoute('/work', '/', 'homeToWork');
 
 // taxi.addRoute('/', '/work/', 'homeToWork');
@@ -109,5 +134,3 @@ taxi.addRoute(`\/(writing|notes)\/.*`, `\/(writing|notes)`, 'articleToWriting');
 //     }
 // }
 // sessionManager.mount();
-
-

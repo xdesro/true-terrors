@@ -9,8 +9,10 @@
 <div class="home-hero__marquee">
     <div class="home-hero__marquee-inner">
         <div webc:nokeep class="home-hero__marquee-inner" webc:for="n in [1,2]">
+            <!-- TODO remove duplication of markup -->
             <div class="spotify-widget">
-                <a href="https://open.spotify.com/user/1239993406?si=tpFk1Vt5Q_yH6qM0E8wjXA">
+                <a href="https://open.spotify.com/user/1239993406?si=tpFk1Vt5Q_yH6qM0E8wjXA"
+                    aria-label="Visit the author’s Spotify profile">
                     <social-icon @icon="spotify" class="spotify-widget__icon"></social-icon>
                     <!-- <svg fill="currentColor" aria-label="Go to my Spotify profile" viewBox="0 0 12 12" width="12">
                     <path

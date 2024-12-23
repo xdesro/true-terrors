@@ -1,7 +1,7 @@
 ---
 title: Soon
 season: FW21
-permalink: /past-portfolios/ss21/index.html
+# permalink: /past-portfolios/ss21/index.html
 date: 2021-08-17T00:00-06:00
 ---
 

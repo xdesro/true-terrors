@@ -1,18 +1,12 @@
-import { Transition } from "@unseenco/taxi";
-import gsap from "gsap";
+import { Transition } from '@unseenco/taxi';
+import gsap from 'gsap';
 
-import NavManager from "../NavManager";
+import NavManager from '../NavManager';
 
-import { WorkEnterTransition, WorkExitTransition } from "./Work.transitions";
-import {
-  ArticleEnterTransition,
-  ArticleExitTransition,
-} from "./Article.transitions";
-import {
-  WritingEnterTransition,
-  WritingExitTransition,
-} from "./Writing.transitions";
-import { CaseExitTransition } from "./Case.transitions";
+import { WorkEnterTransition, WorkExitTransition } from './Work';
+import { ArticleEnterTransition, ArticleExitTransition } from './Article';
+import { WritingEnterTransition, WritingExitTransition } from './Writing';
+import { CaseExitTransition } from './Case';
 
 export default class DefaultTransition extends Transition {
   /**
@@ -20,22 +14,22 @@ export default class DefaultTransition extends Transition {
    * @param { { from: HTMLElement, trigger: string|HTMLElement|false, done: function } } props
    */
   onLeave({ from, trigger, done }) {
-// console.log('leaving in default')
-if (trigger.href === '/') {
-  navManager.hide();
-}
-  gsap.timeline({}).to(from, {
+    // console.log('leaving in default')
+    if (trigger.href === '/') {
+      navManager.hide();
+    }
+    gsap.timeline({}).to(from, {
       opacity: 0,
-      duration: .2,
+      duration: 0.2,
       onComplete() {
-        done()
-      }
-    })
+        done();
+      },
+    });
     return;
     if (/\/(writing|notes)\/[\w-]+/.test(new URL(trigger.href).pathname)) {
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
     const tl = new gsap.timeline({
@@ -47,7 +41,7 @@ if (trigger.href === '/') {
       onComplete() {
         window.scrollTo({
           top: 0,
-          behavior: "instant",
+          behavior: 'instant',
         });
         done();
       },
@@ -55,7 +49,7 @@ if (trigger.href === '/') {
     const path = window.location.pathname;
     switch (true) {
       case /^\/(writing|notes)\/?$/.test(path): {
-        console.log("writing list page exit");
+        console.log('writing list page exit');
         tl.add(WritingExitTransition(from));
         break;
       }
@@ -64,12 +58,12 @@ if (trigger.href === '/') {
         break;
       }
       case /^\/(work)\/?$/.test(path): {
-        console.log("work list page exit");
+        console.log('work list page exit');
         tl.add(WorkExitTransition(from));
         break;
       }
       case /\/work\/[\w-]+/.test(path): {
-        console.log("case study article page exit", CaseExitTransition(from));
+        console.log('case study article page exit', CaseExitTransition(from));
         tl.add(CaseExitTransition(from));
         break;
       }
@@ -89,21 +83,20 @@ if (trigger.href === '/') {
    * @param { { to: HTMLElement, trigger: string|HTMLElement|false, done: function } } props
    */
   onEnter({ to, trigger, done }) {
-    
-    if (window.location.pathname === "/") {
+    if (window.location.pathname === '/') {
       navManager.hide();
-      document.body.classList.add('home')
+      document.body.classList.add('home');
     } else {
       navManager.show();
-      document.body.classList.remove('home')
+      document.body.classList.remove('home');
     }
     gsap.timeline({}).from(to, {
       opacity: 0,
-      duration: .2,
+      duration: 0.2,
       onComplete() {
-        done()
-      }
-    })
+        done();
+      },
+    });
     return;
     // done();
     // return;
@@ -126,17 +119,17 @@ if (trigger.href === '/') {
         break;
       }
       case /^\/(writing|notes)\/?$/.test(path): {
-        console.log("this is a writing list path");
+        console.log('this is a writing list path');
         tl.add(WritingEnterTransition(to));
         break;
       }
       case /\/writing\/[\w-]+/.test(path): {
-        console.log("this is a writing path");
+        console.log('this is a writing path');
         tl.add(ArticleEnterTransition(to));
         break;
       }
       case /^\/(about)\/?$/.test(path): {
-        console.log("this is an about path");
+        console.log('this is an about path');
         tl.add(WritingEnterTransition(to));
         break;
       }

@@ -17,7 +17,7 @@ topics:
   - webgl,
   - gsap,
   - jamstack
-permalink: /past-portfolios/ss19/index.html
+# permalink: /past-portfolios/ss19/index.html
 ---
 
 So, as of April 2019, my site hadn't been updated in nearly two years.

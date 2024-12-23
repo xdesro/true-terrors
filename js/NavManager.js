@@ -1,19 +1,20 @@
 import gsap from 'gsap';
 
+import MatchMediaManager from './MatchMediaManager';
+
 const hideNav = (nav) => {
   const tl = gsap.timeline({
     paused: true,
   });
   tl.fromTo(
-    nav.querySelectorAll(':scope > *'),
+    nav,
     {
       opacity: 1,
     },
     {
       opacity: 0,
       ease: 'linear',
-      duration: 0.4,
-      // clearProps: 'opacity'
+      duration: 0.2,
     }
   );
   return tl;
@@ -76,22 +77,30 @@ export default class NavManager {
     ) {
       return;
     } else {
-      tl.to(backLinkText, {
-        opacity: 0,
-        duration: 0.3,
-        x: '-100%',
-        ease: 'power3.in',
-        clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
-        onComplete() {
-          backLink.setAttribute('href', newData.backLink);
-          backLinkText.textContent = newData.backLinkText;
-        },
-      }).to(backLinkText, {
-        opacity: 1,
-        ease: 'power3.out',
-        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-        x: 0,
-        duration: 0.3,
+      MatchMediaManager.add(({ conditions }) => {
+        const { prefersReducedMotion } = conditions;
+
+        tl.to(backLinkText, {
+          opacity: 0,
+          duration: prefersReducedMotion ? 0.2 : 0.3,
+          x: prefersReducedMotion ? null : '-100%',
+          ease: prefersReducedMotion ? 'linear' : 'power3.in',
+          clipPath: prefersReducedMotion
+            ? null
+            : 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+          onComplete() {
+            backLink.setAttribute('href', newData.backLink);
+            backLinkText.textContent = newData.backLinkText;
+          },
+        }).to(backLinkText, {
+          opacity: 1,
+          ease: prefersReducedMotion ? 'linear' : 'power3.out',
+          clipPath: prefersReducedMotion
+            ? null
+            : 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          x: 0,
+          duration: prefersReducedMotion ? 0.2 : 0.3,
+        });
       });
     }
   }

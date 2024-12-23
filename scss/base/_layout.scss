@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 *,
 *:before,
@@ -12,7 +12,7 @@ html:focus-within {
 }
 
 body {
-  font-family: "Neue Montreal", sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
   margin: 0;
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
@@ -21,7 +21,7 @@ body {
 
   --color-text: #2a2722;
   --color-background: #fafafa;
-  --color-text-mid: #777;
+  --color-text-mid: #666;
   --color-border-mid: #bdbdbd;
   --color-border-light: #eee;
 }
@@ -32,12 +32,12 @@ a {
     &:after {
       margin-inline-start: 0.5ch;
       display: inline-block;
-      content: "→";
+      content: '→';
     }
   }
   &.with-arrow--out {
     &:after {
-      content: "↗";
+      content: '↗';
     }
   }
 }
@@ -71,7 +71,7 @@ pre {
   // white-space: nowrap;
   position: relative;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     inset: -0.5ex;
     background-color: #eee;

@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ pageTitle }}</title>
+<meta name="description" content="The personal site and portfolio of creative web developer Henry from Online" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
@@ -31,6 +32,20 @@
 
     <!-- Aperture -->
     <link rel="microsub" href="https://aperture.p3k.io/microsub/816">
+    {# {{ page.url | dump }} #}
+
+    {% renderTemplate "webc"%}
+        <template webc:nokeep webc:if="page.url === '/'">
+            <link rel="preload" href="/fonts/manuka-black.woff2" as="font" type="font/woff2" crossorigin />
+            <link rel="preload" href="fonts/subset-LouizeDisplaytrial.woff2" as="font" type="font/woff2" crossorigin />
+            <link rel="preload" href="fonts/subset-LouizeDisplaytrial-Italic.woff2" as="font" type="font/woff2" crossorigin />
+            <link rel="preload" href="/fonts/PPNeueMontreal-Book.woff2" as="font" type="font/woff2"
+        crossorigin />
+        </template>
+        <template webc:nokeep webc:else> 
+            <link rel="preload" href="fonts/subset-Louizetrial.woff2" as="font" type="font/woff2" crossorigin />
+        </template>
+    {% endrenderTemplate %}
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -50,6 +65,5 @@
     {% include 'footer.njk' %}
      <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     <script src="/js/index.js" type="module"></script>
-    <script src="/js/index.map.js" type="module"></script>
 </body>
 </html>

@@ -9,12 +9,13 @@
 {% if (not caseStudy.data.viewTheWork) and (not caseStudy.content.length > 0) %}
     {% set inert = true %}
 {% endif %}
+<li>
 <article class="case-study-row{% if inert %} case-study-row--coming-soon{% endif %}">
     <div class="case-study-row__inner">
-        <div class="case-study-row__echoes" aria-hidden="true">
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
+        <div class="case-study-row__echoes" role="presentation" inert>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
         </div>
         <h1 class="case-study-row__title">
             {{ clientLogo(title = caseStudy.data.title.toLowerCase(), class = 'case-study-row__logo') }}
@@ -24,15 +25,16 @@
                     {{- caseStudy.data.title.slice(caseStudy.data.titleSplitIndex) -}}</span>
             </div>
         </h1>
-        <div class="case-study-row__echoes case-study-row__echoes--after" aria-hidden="true">
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
-            <span class="case-study-row__echo">{{ caseStudy.data.title }}</span>
+        <div class="case-study-row__echoes case-study-row__echoes--after" role="presentation" inert>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
+            <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
         </div>
     </div>
     <a class="case-study-row__link" href="/work/{{ caseStudy.data.title | slugify }}">
         <span class="visually-hidden">Read the case study</span>
     </a>
 </article>
+</li>
