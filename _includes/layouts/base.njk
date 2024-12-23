@@ -47,6 +47,7 @@
         </template>
     {% endrenderTemplate %}
 
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -63,7 +64,8 @@
         </div>
     </div>
     {% include 'footer.njk' %}
-     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    {# TODO: Remove splitting dependency #}
+     <script src="/js/vendor/splitting.min.js"></script>
     <script src="/js/index.js" type="module"></script>
 </body>
 </html>

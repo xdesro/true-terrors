@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently 'sass --no-source-map --watch scss:_site/css' 'rollup --config --watch' 'npx @11ty/eleventy --serve'",
-    "start:quiet": "concurrently 'sass --no-source-map --watch scss:_site/css' 'rollup --config --watch' 'npx @11ty/eleventy --serve --quiet'",
-    "build": "sass --no-source-map scss:_site/css && rollup --config && npx @11ty/eleventy",
+    "start": "concurrently 'sass --no-source-map --watch scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve'",
+    "start:quiet": "concurrently 'sass --no-source-map --watch scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve --quiet'",
+    "build": "sass --no-source-map scss:_site/css --style compressed && rollup --config && npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -32,8 +32,7 @@
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.2.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "sass": "^1.80.1",
-    "splitting": "^1.1.0"
+    "sass": "^1.80.1"
   },
   "patchedDependencies": {
     "@11ty/eleventy-plugin-webc@0.11.2": "patches/@11ty%2Feleventy-plugin-webc@0.11.2.patch",

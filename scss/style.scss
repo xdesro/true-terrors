@@ -1,36 +1,35 @@
-@use "vendor/reset";
-@use "vendor/prism";
+@use 'vendor/reset';
+@use 'vendor/prism';
 
-@use "abstract/variables" as *;
-@use "abstract/mixins" as *;
+@use 'abstract/variables' as *;
+@use 'abstract/mixins' as *;
 
-@use "base/fonts";
-@use "base/utils";
-@use "base/layout";
-@use "base/rendered";
-@use "base/math";
+@use 'base/utils';
+@use 'base/layout';
+@use 'base/rendered';
+@use 'base/math';
 
-@use "components/page-nav";
-@use "components/home-nav";
-@use "components/spotify-widget";
-@use "components/footer";
-@use "components/social-list";
-@use "components/card";
-@use "components/window";
-@use "components/article-block";
-@use "components/case-study-block";
-@use "components/case-study-row";
-@use "components/table-of-contents";
-@use "components/page-header";
-@use "components/article-header";
-@use "components/case-header";
-@use "components/speaking-list";
-@use "components/post";
+@use 'components/page-nav';
+@use 'components/home-nav';
+@use 'components/spotify-widget';
+@use 'components/footer';
+@use 'components/social-list';
+@use 'components/card';
+@use 'components/window';
+@use 'components/article-block';
+@use 'components/case-study-block';
+@use 'components/case-study-row';
+@use 'components/table-of-contents';
+@use 'components/page-header';
+@use 'components/article-header';
+@use 'components/case-header';
+@use 'components/speaking-list';
+@use 'components/post';
 
-@use "pages/home";
-@use "pages/work";
-@use "pages/writing";
-@use "pages/about";
+@use 'pages/home';
+@use 'pages/work';
+@use 'pages/writing';
+@use 'pages/about';
 
 .case-study-list,
 .articles-list {
@@ -98,7 +97,7 @@
         font-size: 1em;
         position: absolute;
         left: -5ch;
-        content: "0" counter(h2s) " —";
+        content: '0' counter(h2s) ' —';
         color: $color-text;
       }
     }
@@ -169,7 +168,7 @@
   height: 7.6rem;
   border: 2px solid $color-text;
   border-radius: $bdrs;
-  background-image: url("/img/thorn.svg");
+  background-image: url('/img/thorn.svg');
   background-repeat: repeat-x;
   background-position-y: 50%;
   background-size: 75px;
