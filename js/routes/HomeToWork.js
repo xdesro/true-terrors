@@ -10,14 +10,14 @@ export default class HomeToWorkTransition extends Transition {
   onLeave({ from, done }) {
     const tl = gsap.timeline({
       paused: true,
+      autoRemoveChildren: true,
       onComplete() {
+        this.kill();
         done();
       },
     });
 
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(HomeExitTransition(from, conditions));
-    });
+    tl.add(HomeExitTransition(from, mediaQueries));
 
     tl.play();
   }
@@ -25,14 +25,12 @@ export default class HomeToWorkTransition extends Transition {
   onEnter({ to, done }) {
     const tl = new gsap.timeline({
       paused: true,
+      autoRemoveChildren: true,
       onComplete() {
         done();
       },
     });
-
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(WorkEnterTransition(to, conditions));
-    });
+    tl.add(WorkEnterTransition(to, mediaQueries));
 
     tl.play();
   }

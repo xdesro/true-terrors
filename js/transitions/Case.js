@@ -2,8 +2,8 @@ import gsap from 'gsap';
 import { convertSplitElIntoLines } from '../utils/convertSplitElIntoLines';
 import { DefaultFadeIn } from './Fade';
 
-export const CaseEntryTransition = (transitioningView, conditions) => {
-  const { prefersReducedMotion } = conditions;
+export const CaseEntryTransition = (transitioningView, mediaQueries) => {
+  const { prefersReducedMotion } = mediaQueries;
 
   const title = transitioningView.querySelector('.case-header__title');
   const abstract = transitioningView.querySelector('.case-header__abstract');

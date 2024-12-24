@@ -1,10 +1,11 @@
 import gsap from 'gsap';
 import { DefaultFadeOut } from './Fade';
+import MatchMediaManager from '../MatchMediaManager';
 import { convertSplitElIntoLines } from '../utils/convertSplitElIntoLines';
 
-export const HomeEntranceTransition = (transitioningView, conditions) => {
-  const { prefersReducedMotion, isMobile } = conditions;
+export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
   const tl = gsap.timeline();
+  const { prefersReducedMotion, isMobile } = mediaQueries;
   if (prefersReducedMotion) {
     tl.from(':scope > *', {
       opacity: 0,
@@ -27,7 +28,7 @@ export const HomeEntranceTransition = (transitioningView, conditions) => {
     desc.innerHTML = convertSplitElIntoLines(desc);
     tl.addLabel('transitionstart');
     tl.from('.segment--first .char', {
-      y: isMobile ? '100%' : '-100%',
+      y: isMobile ? '1em' : '-1em',
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
       stagger: 0.02,
       opacity: 0,
@@ -118,8 +119,9 @@ export const HomeEntranceTransition = (transitioningView, conditions) => {
   return tl;
 };
 
-export const HomeExitTransition = (transitioningView, context) => {
-  const { prefersReducedMotion, isMobile } = context;
+export const HomeExitTransition = (transitioningView, mediaQueries) => {
+  const { prefersReducedMotion, isMobile } = mediaQueries;
+
   const exitTl = gsap.timeline({
     onStart() {
       if (isMobile) {
@@ -129,6 +131,7 @@ export const HomeExitTransition = (transitioningView, context) => {
       }
     },
   });
+
   const title = transitioningView.querySelector('.segment--first');
   const desc = transitioningView.querySelector('.home-hero__description');
   if (prefersReducedMotion) {
@@ -149,7 +152,7 @@ export const HomeExitTransition = (transitioningView, context) => {
     desc.innerHTML = convertSplitElIntoLines(desc);
     exitTl
       .to('.segment--first .char', {
-        y: '100%',
+        y: '1em',
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
         stagger: 0.02,
         opacity: 0,

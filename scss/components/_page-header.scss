@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .page-header {
   margin-block-end: 4rem;
@@ -58,7 +58,7 @@
       display: inline-block;
 
       @include screen(sm) {
-        display: initial;
+        // display: initial;
       }
     }
 
@@ -86,7 +86,7 @@
     transform-origin: 0 0;
     border: 2px solid $color-text;
     border-radius: $bdrs;
-    background-image: url("/img/thorn.svg");
+    background-image: url('/img/thorn.svg');
     background-repeat: repeat-x;
     background-position-y: 50%;
     background-size: 75px;

@@ -20,9 +20,7 @@ export default class WritingToWritingTransition extends Transition {
         done();
       },
     });
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(WritingExitTransition(from, conditions));
-    });
+    tl.add(WritingExitTransition(from, mediaQueries));
     tl.play();
   }
   onEnter({ to, trigger, done }) {
@@ -32,9 +30,7 @@ export default class WritingToWritingTransition extends Transition {
         done();
       },
     });
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(WritingEnterTransition(to, conditions));
-    });
+    tl.add(WritingEnterTransition(to, mediaQueries));
     tl.play();
   }
 }

@@ -19,23 +19,11 @@ import WorkToCaseTransition from './routes/WorkToCase';
 window.navManager = new NavManager();
 history.scrollRestoration = 'auto';
 
-// A utility function to create and configure matchMedia
-const breakpoints = {
-  tablet: 600,
-  desktop: 900,
-};
-
-mm.add(
-  {
-    isMobile: `(max-width: ${breakpoints.tablet - 1}px)`,
-    isTablet: `(min-width: ${breakpoints.tablet}px) and (max-width: ${
-      breakpoints.desktop - 1
-    }px)`,
-    isDesktop: `(min-width: ${breakpoints.desktop}px)`,
-    prefersReducedMotion: '(prefers-reduced-motion: reduce)',
-  },
-  () => {}
-);
+window.mediaQueries = {};
+MatchMediaManager.add(({ conditions }) => {
+  Object.assign(window.mediaQueries, conditions);
+  console.log(window.mediaQueries);
+});
 
 const Transitions = {
   default: DefaultTransition,
@@ -76,11 +64,8 @@ class DefaultRenderer extends Renderer {
       });
     }
   }
-
   onEnterCompleted() {}
-
   onLeave() {}
-
   onLeaveCompleted() {}
 }
 
@@ -95,45 +80,12 @@ const taxi = new Core({
     element.dataset.taxiReload !== undefined ||
     element.src.includes('codepen.io'),
 });
-// taxi.addRoute('.*', '\/work\/', 'homeToWork');
-MatchMediaManager.add(({ conditions }) => {
-  if (!conditions.prefersReducedMotion) {
-    taxi.addRoute('/', '/work', 'homeToWork');
-    taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
-    taxi.addRoute(`\/work`, '', 'workToHome');
-    taxi.addRoute(`\/work`, `\/work\/.*`, 'workToCase');
-    taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
-    taxi.addRoute(
-      `\/(writing|notes)`,
-      `\/(writing|notes)\/.*`,
-      'writingToArticle'
-    );
-    taxi.addRoute(
-      `\/(writing|notes)\/.*`,
-      `\/(writing|notes)`,
-      'articleToWriting'
-    );
-    taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');
-  }
-});
 
-// taxi.addRoute('/work', '/', 'homeToWork');
-
-// taxi.addRoute('/', '/work/', 'homeToWork');
-// taxi.addRoute('/work', '.*', 'work');
-
-// import SessionManager from "./utils/SessionManager.js";
-// const taxi = new Core()
-
-// import headerTl from "./animations/homepage.js";
-
-// const sessionManager = new SessionManager();
-
-// console.log(sessionManager.pathIsVisited())
-
-// if (!sessionManager.pathIsVisited()) {
-//     if (window.location.pathname === '/') {
-//         // headerTl.play
-//     }
-// }
-// sessionManager.mount();
+taxi.addRoute('/', '/work', 'homeToWork');
+taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
+taxi.addRoute(`\/work`, '', 'workToHome');
+taxi.addRoute(`\/work`, `\/work\/.*`, 'workToCase');
+taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
+taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)\/.*`, 'writingToArticle');
+taxi.addRoute(`\/(writing|notes)\/.*`, `\/(writing|notes)`, 'articleToWriting');
+taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');

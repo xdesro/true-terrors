@@ -1,8 +1,6 @@
 import { Transition } from '@unseenco/taxi';
 import gsap from 'gsap';
 
-import MatchMediaManager from '../MatchMediaManager';
-
 import { WorkExitTransition } from '../transitions/Work';
 import { HomeEntranceTransition } from '../transitions/Home';
 
@@ -17,11 +15,7 @@ export default class WorkToHomeTransition extends Transition {
         done();
       },
     });
-
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(WorkExitTransition(from, conditions));
-    });
-
+    tl.add(WorkExitTransition(from, mediaQueries));
     tl.play();
   }
 
@@ -32,11 +26,7 @@ export default class WorkToHomeTransition extends Transition {
         done();
       },
     });
-
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(HomeEntranceTransition(to, conditions));
-    });
-
+    tl.add(HomeEntranceTransition(to, mediaQueries));
     tl.play();
   }
 }

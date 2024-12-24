@@ -1,14 +1,11 @@
 import gsap from 'gsap';
 
-import MatchMediaManager from './MatchMediaManager';
-
 const hideNav = (nav) => {
-  const tl = gsap.timeline({
-    paused: true,
-  });
-  MatchMediaManager.add(({ conditions }) => {
-    const { isMobile } = conditions;
-    tl.fromTo(
+  const tl = gsap
+    .timeline({
+      paused: true,
+    })
+    .fromTo(
       nav,
       {
         opacity: 1,
@@ -19,8 +16,6 @@ const hideNav = (nav) => {
         duration: 0.2,
       }
     );
-  });
-
   return tl;
 };
 
@@ -73,30 +68,28 @@ export default class NavManager {
     ) {
       return;
     } else {
-      MatchMediaManager.add(({ conditions }) => {
-        const { prefersReducedMotion } = conditions;
+      const { prefersReducedMotion } = mediaQueries;
 
-        tl.to(backLinkText, {
-          opacity: 0,
-          duration: prefersReducedMotion ? 0.2 : 0.3,
-          x: prefersReducedMotion ? null : '-100%',
-          ease: prefersReducedMotion ? 'linear' : 'power3.in',
-          clipPath: prefersReducedMotion
-            ? null
-            : 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
-          onComplete() {
-            backLink.setAttribute('href', newData.backLink);
-            backLinkText.textContent = newData.backLinkText;
-          },
-        }).to(backLinkText, {
-          opacity: 1,
-          ease: prefersReducedMotion ? 'linear' : 'power3.out',
-          clipPath: prefersReducedMotion
-            ? null
-            : 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-          x: 0,
-          duration: prefersReducedMotion ? 0.2 : 0.3,
-        });
+      tl.to(backLinkText, {
+        opacity: 0,
+        duration: prefersReducedMotion ? 0.2 : 0.3,
+        x: prefersReducedMotion ? null : '-100%',
+        ease: prefersReducedMotion ? 'linear' : 'power3.in',
+        clipPath: prefersReducedMotion
+          ? null
+          : 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+        onComplete() {
+          backLink.setAttribute('href', newData.backLink);
+          backLinkText.textContent = newData.backLinkText;
+        },
+      }).to(backLinkText, {
+        opacity: 1,
+        ease: prefersReducedMotion ? 'linear' : 'power3.out',
+        clipPath: prefersReducedMotion
+          ? null
+          : 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        x: 0,
+        duration: prefersReducedMotion ? 0.2 : 0.3,
       });
     }
   }

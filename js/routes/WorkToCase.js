@@ -1,10 +1,7 @@
 import { Transition } from '@unseenco/taxi';
 import gsap from 'gsap';
 
-import MatchMediaManager from '../MatchMediaManager';
-
 import { WorkExitToCaseTransition } from '../transitions/Work';
-import { DefaultFadeIn } from '../transitions/Fade';
 import { CaseEntryTransition } from '../transitions/Case';
 
 export default class WorkToCaseTransition extends Transition {
@@ -12,7 +9,6 @@ export default class WorkToCaseTransition extends Transition {
     const tl = gsap.timeline({
       paused: true,
       onStart() {
-        // window.navManager.hide();
         window.scrollTo({
           top: 0,
         });
@@ -21,11 +17,7 @@ export default class WorkToCaseTransition extends Transition {
         done();
       },
     });
-
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(WorkExitToCaseTransition(from, conditions, trigger));
-    });
-
+    tl.add(WorkExitToCaseTransition(from, mediaQueries, trigger));
     tl.play();
   }
 
@@ -37,9 +29,7 @@ export default class WorkToCaseTransition extends Transition {
       },
     });
 
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(CaseEntryTransition(to, conditions));
-    });
+    tl.add(CaseEntryTransition(to, mediaQueries));
 
     tl.play();
   }

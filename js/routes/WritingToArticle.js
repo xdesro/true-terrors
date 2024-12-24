@@ -1,8 +1,6 @@
 import gsap from 'gsap';
 import { Transition } from '@unseenco/taxi';
 
-import MatchMediaManager from '../MatchMediaManager';
-
 import { WritingExitTransition } from '../transitions/Writing';
 import { ArticleEnterTransition } from '../transitions/Article';
 
@@ -18,10 +16,7 @@ export default class WritingToArticleTransition extends Transition {
         done();
       },
     });
-
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(WritingExitTransition(from, conditions));
-    });
+    tl.add(WritingExitTransition(from, mediaQueries));
     tl.play();
   }
   onEnter({ to, trigger, done }) {
@@ -31,9 +26,7 @@ export default class WritingToArticleTransition extends Transition {
         done();
       },
     });
-    MatchMediaManager.add(({ conditions }) => {
-      tl.add(ArticleEnterTransition(to, conditions));
-    });
+    tl.add(ArticleEnterTransition(to, mediaQueries));
     tl.play();
   }
 }

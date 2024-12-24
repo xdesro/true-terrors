@@ -1,56 +1,63 @@
 import gsap from 'gsap';
 
-export const WorkEnterTransition = (transitioningView) => {
-  const title = transitioningView.querySelector('.page-header__title');
-  Splitting({ target: title, by: 'chars' });
+import MatchMediaManager from '../MatchMediaManager';
+import { DefaultFadeIn } from './Fade';
 
+export const WorkEnterTransition = (transitioningView, mediaQueries) => {
+  const { prefersReducedMotion } = mediaQueries;
   const enterTl = gsap.timeline();
-  enterTl
-    .set('.page-header__title .char', {
-      display: 'inline-block',
-    })
-    .from(
-      '.page-header__title .char',
-      {
-        y: '100%',
-        clipPath: 'polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)',
-        stagger: {
-          each: 0.02,
+  if (prefersReducedMotion) {
+    return DefaultFadeIn(transitioningView);
+  } else {
+    const title = transitioningView.querySelector('.page-header__title');
+    Splitting({ target: title, by: 'chars' });
+    enterTl
+      .set('.page-header__title .char', {
+        display: 'inline-block',
+      })
+      .from(
+        '.page-header__title .char',
+        {
+          y: '100%',
+          clipPath: 'polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)',
+          stagger: {
+            each: 0.02,
+          },
+          opacity: 0,
+          duration: 1,
+          ease: 'power4.inOut',
+          // onComplete: done
         },
-        opacity: 0,
-        duration: 1,
-        ease: 'power4.inOut',
-        // onComplete: done
-      },
-      '<'
-    )
-    .from(
-      '.page-header__bar',
-      {
-        //   scaleX: 0,
-        // x: "-10%",
-        opacity: 0,
-        duration: 0.3,
-      },
-      '>-=.5'
-    )
-    .from(
-      '.case-study-block',
-      {
-        opacity: 0,
-        x: -10,
-        stagger: 0.1,
-      },
-      '>'
-    )
-    .from(
-      '.list-design-element',
-      {
-        opacity: 0,
-        stagger: 0.1,
-      },
-      '<'
-    );
+        '<'
+      )
+      .from(
+        '.page-header__bar',
+        {
+          //   scaleX: 0,
+          // x: "-10%",
+          opacity: 0,
+          duration: 0.3,
+        },
+        '>-=.5'
+      )
+      .from(
+        '.case-study-block',
+        {
+          opacity: 0,
+          x: -10,
+          stagger: 0.1,
+        },
+        '>'
+      )
+      .from(
+        '.list-design-element',
+        {
+          opacity: 0,
+          stagger: 0.1,
+        },
+        '<'
+      );
+  }
 };
 
 export const WorkExitTransition = (transitioningView) => {
