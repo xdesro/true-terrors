@@ -1,4 +1,4 @@
-@use "../abstract/variables" as *;
+@use '../abstract/variables' as *;
 
 .table-of-contents {
   margin-block-end: 3rem;
@@ -25,7 +25,7 @@
       &:before {
         display: inline-block;
         width: 5ch;
-        content: "(0" counter(toc) ") —";
+        content: '(0' counter(toc) ') —';
         text-align: right;
         // text-align: right;
         color: $color-text-mid;
@@ -34,33 +34,22 @@
     a {
       position: relative;
       z-index: 0;
-      display: inline-block;
       justify-self: start;
       margin-block-end: 0.2em;
+      transition: 0.2s $ease-out-editorial;
+      transition-property: color, background-size;
       text-decoration: none;
       text-wrap: balance;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-repeat: no-repeat;
+      background-position: 0 calc(100% - 1px);
+      background-size: 0% 1px;
       -webkit-text-stroke: 2px $color-background;
 
       paint-order: stroke fill;
 
-      &:after {
-        position: absolute;
-        z-index: -1;
-        bottom: round(0.15em, 1px);
-        left: 0;
-        width: 100%;
-        height: 1px;
-        content: "";
-        transition: transform 0.2s $ease-out-editorial;
-        transform: scaleX(0);
-        transform-origin: 0 0;
-        background-color: currentColor;
-      }
       &:hover {
-        // text-decoration: underline;
-        &:after {
-          transform: scaleX(1);
-        }
+        background-size: 100% 1px;
       }
     }
   }
