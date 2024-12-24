@@ -49,10 +49,6 @@
 
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/style.css">
-
-    <script>
-        document.body.classList.remove('no-js')
-    </script>
 </head>
 
 <body class="no-js {% if bodyClass %}{{ bodyClass }}{% endif %}">
@@ -68,8 +64,11 @@
         </div>
     </div>
     {% include 'footer.njk' %}
+    <script>
+        document.body.classList.remove('no-js')
+    </script>
     {# TODO: Remove splitting dependency #}
-     <script src="/js/vendor/splitting.min.js"></script>
+    <script src="/js/vendor/splitting.min.js"></script>
     <script src="/js/index.js" type="module"></script>
 </body>
 </html>

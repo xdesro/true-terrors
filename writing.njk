@@ -89,7 +89,9 @@
         </header>
         <div class="articles-list">
             {% for article in collections['note'] | sortedByPublishDate %}
-                {{ articleBlock(article) }}
+                {% if loop.index0 < 4 %}
+                    {{ articleBlock(article) }}
+                {% endif %}
             {% endfor %}
         </div>
     </div>

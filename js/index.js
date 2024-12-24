@@ -14,6 +14,7 @@ import WritingToHomeTransition from './routes/WritingToHome';
 import WritingToArticleTransition from './routes/WritingToArticle';
 import ArticleToWritingTransition from './routes/ArticleToWriting';
 import WritingToWritingTransition from './routes/WritingToWriting';
+import WorkToCaseTransition from './routes/WorkToCase';
 
 window.navManager = new NavManager();
 history.scrollRestoration = 'auto';
@@ -41,6 +42,7 @@ const Transitions = {
   homeToWork: HomeToWorkTransition,
   homeToWriting: HomeToWritingTransition,
   workToHome: WorkToHomeTransition,
+  workToCase: WorkToCaseTransition,
   writingToHome: WritingToHomeTransition,
   writingToArticle: WritingToArticleTransition,
   articleToWriting: ArticleToWritingTransition,
@@ -99,6 +101,7 @@ MatchMediaManager.add(({ conditions }) => {
     taxi.addRoute('/', '/work', 'homeToWork');
     taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
     taxi.addRoute(`\/work`, '', 'workToHome');
+    taxi.addRoute(`\/work`, `\/work\/.*`, 'workToCase');
     taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
     taxi.addRoute(
       `\/(writing|notes)`,

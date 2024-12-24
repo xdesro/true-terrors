@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .case-header {
   margin-block-end: 3rem;
@@ -125,6 +125,7 @@
     font-weight: 400;
     line-height: 0.8;
     text-align: center;
+    position: relative;
     // margin-block-end: 0.5rem;
     // margin-block-end: 2rem;
     // text-transform: uppercase;
@@ -135,6 +136,28 @@
     @include screen(magazine) {
       // text-align: left;
     }
+
+    .word {
+      display: inline-block;
+    }
+
+    .char {
+      display: inline-block;
+    }
+  }
+
+  &__title-main {
+    // color: blue;
+    // clip-path: polygon(0% -10%, 100% -10%, 100% 100%, 0% 100%);
+  }
+  &__title-duplicate {
+    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+    // color: red;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   &__abstract {
     line-height: 1.5;
@@ -158,6 +181,9 @@
       margin-block-end: 0;
       margin-inline-start: 0;
       text-align: left;
+    }
+    .line {
+      clip-path: polygon(0% -10%, 100% -10%, 100% 100%, 0% 100%);
     }
   }
   &__meta {
@@ -207,6 +233,11 @@
       grid-row: 2 / span 2;
       // align-self: last baseline;
       margin-block-end: 0;
+    }
+
+    h2,
+    li {
+      clip-path: polygon(0% -10%, 100% -10%, 100% 100%, 0% 100%);
     }
   }
   &--with-meta {
