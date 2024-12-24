@@ -6,37 +6,35 @@ const hideNav = (nav) => {
   const tl = gsap.timeline({
     paused: true,
   });
-  tl.fromTo(
-    nav,
-    {
-      opacity: 1,
-    },
-    {
-      opacity: 0,
-      ease: 'linear',
-      duration: 0.2,
-    }
-  );
+  MatchMediaManager.add(({ conditions }) => {
+    const { isMobile } = conditions;
+    tl.fromTo(
+      nav,
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        ease: 'linear',
+        duration: 0.2,
+      }
+    );
+  });
+
   return tl;
 };
 
 export default class NavManager {
   constructor() {
     this.nav = document.querySelector('.page-nav');
-
     this.hidingNav = hideNav(this.nav);
-    // this.showingNav = showNav(this.nav);
 
     this.init();
-
-    // this.mount();
   }
   init() {
     if (window.location.pathname === '/') {
       this.hidingNav.seek(1);
     } else {
-      // this.showingNav.seek(1);
-      // this.hidingNav.
       this.hidingNav.seek(0);
       this.hidingNav.reversed(true);
     }
@@ -45,11 +43,9 @@ export default class NavManager {
     this.nav.classList.add('page-nav--inert');
     this.hidingNav.timeScale(1.5);
     this.hidingNav.play();
-    // console.log(this.hidingNav.reversed(), this.hidingNav.progress())
   }
   show() {
     this.nav.classList.remove('page-nav--inert');
-    // this.showingNav.play();
     this.hidingNav.timeScale(1);
 
     const isReversed = this.hidingNav.reversed();

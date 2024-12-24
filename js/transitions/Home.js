@@ -3,7 +3,7 @@ import { DefaultFadeOut } from './Fade';
 import { convertSplitElIntoLines } from '../utils/convertSplitElIntoLines';
 
 export const HomeEntranceTransition = (transitioningView, conditions) => {
-  const { prefersReducedMotion } = conditions;
+  const { prefersReducedMotion, isMobile } = conditions;
   const tl = gsap.timeline();
   if (prefersReducedMotion) {
     tl.from(':scope > *', {
@@ -25,8 +25,9 @@ export const HomeEntranceTransition = (transitioningView, conditions) => {
       by: 'lines',
     });
     desc.innerHTML = convertSplitElIntoLines(desc);
+    tl.addLabel('transitionstart');
     tl.from('.segment--first .char', {
-      y: '100%',
+      y: isMobile ? '100%' : '-100%',
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
       stagger: 0.02,
       opacity: 0,
@@ -86,7 +87,6 @@ export const HomeEntranceTransition = (transitioningView, conditions) => {
         },
         '>'
       )
-
       .from(
         `.home-hero__description .line`,
         {
@@ -104,7 +104,7 @@ export const HomeEntranceTransition = (transitioningView, conditions) => {
           opacity: 0,
           ease: 'power4.inOut',
         },
-        'test'
+        isMobile ? 'transitionstart' : 'test'
       )
       .from(
         '.home-hero__warning',
@@ -119,8 +119,16 @@ export const HomeEntranceTransition = (transitioningView, conditions) => {
 };
 
 export const HomeExitTransition = (transitioningView, context) => {
-  const { prefersReducedMotion } = context;
-  const exitTl = gsap.timeline();
+  const { prefersReducedMotion, isMobile } = context;
+  const exitTl = gsap.timeline({
+    onStart() {
+      if (isMobile) {
+        window.scrollTo({
+          top: '0',
+        });
+      }
+    },
+  });
   const title = transitioningView.querySelector('.segment--first');
   const desc = transitioningView.querySelector('.home-hero__description');
   if (prefersReducedMotion) {
@@ -196,7 +204,7 @@ export const HomeExitTransition = (transitioningView, context) => {
         '.home-hero__accent-image',
         {
           y: '-1rem',
-          height: 0,
+          height: isMobile ? '100%' : 0,
           opacity: 0,
           duration: 0.3,
         },

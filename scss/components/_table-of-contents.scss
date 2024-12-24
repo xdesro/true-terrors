@@ -21,13 +21,11 @@
       grid-template-columns: auto 1fr;
       counter-increment: toc;
 
-      // font-variant-numeric: tabular-nums;
       &:before {
         display: inline-block;
         width: 5ch;
         content: '(0' counter(toc) ') —';
         text-align: right;
-        // text-align: right;
         color: $color-text-mid;
       }
     }
