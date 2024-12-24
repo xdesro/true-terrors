@@ -50,16 +50,9 @@
       font-size: clamp(10rem, 2.6471rem + 13.0719vw, 15rem);
       margin-block-end: 0;
     }
-    &.splitting {
-      // letter-spacing: -0.003em;
-    }
 
     .word {
       display: inline-block;
-
-      @include screen(sm) {
-        // display: initial;
-      }
     }
 
     .char {

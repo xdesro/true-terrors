@@ -67,7 +67,7 @@
       font-family: $font-display;
       font-size: 37.6cqmin;
       font-weight: 400;
-      // clip-path: polygon(0% 0%, 100% 0, 100% 110%, 0 110%);
+      clip-path: polygon(0% 0%, 100% 0, 100% 102%, 0 102%);
       line-height: 0.8;
       line-height: 0.72;
       grid-column: 1;
@@ -97,7 +97,7 @@
         font-size: 25.8vw;
       }
       .char {
-        clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 102%, 0% 102%);
       }
     }
     .segment--second {

@@ -28,7 +28,7 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
     desc.innerHTML = convertSplitElIntoLines(desc);
     tl.addLabel('transitionstart');
     tl.from('.segment--first .char', {
-      y: isMobile ? '1em' : '-1em',
+      y: '1em',
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
       stagger: 0.02,
       opacity: 0,
@@ -40,7 +40,7 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
         {
           ease: 'power4.inOut',
           duration: 1,
-          y: '-.5em',
+          y: '-1em',
           clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
           stagger: 0.02,
           opacity: 0,
@@ -134,6 +134,7 @@ export const HomeExitTransition = (transitioningView, mediaQueries) => {
 
   const title = transitioningView.querySelector('.segment--first');
   const desc = transitioningView.querySelector('.home-hero__description');
+
   if (prefersReducedMotion) {
     exitTl.add(DefaultFadeOut(transitioningView));
   } else {
