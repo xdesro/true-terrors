@@ -32,7 +32,8 @@
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.2.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "sass": "^1.80.1"
+    "sass": "^1.80.1",
+    "simplex-noise": "^4.0.3"
   },
   "patchedDependencies": {
     "@11ty/eleventy-plugin-webc@0.11.2": "patches/@11ty%2Feleventy-plugin-webc@0.11.2.patch",

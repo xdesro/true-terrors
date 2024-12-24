@@ -1,3 +1,26 @@
-<article>
-    <h1 :text="caseStudy"></h1>
-</article>
+<li>
+    <article :class="`case-study-row${caseStudy.viewTheWork ? ' case-study-row--coming-soon' : ''}`">
+        <div class="case-study-row__inner">
+            <div class="case-study-row__echoes" role="presentation" inert>
+                <span webc:for="n of [1,2,3]" class="case-study-row__echo" aria-hidden="true" @text="caseStudy.title">{{
+                    caseStudy.data.title }}</span>
+            </div>
+            <h1 class="case-study-row__title">
+                <client-logo class="case-study-row__logo" :@title="caseStudy.title.toLowerCase()"></client-logo>
+                <div class="case-study-row__title-text">
+                    <span class="case-study-row__half" @text="caseStudy.title.slice(0, caseStudy.titleSplitIndex)">
+                    </span><span class="case-study-row__title-divider"></span><span class="case-study-row__half"
+                        @text="caseStudy.title.slice(caseStudy.titleSplitIndex)"></span>
+                </div>
+            </h1>
+            <div class="case-study-row__echoes case-study-row__echoes--after" role="presentation" inert>
+                <span class="case-study-row__echo" aria-hidden="true" webc:for="n in [1,2,3,4,5]"
+                    @text="caseStudy.title"></span>
+            </div>
+        </div>
+        <a class="case-study-row__link" :href="`/work/${ this.slugify(caseStudy.title)}`">
+            <span class="visually-hidden">Read the case study</span>
+        </a>
+    </article>
+
+</li>

@@ -7,22 +7,18 @@ footerLinks: false
 {% from './_includes/article-block.njk' import articleBlock %}
 
 
-{% renderTemplate 'webc', {site: site, recentListening: recentListening, social: social} %}
+{% renderTemplate 'webc', {site: site, recentListening: recentListening, social: social,caseStudies: collections['case study']} %}
 <home-hero :@recent-listening="recentListening" :@site="site"></home-hero>
 <home-letter></home-letter>
 <home-about :@social="social"></home-about>
-{% endrenderTemplate %}
 <section class="home-work themed dark">
     <h2 class="home-work__title">Selected works</h2>
     <ul class="case-study-rows" role="list">
-        {% for caseStudy in collections['case study'] | sortedByPublishDate %}
-            {% if caseStudy.data.isFeatured %}
-                {% include 'case-study-row.njk' %}
-            {% endif %}
-        {% endfor %}
+        <case-study-row webc:for="study of sortedByPublishDate(caseStudies)" webc:if="study.data.isFeatured" :@case-study="study.data"></case-study-row> 
     </ul>
     <a class="home-work__link" href="/work">View all case studies →</a>
 </section>
+{% endrenderTemplate %}
 <section class="home-articles">
     <h2 class="home-articles__title">Articles</h2>
     <ul class="articles-list" role="list">

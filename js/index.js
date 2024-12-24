@@ -15,6 +15,7 @@ import WritingToArticleTransition from './routes/WritingToArticle';
 import ArticleToWritingTransition from './routes/ArticleToWriting';
 import WritingToWritingTransition from './routes/WritingToWriting';
 import WorkToCaseTransition from './routes/WorkToCase';
+import { convertSplitElIntoLines } from './utils/convertSplitElIntoLines';
 
 window.navManager = new NavManager();
 history.scrollRestoration = 'auto';
@@ -89,3 +90,11 @@ taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
 taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)\/.*`, 'writingToArticle');
 taxi.addRoute(`\/(writing|notes)\/.*`, `\/(writing|notes)`, 'articleToWriting');
 taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');
+
+// const letter = document.querySelector('.home-letter__text');
+// if (letter) {
+//   Splitting({ target: letter, by: 'lines' });
+//   letter.querySelectorAll('p').forEach((paragraph) => {
+//     paragraph.innerHTML = convertSplitElIntoLines(paragraph);
+//   });
+// }

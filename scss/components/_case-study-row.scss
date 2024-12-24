@@ -25,9 +25,12 @@ $transition: transform $duration ease-in;
     color: $color-text-mid;
     position: relative;
     &:before {
-      backdrop-filter: blur(2px);
+      // backdrop-filter: blur(2px);
       position: absolute;
-      inset: 0;
+      // inset: 0;
+      left: 0;
+      width: var(--coming-soon-width);
+      inset-block: 0;
       text-transform: uppercase;
       font-weight: bold;
       display: grid;
@@ -39,6 +42,22 @@ $transition: transform $duration ease-in;
       color: $color-text;
       z-index: 2;
       margin-inline: auto;
+    }
+    &:after {
+      content: '';
+      z-index: 1;
+      inset: 0;
+      position: absolute;
+      backdrop-filter: blur(2px);
+    }
+    .no-js & {
+      &:before {
+        backdrop-filter: blur(2px);
+        inset: 0;
+      }
+      &:after {
+        content: unset;
+      }
     }
   }
   li:nth-of-type(1) & {
