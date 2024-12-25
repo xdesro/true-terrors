@@ -1,30 +1,14 @@
-import { Transition } from '@unseenco/taxi';
-import gsap from 'gsap';
+import PageTransition from '../transitions/PageTransition';
 
 import { WritingEnterTransition } from '../transitions/Writing';
 import { HomeExitTransition } from '../transitions/Home';
 
-export default class HomeToWritingTransition extends Transition {
-  onLeave({ from, done }) {
-    const tl = gsap.timeline({
-      paused: true,
-      onComplete() {
-        done();
-      },
+export default class HomeToWritingTransition extends PageTransition {
+  constructor({ wrapper }) {
+    super({
+      wrapper,
+      exitTransition: HomeExitTransition,
+      enterTransition: WritingEnterTransition,
     });
-    tl.add(HomeExitTransition(from, mediaQueries));
-    tl.play();
-  }
-
-  onEnter({ to, done }) {
-    const tl = new gsap.timeline({
-      paused: true,
-      onComplete() {
-        done();
-      },
-    });
-    tl.add(WritingEnterTransition(to, mediaQueries));
-    tl.play();
-    return;
   }
 }
