@@ -67,17 +67,16 @@
       font-family: $font-display;
       font-size: 37.6cqmin;
       font-weight: 400;
-      clip-path: polygon(0% 0%, 100% 0, 100% 102%, 0 102%);
-      line-height: 0.8;
       line-height: 0.72;
       grid-column: 1;
       grid-row: 1 / span 5;
-      width: 0;
+      width: max-content;
       height: 0.74em;
       transform: rotate(90deg) translateX(-0.75em);
       transform-origin: 0 100%;
       white-space: nowrap;
       text-transform: uppercase;
+      clip-path: polygon(0% -2%, 100% -2%, 100% 102%, 0% 102%);
 
       @include screen(sm) {
         font-size: 40vw;

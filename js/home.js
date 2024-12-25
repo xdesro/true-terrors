@@ -99,3 +99,11 @@ class CaseWaterfall {
   }
 }
 new CaseWaterfall();
+
+// if (window.location.pathname === '' || window.location.pathname === '/') {
+//   const firstSeg = document.querySelector('.segment--first');
+//   const rect = firstSeg.getBoundingClientRect();
+
+//   firstSeg.style.width = `${rect.height}px`;
+//   firstSeg.style.height = `${rect.width}px`;
+// }

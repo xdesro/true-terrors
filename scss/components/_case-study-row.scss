@@ -20,40 +20,40 @@ $transition: transform $duration ease-in;
     // --color-echo: #{$color-text};
   }
   &--coming-soon {
-    pointer-events: none;
-    cursor: disabled;
-    color: $color-text-mid;
     position: relative;
+    cursor: disabled;
+    pointer-events: none;
+    color: $color-text-mid;
     &:before {
+      font-weight: bold;
       // backdrop-filter: blur(2px);
       position: absolute;
+      z-index: 2;
+      inset-block: 0;
       // inset: 0;
       left: 0;
-      width: var(--coming-soon-width);
-      inset-block: 0;
-      text-transform: uppercase;
-      font-weight: bold;
       display: grid;
       place-content: center;
+      width: var(--coming-soon-width);
+      margin-inline: auto;
       // width: max-content;
       // transform: translateY(-50%);
       // top: 50%;
       content: 'Coming soon';
+      text-transform: uppercase;
       color: $color-text;
-      z-index: 2;
-      margin-inline: auto;
     }
     &:after {
-      content: '';
+      position: absolute;
       z-index: 1;
       inset: 0;
-      position: absolute;
+      content: '';
       backdrop-filter: blur(2px);
     }
     .no-js & {
       &:before {
-        backdrop-filter: blur(2px);
         inset: 0;
+        backdrop-filter: blur(2px);
       }
       &:after {
         content: unset;
@@ -113,7 +113,7 @@ $transition: transform $duration ease-in;
     display: inline-block;
   }
   &__logo {
-    width: 100%;
+    width: 1em;
     max-height: 0.8em;
     object-fit: contain;
     aspect-ratio: 1;
@@ -161,13 +161,14 @@ $transition: transform $duration ease-in;
     transition: $transition, color $duration, filter $duration;
     white-space: nowrap;
     color: var(--color-echo);
+
     @include screen(sm) {
       filter: blur(1.5px);
     }
     .case-study-row:has(a:hover) & {
       @include screen(sm) {
-        filter: blur(0);
         transform: translateX(-1.5ch);
+        filter: blur(0);
       }
     }
     &--after {
