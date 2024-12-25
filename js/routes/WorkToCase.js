@@ -9,9 +9,10 @@ export default class WorkToCaseTransition extends Transition {
     const tl = gsap.timeline({
       paused: true,
       onStart() {
-        window.scrollTo({
-          top: 0,
-        });
+        // window.scrollTo({
+        //   top: 0,
+        //   behavior: 'smooth',
+        // });
       },
       onComplete() {
         done();

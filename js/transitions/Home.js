@@ -125,9 +125,9 @@ export const HomeExitTransition = (transitioningView, mediaQueries) => {
   const exitTl = gsap.timeline({
     onStart() {
       if (isMobile) {
-        window.scrollTo({
-          top: '0',
-        });
+        // window.scrollTo({
+        //   top: '0',
+        // });
       }
     },
   });

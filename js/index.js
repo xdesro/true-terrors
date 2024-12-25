@@ -16,9 +16,10 @@ import ArticleToWritingTransition from './routes/ArticleToWriting';
 import WritingToWritingTransition from './routes/WritingToWriting';
 import WorkToCaseTransition from './routes/WorkToCase';
 import { convertSplitElIntoLines } from './utils/convertSplitElIntoLines';
+import ArticleToHomeTransition from './routes/ArticleToHome';
 
 window.navManager = new NavManager();
-history.scrollRestoration = 'auto';
+history.scrollRestoration = 'manual';
 
 window.mediaQueries = {};
 MatchMediaManager.add(({ conditions }) => {
@@ -36,6 +37,7 @@ const Transitions = {
   writingToArticle: WritingToArticleTransition,
   articleToWriting: ArticleToWritingTransition,
   writingToWriting: WritingToWritingTransition,
+  articleToHome: ArticleToHomeTransition,
 };
 
 class DefaultRenderer extends Renderer {
@@ -67,7 +69,12 @@ class DefaultRenderer extends Renderer {
   }
   onEnterCompleted() {}
   onLeave() {}
-  onLeaveCompleted() {}
+  onLeaveCompleted() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant',
+    });
+  }
 }
 
 const taxi = new Core({
@@ -90,11 +97,4 @@ taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
 taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)\/.*`, 'writingToArticle');
 taxi.addRoute(`\/(writing|notes)\/.*`, `\/(writing|notes)`, 'articleToWriting');
 taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');
-
-// const letter = document.querySelector('.home-letter__text');
-// if (letter) {
-//   Splitting({ target: letter, by: 'lines' });
-//   letter.querySelectorAll('p').forEach((paragraph) => {
-//     paragraph.innerHTML = convertSplitElIntoLines(paragraph);
-//   });
-// }
+taxi.addRoute(`\/(writing|notes)\/.*`, ``, 'articleToHome');

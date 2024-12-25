@@ -9,10 +9,10 @@ export default class WritingToArticleTransition extends Transition {
     const tl = gsap.timeline({
       paused: true,
       onComplete() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'instant',
-        });
+        // window.scrollTo({
+        //   top: 0,
+        //   behavior: 'smooth',
+        // });
         done();
       },
     });

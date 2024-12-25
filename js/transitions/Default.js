@@ -1,22 +1,20 @@
 import { Transition } from '@unseenco/taxi';
 import gsap from 'gsap';
+import { DefaultFadeIn, DefaultFadeOut } from './Fade';
 
 export default class DefaultTransition extends Transition {
   onLeave({ from, trigger, done }) {
     if (trigger.href === '/') {
       navManager.hide();
     }
-    gsap.timeline().to(from, {
-      opacity: 0,
-      duration: 0.2,
+    const tl = gsap.timeline({
+      paused: true,
       onComplete() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'instant',
-        });
         done();
       },
     });
+    tl.add(DefaultFadeOut(from));
+    tl.play();
   }
   onEnter({ to, trigger, done }) {
     if (window.location.pathname === '/') {
@@ -26,12 +24,13 @@ export default class DefaultTransition extends Transition {
       navManager.show();
       document.body.classList.remove('home');
     }
-    gsap.timeline({}).from(to, {
-      opacity: 0,
-      duration: 0.2,
+    const tl = gsap.timeline({
+      paused: true,
       onComplete() {
         done();
       },
     });
+    tl.add(DefaultFadeIn(to));
+    tl.play();
   }
 }
