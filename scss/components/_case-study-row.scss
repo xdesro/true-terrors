@@ -17,16 +17,17 @@ $transition: transform $duration ease-in;
 
   --color-echo: #3e3b36;
   &:has(a:hover) {
-    // --color-echo: #{$color-text};
   }
   &--coming-soon {
     position: relative;
     cursor: disabled;
     pointer-events: none;
     color: $color-text-mid;
+    .case-study-row__title {
+      color: $color-text-mid;
+    }
     &:before {
       font-weight: bold;
-      // backdrop-filter: blur(2px);
       position: absolute;
       z-index: 2;
       inset-block: 0;
@@ -36,9 +37,6 @@ $transition: transform $duration ease-in;
       place-content: center;
       width: var(--coming-soon-width);
       margin-inline: auto;
-      // width: max-content;
-      // transform: translateY(-50%);
-      // top: 50%;
       content: 'Coming soon';
       text-transform: uppercase;
       color: $color-text;
