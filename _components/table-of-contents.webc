@@ -1,0 +1,11 @@
+<aside class="table-of-contents">
+    <h2 class="table-of-contents__title">Table of Contents</h2>
+    <ol class="table-of-contents__list" role="list">
+        <li webc:for="entry of toc">
+            <div>
+                <a webc:if="entry.id" :href="`#${ entry.id }`" @text="entry.text"></a>
+                <template webc:else webc:nokeep @text="entry.text"></template>
+            </div>
+        </li>
+    </ol>
+</aside>

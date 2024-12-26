@@ -17,7 +17,8 @@ Before you get started, fair warning that this post has "takes", some of which c
 
 So, Twitter recently stopped allowing political advertising.
 
-<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">We’ve made the decision to stop all political advertising on Twitter globally. We believe political message reach should be earned, not bought. Why? A few reasons…🧵</p>&mdash; jack 🌍🌏🌎 (@jack) <a href="https://twitter.com/jack/status/1189634360472829952?ref_src=twsrc%5Etfw">October 30, 2019</a></blockquote> <script webc:keep async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!-- TODO: Styles for Twitter embed -->
+<!-- <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">We’ve made the decision to stop all political advertising on Twitter globally. We believe political message reach should be earned, not bought. Why? A few reasons…🧵</p>&mdash; jack 🌍🌏🌎 (@jack) <a href="https://twitter.com/jack/status/1189634360472829952?ref_src=twsrc%5Etfw">October 30, 2019</a></blockquote> <script webc:keep async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 
 This, at first glance, sounds like a good thing — no more big money candidates paying big money for big money reach, no more "as president I promise to" in your TL. For a moment, I actually felt relieved by this announcement, but upon further inspection, I lost that faith. Stopping "all political advertising" is Bad, Actually™, and here are a few reasons why:
 

@@ -56,6 +56,8 @@ I usually use either Nunjucks or Vue for template logic as they're both extremel
 
 Nunjucks is a first-class citizen in 11ty, but I've also written a (possibly slightly out-of-date) guide on [using Vue templates in 11ty](https://henry.codes/writing/how-to-use-vue-to-template-your-eleventy-projects).
 
+<!-- <test-component></test-component> -->
+
 📯{.editors-note}
 
 ## Style Code (or How I Learned To Stop Worrying and Love The Cascade)

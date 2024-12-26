@@ -17,7 +17,8 @@ topics:
 
 This time last year, I Tweeted out some goals for the New Year.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">🗣️ Speak about CSS at a conference or school<br>🎓 Take a class a month<br>📚 Read a book a month<br>✈️ Go back to SF, go back to Europe<br>💵 Save enough to buy a house<br><br>Bring it tf on, 2019. <a href="https://t.co/YnOTJRiG8e">https://t.co/YnOTJRiG8e</a></p>&mdash; ؜ (@404boyfriend) <a href="https://twitter.com/404boyfriend/status/1079830658946555907?ref_src=twsrc%5Etfw">December 31, 2018</a></blockquote> <script webc:keep async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!-- TODO: Styles for Twitter embed -->
+<!-- <blockquote class="twitter-tweet"><p lang="en" dir="ltr">🗣️ Speak about CSS at a conference or school<br>🎓 Take a class a month<br>📚 Read a book a month<br>✈️ Go back to SF, go back to Europe<br>💵 Save enough to buy a house<br><br>Bring it tf on, 2019. <a href="https://t.co/YnOTJRiG8e">https://t.co/YnOTJRiG8e</a></p>&mdash; ؜ (@404boyfriend) <a href="https://twitter.com/404boyfriend/status/1079830658946555907?ref_src=twsrc%5Etfw">December 31, 2018</a></blockquote> <script webc:keep async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 
 I was determined and inspired by a strong career year, financial independence earned by selling my car, and the sense of indomitability and self-confidence that comes with healing after a breakup.
 

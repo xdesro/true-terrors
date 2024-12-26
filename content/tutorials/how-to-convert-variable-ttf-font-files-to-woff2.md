@@ -15,8 +15,6 @@ topics:
 
 ## Impetus
 
-<test-component></test-component>
-
 I've been working on a project lately that requires the loading of many, many webfonts. For the main UI font alone, we needed to download over 980<abbr title="kilobytes">kB</abbr> of WOFF and WOFF2 files. As it happened, the client eventually developed a variable font version of the UI face, which was a much smaller 225kB file.
 
 However, when I received the variable font file, I realized it was a TTF, and not the WOFF2 that I would need to implement it in a `@font-face` declaration for web. In previous experience, converting variable TTF to WOFF via online tools like convert.io or FontSquirrel would often break the axes needed to interpolate between font variation settings.

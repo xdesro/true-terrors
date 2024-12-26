@@ -7,7 +7,6 @@ bodyClass: "article"
 {# {% renderTemplate "webc" %}
 <page-nav back-link="/writing" back-link-text="Back to all articles"></page-nav>
 {% endrenderTemplate %} #}
-
 <header class="article-header">
     <div class="article-header__inner container">
     <div class="article-header__mast">
@@ -44,7 +43,7 @@ bodyClass: "article"
     {% endif %}
 </header>
 
-<article class="article-content rendered" @raw="content">
+<article class="article-content rendered" @html="content">
     {{ content | safe }}
 </article>
 

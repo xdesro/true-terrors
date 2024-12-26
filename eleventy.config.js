@@ -146,11 +146,16 @@ export default function (eleventyConfig) {
     return str.toISOString();
   });
 
-  //   eleventyConfig.addFilter("dateTimeForUrl", (date) => {
-  //     const timezoneDiff = date.getTimezoneOffset() * 60000;
-  //     const adjustedDate = new Date(date.valueOf() + timezoneDiff);
-  //     // return `${adjustedDate.getUTCFullYear()}-${adjustedDate.getUTCMonth()}-${adjustedDate.getUTCDate()}-${adjustedDate.getUTCHours()}-${adjustedDate.getUTCMinutes()}-${adjustedDate.getUTCSeconds()}`;
-  //   });
+  // eleventyConfig.addTransform('fixInlineStyle', async function (content) {
+  // if (this.outputPath && this.outputPath.split('.').pop() === 'html') {
+  //   console.log('content is transformable here');
+  //   content.replace('&amp;', '&');
+  // }
+  // return content;
+  // return this.outputPath.split('.').pop() === 'html'
+  //   ? content.replace(/&gt;/g, '>')
+  //   : content;
+  // });
 
   eleventyConfig.setLibrary(
     'md',

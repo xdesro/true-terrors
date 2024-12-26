@@ -94,6 +94,7 @@ async function loadTransitions() {
   for (const transitionName in Transitions) {
     taxi.transitions[transitionName] = Transitions[transitionName];
   }
+  taxi.setDefaultTransition('default');
   taxi.addRoute('/', '/work', 'homeToWork');
   taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
   taxi.addRoute(`\/work`, '', 'workToHome');
