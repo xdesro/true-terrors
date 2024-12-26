@@ -45,7 +45,7 @@ At the time, I was up to my knees in the development of a design system and desi
 
 The first half of my trip was for AwwwardsConf , where I had the pleasure and privilege of listening to talks by [Omayeli Arenyeka](https://www.omayeli.com/), [Alex Cornell](https://www.alexcornell.com/), [Claudio Guglieri](https://guglieri.com/) and more. I made friends from Finland, DC and San Diego. I managed to get into an amazing workshop on machine learning led by [Pedro Marques](https://www.pedromarques.io/) and [Joël van Bodegraven](https://twitter.com/jvb_nl?lang=en). I could name drop all day (_I won’t_) but it was a really fantastic trip for making friends and networking. I already can’t wait to go back (or at least make it to another AwwwardsConf).
 
-![Me holding boba with the iconic Transamerica tower shown in the background.](./img/4nM.2019-05-11 12.32.58 1.jpg)
+![Me holding boba with the iconic Transamerica tower shown in the background.](https://res.cloudinary.com/henry-codes/image/upload/v1735169302/2019-05-11_12.32.58_1_csoxyz.jpg)
 
 ### 🗣️ Speaking at a conference/school ❌
 
@@ -80,7 +80,7 @@ I’ve been hemorrhaging money renting here, year after year, and it only gets w
 Overwhelmingly, I feel like 2019 was largely unfocused and middling. I have always felt compelled to do all kinds of things, but the aimless splashing around in learning Cinema4D, WebGL, Italian, whatever, hasn’t made me feel like more of a Renaissance person. I feel like I know a little about a lot, and unfortunately, that “little” tends to translate to “slightly-less-than-enough to be dangerous”.
 It’s not all bad. I definitely let myself down, but in doing so I’ve gained a more careful understanding of some tenets I need to be stronger — that’s **focus**, **deliberation**, and **meaningful action**.
 
-![Focus, deliberation, meaningful action.](./img/ykP.focus-deliberation-meaningful-action.png)
+![Focus, deliberation, meaningful action.](https://res.cloudinary.com/henry-codes/image/upload/v1735169300/keybase-case-01_u8dzea.png)
 
 Scrolling through Twitter without purpose, shitposting in nigh-silent groupchats, watching mediocre content on Netflix — I’m doing a lot of things for no reason, and with no benefit to my sense of self.
 

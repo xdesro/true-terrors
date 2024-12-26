@@ -24,7 +24,7 @@ toc:
 
 Keybase Book was a new project my coworkers at Faculty and I created for the Keybase team. The project was intended to be a hybrid document that could both be functionally used as documentation, but also read in a more chapter-to-chapter mode that would teach users about PGP security and the value of the Keybase featureset.
 
-![A screenshot of the Keybase Book project homepage.](./img/31d.keybase-case-00.png)
+![A screenshot of the Keybase Book project homepage.](https://res.cloudinary.com/henry-codes/image/upload/v1735169292/keybase-case-00_zw6rlg.png)
 
 This project was first and foremost an immense content strategy undertaking. I was honored to watch [Chris Shiflett](https://shiflett.org/) and [Sara Distin](http://www.sldistin.com/) work systematically and methodically to break an incredibly dense and obfuscate topic into manageable pieces such that even someone completely new to cryptographic technology could learn what the importance of the tooling was. I want to thank them, and thanks also to [Kelli Anderson](https://kellianderson.com/blog/) for having enormous creative vision with her illustration work, as well as for being an utter joy to work with and learn from. Without Chris, Sara, and Kelli, this project would've been impossible.
 
@@ -38,19 +38,20 @@ I endeavoured to diverge from the Keybase parent brand somewhat, to establish th
 
 I designed most of the site around a global nav in the sidebar, a pattern borrowed from countless technical documentation sites. At any point, I wanted users to be able to see at-a-glance which page they're on, where on the page they are, and allow them to easily navigate throughout the rest of the site.
 
-![A closeup screenshot of the multilayer, dynamically-updated side nav concept discussed.](./img/6bA.keybase-case-02.png)
+![A closeup screenshot of the multilayer, dynamically-updated side nav concept discussed.](https://res.cloudinary.com/henry-codes/image/upload/v1735169290/keybase-case-02_nrdqvo.png)
 
 I elected to use system fonts for the project — not only would this allow for blazing-fast loading times on a primarily text-based site, but would also be a sensible default for reading; system fonts are highly readable by design.
 
 Another consideration I made was this three column layout, which allows for navigation in the first, a comfortable, uncramped reading experience with readable line-lengths in the second, and a third column for meta-information such as term definitions or Keybase-related calls-to-action.
 
-![A screenshot of a website comp that features three distinct columns, one for a side nav, one for the bulk of the content, and one more meta information.](./img/6HA.Keybase_Book_Redesign.png)
+![A screenshot of a website comp that features three distinct columns, one for a side nav, one for the bulk of the content, and one more meta information.](https://res.cloudinary.com/henry-codes/image/upload/v1735169300/keybase-case-01_u8dzea.png)
 
 ### Ilustration
 
 As I mentioned before, this project gave me the distinct pleasure and opportunity to work with Kelli Anderson, an incredible illustrator who has a nigh-unrivaled understanding of printing techniques and tactile, multidimensional design. The team at Faculty pitched her the idea of doing a set of cryptography-inspired animated illustrations, which would be implemented as interactive, hardware-accelerated code. She came back to us with beautiful, technicolor, [Karel Martens](https://www.itsnicethat.com/features/karel-martens-re-printed-matter-graphic-design-020920)-esque vignettes that all played with the concept of _encoding and decoding_ in a surprising way.
 
-![Revealing "save me" illustration](//images.contentful.com/0ggmebtirnb6/6pXdNPirvmH3qftFLi9I7f/6ca697146c08f039661aa1dede47d08f/ezgif.com-gif-maker_5_.gif)
+<!-- TODO compress this -->
+<!-- ![Revealing "save me" illustration](//images.contentful.com/0ggmebtirnb6/6pXdNPirvmH3qftFLi9I7f/6ca697146c08f039661aa1dede47d08f/ezgif.com-gif-maker_5_.gif) -->
 
 ## Code
 
@@ -60,7 +61,8 @@ The infrastructure for this project was decided elsewhere on the team, so my del
 
 In the design phase, I identified the need for extremely clear and strong navigation patterns. To ensure users could see their location at-a-glance at any time, I created a JavaScript class that would handle tracking the latest header, "activating" that header in the sidebar navigation, and updating the breadcrumb on the page.
 
-![Keybase navigation updating from headers](//images.contentful.com/0ggmebtirnb6/55O532jpxmWLMSwgIcX5n2/2afc5604c655782033194f897994f484/ezgif.com-gif-maker_6_.gif)
+<!-- TODO Fix -->
+<!-- ![Keybase navigation updating from headers](//images.contentful.com/0ggmebtirnb6/55O532jpxmWLMSwgIcX5n2/2afc5604c655782033194f897994f484/ezgif.com-gif-maker_6_.gif) -->
 
 You can see in that GIF a progress bar underneath the nav, which grows to span the width of the site as the user approaches the bottom of the current article. This uses a simple calculation to normalize the distance scrolled to the height of the page, and sets a CSS variable accordingly. The actual progress bar uses a `transform: scaleX()` rule to track this variable.
 
@@ -84,4 +86,4 @@ This project proved a great opportunity for me to collaborate from many aspects 
 
 Keybase was acquired by Zoom about two months after this project launched. Much of the project has changed from our initial vision, and that community evolution is an exciting part of shipping open-source work. If you'd like to, it is still possible to [check out the production instance of the Book](https://book.keybase.io/).
 
-![More screenshots of the Keybase book project. This shows the homepage and the first chapter.](./img/2NH.keybase-case-01.png)
+![More screenshots of the Keybase book project. This shows the homepage and the first chapter.](https://res.cloudinary.com/henry-codes/image/upload/v1735169300/keybase-case-01_u8dzea.png)

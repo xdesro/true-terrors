@@ -58,7 +58,7 @@ $color--mono-86: rgb(223, 218, 216);
 $color--mono-90: rgb(230, 230, 230);
 ```
 
-![A palette of six swatches, which are not purely gray but appear monochrome side-by-side.](./img/14l.monochrome-palette.png)
+![A palette of six swatches, which are not purely gray but appear monochrome side-by-side.](https://res.cloudinary.com/henry-codes/image/upload/v1735169299/monochrome-palette_si1lb3.png)
 
 ## Contextualize
 

@@ -37,15 +37,15 @@ From the brief, Faculty had an immediate need to solve Frontier Label's online c
 
 Faculty spent time as a team diagramming out and challenging different experience flows to ensure we delivered a bulletproof ecommerce solution to Frontier Label. From this experimentation, a design system and library of user interface patterns and components was created, to serve not only the existing needs of the team, but any future interfaces they might build.
 
-![A high-level screenshot of the design system and component library I created for Frontier Label's digital needs.](./img/MVY.frontier-case-00.png)
+![A high-level screenshot of the design system and component library I created for Frontier Label's digital needs.](https://res.cloudinary.com/henry-codes/image/upload/v1735169292/frontier-case-00_v9jipg.png)
 
 Some highlights from this process include a custom component created for Frontier Label's PantoneⓇ matching service, a pattern for suggesting recommended label sizes to save the customer money, or a pattern for uploading multiple custom artwork files and quantities.
 
-![A Pantone®-matching color selector.](./img/4rJ.frontier-case-01.png)
+![A Pantone®-matching color selector.](https://res.cloudinary.com/henry-codes/image/upload/v1735169288/frontier-case-01_xrupsm.png)
 
-![An element that recommends the user pick a common label size to save them money.](./img/i5U.frontier-case-02.png)
+![An element that recommends the user pick a common label size to save them money.](https://res.cloudinary.com/henry-codes/image/upload/v1735169288/frontier-case-02_fp8cjf.png)
 
-![A UI allowing users to repeatedly upload artwork files and designate the label quantity for each file.](./img/12s.frontier-case-03.png)
+![A UI allowing users to repeatedly upload artwork files and designate the label quantity for each file.](https://res.cloudinary.com/henry-codes/image/upload/v1735169288/frontier-case-03_jnarb1.png)
 
 ## TL;DR
 

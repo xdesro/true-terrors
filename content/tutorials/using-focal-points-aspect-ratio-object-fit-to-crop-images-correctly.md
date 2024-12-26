@@ -101,7 +101,7 @@ article > img {
 }
 ```
 
-![Three identical images side by side, rendered with varying aspect ratios. Each image is distorted in some way.](./img/wyv.CleanShot 2023-02-18 at 22.31.19@2x.png)
+![Three identical images side by side, rendered with varying aspect ratios. Each image is distorted in some way.](https://res.cloudinary.com/henry-codes/image/upload/v1735169280/CleanShot_2023-02-18_at_22.31.19_2x_qy3ofl.png)
 
 This is doing _something_, but our images are a little squished. That's where `object-fit` comes in. We can use `object-fit` similarly to `background-position`, setting it to `contain` or `cover` to keep it from stretching. The default value is `fill`, which will always stretch an image in any direction it needs to in order to fit the rendered aspect ratio of the image. We'll use `object-fit: cover;` because we always want images to completely _cover_ their rendered aspect ratio, we just don't want the deformation.
 
@@ -112,7 +112,7 @@ article > img {
 }
 ```
 
-![Three identical images, as before with varying aspect ratios, but now each is sized correctly within its bounds. The flowers in each image are displayed at a different spot in the image though.](./img/3aQ.CleanShot 2023-02-18 at 22.36.26@2x.png)
+![Three identical images, as before with varying aspect ratios, but now each is sized correctly within its bounds. The flowers in each image are displayed at a different spot in the image though.](https://res.cloudinary.com/henry-codes/image/upload/v1735169277/CleanShot_2023-02-18_at_22.36.26_2x_umalbs.png)
 
 The images are looking a lot better now, but hark: in some of the images, the subject of the image is cropped out strangely. Let's sort that.
 
@@ -128,7 +128,7 @@ article > img {
 }
 ```
 
-![The three images now rendered perfectly, showing the subject matter flower bouquet centered in every arbitrary aspect ratio the image is displayed at.](./img/YPf.CleanShot 2023-02-18 at 22.45.48@2x.png)
+![The three images now rendered perfectly, showing the subject matter flower bouquet centered in every arbitrary aspect ratio the image is displayed at.](https://res.cloudinary.com/henry-codes/image/upload/v1735169278/CleanShot_2023-02-18_at_22.45.48_2x_sm6pw8.png)
 
 That's more like it. There’s a problem that used to take a couple minutes per post in an image editor, more-or-less solved with fifteen lines of CSS. Golly gosh is it a good day to be working on the web.
 

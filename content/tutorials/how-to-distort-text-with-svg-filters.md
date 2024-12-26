@@ -17,7 +17,7 @@ topics:
 
 A lot of the SVG filter primitive content out there is some really rad, deep-dive type content _(I'll link some of these at the end!)_, so I reckoned it might be nice to do a quick write-up on some effects I use pretty commonly. These are more-or-less plug-and-play; simple filters for making your friends go "ooh how did u do that lmao".
 
-![A retro computer advertisement rendered in HTML featuring SVG-distorted text](./img/6w0.image.png)
+![A retro computer advertisement rendered in HTML featuring SVG-distorted text](https://res.cloudinary.com/henry-codes/image/upload/v1735169284/image_2_hbu8gt.png)
 
 ## Setup
 
@@ -111,7 +111,7 @@ Now we can go into our CSS and apply the filter using that ID we created in the 
 </style>
 ```
 
-![Text sample distorted using SVG displacement maps and turbulence.](./img/5RL.image.png)
+![Text sample distorted using SVG displacement maps and turbulence.](https://res.cloudinary.com/henry-codes/image/upload/v1735169279/image_hfsafg.png)
 
 Hell yea. So sick. The text is even still cursor-selectable. Feel empowered to tweak values and add primitives. There's a whole world of wonder and image processing to be discovered.
 
@@ -162,7 +162,7 @@ To blur at an angle, one might need to do a little Involved Mathematics to rotat
 </svg>
 ```
 
-![Motion blurred h1 using SVG filter primitives](./img/7M1.image.png)
+![Motion blurred h1 using SVG filter primitives](https://res.cloudinary.com/henry-codes/image/upload/v1735169279/image_3_srz2no.png)
 
 There's a great post by [Lucas Bebber](http://lbebber.github.io/public/) on how to bind this effect to actual animation, if you're interested in taking it a step further! I've linked that post in the last section.
 

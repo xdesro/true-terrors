@@ -40,7 +40,7 @@ Let's begin by creating a content model — in this tutorial, we'll create a sim
 
 If you'll have content editors in the dashboard that aren't you, it's good manners to leave a meaningful description of what this content model will represent, not matter how obvious it might be to you.{.editors-note}
 
-![A user interface showing the creation of a new content type in Contentful](./img/1QO.CleanShot 2021-12-22 at 23.14.44@2x.png)
+![A user interface showing the creation of a new content type in Contentful](https://res.cloudinary.com/henry-codes/image/upload/v1735169285/CleanShot_2021-12-22_at_23.14.44_2x_npdzjq.png)
 
 Now we can add some fields. For this example, let's add some Text, Date, Media, and Rich Text fields, in the form of a blog title, publish date, featured image, and body.
 
@@ -48,21 +48,21 @@ Now we can add some fields. For this example, let's add some Text, Date, Media, 
 
 - Make sure the Title is designated as the Entry title in Contentful.
 
-![The user interface for creating a short text field in Contentful. A checkbox labeled "This field represents the entry title" is highlighted.](./img/22n.CleanShot 2021-12-22 at 23.37.46@2x.png)
+![The user interface for creating a short text field in Contentful. A checkbox labeled "This field represents the entry title" is highlighted.](https://res.cloudinary.com/henry-codes/image/upload/v1735169285/CleanShot_2021-12-22_at_23.37.46_2x_xurrvl.png)
 
 - When adding the rich text `body` block, I'm disallowing hyperlinks to other entries, links to other assets, or embedded entries/assets, inline or otherwise. There are some aspects of this sort of extension of Contentful that are extremely powerful but require some additional setup to render.
 
-![The user interface for creating a new RichText field in Contentful. The options for linking to another entry or asset, and embedding other content types are disabled.](./img/6W6.CleanShot 2021-12-22 at 23.41.59@2x.png)
+![The user interface for creating a new RichText field in Contentful. The options for linking to another entry or asset, and embedding other content types are disabled.](https://res.cloudinary.com/henry-codes/image/upload/v1735169284/CleanShot_2021-12-22_at_23.41.59_2x_gdubkx.png)
 
 Once you've added each of these fields, you'll have something like this.
 
-![A Contentful dashboard view showing a content model with the four described fields.](./img/5X7.CleanShot 2021-12-22 at 23.43.18@2x.png)
+![A Contentful dashboard view showing a content model with the four described fields.](https://res.cloudinary.com/henry-codes/image/upload/v1735169282/CleanShot_2021-12-22_at_23.43.18_2x_z5zcex.png)
 
 Now let's create a blog post using this content model and populate it with some placeholder content that we can query and render on the Eleventy side.
 
 Switch to the Content tab and click "Add entry". When prompted, select the Blog Post content model type. You can fill all of these fields with [lorem ipsum](https://loremipsum.io/), or use an actual blog post if you want! (_I'm intentionally using different text formatting options in the body so I can take full advantage of the HTML renderer we'll be leveraging later._)
 
-![A rich text, WYSIWYG editor with many types of content formatting on some lorem ipsum placeholder text.](./img/Qid.CleanShot 2021-12-22 at 23.52.16@2x.png)
+![A rich text, WYSIWYG editor with many types of content formatting on some lorem ipsum placeholder text.](https://res.cloudinary.com/henry-codes/image/upload/v1735169281/CleanShot_2021-12-22_at_23.52.16_2x_ciuq8n.png)
 
 That's all we'll need from the Contentful side until we get our Eleventy site going, at which point we'll need to come back to this dashboard to get some API credentials!
 
@@ -189,7 +189,7 @@ In our `index.njk` file, let's add a Nunjucks tag to dump all the data we just r
 
 The `dump` filter saves us from just getting \[object Object\] rendered to the template, and instead shows us everything in the JSON object. Think `JSON.stringify()`.{.editors-note}
 
-![A browser showing a website populated with a headline and some JSON code.](./img/2Mj.CleanShot 2021-12-23 at 00.42.01@2x 1.png)
+![A browser showing a website populated with a headline and some JSON code.](https://res.cloudinary.com/henry-codes/image/upload/v1735169284/CleanShot_2021-12-23_at_00.42.01_2x_1_favfcg.png)
 
 Well, that's a lot, and mostly unuseful. Contentful offers a JSON view of your content models in the dashboard to make this a little simpler to parse, but I'll simplify the haystack-digging for the purposes of this tutorial.
 
@@ -279,13 +279,13 @@ Now in our `_post.njk` template, you can use the filter right away:
 
 Here I'm referencing the body field, passing that to the render filter we just created, and then using the built-in `safe` filter to tell the template not to escape the rendered HTML.
 
-![The website all-told, rendering a headline, date, header image, and some rich text content with multiple formatting types.](./img/3Tb.CleanShot 2021-12-23 at 01.14.19@2x.png)
+![The website all-told, rendering a headline, date, header image, and some rich text content with multiple formatting types.](https://res.cloudinary.com/henry-codes/image/upload/v1735169284/CleanShot_2021-12-23_at_01.14.19_2x_tkgilg.png)
 
 Looking genuinely exceptional, I'd say. You're great at the work you do. You're a champion. I love you. We all do.
 
 ## Conclusion
 
-Feel free to [reach out and touch faith](https://twitter.com/xdesro) on Twitter if you've got questions about this article. It would be great to expand this article upon finding new challenges folks face with this integration. I reckon this could also cover:
+Feel free to [reach out and touch faith](https://bsky.app/profile/strange.website) on Twitter if you've got questions about this article. It would be great to expand this article upon finding new challenges folks face with this integration. I reckon this could also cover:
 
 - Using the GraphQL API (_as mentioned, I'm not particularly an advocate of this approach, but I know some folks like it and want to use it._)
 - Extending the Contentful Rich Text engine to render references (it really is incredibly powerful for content creation).

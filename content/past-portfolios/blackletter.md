@@ -32,10 +32,10 @@ I redesigned with new priorities and new copy but missed the mark at first. A se
 
 Before starting on this project, I hadn't really touched my personal website since late 2017. I loved this design, once, but that love has faded with my love for Futura and ska music. Time to rebuild!
 
-![2017 Portfolio: About Page](./img/7bi.old-site_about.png)
+![2017 Portfolio: About Page](https://res.cloudinary.com/henry-codes/image/upload/v1735169308/old-site_about_imsbq5.png)
 _Yuck!_{.editors-note}
 
-![2017 Portfolio: Projects Page](./img/2en.old-site_projects.png)
+![2017 Portfolio: Projects Page](https://res.cloudinary.com/henry-codes/image/upload/v1735169307/old-site_projects_sva1iq.png)
 _Offensive!_{.editors-note}
 
 The site was previously a fairly simple static site project I designed, which I built with Hugo and some Markdown files. It was just three main views with short case studies for projects and external links for CodePens or tech demos. The whole project was a glorified resume without any work history, really. Nevertheless, I was really proud of this at the time, and it was my first major foray into static site generation for my own project.
@@ -63,7 +63,7 @@ I eventually decided I _needed_ to ship something new, even if it wasn't exactly
 - I love the idea of using gigantic body copy sizes. Xtian Miller has a [brilliant post](https://blog.usejournal.com/your-body-text-is-too-small-5e02d36dc902) about why we should make text on the internet larger.
 - I used a fun little SVG `<feTurbulence>` primitive to perfrom some distortion animation text without any WebGL or JavaScript.
 
-![Spring 2019: Glitch Effect](./img/1vF.distortion-site_glitch-effect.gif)
+![Spring 2019: Glitch Effect](https://res.cloudinary.com/henry-codes/image/upload/v1735169307/distortion-site_glitch-effect_khzika.gif)
 
 - I rewrote most of the copy for my updated brand for this iteration. My priorities and recent work are much different than they were, so this needed a big overhaul.
 
@@ -73,10 +73,10 @@ I meant to progressively update the project to get it closer to the mockup, but 
 
 **So we go again!** This time with 100% more Goth, 100% more Swiss typography, 100% more unecessary vaporwave-inspired Roman statuary.
 
-![Summer 2019: Index Page](./img/5ax.blackletter-site_index.png)
+![Summer 2019: Index Page](https://res.cloudinary.com/henry-codes/image/upload/v1735169307/blackletter-site_index_bpbnbz.png)
 _Bam!_{.editors-note}
 
-![Summer 2019: About Page](./img/3YH.blackletter-site_about.png)
+![Summer 2019: About Page](https://res.cloudinary.com/henry-codes/image/upload/v1735169307/blackletter-site_about_dyel8r.png)
 _Zowie!_{.editors-note}
 
 > Look at that subtle off-white coloring. The tasteful thickness of it — oh my god..._it even has a watermark_.
@@ -114,7 +114,7 @@ Getting **THREE.js** and **WebGL** elements implemented and interactive was a wh
 
 I didn't initially design for this, but I thought it'd be a fun little Easter egg to retrofit a dark mode that persists when you revisit the site. I just created a toggle that loads whether dark mode is enabled from state, and then stashes state to the user's LocalStorage. To handle the actual re-theming, I just changed the values of some key CSS variables that the site's stylesheet inherits, easy-peasy:
 
-![Summer 2019 — Experience page screenshot with dark mode activated.](./img/1rQ.Portfolio_Summer_2019_-_Experience_Page__Dark_Mode.jpg)
+![Summer 2019 — Experience page screenshot with dark mode activated.](https://res.cloudinary.com/henry-codes/image/upload/v1735169304/Portfolio_Summer_2019_-_Experience_Page__Dark_Mode_fqmaeh.jpg)
 
 ### Highlights
 

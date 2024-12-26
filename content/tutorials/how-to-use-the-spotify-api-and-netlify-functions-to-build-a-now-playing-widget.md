@@ -14,9 +14,9 @@ templateEngineOverride: "md"
 
 I recently\* built this really cool feature for my personal website that allows me to use Netlify Functions to show my most-recently-listened-to tracks from Spotify.
 
-![Spotify Widget live on my current site](./img/4zx.Henry_Desroches___Creative_Developer___UX_Engineer.png)
+![Spotify Widget live on my current site](https://res.cloudinary.com/henry-codes/image/upload/v1735169296/Henry_Desroches___Creative_Developer___UX_Engineer_yvgmyh.png)
 
-It wasn't recently, it was in July, please don't look behind the curtain.{.editors-note}
+It wasn't recently, it was in July 2020, please don't look behind the curtain.{.editors-note}
 
 It’s an easy way to show some personality, and mostly just an excuse to get friendly with Netlify Functions. While the authorization flow for Spotify’s API initially threw me for a bit of a loop, this became a really fun way to spend an hour or two.
 
@@ -196,7 +196,7 @@ The end result that you’ll plug into Postman will be something like this:
 
 - <span style="hyphens:auto;">`Authorization`: `Basic andThenTheLongbase64StringThatProbablyEndsWithAnEqualsSign=`</span>
 
-![Postman Request 2](./img/7Da.Postman.png)
+![Postman Request 2](https://res.cloudinary.com/henry-codes/image/upload/v1735169299/Postman_2_pvbbxy.png)
 
 If you've made it this far, I'm so unbelievably proud of you. This part felt really convoluted and confusing to me when I did it. You're doing great. You're 10x the developer I'll ever be.{.editors-note}
 
@@ -206,7 +206,7 @@ Next, we can move on to the Body tab of the request, and enter the following par
 - `code`: We'll set this one to the code we got back from the first request!
 - `redirect_uri`: Same as last time, we'll set this to the same local URL (`http://localhost:8888/.netlify/functions/callback`)
 
-![Postman Request 3](./img/5A3.Postman.png)
+![Postman Request 3](https://res.cloudinary.com/henry-codes/image/upload/v1735169298/Postman_jp1qox.png)
 
 Now, we can run the request. We'll get back a block of JSON something like this:
 
@@ -254,7 +254,7 @@ SPOTIFY_REFRESH_TOKEN=AQC2kGL-HJ6QgonZju7rDTikEU5_g_F...
 
 Instead, when you deploy your site to Netlify, you'll add these variables to the Build & Deploy > Environment section in your Netlify dashboard:
 
-![A screenshot of the Netlify dashboard, and specifically the environment variables section.](./img/7yo.netlify-dashboard-environment.png)
+![A screenshot of the Netlify dashboard, and specifically the environment variables section.](https://res.cloudinary.com/henry-codes/image/upload/v1735169298/netlify-dashboard-environment_lbqom6.png)
 
 ### Creating Another Netlify Function
 
@@ -358,7 +358,7 @@ Hell yes, brother. Excellent work.
 
 As long as we didn't stop our Netlify Dev server, we ought to be able to go to `http://localhost:8888/.netlify/functions/spotify` in our browser and see a big dump of Spotify's response to our request.
 
-![A screenshot of the large JSON block that Spotify responds to our request with.](./img/xqz.spotify-dump.png)
+![A screenshot of the large JSON block that Spotify responds to our request with.](https://res.cloudinary.com/henry-codes/image/upload/v1735169297/spotify-dump_h5zazv.png)
 
 ### Data Cleanup
 
@@ -427,7 +427,7 @@ fetch("/.netlify/functions/spotify")
 
 Accessing our project via the Netlify Dev localhost URL ought to show us the results of that in the console:
 
-![A screenshot of the console.log'd results of our Netlify Function query.](./img/303.consolelog-results.png)
+![A screenshot of the console.log'd results of our Netlify Function query.](https://res.cloudinary.com/henry-codes/image/upload/v1735169298/consolelog-results_jrrfam.png)
 
 EZ.
 

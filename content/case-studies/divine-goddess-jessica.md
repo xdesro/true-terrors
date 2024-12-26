@@ -52,19 +52,19 @@ No, I hadn't switched to Figma/Framer X yet. Yes, I did almost immediately after
 
 DGJ has a veritable wealth of high-res, stunning photography content available to her — and her success is derived from being exclusive and unapproachable so I knew in designing a new solution I wanted to highlight as much of that content as possible, centering specifically content that featured exaggerated sense of scale, or a feeling of untouchability.
 
-![Divine Goddess Jessica - "Hungry For More" Section](./img/6LI.t.jpg)
+![Divine Goddess Jessica - "Hungry For More" Section](https://res.cloudinary.com/henry-codes/image/upload/v1735169304/t_wtijpa.jpg)
 
 ### Typography & Color
 
 DGJ's brand is expensive, empowered, and edgy. In light of this, I went with a dark color scheme, with rose gold accent colors to capture a luxurious, boudoir-like atmosphere. I chose display fonts like _Vogue_ and _Lemon Milk_ to imbue a sense of high fashion and exclusiveness, and deferred to the \[understated but classic\] _Garamond_ for body copy.
 
-![Divine Goddess Jessica - Homepage: Blurred](./img/2L9.Divine_Goddess_Jessica_-_Financial_Dominatrix.jpg)
+![Divine Goddess Jessica - Homepage: Blurred](https://res.cloudinary.com/henry-codes/image/upload/v1735169305/Divine_Goddess_Jessica_-_Financial_Dominatrix_zrbkgi.jpg)
 
 ### Layout
 
 Among her fans, DGJ encourages a "frenzy" of buying/viewing activity, and I wanted to capture this feeling of binging on the site. Platforms like Netflix and YouTube are both excellent at this kind of habit-forming, so I decided to mirror their layout a little bit, grabbing the side-mounted, iconographic navigation on larger screens, and featuring video content in a super-scrollable gallery-style format.
 
-![Divine Goddess Jessica - Watch Page:Blurred](./img/OuT.t.jpg)
+![Divine Goddess Jessica - Watch Page:Blurred](https://res.cloudinary.com/henry-codes/image/upload/v1735169305/t_2_ij4krl.jpg)
 
 ## Code
 
@@ -86,7 +86,7 @@ _(...and Sass for style, of course.)_
 
 So, I should probably mention at this point that I'm a die-hard [Netlify](https://www.netlify.com/) fangirl, and have been for a long time. They're consistently spearheading huge quality-of-life improvements for developer experience across the web. Deploying the project quickly (and redeploying every time there's a commit to the master branch on GitHub) is so painless and easy, I usually will set it up as soon as I `git commit -m "🎉 - init commit"`. It's free to deploy and set a custom domain.
 
-![Netlify dashboard for build & deploy settings.](./img/3rv.Build___deploy___Settings.jpg)
+![Netlify dashboard for build & deploy settings.](https://res.cloudinary.com/henry-codes/image/upload/v1735169303/Build___deploy___Settings_filxon.jpg)
 
 ### Forms
 

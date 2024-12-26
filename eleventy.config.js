@@ -1,7 +1,8 @@
-// const { exec } = require("child_process");
 import { EleventyRenderPlugin as pluginRender } from '@11ty/eleventy';
+import { eleventyImageTransformPlugin as pluginImage } from '@11ty/eleventy-img';
 import pluginWebc from '@11ty/eleventy-plugin-webc';
 // const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
 import slugify from '@sindresorhus/slugify';
 
 import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
@@ -19,6 +20,15 @@ import { JSDOM } from 'jsdom';
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRender);
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginImage, {
+    extensions: 'html',
+    formats: ['webp', 'jpeg'],
+    defaultAttributes: {
+      loading: 'lazy',
+      decoding: 'async',
+      sizes: 'auto',
+    },
+  });
 
   eleventyConfig.addPlugin(pluginWebc, {
     components: [
