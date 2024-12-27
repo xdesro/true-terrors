@@ -73,9 +73,6 @@ export const CaseEntryTransition = (transitioningView, mediaQueries) => {
 export const CaseExitTransition = (transitioningView, conditions) => {
   const exitTl = gsap.timeline({
     clearProps: true,
-    onStart() {
-      console.log('playing');
-    },
   });
   exitTl.to(
     '.case-header__logo, .case-header__title, .case-header__abstract, .case-header__meta, .table-of-contents, .article-content',

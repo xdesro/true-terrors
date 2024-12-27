@@ -16,6 +16,7 @@ window.mediaQueries = {};
 MatchMediaManager.add(({ conditions }) => {
   Object.assign(window.mediaQueries, conditions);
 });
+
 class DefaultRenderer extends Renderer {
   onEnter() {
     navManager.updateLink();
@@ -54,6 +55,7 @@ class DefaultRenderer extends Renderer {
     });
   }
 }
+
 const taxi = new Core({
   allowInterruption: true,
   links: 'a[href]:not([target]):not([href^="#"]):not([data-taxi-ignore])',
@@ -70,23 +72,24 @@ const taxi = new Core({
 
 taxi.setDefaultTransition('default');
 
-async function loadTransitions() {
-  return {
-    articleToArticle: (await import('./routes/ArticleToArticle')).default,
-    articleToHome: (await import('./routes/ArticleToHome')).default,
-    articleToWriting: (await import('./routes/ArticleToWriting')).default,
-    default: DefaultTransition,
-    homeToArticle: (await import('./routes/HomeToArticle')).default,
-    homeToCase: (await import('./routes/HomeToCase')).default,
-    homeToWork: (await import('./routes/HomeToWork')).default,
-    homeToWriting: (await import('./routes/HomeToWriting')).default,
-    workToCase: (await import('./routes/WorkToCase')).default,
-    workToHome: (await import('./routes/WorkToHome')).default,
-    writingToHome: (await import('./routes/WritingToHome')).default,
-    writingToArticle: (await import('./routes/WritingToArticle')).default,
-    writingToWriting: (await import('./routes/WritingToWriting')).default,
-  };
-}
+const loadTransitions = async () => ({
+  articleToArticle: (await import('./routes/ArticleToArticle')).default,
+  articleToHome: (await import('./routes/ArticleToHome')).default,
+  articleToWriting: (await import('./routes/ArticleToWriting')).default,
+  articleToWriting: (await import('./routes/ArticleToWriting')).default,
+  caseToWork: (await import('./routes/CaseToWork')).default,
+  caseToHome: (await import('./routes/CaseToHome')).default,
+  default: DefaultTransition,
+  homeToArticle: (await import('./routes/HomeToArticle')).default,
+  homeToCase: (await import('./routes/HomeToCase')).default,
+  homeToWork: (await import('./routes/HomeToWork')).default,
+  homeToWriting: (await import('./routes/HomeToWriting')).default,
+  workToCase: (await import('./routes/WorkToCase')).default,
+  workToHome: (await import('./routes/WorkToHome')).default,
+  writingToHome: (await import('./routes/WritingToHome')).default,
+  writingToArticle: (await import('./routes/WritingToArticle')).default,
+  writingToWriting: (await import('./routes/WritingToWriting')).default,
+});
 (async () => {
   const Transitions = await loadTransitions();
   for (const transitionName in Transitions) {
@@ -96,6 +99,9 @@ async function loadTransitions() {
   taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
   taxi.addRoute(`\/work`, '', 'workToHome');
   taxi.addRoute(`\/work`, `\/work\/.*`, 'workToCase');
+  taxi.addRoute(`\/work\/.*`, `\/work`, 'caseToWork');
+  taxi.addRoute(`/`, `\/work\/.*`, 'homeToCase');
+  taxi.addRoute(`/`, `\/(writing|notes)\/.*`, 'homeToArticle');
   taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
   taxi.addRoute(
     `\/(writing|notes)`,
@@ -109,11 +115,10 @@ async function loadTransitions() {
   );
   taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');
   taxi.addRoute(`\/(writing|notes)\/.*`, ``, 'articleToHome');
+  taxi.addRoute(`\/work\/.*`, ``, 'caseToHome');
   taxi.addRoute(
     `\/(writing|notes)\/.*`,
     `\/(writing|notes)\/.*`,
     'articleToArticle'
   );
-  taxi.addRoute(`/`, `\/(writing|notes)\/.*`, 'homeToArticle');
-  taxi.addRoute(`/`, `\/work\/.*`, 'homeToCase');
 })();
