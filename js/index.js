@@ -6,6 +6,7 @@ import Marquee from './Marquee';
 import Clock from './Clock';
 
 import DefaultTransition from './transitions/Default';
+import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 // import HomeToWorkTransition from './routes/HomeToWork';
 // import WorkToHomeTransition from './routes/WorkToHome';
 // import HomeToWritingTransition from './routes/HomeToWriting';
@@ -51,33 +52,7 @@ class DefaultRenderer extends Renderer {
       });
     }
 
-    const pageNavData = JSON.parse(
-      document.querySelector('#page-nav-data').textContent
-    );
-    const footerLinks = pageNavData?.footerLinks;
-    const footerBreadcrumbSection = document.querySelector(
-      '.footer__section--breadcrumb'
-    );
-    if (footerLinks && footerLinks.length > 1) {
-      footerBreadcrumbSection.classList.remove('footer__section--collapsed');
-      const footerBreadcrumbSlot = document.querySelector(
-        '.footer__breadcrumbs'
-      );
-      const footerTemplate = (links) => {
-        return links
-          .map(
-            (link) =>
-              `<a class="footer__breadcrumb${
-                link.isTitle ? ' footer__breadcrumb--title' : ''
-              }" href="${link.url}">${link.name}</a>`
-          )
-          .join('');
-      };
-      console.log(footerTemplate(footerLinks));
-      footerBreadcrumbSlot.innerHTML = footerTemplate(footerLinks);
-    } else {
-      footerBreadcrumbSection.classList.add('footer__section--collapsed');
-    }
+    updateFooterBreadcrumbs();
   }
   onEnterCompleted() {}
   onLeave() {}
@@ -112,6 +87,7 @@ async function loadTransitions() {
     articleToWriting: (await import('./routes/ArticleToWriting')).default,
     writingToWriting: (await import('./routes/WritingToWriting')).default,
     articleToHome: (await import('./routes/ArticleToHome')).default,
+    articleToArticle: (await import('./routes/ArticleToArticle')).default,
   };
 }
 (async () => {
@@ -139,4 +115,9 @@ async function loadTransitions() {
   );
   taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');
   taxi.addRoute(`\/(writing|notes)\/.*`, ``, 'articleToHome');
+  taxi.addRoute(
+    `\/(writing|notes)\/.*`,
+    `\/(writing|notes)\/.*`,
+    'articleToArticle'
+  );
 })();

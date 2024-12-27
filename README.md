@@ -24,6 +24,6 @@ bun run start:quiet
 - OpenGraph images service
 - Remove splitting.js dependency
 - Home-to-article route
-- Article-to-article route
+- ✅ Article-to-article route
 - ✅ Footer breadcrumbs
 - ✅ Twitter cards
