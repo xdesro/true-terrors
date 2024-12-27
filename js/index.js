@@ -5,17 +5,9 @@ import MatchMediaManager from './MatchMediaManager';
 import Marquee from './Marquee';
 import Clock from './Clock';
 
-import DefaultTransition from './transitions/Default';
 import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
-// import HomeToWorkTransition from './routes/HomeToWork';
-// import WorkToHomeTransition from './routes/WorkToHome';
-// import HomeToWritingTransition from './routes/HomeToWriting';
-// import WritingToHomeTransition from './routes/WritingToHome';
-// import WritingToArticleTransition from './routes/WritingToArticle';
-// import ArticleToWritingTransition from './routes/ArticleToWriting';
-// import WritingToWritingTransition from './routes/WritingToWriting';
-// import WorkToCaseTransition from './routes/WorkToCase';
-// import ArticleToHomeTransition from './routes/ArticleToHome';
+
+import DefaultTransition from './transitions/Default';
 
 window.navManager = new NavManager();
 history.scrollRestoration = 'manual';
@@ -24,7 +16,6 @@ window.mediaQueries = {};
 MatchMediaManager.add(({ conditions }) => {
   Object.assign(window.mediaQueries, conditions);
 });
-console.log('test');
 class DefaultRenderer extends Renderer {
   onEnter() {
     navManager.updateLink();
@@ -69,35 +60,38 @@ const taxi = new Core({
   renderers: {
     default: DefaultRenderer,
   },
-  transitions: {},
+  transitions: {
+    default: DefaultTransition,
+  },
   reloadJsFilter: (element) =>
     element.dataset.taxiReload !== undefined ||
     element.src.includes('codepen.io'),
 });
 
+taxi.setDefaultTransition('default');
+
 async function loadTransitions() {
   return {
+    articleToArticle: (await import('./routes/ArticleToArticle')).default,
+    articleToHome: (await import('./routes/ArticleToHome')).default,
+    articleToWriting: (await import('./routes/ArticleToWriting')).default,
     default: DefaultTransition,
+    homeToArticle: (await import('./routes/HomeToArticle')).default,
+    homeToCase: (await import('./routes/HomeToCase')).default,
     homeToWork: (await import('./routes/HomeToWork')).default,
     homeToWriting: (await import('./routes/HomeToWriting')).default,
-    workToHome: (await import('./routes/WorkToHome')).default,
     workToCase: (await import('./routes/WorkToCase')).default,
+    workToHome: (await import('./routes/WorkToHome')).default,
     writingToHome: (await import('./routes/WritingToHome')).default,
     writingToArticle: (await import('./routes/WritingToArticle')).default,
-    articleToWriting: (await import('./routes/ArticleToWriting')).default,
     writingToWriting: (await import('./routes/WritingToWriting')).default,
-    articleToHome: (await import('./routes/ArticleToHome')).default,
-    articleToArticle: (await import('./routes/ArticleToArticle')).default,
   };
 }
 (async () => {
   const Transitions = await loadTransitions();
-  console.log(Transitions);
-
   for (const transitionName in Transitions) {
     taxi.transitions[transitionName] = Transitions[transitionName];
   }
-  taxi.setDefaultTransition('default');
   taxi.addRoute('/', '/work', 'homeToWork');
   taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
   taxi.addRoute(`\/work`, '', 'workToHome');
@@ -120,4 +114,6 @@ async function loadTransitions() {
     `\/(writing|notes)\/.*`,
     'articleToArticle'
   );
+  taxi.addRoute(`/`, `\/(writing|notes)\/.*`, 'homeToArticle');
+  taxi.addRoute(`/`, `\/work\/.*`, 'homeToCase');
 })();

@@ -23,7 +23,9 @@ bun run start:quiet
 - Embed cards
 - OpenGraph images service
 - Remove splitting.js dependency
-- Home-to-article route
+- Consider speeding up transitions after first visit
+- ✅ Home-to-article route
+- ✅ Home-to-case route
 - ✅ Article-to-article route
 - ✅ Footer breadcrumbs
 - ✅ Twitter cards

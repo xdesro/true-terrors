@@ -117,7 +117,6 @@ export const WorkExitToCaseTransition = (
   const idxClicked = [
     ...transitioningView.querySelectorAll('.case-study-block'),
   ].findIndex((el) => el.querySelector('a') === target);
-  console.log(idxClicked);
   const title = transitioningView.querySelector('.page-header__title');
   if (title && !title.classList.contains('splitting')) {
     Splitting({ target: title, by: 'chars' });
