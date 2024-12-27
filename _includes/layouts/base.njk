@@ -57,9 +57,10 @@
     {% endrenderTemplate %}
     <div data-taxi class="router-target">
         <div data-taxi-view view={{ page.url }}>
+
         {{ content | safe }}
-        {% renderTemplate "webc", { backLink: backLink, backLinkText: backLinkText } %}
-            <page-nav-data :@back-link="backLink" :@back-link-text="backLinkText"></page-nav-data>
+        {% renderTemplate "webc", { backLink: backLink, backLinkText: backLinkText, footerLinks: footerLinks } %}
+            <page-nav-data :@back-link="backLink" :@back-link-text="backLinkText" :@footer-links="footerLinks"></page-nav-data>
         {% endrenderTemplate %}
         </div>
     </div>

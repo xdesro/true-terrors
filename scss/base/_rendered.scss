@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .rendered {
   font-family: $font-serif;
@@ -20,7 +20,7 @@
       line-height: 1;
       display: block;
       margin-block-end: 0.5em;
-      content: "0" counter(h2s);
+      content: '0' counter(h2s);
       color: $color-text-mid;
     }
   }
@@ -56,19 +56,21 @@
     color: $color-text-mid;
     border-inline-start: 0.5rem solid $color-border-light;
   }
-  > :is(.editors-note, .target-audience, .under-construction) {
+  > :is(.editors-note, .target-audience, .under-construction, .twitter-tweet) {
     margin-block: 2rem;
+    border-inline-start-color: var(--callout-color, #{$color-border-light});
   }
 }
 
 .editors-note,
 .target-audience,
-.under-construction {
+.under-construction,
+.twitter-tweet {
   font-family: $font-sans;
   display: block;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  padding-inline-start:.5rem;
+  padding-inline-start: 0.5rem;
   padding-inline-end: 1rem;
   color: $color-text-mid;
   border-left: 0.5rem solid $color-border-light;
@@ -95,20 +97,27 @@
   // margin-block: 3rem;
   // color: #777;
   &:before {
-    content: "Editor’s Note";
+    content: 'Editor’s Note';
   }
 }
 .target-audience {
-  border-left-color: currentColor;
+  --callout-color: currentColor;
   &:before {
-    content: "Target Audience";
+    content: 'Target Audience';
     // color: #777;
   }
 }
 .under-construction {
-  border-left-color: #ebcb8b;
+  --callout-color: #ebcb8b;
   &:before {
-    content: "🚧 Under Construction 🚧";
+    content: '🚧 Under Construction 🚧';
+    // color: #777;
+  }
+}
+.twitter-tweet {
+  --callout-color: hsl(204, 78%, 83%);
+  &:before {
+    content: '🐦 Tweet';
     // color: #777;
   }
 }

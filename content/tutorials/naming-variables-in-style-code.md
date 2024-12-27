@@ -9,13 +9,13 @@ category: resource
 topics: [design systems, css, scss]
 publishDate: 2020-12-10T13:00-07:00
 socialSharingImage: ./img/3od.Frame 7.png
-templateEngineOverride: "md"
 ---
 
 This morning, the atomic design <abbr title="greatest of all time">GOAT</abbr> [Brad Frost](https://bradfrost.com) Tweeted a question about variable naming for colors:
 
-<!-- TODO: Styles for Twitter embed -->
-<!-- <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Here&#39;s a fun one: what variable name would you define for `rgba(0,0,0,0.9);`?</p>&mdash; Brad Frost (@brad_frost) <a href="https://twitter.com/brad_frost/status/1337078734411722759?ref_src=twsrc%5Etfw">December 10, 2020</a></blockquote> <script webc:keep async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+<embed-twitter author="Brad Frost (@brad_frost)" permalink="https://twitter.com/brad_frost/status/1337078734411722759" date="December 10, 2020">
+    Here’s a fun one: what variable name would you define for `rgba(0,0,0,0.9);`?
+</embed-twitter>
 
 I drafted up a Tweet to answer this, but it ended up being closer to five Tweets, so I figured it might just work better for me to do a tiny blog post instead of a big, noisy thread.
 

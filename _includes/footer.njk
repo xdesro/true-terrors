@@ -1,7 +1,7 @@
 <footer class="footer themed dark">
         <nav class="footer__nav">
-            {% if footerLinks.length > 1 %}
-            <section class="footer__section footer__section--breadcrumb">
+            {# {% if footerLinks.length > 1 %} #}
+            <section class="footer__section footer__section--breadcrumb{% if footerLinks.length <= 1 %} footer__section--collapsed{% endif %}">
                 <div class="footer__meta-title">You are here</div>
                 <div class="footer__breadcrumbs">
                     {% for link in footerLinks %}
@@ -9,7 +9,7 @@
                     {% endfor %}
                 </div>
             </section>
-            {% endif %}
+            {# {% endif %} #}
             <section class="footer__section">
                 <div class="footer__meta-title">✷ SS24</div>
                 <a class="footer__link" href="#">Home</a>

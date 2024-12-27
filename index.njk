@@ -6,8 +6,7 @@ footerLinks: false
 ---
 {% from './_includes/article-block.njk' import articleBlock %}
 
-
-{% renderTemplate 'webc', {site: site, recentListening: recentListening, social: social,caseStudies: collections['case study']} %}
+{% renderTemplate 'webc', {site: site, recentListening: recentListening, social: social, caseStudies: collections['case study'], collections:collections} %}
 <home-hero :@recent-listening="recentListening" :@site="site"></home-hero>
 <home-letter></home-letter>
 <home-about :@social="social"></home-about>

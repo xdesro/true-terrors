@@ -1,0 +1,50 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.embed {
+  &--twitter {
+    margin-block-end: 1lh;
+    max-width: 60ch;
+  }
+  &__icon {
+    max-width: 1.5rem;
+    color: currentColor;
+    color: #1da1f2;
+  }
+  &__header {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1.5rem 1fr auto;
+    align-items: center;
+    margin-block-end: 1.5rem;
+  }
+  &__author {
+    font-family: $font-sans;
+    font-weight: bold;
+    line-height: 1;
+    display: inline-block;
+    color: $color-text-mid;
+  }
+  &__date {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: $color-text-mid;
+  }
+  > blockquote {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-block-end: 1rem;
+  }
+  &__footer {
+    font-size: 0.75rem;
+
+    font-family: $font-sans;
+    font-style: normal;
+    // text-align: right;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: $color-text-mid;
+  }
+}

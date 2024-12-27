@@ -34,6 +34,7 @@
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.2.0",
     "markdown-it-mathjax3": "^4.3.2",
+    "markdown-it-prism": "^2.3.0",
     "sass": "^1.80.1",
     "simplex-noise": "^4.0.3"
   },

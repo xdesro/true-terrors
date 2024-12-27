@@ -1,6 +1,4 @@
 <script webc:setup>
-    // console.log('test');
-
     function getTime() {
         return new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     }

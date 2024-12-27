@@ -16,7 +16,7 @@ export default {
     ],
   },
   hasToc: true,
-  layout: 'layouts/_article.webc',
+  layout: 'layouts/_article.njk',
   tags: ['article'],
-  templateEngineOverride: 'md',
+  templateEngineOverride: 'md, webc',
 };

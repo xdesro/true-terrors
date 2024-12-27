@@ -36,13 +36,11 @@ class CaseWaterfall {
       const rowLogoWidth = rowLogo.getBoundingClientRect().width;
 
       if (row.classList.contains('case-study-row--coming-soon')) {
-        console.log('oh shit');
         row.style.setProperty('--coming-soon-width', `${rowTitleWidth}px`);
       }
 
       const wavedCoords = this.getWavedCoords(idx);
 
-      console.log(wavedCoords);
       row.style.paddingLeft = 0;
       MatchMediaManager.add(({ conditions }) => {
         const { isMobile } = conditions;
@@ -63,9 +61,6 @@ class CaseWaterfall {
       gsap
         .timeline({
           autoRemoveChildren: true,
-          onComplete() {
-            console.log('complete');
-          },
         })
         .to(row, {
           '--factor': mapRange(

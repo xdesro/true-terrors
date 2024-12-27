@@ -22,7 +22,6 @@ history.scrollRestoration = 'manual';
 window.mediaQueries = {};
 MatchMediaManager.add(({ conditions }) => {
   Object.assign(window.mediaQueries, conditions);
-  console.log(window.mediaQueries);
 });
 console.log('test');
 class DefaultRenderer extends Renderer {
@@ -50,6 +49,34 @@ class DefaultRenderer extends Renderer {
         wrapperEl: document.querySelector('.home-about__marquee'),
         listEl: document.querySelector('.home-about__marquee-inner'),
       });
+    }
+
+    const pageNavData = JSON.parse(
+      document.querySelector('#page-nav-data').textContent
+    );
+    const footerLinks = pageNavData?.footerLinks;
+    const footerBreadcrumbSection = document.querySelector(
+      '.footer__section--breadcrumb'
+    );
+    if (footerLinks && footerLinks.length > 1) {
+      footerBreadcrumbSection.classList.remove('footer__section--collapsed');
+      const footerBreadcrumbSlot = document.querySelector(
+        '.footer__breadcrumbs'
+      );
+      const footerTemplate = (links) => {
+        return links
+          .map(
+            (link) =>
+              `<a class="footer__breadcrumb${
+                link.isTitle ? ' footer__breadcrumb--title' : ''
+              }" href="${link.url}">${link.name}</a>`
+          )
+          .join('');
+      };
+      console.log(footerTemplate(footerLinks));
+      footerBreadcrumbSlot.innerHTML = footerTemplate(footerLinks);
+    } else {
+      footerBreadcrumbSection.classList.add('footer__section--collapsed');
     }
   }
   onEnterCompleted() {}

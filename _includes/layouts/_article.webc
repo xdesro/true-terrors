@@ -34,7 +34,7 @@ bodyClass: "article"
         <img webc:if="hasTOC" alt="" src="/img/cdf-landscape.png" class="article-header__image">
 </header>
 
-<article class="article-content rendered" @raw="content"></article>
+<article class="article-content rendered" @html="content"></article>
 
 <!-- TODO: Why doesn't the `getNextCollectionItem` filter work in webc lol -->
 <template webc:type="11ty" 11ty:type="njk,md">

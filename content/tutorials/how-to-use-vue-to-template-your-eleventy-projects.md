@@ -148,7 +148,7 @@ We'll create a file `index.vue` at the base of our app.
 
 The way the `eleventy-plugin-vue` works is by simply rendering the `<template>` tag and making that the `content` data property in the Eleventy cascade, and in the same stroke using the Vue `data` object as additional page data. Your page should look something like this:
 
-![A screenshot of the website being coded so far, featuring a headline, active title tag, and some list items.](./img/7BE.CleanShot 2021-12-16 at 16.34.32@2x.png)
+![A screenshot of the website being coded so far, featuring a headline, active title tag, and some list items.](https://res.cloudinary.com/henry-codes/image/upload/v1735169285/CleanShot_2021-12-16_at_16.34.32_2x_qcryye.png)
 
 Here, we used Vue iteration to turn an array of strings into an unordered list. You'll even notice that the `layout.html` file automatically used the `title` data property as the title of the page. Nice work on this one, really just top notch work.
 
@@ -352,7 +352,7 @@ We can also, should we so desire, add the `scoped` attribute to our style tag to
 
 I avoid doing so because it's a bunch of extra specificity and for what?{.editors-note}
 
-![A screenshot of the website being coded, and it is clear that the CSS written in the previous step is actually being rendered in the site.](./img/3zR.CleanShot 2021-12-17 at 17.18.30@2x.png)
+![A screenshot of the website being coded, and it is clear that the CSS written in the previous step is actually being rendered in the site.](https://res.cloudinary.com/henry-codes/image/upload/v1735169284/CleanShot_2021-12-17_at_17.18.30_2x_rdgen8.png)
 
 Everything ought to be workin' just fine now. Nice work there, my friend, really just tremendous.
 

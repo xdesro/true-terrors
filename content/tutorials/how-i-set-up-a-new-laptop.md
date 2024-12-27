@@ -34,7 +34,7 @@ Right off the bat I'll kick open a Terminal window and install Homebrew, which i
 
 The install steps that Homebrew asks for change over time, so your best bet is to [visit the Homebrew website and follow their directions](https://brew.sh/), but at the time of writing, the standard way of installing is a shell command:
 
-```zsh
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 

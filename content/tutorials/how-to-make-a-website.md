@@ -20,6 +20,7 @@ I got an email recently from a kind online friend who said they thought my work 
 
 It's fine if you disagree with me on these things — let me know by email what great sins I have committed against thee and I shall dearly repent :){.editors-note}
 
+
 ## TL;DR
 
 Write meaningful HTML that communicates the structure of your document before any style or additional interactivity has loaded. Write CSS carefully, reason your methodology and stick to it, and feel empowered to skip frameworks. When it comes time to write JavaScript, write not too much, make sure you know what it all does, and above all, make sure the website works without it.
@@ -56,7 +57,7 @@ I usually use either Nunjucks or Vue for template logic as they're both extremel
 
 Nunjucks is a first-class citizen in 11ty, but I've also written a (possibly slightly out-of-date) guide on [using Vue templates in 11ty](https://henry.codes/writing/how-to-use-vue-to-template-your-eleventy-projects).
 
-<!-- <test-component></test-component> -->
+<div @text=""></div>
 
 📯{.editors-note}
 

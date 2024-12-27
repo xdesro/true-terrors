@@ -1,9 +1,18 @@
-<!-- <div @raw="postUrl"></div> -->
-<!-- <div @raw="posts.find(post => post.outputPath && post.outputPath.includes(postUrl)).data.title"></div> -->
-<div @raw="thisTitle"></div>
+<script webc:type="js">
 
-<!-- <pre @raw=""></pre> -->
-<article class="article-block{% if isFeatured %} article-block--featured themed dark{% endif %}">
+    // Grab the `collections.posts` and filter by the `urlFragment` passed as an attribute
+    const { collections } = this.$data;
+    const { urlFragment } = this.webc.attributes;
+    // const {urlFragment}
+
+    // const { collections, urlFragment } = props;
+    const matchingPost = collections.all.find(post => {
+        return post.outputPath ? post.outputPath.includes(urlFragment) : false
+        return false
+    });
+    // JSON.stringify(Object.keys(matchingPost))
+
+    `<article class="article-block{% if isFeatured %} article-block--featured themed dark{% endif %}">
     <dl class="article-block__meta">
         <div>
             <dt class="visually-hidden">Category</dt>
@@ -18,7 +27,7 @@
             </dd>
         </div>
     </dl>
-    <h1 class="article-block__title">{{ article.data.title }}</h1>
+    <h1 class="article-block__title" @text="matchingPost.data.title">{{ article.data.title }}</h1>
     <dl class="article-block__meta">
         <div>
             <dt class="visually-hidden">Reading Time</dt>
@@ -32,4 +41,6 @@
         </div>
     </dl>
     <a class="article-block__link" :href="url">Read more →</a>
-</article>
+</article>`
+    // `test`
+</script>

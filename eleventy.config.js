@@ -1,16 +1,17 @@
+// import { exec } from 'child_process';
 import { EleventyRenderPlugin as pluginRender } from '@11ty/eleventy';
 import { eleventyImageTransformPlugin as pluginImage } from '@11ty/eleventy-img';
 import pluginWebc from '@11ty/eleventy-plugin-webc';
 // const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-
 import slugify from '@sindresorhus/slugify';
 
-import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+// import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 
 import markdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItAttr from 'markdown-it-attrs';
 import markdownItMathJax from 'markdown-it-mathjax3';
+import markdownItPrism from 'markdown-it-prism';
 
 import { JSDOM } from 'jsdom';
 
@@ -19,7 +20,6 @@ import { JSDOM } from 'jsdom';
  */
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRender);
-  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginImage, {
     extensions: 'html',
     formats: ['webp', 'jpeg'],
@@ -33,9 +33,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginWebc, {
     components: [
       './_components/**/*.webc',
-      'npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc',
+      // 'npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc',
     ],
   });
+  // eleventyConfig.addPlugin(syntaxHighlight);
+
   //   eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-syntaxhighlight"));
 
   //   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -52,16 +54,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./img');
   eleventyConfig.addPassthroughCopy('./functions');
 
-  //   eleventyConfig.on("eleventy.beforeWatch", (changedFiles) => {
-  //     if (!changedFiles.some((filePath) => filePath.includes("_components"))) {
-  //       console.log("🤠 Component files updated -- coercing layout reload.");
-  //       exec("find _components/*.webc -type f -exec touch {} +");
-  //     }
-  //   });
+  // eleventyConfig.on('eleventy.beforeWatch', (changedFiles) => {
+  //   if (!changedFiles.some((filePath) => filePath.includes('_components'))) {
+  //     console.log('🤠 Component files updated -- coercing layout reload.');
+  //     exec('find _components/*.webc -type f -exec touch {} +');
+  //   }
+  // });
 
   eleventyConfig.addFilter('getTOC', (md) => {
     const { document } = new JSDOM(md).window;
-    // console.log(JSON.stringify(dom.window.document))c
     const h2s = [...document.querySelectorAll('h2')];
     const tocData = h2s.map((h2) => {
       if (h2.textContent) {
@@ -147,14 +148,17 @@ export default function (eleventyConfig) {
   });
 
   // eleventyConfig.addTransform('fixInlineStyle', async function (content) {
-  // if (this.outputPath && this.outputPath.split('.').pop() === 'html') {
-  //   console.log('content is transformable here');
-  //   content.replace('&amp;', '&');
-  // }
-  // return content;
-  // return this.outputPath.split('.').pop() === 'html'
-  //   ? content.replace(/&gt;/g, '>')
-  //   : content;
+  //   const isAWritingPage =
+  //     this.outputPath &&
+  //     this.outputPath.split('.').some((str) => str.includes('writing'));
+  //   if (isAWritingPage) {
+  //     content = content
+  //       .replaceAll(/&amp(?:<span[^>]*>)?;?/gm, '&')
+  //       .replaceAll('&amp;;', '&')
+  //       .replaceAll(/&gt;/g, '>');
+  //   }
+  //   // console.log(content);
+  //   return content;
   // });
 
   eleventyConfig.setLibrary(
@@ -168,10 +172,9 @@ export default function (eleventyConfig) {
         chtml: { displayAlign: 'left' },
       })
       .use(markdownItAttr)
-      //       .use(require("markdown-it-implicit-figures"))
       .use(markdownItAnchor, {
         slugify,
       })
-    //     // .use(require("markdown-it-header-sections"))
+      .use(markdownItPrism)
   );
 }
