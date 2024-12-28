@@ -14,9 +14,13 @@ export default {
       { name: 'Articles', url: '/writing' },
       { name: data.title, url: data.url, isTitle: true },
     ],
-    og: ({ slug }) => {
+    og: function ({ title, slug }) {
+      let slugged = slug;
+      if (!slug) {
+        slugged = this.slugify(title);
+      }
       // TODO dev.henry.codes
-      const ogTargetUrl = `https://dev.henry.codes/opengraph/${slug}`;
+      const ogTargetUrl = `https://dev.henry.codes/opengraph/writing/${slugged}`;
       const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
         ogTargetUrl
       )}/opengraph`;
