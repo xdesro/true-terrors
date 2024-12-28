@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ pageTitle }}</title>
-    <meta name="description" content="The personal site and portfolio of creative web developer Henry from Online" />
+    <meta name="description" content="The personal site & portfolio of creative web developer Henry from Online" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
@@ -22,6 +22,14 @@
     <meta name="theme-color" content="#F5F5F5" />
     <meta name="generator" content="eleventy">
 
+    <meta property="og:url" content="https://henry.codes">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Henry From Online">
+    <meta property="og:description" content="The personal site & portfolio of creative web developer Henry from Online">
+    {%- if og -%}
+        <meta property="og:image" content="{{ og }}">
+    {%- endif -%}
+
     <!-- Indieweb -->
     <link rel="authorization_endpoint" href="https://indieauth.com/auth">
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
@@ -32,7 +40,6 @@
 
     <!-- Aperture -->
     <link rel="microsub" href="https://aperture.p3k.io/microsub/816">
-    {# {{ page.url | dump }} #}
 
     {% renderTemplate "webc"%}
         <template webc:nokeep webc:if="page.url === '/'">
