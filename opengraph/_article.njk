@@ -1,0 +1,16 @@
+---
+pagination:
+  data: "collections.article"
+  size: 1
+  alias: "article"
+layout: "layouts/og.njk"
+permalink: "/opengraph/{{ article.url }}"
+---
+<div class="container">
+  <p class="intro">A {{ article.data.category }} from the precarious desk of <span class="author">Henry (From Online)</span></p>
+  <h1>{{ article.data.title  }}</h1>
+</div>
+<div class="tags">{%- for topic in article.data.topics -%}{{ topic }}{% if not loop.last %} | {% endif %}{%- endfor -%}</div>
+{% include 'graphics/crown.svg' %}
+{# <h2>{{ post.date | timezonedDate(post.gps) }}</h2>
+<pre>{{ post.templateContent | safe }} </pre> #}

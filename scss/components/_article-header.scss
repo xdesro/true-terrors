@@ -101,15 +101,23 @@
     // list-style: none;
     padding: 0;
   }
-  picture:has(.article-header__image) {
+  picture:has(.article-header__image),
+  &__canvas-wrapper {
     border: 2px solid $color-text;
     border-radius: $bdrs;
     overflow: hidden;
+    position: relative;
+    canvas {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      inset-inline: 0;
+    }
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: bottom center;
+      object-position: center center;
     }
 
     @include screen(sm) {
@@ -117,8 +125,8 @@
       grid-row: 4;
       width: 100%;
       height: 12rem;
-      object-fit: cover;
-      object-position: bottom center;
+      // object-fit: cover;
+      // object-position: bottom center;
     }
     @include screen(lg) {
       height: 14rem;
