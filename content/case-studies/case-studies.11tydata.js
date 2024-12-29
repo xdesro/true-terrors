@@ -16,6 +16,18 @@ export default {
         description: abstract && abstract,
       };
     },
+    og: function ({ title, slug }) {
+      let slugged = slug;
+      if (!slug) {
+        slugged = this.slugify(title);
+      }
+      // TODO dev.henry.codes
+      const ogTargetUrl = `https://dev.henry.codes/opengraph/work/${slugged}`;
+      const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
+        ogTargetUrl
+      )}/opengraph`;
+      return ogScreenshotUrl;
+    },
     footerLinks: (data) => [
       ...data.footerLinks,
       { name: 'Case Studies', url: '/work' },
