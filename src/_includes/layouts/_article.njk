@@ -3,6 +3,8 @@ layout: "layouts/base.njk"
 bodyClass: "article"
 ---
 {% from '../article-block.njk' import articleBlock %}
+{% set nextPost = collections.article | getNextCollectionItem %}
+{% set prevPost = collections.article | getPreviousCollectionItem %}
 
 <header class="article-header">
     <div class="article-header__inner container">
@@ -36,39 +38,24 @@ bodyClass: "article"
     {% if hasToc %}
         {% set toc = content | getTOC %}
         {% include 'table-of-contents.njk' %}
-        <img alt="" src="/img/cdf-landscape.png" class="article-header__image">
+        <img alt="" src="/img/milan-cover-photo.jpg" class="article-header__image">
     {% endif %}
 </header>
 
-<article class="article-content rendered" @html="content">
+<article class="article-content rendered">
     {{ content | safe }}
 </article>
 
-{% set nextPost = collections.article | getNextCollectionItem %}
-{% set prevPost = collections.article | getPreviousCollectionItem %}
 {% if nextPost or prevPost %}
-    <aside class="further-reading container">
-        <h2>Further Reading</h2>
-        {% if nextPost %}
-            {{ articleBlock(nextPost) }}
-        {% else %}
-            {{ articleBlock(prevPost) }}
-        {% endif %}
-    </aside>
-{% endif %}
+    <!-- TODO: Next post doesn't work with webC -->
+        <aside class="further-reading container">
+            <h2>Further Reading</h2>
+            {% if nextPost %}
+                {{ articleBlock(nextPost) }}
+            {% else %}
+                {{ articleBlock(prevPost) }}
+            {% endif %}
+        </aside>
+    {% endif %}
 
-<!-- TODO: Next post doesn't work -->
-<!-- <script webc:setup>
-    console.log(this.page)
-    const nextPost = this.getNextCollectionItem(collections.article, this.page);
-</script>
-
-<div class="article__next">
-    <article class="card">
-        <h1 class="card__title card__title--small card__title--compact" @text="nextPost.data.title"></h1>
-        <p class="card__content" @text="nextPost.data.excerpt"></p>
-        <a :href="nextPost.url" class="card__link">Read More →</a>
-    </article>
-</div> -->
-
-<!-- <template webc:nokeep @raw="this.getNextCollectionItem(collections.articles)"></template> -->
+    {# <script data-taxi-reload type="module" src="/js/article.js"></script> #}

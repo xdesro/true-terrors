@@ -29,7 +29,7 @@ Write meaningful HTML that communicates the structure of your document before an
 
 HTML is meant to communicate document structure and information, and it does a really good job of doing that if you let it. Before starting the styling steps of any project, I write all of my pages out from a content document or design file completely in HTML. I find this reveals a lot about interactions that need to be considered and information architecture that isn't quite ready for prime time. Even if I'm using some SPA framework, I'll still start by communicating the entire document with HTML alone, because I've found it's that much clearer when it’s time to break the markup into whatever the component style _du jour_ happens to be.
 
-Get creative with tagging. There's a world beyond `<div>`s and `<span>`s (_though sometimes these are exactly what you need_) — don't forget about the `<main>`s and `<section>`s and `<aside>`s for laying out content, and the `<time>`s or `<abbr>`s or `<dl>`s for communicating more complex data. Spend some time reading about elements in MDN, or even the HTML spec. Let yourself discover the breadth of the language. Every week you'll discover something new you could've been using this whole time.
+Get creative with tagging. There's a world beyond `<div‍>`s and `<span>`s (_though sometimes these are exactly what you need_) — don't forget about the `<main>`s and `<section>`s and `<aside>`s for laying out content, and the `<time>`s or `<abbr>`s or `<dl>`s for communicating more complex data. Spend some time reading about elements in MDN, or even the HTML spec. Let yourself discover the breadth of the language. Every week you'll discover something new you could've been using this whole time.
 
 Don't worry about class attributes just yet, but do worry about semantic attributes like those needed to make a `<form>` work properly. We'll hydrate our markup with CSS as needed; now's a good time to be certain our website is bulletproof from a semantics perspective.
 
@@ -56,8 +56,6 @@ These days (late 2022, early 2023) I primarily use 11ty to build websites, becau
 I usually use either Nunjucks or Vue for template logic as they're both extremely similar to HTML (abstraction is the devil). I default to the former for simpler projects with less data massaging or for projects with collaboration with non-Vue developers. 11ty makes Vue feel great — I can write filters and computed data and interpolations without serving any client-side Javascript to users.
 
 Nunjucks is a first-class citizen in 11ty, but I've also written a (possibly slightly out-of-date) guide on [using Vue templates in 11ty](https://henry.codes/writing/how-to-use-vue-to-template-your-eleventy-projects).
-
-<div @text=""></div>
 
 📯{.editors-note}
 
@@ -206,3 +204,4 @@ Candidly, I hope this hasn't felt too pedantic or peremptory. Websites are fun, 
 - The [WCAG Spec](https://www.w3.org/TR/WCAG20/)
 - [Responsible Javascript](https://abookapart.com/products/responsible-javascript), by Jeremy Wagner
 - Andy Bell's [Be The Browser's Mentor, Not Its Micromanager](https://buildexcellentwebsit.es/)
+

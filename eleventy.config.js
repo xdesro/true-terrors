@@ -32,7 +32,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginWebc, {
     components: [
-      './_components/**/*.webc',
+      './src/_components/**/*.webc',
       // 'npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc',
     ],
   });
@@ -43,16 +43,16 @@ export default function (eleventyConfig) {
   //   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   //   eleventyConfig.addWatchTarget("./_components/*");
-  eleventyConfig.addWatchTarget('./scss/**/*');
-  eleventyConfig.addWatchTarget('./js/**/*');
+  eleventyConfig.addWatchTarget('./src/scss/**/*');
+  eleventyConfig.addWatchTarget('./src/js/**/*');
 
   //   eleventyConfig.addPassthroughCopy("./css");
   // eleventyConfig.addPassthroughCopy("./js");
-  eleventyConfig.addPassthroughCopy('./js/vendor', 'js');
-  eleventyConfig.addPassthroughCopy('./meta');
-  eleventyConfig.addPassthroughCopy('./fonts');
-  eleventyConfig.addPassthroughCopy('./img');
-  eleventyConfig.addPassthroughCopy('./functions');
+  eleventyConfig.addPassthroughCopy('./src/js/vendor', 'js');
+  eleventyConfig.addPassthroughCopy('./src/meta');
+  eleventyConfig.addPassthroughCopy('./src/fonts');
+  eleventyConfig.addPassthroughCopy('./src/img');
+  eleventyConfig.addPassthroughCopy('./src/functions');
 
   // eleventyConfig.on('eleventy.beforeWatch', (changedFiles) => {
   //   if (!changedFiles.some((filePath) => filePath.includes('_components'))) {
@@ -177,4 +177,10 @@ export default function (eleventyConfig) {
       })
       .use(markdownItPrism)
   );
+
+  return {
+    dir: {
+      input: 'src',
+    },
+  };
 }

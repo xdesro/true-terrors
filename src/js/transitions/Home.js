@@ -150,7 +150,9 @@ export const HomeExitTransition = (transitioningView, mediaQueries) => {
       target: desc,
       by: 'lines',
     });
-    desc.innerHTML = convertSplitElIntoLines(desc);
+    if (desc) {
+      desc.innerHTML = convertSplitElIntoLines(desc);
+    }
     exitTl
       .to('.segment--first .char', {
         y: '1em',

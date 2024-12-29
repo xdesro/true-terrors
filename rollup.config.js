@@ -4,7 +4,7 @@ import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 
 export default [
   {
-    input: ['js/index.js', 'js/home.js'],
+    input: ['src/js/index.js', 'src/js/home.js', 'src/js/article.js'],
     output: {
       dir: '_site/js',
       format: 'es',
@@ -14,19 +14,9 @@ export default [
       nodeResolve({ dedupe: ['gsap'] }),
       terser({ format: { comments: false } }),
       dynamicImportVars({
-        include: 'js/routes/**.js',
+        include: 'src/js/routes/**.js',
       }),
     ],
     // plugins: [nodeResolve(), dynamicImportVars()],
   },
-  // {
-  //   input: 'js/home.js',
-  //   output: {
-  //     dir: '_site/js',
-  //     format: 'es',
-  //     sourcemap: true,
-  //   },
-  //   plugins: [nodeResolve(), terser({ format: { comments: false } })],
-  //   // plugins: [nodeResolve()],
-  // },
 ];
