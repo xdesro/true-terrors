@@ -24,8 +24,12 @@ export default {
       const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
         ogTargetUrl
       )}/opengraph`;
-      console.log(ogScreenshotUrl);
       return ogScreenshotUrl;
+    },
+    meta: function ({ excerpt }) {
+      return {
+        description: excerpt && excerpt,
+      };
     },
   },
   hasToc: true,

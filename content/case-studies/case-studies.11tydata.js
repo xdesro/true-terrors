@@ -11,8 +11,10 @@ export default {
   briefAbstract: false,
   tocHasTitle: true,
   eleventyComputed: {
-    metaTitle: ({ title }) => {
-      return `${title} Case Study | Henry From Online`;
+    meta: function ({ abstract }) {
+      return {
+        description: abstract && abstract,
+      };
     },
     footerLinks: (data) => [
       ...data.footerLinks,

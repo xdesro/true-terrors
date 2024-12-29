@@ -18,6 +18,18 @@ export default {
       { name: 'Notes', url: '/notes' },
       { name: data.title, url: data.url, isTitle: true },
     ],
+    meta: function ({ topics }) {
+      const topicsList = topics.filter((topic) => {
+        return topic != 'code snippet';
+      });
+      const formattedList = new Intl.ListFormat('en', {
+        style: 'long',
+        type: 'conjunction',
+      }).format(topicsList);
+      return {
+        description: topics.length && `A quick note about ${formattedList}.`,
+      };
+    },
     og: function ({ title, slug }) {
       let slugged = slug;
       if (!slug) {

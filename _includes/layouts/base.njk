@@ -1,6 +1,6 @@
 {% set pageTitle = site.baseTitle %}
 {% if title %}
-    {% set pageTitle = pageTitle + ' | ' + title %}
+    {% set pageTitle = title + ' | ' + pageTitle %}
 {% endif %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +8,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if meta.title %}
+    <title>{{ meta.title }}</title>
+    {% else %}
     <title>{{ pageTitle }}</title>
+    {% endif %}
+    {% if meta.description %}
+    <meta name="description" content="{{ meta.description }}" />
+    {% else %}
     <meta name="description" content="The personal site & portfolio of creative web developer Henry from Online" />
+    {% endif %}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
@@ -25,7 +33,11 @@
     <meta property="og:url" content="https://henry.codes">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Henry From Online">
+    {% if meta.description %}
+    <meta property="og:description" content="{{ meta.description }}">
+    {% else %}
     <meta property="og:description" content="The personal site & portfolio of creative web developer Henry from Online">
+    {% endif %}
     {%- if og -%}
         <meta property="og:image" content="{{ og }}">
     {% else %}
@@ -53,7 +65,7 @@
     {% else %}
         <link rel="preload" href="/fonts/subset-Louizetrial.woff2" as="font" type="font/woff2" crossorigin />
     {% endif %}
-    
+
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
