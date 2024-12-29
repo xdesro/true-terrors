@@ -1,0 +1,19 @@
+---
+pagination:
+  data: "collections['case study']"
+  size: 1
+  alias: "case"
+layout: "layouts/og.njk"
+permalink: "/opengraph/{{ case.url }}"
+bodyClass: 'has-barbed-border'
+---
+{% from '../_includes/client-logo.njk' import clientLogo %}
+
+<div class="logo">
+    {{ clientLogo(title = case.data.title.toLowerCase()) }}
+</div>
+<div class="container container--centered">
+  <p class="intro intro--centered">A <span class="accent">case study</span> from the desk of <span class="accent">Henry (From Online)</span></p>
+  <h1 class="case-title">{{ case.data.title  }}</h1>
+</div>
+<div class="tags">{%- for category in case.data.categories -%}{{ category }}{% if not loop.last %} | {% endif %}{%- endfor -%}</div>

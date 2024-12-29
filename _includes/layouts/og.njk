@@ -14,7 +14,7 @@ crossorigin />
     <link rel="stylesheet" href="/css/og.css"></link>
 </head>
 
-<body{% if theme %} class="light"{% endif %}>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
     {{ content | safe }}
     <footer class="footer">
         <span class="season">✷ ver. fw24</span>

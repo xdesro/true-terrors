@@ -33,8 +33,28 @@ body {
     --color-background: #fafafa;
   }
 }
+.has-barbed-border {
+  background-image: url('/img/thorn-vertical-dark.svg');
+  background-repeat: repeat-y;
+  background-position-y: 50%;
+  background-size: 195px;
+  background-position-x: 24px;
+}
 .container {
   max-width: 1000px;
+  &--centered {
+    margin-inline: auto;
+  }
+}
+.logo {
+  max-width: 64px;
+  max-height: 64px;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  position: fixed;
+  top: 32px;
+  left: calc(2rem + 24px);
 }
 
 .intro {
@@ -44,6 +64,11 @@ body {
   .accent {
     color: $color-text;
   }
+  &--centered {
+    text-align: center;
+    // max-width: 800px;
+    margin-inline: auto;
+  }
 }
 h1 {
   font-family: $font-serif-display;
@@ -52,6 +77,11 @@ h1 {
   line-height: 1;
   margin: 0;
   text-wrap: balance;
+}
+.case-title {
+  font-size: 136px;
+  text-align: center;
+  line-height: 0.9;
 }
 .tags {
   font-size: 24px;
