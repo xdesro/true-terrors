@@ -28,6 +28,9 @@
     <meta property="og:description" content="The personal site & portfolio of creative web developer Henry from Online">
     {%- if og -%}
         <meta property="og:image" content="{{ og }}">
+    {% else %}
+    {# TODO dev.henry.codes #}
+        <meta property="og:image" content="https://dev.henry.codes/img/og-default.png">
     {%- endif -%}
 
     <!-- Indieweb -->
@@ -41,19 +44,16 @@
     <!-- Aperture -->
     <link rel="microsub" href="https://aperture.p3k.io/microsub/816">
 
-    {% renderTemplate "webc"%}
-        <template webc:nokeep webc:if="page.url === '/'">
-            <link rel="preload" href="/fonts/manuka-black.woff2" as="font" type="font/woff2" crossorigin />
-            <link rel="preload" href="/fonts/subset-LouizeDisplaytrial.woff2" as="font" type="font/woff2" crossorigin />
-            <link rel="preload" href="/fonts/subset-LouizeDisplaytrial-Italic.woff2" as="font" type="font/woff2" crossorigin />
-            <link rel="preload" href="/fonts/PPNeueMontreal-Book.woff2" as="font" type="font/woff2"
+    {% if page.url === '/' %}
+        <link rel="preload" href="/fonts/manuka-black.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/subset-LouizeDisplaytrial.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/subset-LouizeDisplaytrial-Italic.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/PPNeueMontreal-Book.woff2" as="font" type="font/woff2"
         crossorigin />
-        </template>
-        <template webc:nokeep webc:else> 
-            <link rel="preload" href="/fonts/subset-Louizetrial.woff2" as="font" type="font/woff2" crossorigin />
-        </template>
-    {% endrenderTemplate %}
-
+    {% else %}
+        <link rel="preload" href="/fonts/subset-Louizetrial.woff2" as="font" type="font/woff2" crossorigin />
+    {% endif %}
+    
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
