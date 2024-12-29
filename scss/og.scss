@@ -5,26 +5,33 @@ body {
   font-family: 'Neue Montreal', sans-serif;
   position: relative;
   display: grid;
-  grid-template-rows: 1fr 6rem;
   overflow: hidden;
+  grid-template-rows: 1fr 6rem;
   align-items: center;
-  min-height: 100vh;
   height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 24px;
-  color: #fafafa;
+  color: $color-text;
   //   color: #2a2722;
   border-inline-start: 24px solid #2a2722;
   //   background-color: var(--color-background);
-  background-color: #000;
+  background-color: var(--color-background);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --color-text: #2a2722;
-  --color-background: #fafafa;
+  --color-text: #fafafa;
+  --color-background: #000;
   --color-text-mid: #666;
   --color-border-mid: #bdbdbd;
   --color-border-light: #eee;
+  --color-background-art: #201d18;
+
+  &.light {
+    --color-text: #2a2722;
+    --color-background-art: #ebebeb;
+    --color-background: #fafafa;
+  }
 }
 .container {
   max-width: 1000px;
@@ -33,7 +40,10 @@ body {
 .intro {
   font-size: 24px;
   text-transform: uppercase;
-  color: #777;
+  color: $color-text-mid;
+  .accent {
+    color: $color-text;
+  }
 }
 h1 {
   font-family: $font-serif-display;
@@ -41,51 +51,37 @@ h1 {
   font-weight: normal;
   line-height: 1;
   margin: 0;
-  //   margin-block-start: 1lh;
   text-wrap: balance;
 }
-
-// .excerpt {
-//   font-family: $font-sans;
-//   font-size: 28px;
-//   font-style: normal;
-//   line-height: 1.3;
-//   margin-block-end: 0;
-//   color: $color-text-mid;
-// }
 .tags {
   font-size: 24px;
-  text-transform: uppercase;
-  //   color: $color-text-mid;
+  position: fixed;
   bottom: 2rem;
-  position: fixed;
   left: calc(2rem + 24px);
+  text-transform: uppercase;
 }
-svg {
-  max-height: calc(100vh - 64px);
-  height: 100%;
-  width: 100%;
+.background-art {
   position: fixed;
-
+  z-index: -1;
   inset: 0;
   top: 2rem;
-  z-index: -1;
-  color: #2a2722;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 64px);
+  color: var(--color-background-art);
+  svg {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
 }
 .footer {
   font-size: 24px;
   text-transform: uppercase;
   color: $color-text-mid;
 }
-.author {
-  color: #fafafa;
-}
-
-// .author {
-//   position: fixed;
-//   bottom: 2rem;
-//   left: calc(2rem + 24px);
-// }
 
 .season {
   position: fixed;

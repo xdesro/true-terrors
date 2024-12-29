@@ -7,10 +7,10 @@ layout: "layouts/og.njk"
 permalink: "/opengraph/{{ article.url }}"
 ---
 <div class="container">
-  <p class="intro">A {{ article.data.category }} from the precarious desk of <span class="author">Henry (From Online)</span></p>
+  <p class="intro">A <span class="accent">{{ article.data.category }}</span> from the precarious desk of <span class="accent">Henry (From Online)</span></p>
   <h1>{{ article.data.title  }}</h1>
 </div>
 <div class="tags">{%- for topic in article.data.topics -%}{{ topic }}{% if not loop.last %} | {% endif %}{%- endfor -%}</div>
-{% include 'graphics/crown.svg' %}
-{# <h2>{{ post.date | timezonedDate(post.gps) }}</h2>
-<pre>{{ post.templateContent | safe }} </pre> #}
+<div class="background-art">
+  {% include 'graphics/crown.svg' %}
+</div>
