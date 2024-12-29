@@ -21,9 +21,9 @@
             {# {% renderTemplate 'webc'%}
             {% endrenderTemplate %} #}
             {# {% renderTemplate 'webc', {title: caseStudy.data.title.toLowerCase(), class: 'case-study-row__logo' } %}
-            {# {{ clientLogo(title = caseStudy.data.title.toLowerCase(), class = 'case-study-row__logo') }} 
             <client-logo :title="title" :class="class"></client-logo>
             {% endrenderTemplate %} #}
+            {{ clientLogo(title = caseStudy.data.title.toLowerCase(), class = 'case-study-row__logo') }}  #}
             <div class="case-study-row__title-text">
                 <span class="case-study-row__half">{{- caseStudy.data.title.slice(0, caseStudy.data.titleSplitIndex) -}}
                 </span><span class="case-study-row__title-divider"></span><span class="case-study-row__half">

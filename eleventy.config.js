@@ -61,6 +61,12 @@ export default function (eleventyConfig) {
   //   }
   // });
 
+  eleventyConfig.addCollection('hosted case study', function (collectionsApi) {
+    return collectionsApi.getFilteredByTag('case study').filter((el) => {
+      return el.page.outputPath;
+    });
+  });
+
   eleventyConfig.addFilter('getTOC', (md) => {
     const { document } = new JSDOM(md).window;
     const h2s = [...document.querySelectorAll('h2')];

@@ -1,5 +1,5 @@
 <li>
-    <article :class="`case-study-row${caseStudy.viewTheWork ? ' case-study-row--coming-soon' : ''}`">
+    <article :class="`case-study-row${caseStudy.comingSoon ? ' case-study-row--coming-soon' : ''}`">
         <div class="case-study-row__inner">
             <div class="case-study-row__echoes" role="presentation" inert>
                 <span webc:for="n of [1,2,3]" class="case-study-row__echo" aria-hidden="true" @text="caseStudy.title">{{
@@ -18,7 +18,8 @@
                     @text="caseStudy.title"></span>
             </div>
         </div>
-        <a class="case-study-row__link" :href="`/work/${ this.slugify(caseStudy.title)}`">
+        <a class="case-study-row__link"
+            :href="caseStudy.viewTheWork ? caseStudy.link : `/work/${ this.slugify(caseStudy.title)}`">
             <span class="visually-hidden">Read the case study</span>
         </a>
     </article>
