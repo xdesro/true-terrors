@@ -1,5 +1,7 @@
 <li>
-    <article :class="`case-study-row${caseStudy.comingSoon ? ' case-study-row--coming-soon' : ''}`">
+    <article
+        :class="`case-study-row${caseStudy.comingSoon ? ' case-study-row--coming-soon' : ''}${caseStudy.viewTheWork ? ' case-study-row--external' : ''}`"
+        :style="`${ caseStudy.viewTheWorkText ?`--view-the-work: '(${caseStudy.viewTheWorkText})'` : '' }`">
         <div class="case-study-row__inner">
             <div class="case-study-row__echoes" role="presentation" inert>
                 <span webc:for="n of [1,2,3]" class="case-study-row__echo" aria-hidden="true" @text="caseStudy.title">{{
@@ -12,16 +14,17 @@
                     </span><span class="case-study-row__title-divider"></span><span class="case-study-row__half"
                         @text="caseStudy.title.slice(caseStudy.titleSplitIndex)"></span>
                 </div>
+                <a class="case-study-row__link"
+                    :href="caseStudy.viewTheWork ? caseStudy.link : `/work/${ this.slugify(caseStudy.title)}`">
+                    <span class="visually-hidden">Read the case study</span>
+                </a>
             </h1>
             <div class="case-study-row__echoes case-study-row__echoes--after" role="presentation" inert>
                 <span class="case-study-row__echo" aria-hidden="true" webc:for="n in [1,2,3,4,5]"
                     @text="caseStudy.title"></span>
             </div>
         </div>
-        <a class="case-study-row__link"
-            :href="caseStudy.viewTheWork ? caseStudy.link : `/work/${ this.slugify(caseStudy.title)}`">
-            <span class="visually-hidden">Read the case study</span>
-        </a>
+
     </article>
 
 </li>

@@ -4,6 +4,11 @@ import NavManager from './NavManager';
 import MatchMediaManager from './MatchMediaManager';
 import Marquee from './Marquee';
 import Clock from './Clock';
+import CaseWaterfall from './CaseWaterfall';
+
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 
@@ -21,13 +26,32 @@ class DefaultRenderer extends Renderer {
   onEnter() {
     navManager.updateLink();
     if (window.location.pathname === '/') {
+      // if (!window.caseWaterfall) {
+      //   window.caseWaterfall = new CaseWaterfall();
+      // }
+
       navManager.hide();
       document.body.classList.add('home');
+      MatchMediaManager.add(({ conditions }) => {
+        const { prefersReducedMotion } = conditions;
+        gsap.from('.home-about__title-inner', {
+          x: prefersReducedMotion ? 0 : '50vw',
+          scrollTrigger: {
+            trigger: '.home-about__title',
+            start: 'top bottom',
+            end: 'bottom center',
+            scrub: 1,
+          },
+        });
+      });
     } else {
       navManager.show();
       document.body.classList.remove('home');
     }
 
+    if (document.querySelector('.case-study-rows')) {
+      new CaseWaterfall();
+    }
     if (document.querySelector('[data-tag="currentTime"]')) {
       new Clock(document.querySelector('[data-tag="currentTime"]'));
     }
@@ -121,4 +145,6 @@ const loadTransitions = async () => ({
     `\/(writing|notes)\/.*`,
     'articleToArticle'
   );
+  // TODO dont fade for RSS links
+  // taxi.addRoute(`.*`, `\/(rss)\/.*`, false);
 })();

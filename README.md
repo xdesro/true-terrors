@@ -19,9 +19,9 @@ bun run start:quiet
 ```
 
 ## TODOS
-- ⏳ Ordered diffusion effect for header images
+- ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
 - Embed cards
-- Clearer indication of what happens when you click a case study link
+- ✅ Clearer indication of what happens when you click a case study link
 - Clearer delineation of reading list posts vs authored posts
 - ⏳ OpenGraph images service
 - Remove splitting.js dependency

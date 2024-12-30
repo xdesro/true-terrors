@@ -7,6 +7,7 @@ $transition: transform $duration ease-in;
 .case-study-rows {
   display: grid;
   overflow: hidden;
+  row-gap: 0.5ch;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   counter-reset: rows;
@@ -152,6 +153,24 @@ $transition: transform $duration ease-in;
     position: relative;
     width: 100%;
     white-space: nowrap;
+
+    --logo-spacing: 1em;
+    .case-study-row--external & {
+      &:after {
+        font-family: $font-sans;
+        font-size: 0.75rem;
+        position: absolute;
+        bottom: -0.35rem;
+        left: 0;
+        display: inline-block;
+        content: var(--view-the-work, '(external)');
+        text-transform: uppercase;
+        color: $color-text-mid;
+        @include screen(sm) {
+          bottom: -0.15rem;
+        }
+      }
+    }
   }
   &__echoes {
     position: absolute;
@@ -195,10 +214,14 @@ $transition: transform $duration ease-in;
   }
   &__link {
     position: absolute;
-    right: 0;
+    // right: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    transition: width $duration;
+    &:hover {
+      width: calc(100% + 3ch);
+    }
   }
   &__title-divider {
     position: absolute;
@@ -231,5 +254,17 @@ $transition: transform $duration ease-in;
         // transform: translateX(1.5ch);
       }
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-study-row * {
+    transform: none !important;
+  }
+  .case-study-row__title-divider {
+    display: none;
+  }
+  .case-study-row:has(a:hover) .case-study-row__title {
+    opacity: 0.5;
   }
 }
