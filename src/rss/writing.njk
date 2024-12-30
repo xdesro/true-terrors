@@ -1,0 +1,27 @@
+---json
+{
+    "layout": "layouts/rss.njk",
+    "eleventyExcludeFromCollections": true,
+    "permalink": "/rss/writing.xml",
+    "metadata": {
+        "title": "Writing from the desk of Henry (From Online)",
+        "description": "The personal site and portfolio of creative web developer Henry from Online",
+        "language": "en",
+        "base": "https://henry.codes/",
+        "author": {
+            "name": "Henry Desroches"
+        }
+    }
+}
+---
+{%- for post in collections.article | reverse %}
+{%- set absolutePostUrl = post.url | htmlBaseUrl(metadata.base) %}
+<item>
+    <title>{{ post.data.title }}</title>
+    <link>{{ absolutePostUrl }}</link>
+    <description>{{ post.content | renderTransforms(post.data.page, metadata.base) }}</description>
+    <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+    <dc:creator>{{ metadata.author.name }}</dc:creator>
+    <guid>{{ absolutePostUrl }}</guid>
+</item>
+{%- endfor %}

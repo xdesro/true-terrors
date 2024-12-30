@@ -1,0 +1,26 @@
+---json
+{
+  "permalink": "/writing.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Writing from the desk of Henry (From Online)",
+    "description": "The personal site and portfolio of creative web developer Henry from Online",
+    "language": "en",
+    "base": "https://henry.codes/",
+    "author": {
+      "name": "Henry Desroches"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.base | addPathPrefixToFullUrl }}</link>
+    <atom:link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>{{ metadata.language or page.lang }}</language>
+    {{ content | safe }}
+</channel>
+</rss>

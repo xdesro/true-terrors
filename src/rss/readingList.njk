@@ -1,0 +1,28 @@
+---json
+{
+    "permalink": "/rss/reading-list.xml",
+    "layout": "layouts/rss.njk",
+    "eleventyExcludeFromCollections": true,
+    "metadata": {
+        "title": "Reading from the blogroll of Henry (From Online)",
+        "description": "Recent favored articles on technology, philosophy, digital culture, and beyond.",
+        "language": "en",
+        "base": "https://henry.codes/",
+        "author": {
+            "name": "Henry Desroches"
+        }
+    }
+}
+---
+{%- for post in recentReading.posts %}
+{%- set absolutePostUrl = post.url | htmlBaseUrl(metadata.base) %}
+<item>
+    <title>{{ post.title }}</title>
+    <link>{{- post.url }}</link>
+    {% if post.date %}
+    <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+    {% endif %}
+    <dc:creator>{{ post.author }}</dc:creator>
+    <guid>{{- post.url }}</guid>
+</item>
+{%- endfor %}

@@ -2,6 +2,7 @@
 import { EleventyRenderPlugin as pluginRender } from '@11ty/eleventy';
 import { eleventyImageTransformPlugin as pluginImage } from '@11ty/eleventy-img';
 import pluginWebc from '@11ty/eleventy-plugin-webc';
+import pluginRss from '@11ty/eleventy-plugin-rss';
 // const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 import slugify from '@sindresorhus/slugify';
 
@@ -19,6 +20,7 @@ import { JSDOM } from 'jsdom';
  *  @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig
  */
 export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginRender);
   eleventyConfig.addPlugin(pluginImage, {
     extensions: 'html',
