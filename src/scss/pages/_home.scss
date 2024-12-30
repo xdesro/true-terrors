@@ -352,6 +352,7 @@
   @include screen(lg) {
     padding-block-end: 5rem;
   }
+
   &__title {
     font-family: $font-serif-display;
     font-size: 4rem;
@@ -367,6 +368,20 @@
     }
     @include screen(lg) {
       font-size: clamp(5.9rem, 2.6279rem + 5.817vw, 8.125rem);
+    }
+  }
+  &__title-inner {
+    position: relative;
+    display: inline-block;
+  }
+  &__title-echo {
+    position: absolute;
+    right: calc(100% + 0.25ch);
+    width: max-content;
+    color: #eee;
+    &:last-child {
+      right: unset;
+      left: calc(100% + 0.25ch);
     }
   }
   &__marquee {
