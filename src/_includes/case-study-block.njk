@@ -32,9 +32,12 @@
         </div>
     </dl>
     {% if caseStudy.data.viewTheWork %}
-        <a class="case-study-block__link" href="{{ caseStudy.data.link }}">View the work →</a>
+        <a class="case-study-block__link with-arrow with-arrow--out" href="{{ caseStudy.data.link }}">
+            {% if caseStudy.data.viewTheWorkText %}<span>{{ caseStudy.data.viewTheWorkText }}</span>
+            {% else %}View the work
+            {% endif %}</a>
     {% elif caseStudy.content.length > 0 %}
-        <a class="case-study-block__link" href="/work/{{ caseStudy.data.title | slugify }}">Read more <span class="visually-hidden">about my work with {{ caseStudy.data.title }}</span>→</a>
+        <a class="case-study-block__link with-arrow" href="/work/{{ caseStudy.data.title | slugify }}">Read more <span class="visually-hidden">about my work with {{ caseStudy.data.title }}</span></a>
     {% else %}
         <p class="case-study-block__coming-soon">(Case study coming soon)</a>
     {% endif %}

@@ -166,7 +166,10 @@ $transition: transform $duration ease-in;
         content: var(--view-the-work, '(external)');
         text-transform: uppercase;
         color: $color-text-mid;
-        @include screen(sm) {
+        @include screen(lg) {
+          bottom: -0.25rem;
+        }
+        @include screen(magazine) {
           bottom: -0.15rem;
         }
       }
