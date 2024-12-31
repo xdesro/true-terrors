@@ -56,16 +56,10 @@ These days (late 2022, early 2023) I primarily use 11ty to build websites, becau
 
 I usually use either Nunjucks or Vue for template logic as they're both extremely similar to HTML (abstraction is the devil). I default to the former for simpler projects with less data massaging or for projects with collaboration with non-Vue developers. 11ty makes Vue feel great — I can write filters and computed data and interpolations without serving any client-side Javascript to users.
 
-Nunjucks is a first-class citizen in 11ty, but I've also written a (possibly slightly out-of-date) guide on [using Vue templates in 11ty](https://henry.codes/writing/how-to-use-vue-to-template-your-eleventy-projects).
+Nunjucks is a first-class citizen in 11ty, but I've also written a (possibly slightly out-of-date) guide on using Vue templates in 11ty:.
 
 {% renderTemplate 'webc', { collectionsAll: collections.all } %}
 <embed-card :post="findPostByPath(collectionsAll, 'writing/how-to-use-vue-to-template-your-eleventy-projects')"></embed-card>
-{% endrenderTemplate %}
-
-{% renderTemplate 'webc' %}
-<embed-card :external="true" title="Sample Title of An Embedded Post" url="https://ethanmarcotte.com/wrote/generative/" author="Ethan Marcotte" :show-url="true">
-Nineteen thoughts about “generative artificial intelligence,” spanning a few centuries. Brief, well-curated “playlist” outlining lorem ipsum dolor sit amet
-</embed-card>
 {% endrenderTemplate %}
 
 

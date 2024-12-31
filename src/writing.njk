@@ -39,26 +39,7 @@
     </div>
 </header>
 
-<section class="writing-section" id="from-friends">
-    <div class="container">
-        <header class="writing-section-header">
-            <h2 class="writing-section-header__title">Heaters From Friends & Brighter Minds Than Mine</h2>
-            <p class="writing-section-header__description">Blogroll of posts I’ve recently read and recommend. You can <a href="/rss/reading-list.xml">subscribe to this feed via RSS</a>.</p>
-        </header>
-        <div class="recent-reading-list">
-            <aside class="recent-reading-list__warning">
-                <p>(These links will take you far away from this place. <em>Go with care,</em> and come on back sometime soon.)</p>
-            </aside>
-            {% for post in recentReading.posts %}
-                <article class="card card--linked">
-                    <h1 class="card__title">{{ post.title }}</h1>
-                    <div class="card__author">{{ post.author }}</div>
-                    <a class="card__link" href="{{ post.url }}">Read more →</a>
-                </article>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+{% include 'recent-reading.njk' %}
 
 <section class="writing-section" id="blog">
     <div class="container">

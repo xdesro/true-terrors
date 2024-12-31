@@ -26,10 +26,6 @@ class DefaultRenderer extends Renderer {
   onEnter() {
     navManager.updateLink();
     if (window.location.pathname === '/') {
-      // if (!window.caseWaterfall) {
-      //   window.caseWaterfall = new CaseWaterfall();
-      // }
-
       navManager.hide();
       document.body.classList.add('home');
       MatchMediaManager.add(({ conditions }) => {
@@ -40,7 +36,7 @@ class DefaultRenderer extends Renderer {
             trigger: '.home-about__title',
             start: 'top bottom',
             end: 'bottom center',
-            scrub: 1,
+            scrub: 2,
           },
         });
       });

@@ -6,16 +6,16 @@
      * name, the date of the post, the content of the post, and a permalink to the original tweet.
      * 
      * Attributes:
-     * - `author` (string, required): The name of the tweet's author.
-     * - `date` (string, required): The date the tweet was posted (format: YYYY-MM-DD).
+     * - `author` (string, required)
+     * - `date` (string, required)
      * - `url` (string, required): Permalink URL to the original tweet.
      * 
      * Slots:
-     * - Default slot: The main content of the tweet (required).
+     * - Default slot: The main content of the tweet, in Markdown.
      * 
      * Example Usage:
      * ```html
-     * <twitter-embed author="Jane Doe" date="2024-01-01" url="https://twitter.com/janedoe/status/123456789">
+     * <twitter-embed author="Jane Doe (@janedoe)" date="October 31, 2019" url="https://twitter.com/janedoe/status/123456789">
      *   This is the embedded tweet content.
      * </twitter-embed>
      * ```
@@ -24,7 +24,7 @@
 <div class="embed card embed--twitter">
     <div class="embed__header">
         <span class="embed__author" @text="author"></span>
-        <date class="embed__date" @text=" date"></date>
+        <date class="embed__date" @text="date"></date>
     </div>
     <blockquote>
         <slot></slot>
