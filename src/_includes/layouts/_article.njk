@@ -38,7 +38,9 @@ bodyClass: "article"
     {% if hasToc %}
         {% set toc = content | getTOC %}
         {% include 'table-of-contents.njk' %}
-        <img alt="" src="/img/milan-cover-photo.jpg" class="article-header__image">
+        <div class="article-header__graphic-wrapper">
+            <img alt="" src="/img/milan-cover-photo.jpg" class="article-header__image">
+        </div>
     {% endif %}
 </header>
 
@@ -48,14 +50,12 @@ bodyClass: "article"
 
 {% if nextPost or prevPost %}
     <!-- TODO: Next post doesn't work with webC -->
-        <aside class="further-reading container">
-            <h2>Further Reading</h2>
-            {% if nextPost %}
-                {{ articleBlock(nextPost) }}
-            {% else %}
-                {{ articleBlock(prevPost) }}
-            {% endif %}
-        </aside>
-    {% endif %}
-
-    {# <script data-taxi-reload type="module" src="/js/article.js"></script> #}
+    <aside class="further-reading container">
+        <h2>Further Reading</h2>
+        {% if nextPost %}
+            {{ articleBlock(nextPost) }}
+        {% else %}
+            {{ articleBlock(prevPost) }}
+        {% endif %}
+    </aside>
+{% endif %}

@@ -1,14 +1,15 @@
 import { Core, Renderer } from '@unseenco/taxi';
 
-import NavManager from './NavManager';
-import MatchMediaManager from './MatchMediaManager';
-import Marquee from './Marquee';
-import Clock from './Clock';
-import CaseWaterfall from './CaseWaterfall';
-
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+
+import CaseWaterfall from './CaseWaterfall';
+import Clock from './Clock';
+import DitheredImage from './DitheredImage';
+import Marquee from './Marquee';
+import MatchMediaManager from './MatchMediaManager';
+import NavManager from './NavManager';
 
 import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 
@@ -22,6 +23,8 @@ MatchMediaManager.add(({ conditions }) => {
   Object.assign(window.mediaQueries, conditions);
 });
 
+let ditheredImages = [];
+
 class DefaultRenderer extends Renderer {
   onEnter() {
     navManager.updateLink();
@@ -29,9 +32,9 @@ class DefaultRenderer extends Renderer {
       navManager.hide();
       document.body.classList.add('home');
       MatchMediaManager.add(({ conditions }) => {
-        const { prefersReducedMotion } = conditions;
+        const { prefersReducedMotion, isMobile } = conditions;
         gsap.from('.home-about__title-inner', {
-          x: prefersReducedMotion ? 0 : '50vw',
+          x: prefersReducedMotion || isMobile ? 0 : '50vw',
           scrollTrigger: {
             trigger: '.home-about__title',
             start: 'top bottom',
@@ -44,7 +47,18 @@ class DefaultRenderer extends Renderer {
       navManager.show();
       document.body.classList.remove('home');
     }
-
+    if (document.querySelector('.article-header__graphic-wrapper')) {
+      ditheredImages.push(
+        new DitheredImage({
+          img: document.querySelector('.article-header__image'),
+          wrapper: document.querySelector('.article-header__graphic-wrapper'),
+        })
+      );
+    } else {
+      ditheredImages.forEach((imageClass) => {
+        imageClass.removeListeners();
+      });
+    }
     if (document.querySelector('.case-study-rows')) {
       new CaseWaterfall();
     }
@@ -78,7 +92,7 @@ class DefaultRenderer extends Renderer {
 
 const taxi = new Core({
   allowInterruption: true,
-  links: 'a[href]:not([target]):not([href^="#"]):not([data-taxi-ignore])',
+  links: 'a[href]:not([target]):not([data-taxi-ignore])',
   renderers: {
     default: DefaultRenderer,
   },
@@ -100,6 +114,7 @@ const loadTransitions = async () => ({
   caseToWork: (await import('./routes/CaseToWork')).default,
   caseToHome: (await import('./routes/CaseToHome')).default,
   default: DefaultTransition,
+  anyToExternal: DefaultTransition,
   homeToArticle: (await import('./routes/HomeToArticle')).default,
   homeToCase: (await import('./routes/HomeToCase')).default,
   homeToWork: (await import('./routes/HomeToWork')).default,
@@ -117,10 +132,15 @@ const loadTransitions = async () => ({
   }
   taxi.addRoute('/', '/work', 'homeToWork');
   taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
+  taxi.addRoute(
+    `/`,
+    'https?://(?!henry.codes\b|localhost\b)S+',
+    'anyToExternal'
+  );
   taxi.addRoute(`\/work`, '', 'workToHome');
   taxi.addRoute(`\/work`, `\/work\/.*`, 'workToCase');
   taxi.addRoute(`\/work\/.*`, `\/work`, 'caseToWork');
-  taxi.addRoute(`/`, `\/work\/.*`, 'homeToCase');
+  // taxi.addRoute(`/`, `\/work\/.*`, 'homeToCase');
   taxi.addRoute(`/`, `\/(writing|notes)\/.*`, 'homeToArticle');
   taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
   taxi.addRoute(

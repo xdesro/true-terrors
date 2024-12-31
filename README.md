@@ -19,16 +19,30 @@ bun run start:quiet
 ```
 
 ## TODOS
+### Go-live
+- **Content:**
+    - Finish YouTube Case
+    - NYT Case?
+    - Matter Case
+    - Faculty Case
+    - Blog header images
+- Animated link underlines for case blocks
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
-- Case studies design blocks need graphics
-- Clearer delineation of reading list posts vs authored posts
 - ⏳ OpenGraph images service
+- Case studies design blocks need graphics
+
+### Nice-to-have
+- Walk back case study row `webc`?
+- Barbed wire scrolling effect
+- Component for code embeds
 - Remove splitting.js dependency
 - Consider speeding up transitions after first visit
-- Walk back case study row `webc`
-- Animated link underlines for case blocks
-- Page wipe transition for external links?
-- Component for code embeds
+
+### Ice
+- Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
+
+### Sorted
+- ✅ Clearer delineation of reading list posts vs authored posts
 - ✅ Embed cards
 - ✅ Clearer indication of what happens when you click a case study link
 - ✅ Set up RSS feeds

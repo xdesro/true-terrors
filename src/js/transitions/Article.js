@@ -54,7 +54,7 @@ export const ArticleEnterTransition = (transitioningView, conditions) => {
         '<+=.2'
       )
       .from(
-        '.article-header__image',
+        '.article-header__graphic-wrapper',
         {
           opacity: 0,
           duration: 0.3,
@@ -81,7 +81,7 @@ export const ArticleExitTransition = (transitioningView, conditions) => {
     tl.add(DefaultFadeOut(transitioningView));
   } else {
     tl.to(
-      '.article-header__category, .article-header__title, .article-header__meta > div, .table-of-contents, .article-header__image, .article-header__canvas-wrapper, .article-content, .further-reading',
+      '.article-header__category, .article-header__title, .article-header__meta > div, .table-of-contents, .article-header__graphic-wrapper, .article-content, .further-reading',
       {
         opacity: 0,
         y: '-2rem',
