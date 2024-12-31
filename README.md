@@ -26,14 +26,15 @@ bun run start:quiet
     - Matter Case
     - Faculty Case
     - Blog header images
-- ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
-- ⏳ OpenGraph images service
 - Case studies design blocks need graphics
+- ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
+- Animated link underlines for article blocks
 
 ### Nice-to-have
 - Walk back case study row `webc`?
 - Barbed wire scrolling effect
 - Component for code embeds
+- Component for asides/footnotes on large screens.
 - Remove splitting.js dependency
 - Consider speeding up transitions after first visit
 
@@ -41,6 +42,7 @@ bun run start:quiet
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ OpenGraph images service
 - ✅ Animated link underlines for case blocks
 - ✅ Clearer delineation of reading list posts vs authored posts
 - ✅ Embed cards

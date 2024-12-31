@@ -2,12 +2,19 @@
 {
     backLink: '/writing',
     backLinkText: 'All articles',
+    tags: ['page'],
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
             { name: "Articles", url: "/writing" },
             { name: "Notes", url: "/notes" },
         ],
+        og: function ({page}) {
+            const {fileSlug} = page
+            const ogTargetUrl = `https://dev.henry.codes/opengraph/${fileSlug}`;
+            const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(ogTargetUrl)}/opengraph`;
+            return ogScreenshotUrl;
+        },
     },
 }
 ---

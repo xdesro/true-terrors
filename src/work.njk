@@ -1,5 +1,6 @@
 ---js
 {
+    tags: ['page'],
     backLink: '/',
     backLinkText: 'Go home',
     title: 'Case Studies',
@@ -8,6 +9,12 @@
             ...data.footerLinks,
             { name: "Case Studies", url: "/work" },
         ],
+        og: function ({page}) {
+            const {fileSlug} = page
+            const ogTargetUrl = `https://dev.henry.codes/opengraph/${fileSlug}`;
+            const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(ogTargetUrl)}/opengraph`;
+            return ogScreenshotUrl;
+        },
     }
 }
 ---
