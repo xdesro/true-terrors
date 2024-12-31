@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .article-block {
   position: relative;
@@ -24,7 +24,8 @@
   //     border-color: $color-text;
   //   }
   // }
-  &--featured {
+  &--featured,
+  &--external {
     // background-color: $color-text;
     // color: $color-background;
     border-color: $color-background;
@@ -40,13 +41,54 @@
         position: absolute;
         top: -1.3rem;
         margin-left: 0;
-        content: "Featured Reading";
+        content: 'Featured Reading';
         text-transform: uppercase;
         color: $color-text-unthemed;
       }
     }
   }
+  &--external {
+    position: relative;
+    display: block;
+    height: min-content;
+    margin-block-start: 2.5rem;
+    .article-block__title:has(+ .article-block__meta) {
+      margin-block-end: 1rem;
+    }
+    .article-block__meta {
+      margin-block-end: 1.5rem;
+    }
+    .article-block__excerpt {
+      font-family: $font-sans;
+    }
+    .article-block__external-disclaimer {
+      font-family: $font-sans;
+      font-size: 0.75rem;
+      position: absolute;
+      inset-inline: 0;
+      bottom: calc(100% + 0.5rem);
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      color: #777;
+
+      @include screen(1200px) {
+        font-size: clamp(0.61rem, -0.1536rem + 1.0182vw, 0.75rem);
+      }
+      @include screen(1420px) {
+        font-size: 0.75rem;
+      }
+      span:last-child {
+        display: none;
+
+        @include screen(sm) {
+          display: inline-block;
+        }
+      }
+    }
+  }
   &__meta {
+    font-family: $font-sans;
     font-size: 0.75rem;
     line-height: 1.1;
     margin-block-end: 0.75rem;
@@ -58,6 +100,9 @@
       text-align: right;
     }
   }
+  &__meta-highlight {
+    color: $color-text;
+  }
   &__title {
     font-family: $font-serif-display;
     font-size: 2rem;
@@ -66,6 +111,7 @@
     margin-block-end: 2rem;
   }
   &__link {
+    font-family: $font-sans;
     font-size: 0.75rem;
     font-weight: bold;
     line-height: 1.3;
@@ -79,7 +125,7 @@
       position: absolute;
       z-index: 1;
       inset: 0;
-      content: "";
+      content: '';
     }
     &:hover {
       // text-decoration: underline;

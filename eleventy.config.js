@@ -91,6 +91,18 @@ export default function (eleventyConfig) {
     return youtubeUrl;
   });
 
+  eleventyConfig.addFilter(
+    'findPostByPath',
+    function (collectionsAll, postUrl) {
+      const matchedPost = collectionsAll.find(
+        (post) => post.outputPath && post.outputPath?.includes(postUrl)
+      );
+      // console.log(Object.keys(matchedPost.data));
+      return { ...matchedPost.data, url: matchedPost.url };
+      // console.log(allPosts);
+    }
+  );
+
   //   eleventyConfig.addFilter("sortedByDate", (arr) => {
   //     return arr.sort((a, b) => b.date - a.date);
   //   });

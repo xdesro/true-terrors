@@ -1,0 +1,43 @@
+<article class="card article-block" webc:if="post">
+    <dl class="article-block__meta">
+        <div>
+            <dt class="visually-hidden">Category</dt>
+            <dd @text="post.category"></dd>
+        </div>
+        <div>
+            <dt class="visually-hidden">Tags</dt>
+            <dd @text="post.topics.join(' | ')"></dd>
+        </div>
+    </dl>
+    <h1 class="article-block__title" @text="post.title"></h1>
+    <dl class="article-block__meta">
+        <div>
+            <dt class="visually-hidden">Reading Time</dt>
+            <dd @text="post.readTime"></dd>
+        </div>
+        <div>
+            <dt class="visually-hidden">Last updated</dt>
+            <dd>
+                <date>Last updated <template webc:nokeep @text="humanReadableDate(post.publishDate)"></template></date>
+            </dd>
+        </div>
+    </dl>
+    <a class="article-block__link with-arrow" :href="post.url">Read more</a>
+</article>
+
+<article class="article-block article-block--external themed dark" webc:else>
+    <h1 webc:if="title" class="article-block__title" @text="title"></h1>
+    <div class="article-block__meta">
+        <p webc:if="author" class="article-block__meta-highlight" @text="`by ${author}`"></p>
+        <p webc:if="showUrl" @text="url"></p>
+    </div>
+    <div class="article-block__excerpt">
+        <slot></slot>
+    </div>
+    <div class="article-block__external-disclaimer">
+        <span>this link goes some strange place beyond this website</span>
+        <span>go with care</span>
+    </div>
+    <a class="article-block__link with-arrow with-arrow--out" :href="url">Read more</a>
+
+</article>

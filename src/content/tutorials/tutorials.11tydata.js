@@ -35,5 +35,5 @@ export default {
   hasToc: true,
   layout: 'layouts/_article.njk',
   tags: ['article'],
-  templateEngineOverride: 'md',
+  templateEngineOverride: 'md,njk',
 };

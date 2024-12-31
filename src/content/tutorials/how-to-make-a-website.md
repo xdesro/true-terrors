@@ -16,6 +16,7 @@ topics:
   - rants
 ---
 
+
 I got an email recently from a kind online friend who said they thought my work was swell, and that they'd like to ask about my process or what makes a good website. Aside from that being a really nice email to receive, it's also good impetus for me to be a little more candid and critical about my practice. Here's my breakdown on how to make a Good Website.
 
 It's fine if you disagree with me on these things — let me know by email what great sins I have committed against thee and I shall dearly repent :){.editors-note}
@@ -57,7 +58,16 @@ I usually use either Nunjucks or Vue for template logic as they're both extremel
 
 Nunjucks is a first-class citizen in 11ty, but I've also written a (possibly slightly out-of-date) guide on [using Vue templates in 11ty](https://henry.codes/writing/how-to-use-vue-to-template-your-eleventy-projects).
 
-📯{.editors-note}
+{% renderTemplate 'webc', { collectionsAll: collections.all } %}
+<embed-card :post="findPostByPath(collectionsAll, 'writing/how-to-use-vue-to-template-your-eleventy-projects')"></embed-card>
+{% endrenderTemplate %}
+
+{% renderTemplate 'webc' %}
+<embed-card :external="true" title="Sample Title of An Embedded Post" url="https://ethanmarcotte.com/wrote/generative/" author="Ethan Marcotte" :show-url="true">
+Nineteen thoughts about “generative artificial intelligence,” spanning a few centuries. Brief, well-curated “playlist” outlining lorem ipsum dolor sit amet
+</embed-card>
+{% endrenderTemplate %}
+
 
 ## Style Code (or How I Learned To Stop Worrying and Love The Cascade)
 

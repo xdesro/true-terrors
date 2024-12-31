@@ -84,7 +84,7 @@
     }
   }
   @include screen(1200px) {
-    --standard-column: 5 / span 4;
+    --standard-column: 5 / span 6;
     --pre-column: 5 / span 5;
 
     // > .cp_embed_wrapper {
@@ -102,6 +102,9 @@
         color: $color-text;
       }
     }
+    @include screen(1200px) {
+      grid-column-end: span 7;
+    }
   }
   pre {
     grid-column: var(--pre-column);
@@ -112,6 +115,9 @@
       max-width: unset;
       padding: 1.5rem;
     }
+  }
+  .article-block {
+    max-width: 60ch;
   }
 }
 .further-reading {
