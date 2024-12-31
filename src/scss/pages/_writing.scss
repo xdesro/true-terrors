@@ -9,6 +9,7 @@
   &--card {
     position: relative;
     overflow: hidden;
+    grid-template-columns: minmax(0, 1fr);
     margin-inline: 1rem;
     padding-top: 2rem;
     border: none;
@@ -36,6 +37,7 @@
       padding-block-end: 1rem;
       padding-inline: 2rem;
       border-bottom: 0.5px dashed var(--color-border-light);
+      // max-width: calc(100% - 2rem);
     }
     .writing-section-header__title {
       font-size: 2rem;
@@ -46,6 +48,13 @@
     }
     .writing-section-header__description {
       font-size: 1rem;
+    }
+    .recent-reading-list {
+      @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-appearance: none) {
+          padding-inline: 0;
+        }
+      }
     }
   }
   &:last-of-type {
