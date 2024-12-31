@@ -26,7 +26,6 @@ bun run start:quiet
     - Matter Case
     - Faculty Case
     - Blog header images
-- Animated link underlines for case blocks
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
 - ⏳ OpenGraph images service
 - Case studies design blocks need graphics
@@ -42,6 +41,7 @@ bun run start:quiet
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ Animated link underlines for case blocks
 - ✅ Clearer delineation of reading list posts vs authored posts
 - ✅ Embed cards
 - ✅ Clearer indication of what happens when you click a case study link

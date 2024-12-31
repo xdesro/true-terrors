@@ -22,7 +22,7 @@ Contentful has a <abbr title="Representational State Transfer">REST</abbr> conte
 
 ### What About GraphQL?
 
-Okay, I meant for this to be one paragraph about why I'm just covering REST but it ended up being kind of a lot, feel free to [skip this section](##creating-a-contentful-content-type) lol.{.editors-note}
+Okay, I meant for this to be one paragraph about why I'm just covering REST but it ended up being kind of a lot, feel free to [skip this section](#creating-a-contentful-content-type) lol.{.editors-note}
 
 I know a lot of folks find GraphQL quite useful! That's very nice, but for now I've only elected to use a RESTful integration of Contentful, for a few reasons.
 

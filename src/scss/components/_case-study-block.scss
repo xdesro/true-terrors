@@ -8,24 +8,25 @@
   counter-increment: case-studies;
   border: 2px solid $color-border-light;
   border-radius: $bdrs;
-  &:has(a:hover) {
-    border-color: $color-border-mid;
-  }
+
   @include screen(sm) {
     margin-block-end: 0;
   }
   @include screen(xl) {
     display: grid;
     column-gap: 1rem;
-    // grid-template-columns: auto max-content 1fr auto;
     grid-template-columns: auto auto max-content 1fr auto;
     align-items: end;
+  }
+  &:has(a:hover) {
+    border-color: $color-border-mid;
   }
   &:before {
     font-size: 0.75rem;
     display: inline-block;
     margin-block-end: 0.75rem;
     content: '(0' counter(case-studies) ')';
+
     @include screen(xl) {
       align-self: start;
     }
@@ -37,14 +38,15 @@
     line-height: 0.9;
     margin-block-end: 2rem;
     letter-spacing: -0.01em;
+
     @include screen(xl) {
       font-size: clamp(3.5rem, -0.5049rem + 5.8252vw, 5rem);
-      padding-inline-end: 1rem;
-      align-self: start;
-      grid-column-end: span 2;
       display: grid;
+      grid-column-end: span 2;
       grid-template-columns: subgrid;
+      align-self: start;
       margin-block-end: 0;
+      padding-inline-end: 1rem;
     }
   }
   &__logo {
@@ -52,14 +54,15 @@
     height: 100%;
     max-height: 0.7em;
     vertical-align: baseline;
+
     @include screen(xl) {
       width: 100%;
     }
   }
   &__description {
-    // font-size: 0.875rem;
     line-height: 1.5;
     margin-block-end: 2rem;
+
     @include screen(xl) {
       margin-block-end: 0;
     }
@@ -67,7 +70,6 @@
   &__meta {
     font-size: 0.75rem;
     line-height: 1.3;
-    // margin-block-end: 1rem;
     text-transform: uppercase;
     color: $color-text-mid;
 
@@ -99,26 +101,37 @@
     color: $color-text-mid;
   }
   &__link {
-    // line-height: 1.3;
     display: inline-block;
     margin-block-end: -1rem;
     padding-block: 1rem;
     text-decoration: none;
+    -webkit-text-stroke: 2px $color-background;
+
+    paint-order: stroke fill;
     @include screen(xl) {
+      line-height: 1;
       max-width: 23ch;
       text-align: right;
       text-wrap: balance;
-
-      line-height: 1;
+    }
+    &:before {
+      position: absolute;
+      inset: 0;
+      content: '';
+    }
+    span {
+      line-height: 1.1;
+      transition: background-size 0.2s $ease-out-editorial;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-repeat: no-repeat;
+      background-position: 0 calc(1em + 1px);
+      background-size: 0% 1px;
     }
 
     &:hover {
-      text-decoration: underline;
-    }
-    &:before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      span {
+        background-size: 100% 1px;
+      }
     }
   }
   &__3d-logo {
