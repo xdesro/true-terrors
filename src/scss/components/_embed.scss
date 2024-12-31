@@ -14,16 +14,25 @@
   &__header {
     display: grid;
     gap: 0.5rem;
-    grid-template-columns: 1.5rem 1fr auto;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     margin-block-end: 1.5rem;
+
+    &:before {
+      content: '';
+      grid-column: 1;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 100%;
+      background-color: #eee;
+    }
   }
   &__author {
     font-family: $font-sans;
-    font-weight: bold;
+    // font-weight: bold;
     line-height: 1;
     display: inline-block;
-    color: $color-text-mid;
+    color: $color-text;
   }
   &__date {
     font-size: 0.75rem;

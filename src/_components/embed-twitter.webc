@@ -1,18 +1,35 @@
+<script webc:nokeep>
+    /**
+     * Twitter Embed Component
+     * 
+     * A web component that renders a styled embed for a Twitter post. It displays the author's
+     * name, the date of the post, the content of the post, and a permalink to the original tweet.
+     * 
+     * Attributes:
+     * - `author` (string, required): The name of the tweet's author.
+     * - `date` (string, required): The date the tweet was posted (format: YYYY-MM-DD).
+     * - `url` (string, required): Permalink URL to the original tweet.
+     * 
+     * Slots:
+     * - Default slot: The main content of the tweet (required).
+     * 
+     * Example Usage:
+     * ```html
+     * <twitter-embed author="Jane Doe" date="2024-01-01" url="https://twitter.com/janedoe/status/123456789">
+     *   This is the embedded tweet content.
+     * </twitter-embed>
+     * ```
+     */
+</script>
 <div class="embed card embed--twitter">
     <div class="embed__header">
-        <svg class="embed__icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path
-                d="M16 1.5c-.6.3-1.3.5-2 .6.8-.4 1.3-1 1.5-1.8-.6.3-1.3.6-2 .7a3.3 3.3 0 00-5.6 3A9.3 9.3 0 011 .6c-.3.5-.5 1-.5 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4a3.3 3.3 0 002.7 3.2c-.5.2-1 .2-1.5.1a3.3 3.3 0 003 2.3A6.6 6.6 0 010 11.5a9.3 9.3 0 0014.4-7.9v-.3c.6-.5 1.2-1 1.6-1.7z" />
-        </svg>
         <span class="embed__author" @text="author"></span>
         <date class="embed__date" @text=" date"></date>
     </div>
     <blockquote>
-        <!-- <template webc:type="11ty" 11ty:type="md"> -->
         <slot></slot>
-        <!-- </template> -->
     </blockquote>
     <cite class="embed__footer">
-        <a :href="permalink">Permalink</a>
+        <a :href="url">Permalink</a>
     </cite>
 </div>

@@ -39,7 +39,8 @@ bun run start:quiet
 - ✅ Twitter cards
 
 ## Embed Cards
-There are two ways to reference embedded articles:
+There are two ways to reference embedded articles. The important thing for both of them is the `{% renderTemplate 'webc' %}` tag, which tells 11ty to switch to `webc` rendering temporarily. This workaround is necessary because rendering with markdown and webc breaks code snippets for some reason lol.
+
 
 ### Local Articles
 These can use the `:post` attribute to look up a local post by its 11ty URL, but require `collections.all` and the `findPostByPath()` functions.
