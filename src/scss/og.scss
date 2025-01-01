@@ -102,7 +102,7 @@ h1 {
 .row {
   display: grid;
   grid-template-columns: min-content 1fr;
-  align-items: last baseline;
+  align-items: end;
   column-gap: 2rem;
 }
 .case-title {

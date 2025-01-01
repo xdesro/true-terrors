@@ -4,17 +4,12 @@
     backLink: '/',
     backLinkText: 'Go home',
     title: 'Case Studies',
+    og: 'https://dev.henry.codes/img/og/og-work.png',
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
             { name: "Case Studies", url: "/work" },
         ],
-        og: function ({page}) {
-            const {fileSlug} = page
-            const ogTargetUrl = `https://dev.henry.codes/opengraph/${fileSlug}`;
-            const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(ogTargetUrl)}/opengraph`;
-            return ogScreenshotUrl;
-        },
     }
 }
 ---

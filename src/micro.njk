@@ -2,14 +2,7 @@
 {
     title: 'Micro',
     tags: ['page'],
-    eleventyComputed: {
-        og: function ({page}) {
-            const {fileSlug} = page
-            const ogTargetUrl = `https://dev.henry.codes/opengraph/${fileSlug}`;
-            const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(ogTargetUrl)}/opengraph`;
-            return ogScreenshotUrl;
-        },
-    },
+    og: 'https://dev.henry.codes/img/og/og-micro.png',
     feedLinks: [
         {
             "name": "RSS",
