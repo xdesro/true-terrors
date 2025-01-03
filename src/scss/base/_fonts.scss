@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Louize';
-  src: url('/fonts/subset-Louizetrial.woff2') format('woff2');
+  src: url('/fonts/subset-Louize.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Louize';
-  src: url('/fonts/subset-Louizetrial-Italic.woff2') format('woff2');
+  src: url('/fonts/subset-Louize-Italic.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -16,17 +16,17 @@
 
 @font-face {
   font-family: 'Louize Display';
-  src: url('/fonts/subset-LouizeDisplaytrial-Italic.woff2') format('woff2');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Louize Display';
-  src: url('/fonts/subset-LouizeDisplaytrial.woff2') format('woff2');
+  src: url('/fonts/subset-LouizeDisplay.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Louize Display';
+  src: url('/fonts/subset-LouizeDisplay-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
   font-display: swap;
 }
 
