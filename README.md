@@ -28,7 +28,6 @@ bun run start:quiet
     - Matter Case
     - Faculty Case
     - Blog header images
-- Case studies design blocks need graphics
 - Real font licenses
 - Undo/redo splitting call on resize
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
@@ -42,11 +41,13 @@ bun run start:quiet
 - Component for asides/footnotes on large screens.
 - Remove splitting.js dependency
 - Consider speeding up transitions after first visit
+- Case studies design blocks need _better_ graphics lol
 
 ### Ice
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ Case studies design blocks need graphics
 - ✅ Animated link underlines for article blocks.p
 - ✅ OpenGraph images service
 - ✅ Animated link underlines for case blocks

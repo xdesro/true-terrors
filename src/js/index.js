@@ -14,6 +14,7 @@ import NavManager from './NavManager';
 import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 
 import DefaultTransition from './transitions/Default';
+import CaseBlocks from './CaseBlocks';
 
 window.navManager = new NavManager();
 history.scrollRestoration = 'manual';
@@ -23,7 +24,8 @@ MatchMediaManager.add(({ conditions }) => {
   Object.assign(window.mediaQueries, conditions);
 });
 
-let ditheredImages = [];
+const ditheredImages = [];
+let caseBlocks = null;
 
 class DefaultRenderer extends Renderer {
   onEnter() {
@@ -57,6 +59,27 @@ class DefaultRenderer extends Renderer {
     } else {
       ditheredImages.forEach((imageClass) => {
         imageClass.removeListeners();
+      });
+    }
+    if (document.querySelector('.cases-block-list')) {
+      if (caseBlocks) {
+        caseBlocks.mount();
+        caseBlocks.addListeners();
+      } else {
+        caseBlocks = new CaseBlocks();
+      }
+    } else {
+      if (caseBlocks) {
+        caseBlocks.removeListeners();
+      }
+    }
+    if (document.querySelector('.page-header__bar')) {
+      gsap.to('.page-header__bar', {
+        backgroundPositionX: '100%',
+        scrollTrigger: {
+          target: '.page-header',
+          scrub: 1,
+        },
       });
     }
     if (document.querySelector('.case-study-rows')) {
@@ -119,7 +142,7 @@ class DefaultRenderer extends Renderer {
   }
 }
 
-taxi = new Core({
+const taxi = new Core({
   allowInterruption: true,
   links: 'a[href]:not([target]):not([data-taxi-ignore])',
   renderers: {

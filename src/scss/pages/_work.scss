@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .cases-block-list {
   margin-block-end: 3rem;
@@ -55,11 +55,18 @@
         grid-column: 1 / span 2;
         grid-row: 1;
       }
+      &:is(:nth-of-type(2), :nth-of-type(3), :nth-of-type(4)) {
+        background-image: url('/img/crown.png');
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: var(--crown-height) var(--crown-height);
+      }
       &:nth-of-type(2) {
         grid-column: 10 / span 3;
         grid-row: 3;
         border-bottom-right-radius: 0;
         background-color: $color-text;
+        background-position: right top;
       }
       &:nth-of-type(3) {
         position: relative;
@@ -68,6 +75,8 @@
         grid-row: 4;
         margin-block: calc(-1.5rem - 2px);
         border-radius: 0;
+        background-position: right center;
+
         background-color: $color-text;
 
         border-block: 0;
@@ -77,16 +86,28 @@
         grid-row: 5;
         border-top-right-radius: 0;
         background-color: $color-text;
+        background-position: right bottom;
       }
       &:nth-of-type(5) {
         grid-column: 1 / span 8;
         grid-row: 5;
         height: 8rem;
+        display: grid;
+        place-items: center;
+        img {
+          max-height: calc(100% - 2rem);
+        }
+      }
+      &:is(:nth-of-type(6), :nth-of-type(7)) {
+        background-image: url('/img/collar-motif.png');
+        background-repeat: no-repeat;
+        background-size: var(--collar-width);
       }
       &:nth-of-type(6) {
         grid-column: 1 / span 2;
         grid-row: 7 / span 3;
         background-color: #d9d9d9;
+        background-position: left center;
       }
       &:nth-of-type(7) {
         grid-column: 3;
@@ -96,6 +117,7 @@
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         background-color: #d9d9d9;
+        background-position: right center;
       }
       &:nth-of-type(8) {
         grid-column: 12 / span 1;
