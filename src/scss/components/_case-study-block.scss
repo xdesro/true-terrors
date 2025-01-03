@@ -9,6 +9,18 @@
   border: 2px solid $color-border-light;
   border-radius: $bdrs;
 
+  &--clickable {
+    cursor: pointer;
+    &:hover,
+    &:focus-within,
+    &:has(a:hover) {
+      border-color: $color-border-mid;
+      a span {
+        background-size: 100% 1px;
+      }
+    }
+  }
+
   @include screen(sm) {
     margin-block-end: 0;
   }
@@ -18,9 +30,7 @@
     grid-template-columns: auto auto max-content 1fr auto;
     align-items: end;
   }
-  &:has(a:hover) {
-    border-color: $color-border-mid;
-  }
+
   &:before {
     font-size: 0.75rem;
     display: inline-block;
@@ -113,11 +123,6 @@
       max-width: 23ch;
       text-align: right;
       text-wrap: balance;
-    }
-    &:before {
-      position: absolute;
-      inset: 0;
-      content: '';
     }
     span {
       line-height: 1.1;

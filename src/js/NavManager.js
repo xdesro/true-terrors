@@ -28,14 +28,18 @@ export default class NavManager {
   }
   init() {
     if (window.location.pathname === '/') {
-      this.hidingNav.seek(1);
+      this.hide(true);
     } else {
       this.hidingNav.seek(0);
       this.hidingNav.reversed(true);
     }
   }
-  hide() {
+  hide(instant = false) {
     this.nav.classList.add('page-nav--inert');
+    if (instant) {
+      this.hidingNav.progress(1);
+      return;
+    }
     this.hidingNav.timeScale(1.5);
     this.hidingNav.play();
   }

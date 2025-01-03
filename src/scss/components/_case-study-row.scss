@@ -160,14 +160,14 @@ $transition: transform $duration ease-in;
         font-family: $font-sans;
         font-size: 0.75rem;
         position: absolute;
-        bottom: -0.35rem;
+        bottom: -0.45rem;
         left: 0;
         display: inline-block;
         content: var(--view-the-work, '(external)');
-        text-transform: uppercase;
         color: $color-text-mid;
         @include screen(lg) {
-          bottom: -0.25rem;
+          bottom: -0.35rem;
+          text-transform: uppercase;
         }
         @include screen(magazine) {
           bottom: -0.15rem;

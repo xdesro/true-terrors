@@ -78,6 +78,35 @@ class DefaultRenderer extends Renderer {
       });
     }
 
+    if (document.querySelector('.article-block, .case-study-block')) {
+      const cards = document.querySelectorAll(
+        '.article-block, .case-study-block'
+      );
+      cards.forEach((card) => {
+        let downTime;
+
+        const link = card.querySelector('a');
+        if (link) {
+          if (card.classList.contains('article-block')) {
+            card.classList.add('article-block--clickable');
+          } else {
+            card.classList.add('case-study-block--clickable');
+          }
+
+          card.addEventListener('mousedown', () => {
+            downTime = Date.now();
+          });
+
+          card.addEventListener('mouseup', () => {
+            const upTime = Date.now();
+            if (upTime - downTime < 200) {
+              link.click();
+            }
+          });
+        }
+      });
+    }
+
     updateFooterBreadcrumbs();
   }
   onEnterCompleted() {}
@@ -90,7 +119,7 @@ class DefaultRenderer extends Renderer {
   }
 }
 
-const taxi = new Core({
+taxi = new Core({
   allowInterruption: true,
   links: 'a[href]:not([target]):not([data-taxi-ignore])',
   renderers: {
@@ -114,7 +143,6 @@ const loadTransitions = async () => ({
   caseToWork: (await import('./routes/CaseToWork')).default,
   caseToHome: (await import('./routes/CaseToHome')).default,
   default: DefaultTransition,
-  anyToExternal: DefaultTransition,
   homeToArticle: (await import('./routes/HomeToArticle')).default,
   homeToCase: (await import('./routes/HomeToCase')).default,
   homeToWork: (await import('./routes/HomeToWork')).default,
@@ -125,6 +153,7 @@ const loadTransitions = async () => ({
   writingToArticle: (await import('./routes/WritingToArticle')).default,
   writingToWriting: (await import('./routes/WritingToWriting')).default,
 });
+
 (async () => {
   const Transitions = await loadTransitions();
   for (const transitionName in Transitions) {
@@ -132,15 +161,10 @@ const loadTransitions = async () => ({
   }
   taxi.addRoute('/', '/work', 'homeToWork');
   taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
-  taxi.addRoute(
-    `/`,
-    'https?://(?!henry.codes\b|localhost\b)S+',
-    'anyToExternal'
-  );
   taxi.addRoute(`\/work`, '', 'workToHome');
   taxi.addRoute(`\/work`, `\/work\/.*`, 'workToCase');
   taxi.addRoute(`\/work\/.*`, `\/work`, 'caseToWork');
-  // taxi.addRoute(`/`, `\/work\/.*`, 'homeToCase');
+  taxi.addRoute(`/`, `\/work\/.*`, 'homeToCase');
   taxi.addRoute(`/`, `\/(writing|notes)\/.*`, 'homeToArticle');
   taxi.addRoute(`\/(writing|notes)`, '', 'writingToHome');
   taxi.addRoute(

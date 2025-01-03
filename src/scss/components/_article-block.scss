@@ -7,6 +7,9 @@
   padding: 2rem 1.5rem;
   border: 2px solid $color-border-light;
   border-radius: $bdrs;
+  &--clickable {
+    cursor: pointer;
+  }
 
   @include screen(sm) {
     display: grid;
@@ -14,22 +17,23 @@
     height: 100%;
     margin-block-end: 0;
   }
+  &:hover,
+  &:focus-within,
   &:has(a:hover, a:focus) {
     border-color: $color-border-mid;
+
+    a {
+      background-size: 100% 1px;
+    }
   }
-  // &--contrast {
-  //   &:has(a:hover, a:focus) {
-  //     color: $color-background;
-  //     background-color: $color-text;
-  //     border-color: $color-text;
-  //   }
-  // }
   &--featured,
   &--external {
     // background-color: $color-text;
     // color: $color-background;
     border-color: $color-background;
     outline-offset: -6px;
+    &:hover,
+    &:focus-within,
     &:has(a:hover, a:focus) {
       border-color: $color-background;
       outline: 2px solid $color-border-light;
@@ -121,14 +125,29 @@
     text-align: right;
     text-decoration: none;
     text-transform: uppercase;
-    &:before {
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      content: '';
-    }
+    justify-self: end;
+    // &:before {
+    //   position: absolute;
+    //   z-index: 1;
+    //   inset: 0;
+    //   content: '';
+    // }
+    // &:hover {
+    // text-decoration: underline;
+    // }
+    // span {
+    line-height: 1.1;
+    transition: background-size 0.2s $ease-out-editorial;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 calc(100% - 1rem);
+    background-size: 0% 1px;
+    // }
+
     &:hover {
-      // text-decoration: underline;
+      // span {
+      background-size: 100% 1px;
+      // }
     }
   }
 }

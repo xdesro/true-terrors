@@ -50,8 +50,24 @@
     @include screen(lg) {
       grid-column: 2;
     }
+    &:after {
+      position: absolute;
+      bottom: calc(1em + 1px);
+      left: 0;
+      width: 100%;
+      height: 1px;
+      content: '';
+      transition: transform 0.2s $ease-out-editorial;
+      transform: scaleX(0);
+      transform-origin: 100% 0;
+      background-color: currentColor;
+    }
     &:hover {
-      text-decoration: underline;
+      // text-decoration: underline;
+      &:after {
+        transform: scaleX(1);
+        transform-origin: 0 0;
+      }
     }
   }
   &__brand-flag {
@@ -66,7 +82,7 @@
       opacity: 0;
     }
     @include screen(lg) {
-      top: 1em;
+      top: 1.1em;
       left: 0;
       width: 100%;
       transform: translateY(-1rem);
@@ -149,21 +165,22 @@
       left: 1.5ch;
       display: inline-block;
       width: max-content;
+      margin-block-start: -1em;
+      padding-block: 1em;
       transform-origin: 0 0;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    span:after {
-      position: absolute;
-      bottom: 0.1em;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      content: '';
-      transition: transform 0.2s $ease-out-editorial;
-      transform: scaleX(0);
-      transform-origin: 100% 0;
-      background-color: currentColor;
+      &:after {
+        position: absolute;
+        bottom: calc(1em + 1px);
+        left: 0;
+        width: 100%;
+        height: 1px;
+        content: '';
+        transition: transform 0.2s $ease-out-editorial;
+        transform: scaleX(0);
+        transform-origin: 100% 0;
+        background-color: currentColor;
+      }
     }
     &:hover,
     &:active {

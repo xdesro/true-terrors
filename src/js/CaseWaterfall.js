@@ -83,7 +83,7 @@ export default class CaseWaterfall {
               trigger: row,
               start: 'bottom bottom',
               end: 'top center',
-              scrub: 1,
+              scrub: 1.5,
             },
           });
         }

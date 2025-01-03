@@ -264,10 +264,13 @@
     }
   }
   &__marquee-inner {
-    // white-space: nowrap;
-    width: max-content;
     // max-width: 100%;
     // overflow: hidden;
+    display: flex;
+    column-gap: 0.5ch;
+    align-items: center;
+    // white-space: nowrap;
+    width: max-content;
     padding-right: 0.5ch;
   }
   &__marquee-locale,

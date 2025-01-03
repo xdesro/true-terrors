@@ -34,9 +34,7 @@ Here’s a basic outline of what we’re going to do to get this working today:
 - Writing a Netlify Function to request data from the Spotify API
 - Rendering the response in HTML
 
-### Disclaimer
-
-_This article won't cover a fully-featured loop for managing authentication, refresh tokens, refresh timeout, etc. That would probably require a database and other infrastructure, and we don’t need that noise to make this work. ⚠️ This is probably not the way to make a very very secure serverless auth loop! ⚠️ It's just a fun tech demo. Be safe._
+This article won't cover a fully-featured loop for managing authentication, refresh tokens, refresh timeout, etc. That would probably require a database and other infrastructure, and we don’t need that noise to make this work. ⚠️ __This is probably not the way to make a very very secure serverless auth loop!__ ⚠️ It's just a fun tech demo. Be safe.{.editors-note}
 
 ## Initial Setup & Prerequisites
 
