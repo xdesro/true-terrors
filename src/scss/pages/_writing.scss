@@ -16,8 +16,12 @@
     overflow: hidden;
     grid-template-columns: minmax(0, 1fr);
     margin-inline: 1rem;
-    padding-top: 2rem;
+    padding-block-start: 2rem;
     border: none;
+
+    body.dark & {
+      border: 2px solid $color-border-light;
+    }
 
     &::before {
       position: absolute;

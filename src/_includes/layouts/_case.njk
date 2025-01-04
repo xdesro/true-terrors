@@ -3,6 +3,8 @@ layout: "layouts/base.njk"
 bodyClass: "case"
 ---
 {% from '../client-logo.njk' import clientLogo %}
+{% set nextPost = collections['case study'] | getNextCollectionItem %}
+{% set prevPost = collections['case study'] | getPreviousCollectionItem %}
 
 <header class="case-header{% if categories or tenure %} case-header--with-meta{% endif %}" style="--brand-fill: {{ theme.fill }}; --brand-contrast: {{ theme.contrast }}">
     <div class="case-header__inner container">
@@ -51,18 +53,11 @@ bodyClass: "case"
     {{ content | safe }}
 </article>
 
-<!-- TODO: Next post doesn't work -->
-<!-- <script webc:setup>
-    console.log(this.page)
-    const nextPost = this.getNextCollectionItem(collections.article, this.page);
-</script>
-
-<div class="article__next">
-    <article class="card">
-        <h1 class="card__title card__title--small card__title--compact" @text="nextPost.data.title"></h1>
-        <p class="card__content" @text="nextPost.data.excerpt"></p>
-        <a :href="nextPost.url" class="card__link">Read More →</a>
-    </article>
-</div> -->
-
-<!-- <template webc:nokeep @raw="this.getNextCollectionItem(collections.articles)"></template> -->
+{# {% if nextPost or prevPost %}
+    <!-- TODO: Next post doesn't work with webC -->
+    <aside class="further-reading container">
+        {% set caseStudy = nextPost or prevPost %}
+        <h2>Further Reading</h2>
+        {% include 'case-study-block.njk' %}
+    </aside>
+{% endif %} #}

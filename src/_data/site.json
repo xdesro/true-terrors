@@ -3,6 +3,7 @@
   "nav": [
     {
       "title": "Garden",
+      "footerClass": "footer__section--garden",
       "links": [
         {
           "text": "Case Studies",
@@ -28,6 +29,7 @@
     },
     {
       "title": "Meta",
+      "footerClass": "footer__section--meta",
       "links": [
         {
           "text": "About",

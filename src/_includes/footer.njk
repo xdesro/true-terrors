@@ -15,7 +15,7 @@
                 <a class="footer__link" href="/">Home</a>
             </section>
             {% for linkGroup in site.nav %}
-            <section class="footer__section footer__section--link-group">
+            <section class="footer__section footer__section--link-group{% if linkGroup.footerClass%} {{ linkGroup.footerClass }}{% endif %}">
                 <div class="footer__meta-title">{{ linkGroup.title }}</div>
                 {% for link in linkGroup.links %}
                 <div>

@@ -119,7 +119,7 @@ picture:has(.footer-border) {
       margin-block-end: 4rem;
     }
     @include screen(xl) {
-      grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
       margin-block-end: 7rem;
     }
   }
@@ -129,6 +129,27 @@ picture:has(.footer-border) {
 
     @include screen(lg) {
       margin-block-end: 0;
+    }
+    @include screen(xl) {
+      grid-row: 2;
+      grid-column-end: span 2;
+    }
+
+    &--link-group {
+    }
+
+    &--garden,
+    &--meta {
+      @include screen(xl) {
+        grid-column-end: span 4;
+      }
+    }
+
+    &--meta {
+      @include screen(xl) {
+        grid-row: 3;
+        grid-column-start: 3;
+      }
     }
 
     &--collapsed {
@@ -144,9 +165,6 @@ picture:has(.footer-border) {
         margin-block-end: 0;
         grid-row-end: 1;
       }
-      @include screen(xl) {
-        margin-block-end: 5rem;
-      }
     }
 
     &--social {
@@ -156,30 +174,12 @@ picture:has(.footer-border) {
         grid-column: 2;
         grid-row-end: span 2;
         grid-row-start: 2;
-
-        .home & {
-          grid-row-start: 1;
-        }
       }
       @include screen(xl) {
-        grid-column: auto;
-        grid-row: auto;
-
-        .home & {
-          grid-row-start: auto;
-        }
-      }
-    }
-
-    &--link-group {
-      @include screen(xl) {
-        grid-column: 2;
-      }
-    }
-
-    &:not(:is(.footer__section--link-group, .footer__section--breadcrumb)) {
-      @include screen(xl) {
+        grid-row-start: 2;
         grid-row-end: span 2;
+        grid-column-start: auto;
+        grid-column-end: span 2;
       }
     }
   }

@@ -17,11 +17,10 @@ titleSplitIndex: 3
 
 In the summer of 2020, I had the great opportunity to redesign and code [jessicahische.shop](https://www.jessicahische.shop), the eCommerce platform through which _New York Times_ best-selling letterer and type designer Jessica Hische sells her prints, letterhead, pins, and more. I worked closely with Jessica and my esteemed team at Faculty to realize a more polished, more animated, and more well-featured vision of the site.
 
-<blockquote>
-  <p>Faculty is highly knowledgeable and professional, in both web design and development, as well as in niche fields like type design. They're kind people who are a joy to work with.</p>
-  
-  <cite>Jessica Hische</cite>
-</blockquote>
+
+> Faculty is highly knowledgeable and professional, in both web design and development, as well as in niche fields like type design. They're kind people who are a joy to work with.
+>
+> — _Jessica Hische_
 
 ## Impetus
 
@@ -41,7 +40,7 @@ For fonts, I also designed an opportunity for users to play with the fonts, to s
 
 ## Code
 
-As with [most of the projects I've work on at Faculty](https://faculty.com/standards/best-practices), progressive enhancement is a baseline requirement. BigCartel has some very specific requirements about how things are implemented, and I did my utmost to make sure the site was completely progressively-enhanced outside of those specific constraints.
+As with [all of the projects I've worked on at Faculty](https://faculty.com/standards/best-practices), progressive enhancement is a baseline requirement. BigCartel has some very specific requirements about how things are implemented, and I did my utmost to make sure the site was completely progressively-enhanced outside of those specific constraints.
 
 I prefer to write animation code in CSS when possible, and that was the perfect fit for a project like this. Statefully swapping out classes as needed with Javascript and then hooking into those state changes with CSS timelines is a really performant and consistent workflow.
 

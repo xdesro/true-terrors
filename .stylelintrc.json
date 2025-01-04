@@ -1,13 +1,14 @@
 {
   "extends": "stylelint-config-standard-scss",
-  "ignoreFiles": ["src/scss/vendor/*.scss"],
+  "ignoreFiles": ["src/scss/vendor/*.scss","src/scss/abstract/*.scss"],
   "plugins": ["stylelint-selector-bem-pattern",    "stylelint-use-logical"],
   "rules": {
     "at-rule-empty-line-before": null,
     "no-descending-specificity": true,
     "media-feature-range-notation": null,
     "value-keyword-case": null,
-    "csstools/use-logical": ["always", { "except": ["width", "height", "max-width", "max-height", "top", "left", "bottom", "right", "text-align"] }],
+    "scss/no-global-function-names": null,
+    "csstools/use-logical": ["always", { "except": ["width", "height", "max-width", "max-height", "min-width", "min-height", "top", "left", "bottom", "right", "text-align"] }],
     "selector-class-pattern": [
       "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
       {

@@ -6,7 +6,7 @@
     eleventyComputed: {
         footerLinks: (data) => [
             ...data.footerLinks,
-            { name: "Now", url: "/now" },
+            { name: "About", url: "/about" },
         ],
     },
 }
@@ -34,7 +34,7 @@
             <a class="with-arrow with-arrow--out" href="https://hireme.website">Not-Very-Serious Resume</a>
         </nav>
     </section>
-    <img class="about-layout__collar" src="/img/collar.svg" alt="">
+    <img eleventy:ignore class="about-layout__collar" src="/img/collar.svg" alt="">
     <div class="barb-bar"></div>
     <aside class="window to-elsewhere">
         <h3>Elsewhere</h3>
@@ -61,23 +61,3 @@
     </section>
 </article>
 
-{# <article class="article-content rendered">
-    <section>
-{%- renderTemplate "md" -%}
-## Who
-
-Hi I’m Henry Desroches, I’m a front-of-the-front-end developer && design engineer && creative technologist && UX engineer && web developer from Denver, Colorado. I got my start Coding For The ‘Net in 2004, using Dreamweaver to make websites for school projects. I’ve worked professionally on the web since 2015, mostly at agencies, though I’ve done some time with [FAANG companies](/work/youtube) and other [large corporations](/work/the-new-york-times).
-        {% endrenderTemplate %}
-    </section>
-    <section>
-{%- renderTemplate "md" -%}
-## Speaking
-
-I’
-{% endrenderTemplate %}
-        {% for talk in collections['speaking'] | sortedByPublishDate %}
-            {% include 'speaking-list-item.njk' %}
-        {% endfor %}
-    </section>
-</article> #}
-{% include 'footer.njk' %}

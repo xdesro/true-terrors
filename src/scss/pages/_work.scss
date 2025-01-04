@@ -7,7 +7,7 @@
   @include screen(sm) {
     display: grid;
     grid-column-end: span 2;
-    gap: 1.5rem;
+    gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
   @include screen(lg) {
@@ -77,7 +77,7 @@
         grid-column: 10 / span 3;
         grid-row: 3;
         border-bottom-right-radius: 0;
-        background-color: $color-text;
+        background-color: $color-text-unthemed;
         background-position: right top;
       }
 
@@ -89,7 +89,7 @@
         margin-block: calc(-1.5rem - 2px);
         border-block: 0;
         border-radius: 0;
-        background-color: $color-text;
+        background-color: $color-text-unthemed;
         background-position: right center;
       }
 
@@ -97,7 +97,7 @@
         grid-column: 9 / span 4;
         grid-row: 5;
         border-top-right-radius: 0;
-        background-color: $color-text;
+        background-color: $color-text-unthemed;
         background-position: right bottom;
       }
 

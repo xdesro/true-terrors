@@ -26,6 +26,7 @@
 @use 'components/speaking-list';
 @use 'components/post';
 @use 'components/embed';
+@use 'components/grid-overlay';
 
 @use 'pages/home';
 @use 'pages/work';
@@ -81,12 +82,11 @@
     }
   }
   @include screen(1200px) {
-    --standard-column: 5 / span 6;
+    --standard-column: 5 / span 5;
     --pre-column: 5 / span 5;
-
-    // > .cp_embed_wrapper {
-    //   grid-column-end: span 6;
-    // }
+  }
+  @include screen(1512px) {
+    --standard-column: 5 / span 4;
   }
 
   h2 {
@@ -96,7 +96,8 @@
       &::before {
         font-size: 1em;
         position: absolute;
-        left: -5ch;
+        right: calc(100% + 1rem);
+        width: max-content;
         content: '0' counter(h2s) ' —';
         color: $color-text;
       }
@@ -170,7 +171,8 @@
     counter-increment: h2s;
   }
 
-  .article-block {
+  .article-block,
+  .case-study-block {
     grid-column: var(--standard-column);
   }
 }

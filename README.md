@@ -35,11 +35,11 @@ bun run start:quiet
 - Animated underlines on foot breadcrumbs
 
 ### Nice-to-have
+- Next post for case study?
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
 - Design rework of hireme.website?
 - Walk back case study row `webc`?
-- Sass linting
-- JS linting
+- JS linting?
 - Component for code embeds
 - Component for asides/footnotes on large screens.
 - Remove splitting.js dependency
@@ -51,6 +51,7 @@ bun run start:quiet
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ Sass linting
 - ✅ Finish YouTube Case
 - ✅ Real font licenses
 - ✅ Barbed wire scrolling effect

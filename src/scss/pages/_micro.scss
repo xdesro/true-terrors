@@ -1,3 +1,6 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
 .feed {
   margin-block-end: 4rem;
   @include screen(lg) {

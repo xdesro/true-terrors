@@ -30,7 +30,16 @@ let caseBlocks = null;
 
 class DefaultRenderer extends Renderer {
   initialLoad() {
-    console.log(graffiti, `color: #777`);
+    window.addEventListener('keypress', ({ shiftKey, key }) => {
+      if (shiftKey && key === 'D') {
+        document.body.classList.toggle('themed');
+        document.body.classList.toggle('dark');
+      }
+      if (shiftKey && key === 'G') {
+        document.body.classList.toggle('with-grid');
+      }
+    });
+    this.onEnter();
   }
   onEnter() {
     navManager.updateLink();
@@ -77,13 +86,16 @@ class DefaultRenderer extends Renderer {
         caseBlocks.removeListeners();
       }
     }
-    if (document.querySelector('.page-header__bar')) {
-      gsap.to('.page-header__bar', {
-        backgroundPositionX: '100%',
-        scrollTrigger: {
-          target: '.page-header',
-          scrub: 1,
-        },
+    if (document.querySelector('.page-header__bar, .barb-bar')) {
+      MatchMediaManager.add(({ conditions }) => {
+        const { prefersReducedMotion, isMobile } = conditions;
+        gsap.to('.page-header__bar, .barb-bar', {
+          backgroundPositionX: prefersReducedMotion ? 0 : '100%',
+          scrollTrigger: {
+            target: '.page-header',
+            scrub: 1,
+          },
+        });
       });
     }
     if (document.querySelector('.case-study-rows')) {
@@ -106,6 +118,7 @@ class DefaultRenderer extends Renderer {
     }
 
     if (document.querySelector('.article-block, .case-study-block')) {
+      console.log('test');
       const cards = document.querySelectorAll(
         '.article-block, .case-study-block'
       );
