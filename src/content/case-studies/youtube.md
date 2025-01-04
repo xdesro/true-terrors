@@ -128,7 +128,9 @@ The really cool work done for this event was my coworker Mattaniah’s generativ
 
 One of my favorite projects was my work on the Countdowns project, which was a way to archive and celebrate YouTube’s collection of motion design vignettes used to premiere new videos on the platform. The site, designed by the inimitable [Jessie Zo](https://jessiezo.com/), used a unique three-layout configuration to showcase each Countdown, imbue it with compelling personality, and feature the interview done with each motion designer that YouTube collaborated with.
 
-![A four-up composite of different layouts from the Countdowns website, showing a long-scroll, narrative style, a dense grid view, and a compressed data reference view. The composite also shows an individual Countdown page, including some metadata about the motion designer and the text of an interview with them.](https://res.cloudinary.com/henry-codes/image/upload/v1735953140/countdowns-frames_lagplg.png)
+<div class="subgrid flow" style="--standard-column: 2 / span 10;">
+  <img class="column" style="--column: 1 / -1" src="https://res.cloudinary.com/henry-codes/image/upload/v1735953140/countdowns-frames_lagplg.png" alt="A four-up composite of different layouts from the Countdowns website, showing a long-scroll, narrative style, a dense grid view, and a compressed data reference view. The composite also shows an individual Countdown page, including some metadata about the motion designer and the text of an interview with them." />
+</div>
 
 I initially joined the project at the start of the design phase, as an interactivity consultant. I worked with Jessie to isolate some really cool moments of interactivity, and then worked as a liaison between her and the adjunct engineering team that would be implementing her designs. I wrote technical specifications and documentation to accompany Jessie’s comps — I really enjoyed this sort of work, making sure a designer was able to execute on their fullest version of a project, and making sure engineering was enabled to hit the ground running.
 
