@@ -39,7 +39,11 @@ bodyClass: "article"
         {% set toc = content | getTOC %}
         {% include 'table-of-contents.njk' %}
         <div class="article-header__graphic-wrapper">
+            {% if useHero %}
+            <img alt="" src="{{ heroImage }}" class="article-header__image">
+            {% else %}
             <img alt="" src="/img/milan-cover-photo.jpg" class="article-header__image">
+            {% endif %}
         </div>
     {% endif %}
 </header>

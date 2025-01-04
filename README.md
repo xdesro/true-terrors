@@ -23,18 +23,19 @@ bun run start:quiet
 ## TODOS
 ### Go-live
 - **Content:**
-    - Finish YouTube Case
+    - ~~Finish YouTube Case~~
     - NYT Case?
     - Matter Case
     - Faculty Case
+    - RM Case
     - Blog header images
-- Real font licenses
 - Undo/redo splitting call on resize
-- ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
+- Animated underlines on foot breadcrumbs
 
 ### Nice-to-have
+- ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
+- Design rework of hireme.website?
 - Walk back case study row `webc`?
-- Barbed wire scrolling effect
 - Sass linting
 - JS linting
 - Component for code embeds
@@ -42,11 +43,14 @@ bun run start:quiet
 - Remove splitting.js dependency
 - Consider speeding up transitions after first visit
 - Case studies design blocks need _better_ graphics lol
+- Dark mode and grid mode easter eggs
 
 ### Ice
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ Real font licenses
+- ✅ Barbed wire scrolling effect
 - ✅ Case studies design blocks need graphics
 - ✅ Animated link underlines for article blocks.p
 - ✅ OpenGraph images service

@@ -15,6 +15,7 @@ import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 
 import DefaultTransition from './transitions/Default';
 import CaseBlocks from './CaseBlocks';
+import graffiti from './graffiti';
 
 window.navManager = new NavManager();
 history.scrollRestoration = 'manual';
@@ -28,6 +29,9 @@ const ditheredImages = [];
 let caseBlocks = null;
 
 class DefaultRenderer extends Renderer {
+  initialLoad() {
+    console.log(graffiti, `color: #777`);
+  }
   onEnter() {
     navManager.updateLink();
     if (window.location.pathname === '/') {

@@ -1,7 +1,8 @@
 ---
 title: "Bad UX In Everyday Life: Kitchen Nightmares"
 slug: bad-ux-in-everyday-life-kitchen-nightmares
-heroImage: ./img/2zb.kitchen.jpg
+heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1735169308/kitchen_i26rt7.jpg
+useHero: true
 excerpt: It’s come to my attention lately that my kitchen is absolutely riddled with poor experiences. Most of the appliances and apparatus one uses on a day-to-day basis in the kitchen were invented or last revolutionized in the early part of the 20th century, and many of them have seen very little innovation, if any, since that time. I'd like to file a complaint.
 publishDate: 2016-06-09T00:00-06:00
 socialSharingImage: ./img/6TQ.Frame 15.png
@@ -18,7 +19,7 @@ It’s come to my attention lately that my kitchen is absolutely riddled with po
 
 In the following exposition, I will outline some of the major experience flaws in a couple places in the standard kitchen.
 
-### The Toaster
+## The Toaster
 
 The conventional pop-up toaster you typically see in John Doe’s kitchen was invented in 1919 by Charles Strite, and looks about the same as it did when he initially received the patent for the device, save for a few standard additions like the toast-level knob and sometimes the bagel setting. This run-of-the-mill toaster is plagued with several major detriments, chiefly inconsistent functionality. I cycled through four toasters of varying major brands and continued to get bread that was grossly mistreated by the heating element, often leaving half unchanged while rendering the other half a tragically-charred wasteland.
 
@@ -28,10 +29,10 @@ Toasters typically let users select a level of toast in an iconographically-vagu
 
 Not lastly of the toaster’s UX sins stems from its traditionally opaque walls. A lot of the schism encountered when trying to nail down an ideal toast level could be countered if you could just see how dark the darn bread was getting. Breville’s “Lift & Look”™ solution (which allows the user to check the toast level without canceling the heating cycle) is a step in the right direction, but could be improved. Morphy Richards’ glass-walled design is the closest to completely solving this problem, but while everyone deserves a seamless toast experience, not everyone can afford to spend $200+ on a toaster.
 
-### Rice, Flour, and Sugar Packaging (Oh My)
+## Rice, Flour, and Sugar Packaging (Oh My)
 
 This is one that confounded me long before I had even heard the term “UX” — flour, most culinary sugars, and rice are usually found in stores in tightly-packed paper or plastic bags. This packaging makes it difficult if not impossible to reseal or contain them once opened, without third-party storage jars/boxes/bags. There are very few other food items that ship with this necessity. Crackers come in boxes, butter comes in a wrapper or a box — it seems almost a bizarre oversight that the powdery or granular food items would be assigned to the type of packaging that would be most logistically difficult for it to be retrieved from. The tight packaging is designed with shipping convenience in mind, not the consumer; the amount of flour exploding over unsuspecting users’ countertops at any given moment is unforgivable.
 
-### Disclaimer
+## Disclaimer
 
 This is a list of poor user experiences I’ve had in my culinary ventures — many of these could arguably be attributed to “user error” or “expecting too much of a toaster”, but I believe that in 2016, I shouldn’t have to hunt excessively or pay premiums for a toaster that works, nor should I have to buy specialized containers for some food products, when most others leave the shelf of the grocery store in a package they’re fine occupying indefinitely. I’d love to hear your input — feel free to dispute my thoughts or (much more likely) to agree vehemently with me [via email](mailto:yo@henry.codes).

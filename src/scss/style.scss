@@ -106,6 +106,7 @@
       grid-column-end: span 7;
     }
   }
+
   pre {
     grid-column: var(--pre-column);
     max-width: 80ch;
@@ -118,6 +119,24 @@
   }
   .article-block {
     max-width: 60ch;
+  }
+
+  picture {
+    // TODO Workaround for @eleventy-img attributes on <picture>
+    display: contents;
+  }
+  .flow {
+    margin-block-end: 1lh;
+  }
+}
+.subgrid {
+  display: grid;
+  grid-template-columns: subgrid;
+  .column {
+    --column: 1 / -1;
+    --row: auto;
+    grid-column: var(--column);
+    grid-row: var(--row);
   }
 }
 .further-reading {
