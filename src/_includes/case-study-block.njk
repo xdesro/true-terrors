@@ -34,11 +34,11 @@
     {% if caseStudy.data.viewTheWork %}
         <a class="case-study-block__link with-arrow with-arrow--out" href="{{ caseStudy.data.link }}">
             {% if caseStudy.data.viewTheWorkText %}
-            <span>{{ caseStudy.data.viewTheWorkText }}</span>
-            {% else %}<span>View the work</span>
+            <span class="with-underline">{{ caseStudy.data.viewTheWorkText }}</span>
+            {% else %}<span class="with-underline">View the work</span>
             {% endif %}</a>
     {% elif caseStudy.content.length > 0 %}
-        <a class="case-study-block__link with-arrow" href="/work/{{ caseStudy.data.title | slugify }}"><span>Read more <span class="visually-hidden">about my work with {{ caseStudy.data.title }}</span></span></a>
+        <a class="case-study-block__link with-arrow" href="/work/{{ caseStudy.data.title | slugify }}"><span class="with-underline">Read more <span class="visually-hidden">about my work with {{ caseStudy.data.title }}</span></span></a>
     {% else %}
         <p class="case-study-block__coming-soon">(Case study coming soon)</a>
     {% endif %}

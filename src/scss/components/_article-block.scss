@@ -2,14 +2,13 @@
 @use '../abstract/mixins' as *;
 
 .article-block {
+  $this: &;
+
   position: relative;
   margin-block-end: 1rem;
   padding: 2rem 1.5rem;
   border: 2px solid $color-border-light;
   border-radius: $bdrs;
-  &--clickable {
-    cursor: pointer;
-  }
 
   @include screen(sm) {
     display: grid;
@@ -17,6 +16,11 @@
     height: 100%;
     margin-block-end: 0;
   }
+
+  &--clickable {
+    cursor: pointer;
+  }
+
   &:hover,
   &:focus-within,
   &:has(a:hover, a:focus) {
@@ -26,45 +30,17 @@
       background-size: 100% 1px;
     }
   }
-  &--featured,
-  &--external {
-    // background-color: $color-text;
-    // color: $color-background;
-    border-color: $color-background;
-    outline-offset: -6px;
-    &:hover,
-    &:focus-within,
-    &:has(a:hover, a:focus) {
-      border-color: $color-background;
-      outline: 2px solid $color-border-light;
-    }
-    &:first-child {
-      &:before {
-        font-size: 0.75rem;
-        font-weight: bold;
-        position: absolute;
-        top: -1.3rem;
-        margin-left: 0;
-        content: 'Featured Reading';
-        text-transform: uppercase;
-        color: $color-text-unthemed;
-      }
-    }
-  }
+
   &--external {
     position: relative;
     display: block;
     height: min-content;
     margin-block-start: 2.5rem;
-    .article-block__title:has(+ .article-block__meta) {
-      margin-block-end: 1rem;
-    }
-    .article-block__meta {
-      margin-block-end: 1.5rem;
-    }
+
     .article-block__excerpt {
       font-family: $font-sans;
     }
+
     .article-block__external-disclaimer {
       font-family: $font-sans;
       font-size: 0.75rem;
@@ -82,6 +58,7 @@
       @include screen(1420px) {
         font-size: 0.75rem;
       }
+
       span:last-child {
         display: none;
 
@@ -91,63 +68,92 @@
       }
     }
   }
+
+  &--featured,
+  &--external {
+    border-color: $color-background;
+    outline-offset: -6px;
+
+    &:hover,
+    &:focus-within,
+    &:has(a:hover, a:focus) {
+      border-color: $color-background;
+      outline: 2px solid $color-border-light;
+    }
+
+    &:first-child {
+      &::before {
+        font-size: 0.75rem;
+        font-weight: bold;
+        position: absolute;
+        top: -1.3rem;
+        margin-left: 0;
+        content: 'Featured Reading';
+        text-transform: uppercase;
+        color: $color-text-unthemed;
+      }
+    }
+  }
+
   &__meta {
     font-family: $font-sans;
     font-size: 0.75rem;
     line-height: 1.1;
     margin-block-end: 0.75rem;
-    // margin-block-end: 1rem;
     text-transform: uppercase;
     color: $color-text-mid;
+
     &:nth-of-type(2) {
       margin-block-end: 0;
       text-align: right;
     }
+    #{$this}--external & {
+      margin-block-end: 1.5rem;
+    }
   }
+
   &__meta-highlight {
     color: $color-text;
   }
+
   &__title {
     font-family: $font-serif-display;
     font-size: 2rem;
     font-weight: 400;
     line-height: 1;
     margin-block-end: 2rem;
+
+    #{$this}--external & {
+      &:has(+ .article-block__meta) {
+        margin-block-end: 1rem;
+      }
+    }
   }
+
   &__link {
     font-family: $font-sans;
     font-size: 0.75rem;
     font-weight: bold;
-    line-height: 1.3;
+    line-height: 1.1;
     display: block;
+    justify-self: end;
     margin-block-end: -1rem;
     padding-block: 1rem;
+    transition: background-size 0.2s $ease-out-editorial;
     text-align: right;
     text-decoration: none;
     text-transform: uppercase;
-    justify-self: end;
-    // &:before {
-    //   position: absolute;
-    //   z-index: 1;
-    //   inset: 0;
-    //   content: '';
-    // }
-    // &:hover {
-    // text-decoration: underline;
-    // }
-    // span {
-    line-height: 1.1;
-    transition: background-size 0.2s $ease-out-editorial;
     background-image: linear-gradient(currentColor, currentColor);
     background-repeat: no-repeat;
     background-position: 0 calc(100% - 1rem);
     background-size: 0% 1px;
-    // }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0s;
+    }
 
     &:hover {
-      // span {
       background-size: 100% 1px;
-      // }
     }
   }
 }

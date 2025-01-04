@@ -21,14 +21,16 @@ bun run start:quiet
 ```
 
 ## TODOS
+
 ### Go-live
 - **Content:**
-    - ~~Finish YouTube Case~~
     - NYT Case?
     - Matter Case
     - Faculty Case
     - RM Case
     - Blog header images
+- case study clickable blocks don’t enhance if you load straight in
+- Looks like `math` is too small on large screens?
 - Undo/redo splitting call on resize
 - Animated underlines on foot breadcrumbs
 
@@ -49,6 +51,7 @@ bun run start:quiet
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ Finish YouTube Case
 - ✅ Real font licenses
 - ✅ Barbed wire scrolling effect
 - ✅ Case studies design blocks need graphics

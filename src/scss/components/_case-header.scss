@@ -9,8 +9,8 @@
   @include screen(magazine) {
     margin-block-start: 6rem;
     padding-block-end: 4rem;
-    // margin-block-start: 18rem;
   }
+
   &__inner {
     @include screen(sm) {
       display: grid;
@@ -26,6 +26,7 @@
       margin-block-end: 0;
     }
   }
+
   &__mast {
     padding-block-start: 8rem;
 
@@ -41,6 +42,7 @@
       padding-block-start: 0;
     }
   }
+
   &__category {
     margin-block-end: 1rem;
     letter-spacing: -0.01em;
@@ -63,10 +65,6 @@
       grid-column: 1 / span 2;
       margin-block-start: 8rem;
       margin-block-end: 0;
-      // grid-row: 2;
-    }
-    @include screen(lg) {
-      // margin-block-end: 0;
     }
     @include screen(magazine) {
       grid-column-end: span 12;
@@ -74,6 +72,7 @@
       margin-block-end: 8rem;
     }
   }
+
   &__logo {
     position: absolute;
     z-index: -1;
@@ -84,57 +83,33 @@
     max-width: 10rem;
     max-height: 100%;
     max-height: 10rem;
-    // width: 8rem;
     aspect-ratio: 1;
     margin: auto;
     transform: translateY(-50%);
-    // display: grid;
-    // place-content: center;
-    // padding: 1.5rem;
-    // border: 2px solid currentColor;
-    // border-radius: $bdrs;
     color: #eee;
-    // @include screen(lg) {
-    //   margin-block-end: 1.5rem;
-    // }
-    // @include screen(magazine) {
-    //   margin-block-end: 0.5rem;
-    // }
 
     @include screen(magazine) {
-      // top: 0;
       position: relative;
       top: unset;
       padding-block: 1rem;
       transform: none;
-      // transform: translateY(calc(-100% - 2rem));
-      // left: 0;
-      // place-items: start;
-      // margin-inline-start: 0;
-      // transform: translateY(-10rem);
     }
+
     svg {
       width: 100%;
-      // height: 100%;
-      // color: var(--brand-contrast);
     }
   }
+
   &__title {
     font-family: $font-serif-display;
     font-size: min(30vw, 6rem);
     font-weight: 400;
     line-height: 0.8;
-    text-align: center;
     position: relative;
-    // margin-block-end: 0.5rem;
-    // margin-block-end: 2rem;
-    // text-transform: uppercase;
+    text-align: center;
 
     @include screen(lg) {
       font-size: clamp(10rem, 2.6471rem + 13.0719vw, 15rem);
-    }
-    @include screen(magazine) {
-      // text-align: left;
     }
 
     .word {
@@ -146,19 +121,6 @@
     }
   }
 
-  &__title-main {
-    // color: blue;
-    // clip-path: polygon(0% -10%, 100% -10%, 100% 100%, 0% 100%);
-  }
-  &__title-duplicate {
-    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
-    // color: red;
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
   &__abstract {
     line-height: 1.5;
     max-width: 45ch;
@@ -173,8 +135,6 @@
       grid-row: 2;
       margin-block-end: 8rem;
     }
-    @include screen(lg) {
-    }
     @include screen(magazine) {
       font-size: 1.25rem;
       grid-column: 1 / span 5;
@@ -182,10 +142,12 @@
       margin-inline-start: 0;
       text-align: left;
     }
+
     .line {
       clip-path: polygon(0% -10%, 100% -10%, 100% 100%, 0% 100%);
     }
   }
+
   &__meta {
     display: grid;
     column-gap: 1rem;
@@ -201,16 +163,14 @@
     @include screen(magazine) {
       grid-column: 7 / span 2;
       grid-row: 2 / span 2;
-      // align-self: last baseline;
       margin-block-end: 0;
-
-      //   grid-row: 1 / span 2;
     }
 
     dt {
       color: $color-text-mid;
     }
   }
+
   &__topics {
     grid-column: 2;
     grid-row: 1 / span 2;
@@ -219,10 +179,11 @@
       grid-column: unset;
     }
   }
+
   &__topics-list {
-    // list-style: none;
     padding: 0;
   }
+
   .table-of-contents {
     @include screen(sm) {
       grid-column: 1;
@@ -231,7 +192,6 @@
     @include screen(magazine) {
       grid-column: 9 / span 4;
       grid-row: 2 / span 2;
-      // align-self: last baseline;
       margin-block-end: 0;
     }
 
@@ -240,6 +200,7 @@
       clip-path: polygon(0% -10%, 100% -10%, 100% 100%, 0% 100%);
     }
   }
+
   &--with-meta {
     .table-of-contents {
       @include screen(sm) {

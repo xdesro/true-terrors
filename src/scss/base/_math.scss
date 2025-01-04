@@ -1,26 +1,21 @@
 @use '../abstract/variables' as *;
+
 mjx-container {
-    overflow-x: scroll;
-    overflow-y: visible;
-    max-width: 100%;
-    border: 2px solid #eee;
-    border-radius: $bdrs;
-    padding: 1rem;
+  overflow-x: scroll;
+  overflow-y: visible;
+  max-width: 100%;
+  border: 2px solid #eee;
+  border-radius: $bdrs;
+  padding: 1rem;
+}
 
-    // @include screen(lg) {
-    //   grid-column: 7 / span 7;
-    // }
+math {
+  min-width: 100%;
 
+  // Safari weird thing
+  // I don’t like this either but we’ve
+  // got BLOG POSTS TO PUBLISH!!
+  mtable[columnalign='right'] {
+    text-align: center;
   }
-  math {
-    min-width: 100%;
-    // @include screen(lg) {
-    //   display: math block;
-    // }
-    // Safari weird thing
-    // I don’t like this either but we’ve
-    // got BLOG POSTS TO PUBLISH!!
-    mtable[columnalign="right"] {
-      text-align: center;
-    }
-  }
+}

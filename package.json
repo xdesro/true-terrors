@@ -37,7 +37,11 @@
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-prism": "^2.3.0",
     "sass": "^1.80.1",
-    "simplex-noise": "^4.0.3"
+    "simplex-noise": "^4.0.3",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-selector-bem-pattern": "^4.0.1",
+    "stylelint-use-logical": "^2.1.2"
   },
   "patchedDependencies": {
     "@11ty/eleventy-plugin-webc@0.11.2": "patches/@11ty%2Feleventy-plugin-webc@0.11.2.patch",

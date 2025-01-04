@@ -1,38 +1,39 @@
-@use "../abstract/variables" as *;
+@use '../abstract/variables' as *;
 
 .window {
-    position: relative;
-    display: inline-block;
-    padding: 2rem;
-    border: 2px solid $color-text;
-    border-radius: $bdrs;
-    background-color: $color-background;
+  position: relative;
+  display: inline-block;
+  padding: 2rem;
+  border: 2px solid $color-text;
+  border-radius: $bdrs;
+  background-color: $color-background;
 
-    &:before {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      display: block;
-      width: 1.25rem;
-      aspect-ratio: 1;
-      content: "";
-      border: 2px solid #bdbdbd;
-      border-radius: 100%;
-    }
+  &::before {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: block;
+    width: 1.25rem;
+    aspect-ratio: 1;
+    content: '';
+    border: 2px solid #bdbdbd;
+    border-radius: 100%;
+  }
+}
+
+.to-elsewhere {
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: inherit;
+    margin-block-end: 0.75rem;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: $color-text-mid;
   }
 
-  .to-elsewhere {
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      line-height: inherit;
-      margin-block-end: 0.75rem;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      color: $color-text-mid;
-    }
-    ul {
-      font-size: 1.25rem;
-      list-style: none;
-    }
+  ul {
+    font-size: 1.25rem;
+    list-style: none;
   }
+}

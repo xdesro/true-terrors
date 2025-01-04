@@ -15,7 +15,8 @@
     margin-block-end: 2rem;
     scroll-margin-block-start: 4.5rem;
     counter-increment: h2s;
-    &:before {
+
+    &::before {
       font-size: 1.5rem;
       line-height: 1;
       display: block;
@@ -24,6 +25,7 @@
       color: $color-text-mid;
     }
   }
+
   h3 {
     font-size: 1.5em;
     font-weight: normal;
@@ -32,6 +34,7 @@
     margin-block-end: 1em;
     color: $color-text-mid;
   }
+
   > p {
     margin-block-end: 1em;
 
@@ -39,12 +42,14 @@
       max-width: 60ch;
     }
   }
+
   > ul,
   ol {
     @include screen(sm) {
       max-width: 60ch;
     }
   }
+
   blockquote {
     display: block;
     width: 100vw;
@@ -52,10 +57,10 @@
     margin-block: 2rem;
     padding-inline-start: calc(1.25rem - 0.5rem);
     padding-inline-end: 1.25rem;
-    // font-family: $font-sans;
     color: $color-text-mid;
     border-inline-start: 0.5rem solid $color-border-light;
   }
+
   > :is(.editors-note, .target-audience, .under-construction, .twitter-tweet) {
     margin-block: 2rem;
     border-inline-start-color: var(--callout-color, #{$color-border-light});
@@ -69,11 +74,11 @@
   font-family: $font-sans;
   display: block;
   width: 100vw;
-  margin-left: calc(50% - 50vw);
+  margin-inline-start: calc(50% - 50vw);
   padding-inline-start: 0.5rem;
   padding-inline-end: 1rem;
   color: $color-text-mid;
-  border-left: 0.5rem solid $color-border-light;
+  border-inline-start: 0.5rem solid $color-border-light;
 
   @include screen(sm) {
     width: auto;
@@ -81,43 +86,43 @@
     margin-inline: 0;
     padding-inline: 1rem;
   }
-  // font-style: italic;
 
-  &:before {
+  &::before {
     font-size: 0.875rem;
-    // font-style: normal;
     font-weight: bold;
     line-height: 1.5;
     display: block;
-    margin-bottom: 1em;
+    margin-block-end: 1em;
     text-transform: uppercase;
   }
 }
+
 .editors-note {
-  // margin-block: 3rem;
-  // color: #777;
-  &:before {
+  &::before {
     content: 'Editor’s Note';
   }
 }
+
 .target-audience {
   --callout-color: currentColor;
-  &:before {
+
+  &::before {
     content: 'Target Audience';
-    // color: #777;
   }
 }
+
 .under-construction {
   --callout-color: #ebcb8b;
-  &:before {
+
+  &::before {
     content: '🚧 Under Construction 🚧';
-    // color: #777;
   }
 }
+
 .twitter-tweet {
-  --callout-color: hsl(204, 78%, 83%);
-  &:before {
+  --callout-color: hsl(204deg 78% 83%);
+
+  &::before {
     content: '🐦 Tweet';
-    // color: #777;
   }
 }

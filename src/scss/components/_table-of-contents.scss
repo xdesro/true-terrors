@@ -2,6 +2,7 @@
 
 .table-of-contents {
   margin-block-end: 3rem;
+
   &__title {
     font-size: 1rem;
     font-weight: normal;
@@ -10,10 +11,12 @@
     text-transform: uppercase;
     color: $color-text-mid;
   }
+
   &__list {
     margin-block: 0;
     padding: 0;
     counter-reset: toc;
+
     > li {
       line-height: 1.3;
       display: grid;
@@ -21,7 +24,7 @@
       grid-template-columns: auto 1fr;
       counter-increment: toc;
 
-      &:before {
+      &::before {
         display: inline-block;
         width: 5ch;
         content: '(0' counter(toc) ') —';
@@ -29,6 +32,7 @@
         color: $color-text-mid;
       }
     }
+
     a {
       position: relative;
       z-index: 0;
@@ -42,9 +46,8 @@
       background-repeat: no-repeat;
       background-position: 0 calc(100% - 1px);
       background-size: 0% 1px;
-      -webkit-text-stroke: 2px $color-background;
-
       paint-order: stroke fill;
+      -webkit-text-stroke: 2px $color-background;
 
       &:hover {
         background-size: 100% 1px;

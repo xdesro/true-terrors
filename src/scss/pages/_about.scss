@@ -1,5 +1,5 @@
-@use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .about-layout {
   display: grid;
@@ -19,6 +19,7 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-template-rows: auto 1fr auto auto auto;
   }
+
   .card {
     padding-block: 3rem 2rem;
 
@@ -26,6 +27,7 @@
       padding: 3rem;
     }
   }
+
   .speaking-list-item {
     display: flex;
     margin-block-start: 2rem;
@@ -34,12 +36,14 @@
       grid-column-end: span 4;
       margin-block: 0 1rem;
     }
+
     iframe {
       order: -1;
       margin-block-end: 1.5rem;
       border-radius: $bdrs;
     }
   }
+
   &__avatar {
     grid-row: 2;
     margin-block-end: 2rem;
@@ -55,6 +59,7 @@
       --aspect: 225/429;
     }
   }
+
   &__who {
     @include screen(sm) {
       grid-column: 1;
@@ -68,11 +73,13 @@
       align-self: stretch;
     }
   }
+
   .to-elsewhere {
     @include screen(magazine) {
       grid-column-end: span 3;
     }
   }
+
   &__collar {
     display: none;
     width: 100%;
@@ -92,15 +99,9 @@
       grid-row: auto / span 1;
       width: 100%;
       height: 100%;
-      // aspect-ratio: 225 / 322;
     }
-
-    // @include screen(lg) {
-    //   height: clamp(7.6rem, 1.8647rem + 10.1961vw, 11.5rem);
-    //   margin-block-end: 0;
-    //   background-size: min(7vw, 105px);
-    // }
   }
+
   &__speaking {
     @include screen(magazine) {
       display: grid;
@@ -109,6 +110,7 @@
       grid-row-end: span 2;
       grid-template-columns: subgrid;
     }
+
     .card {
       @include screen(magazine) {
         grid-column-end: span 6;
@@ -116,53 +118,60 @@
       }
     }
   }
+
   &__contact {
     @include screen(magazine) {
       grid-column: 3 / span 6;
       grid-row: 4;
     }
   }
+
   .barb-bar {
     @include screen(sm) {
       grid-column: 2;
     }
+
     @include screen(magazine) {
       grid-column: auto / span 5;
     }
   }
+
   h2 {
     font-family: $font-serif-display;
     font-size: 3rem;
     font-weight: normal;
     line-height: 1;
-    // margin-block-start: 4.5rem;
     margin-block-end: 2rem;
     scroll-margin-block-start: 4.5rem;
     counter-increment: h2s;
-    &:before {
+
+    &::before {
       font-size: 1.5rem;
       line-height: 1;
       display: block;
       margin-block-end: 0.5em;
-      content: "0" counter(h2s);
+      content: '0' counter(h2s);
       color: $color-text-mid;
     }
   }
+
   p {
     font-family: $font-serif;
     line-height: 1.5;
     margin-block-end: 1em;
   }
 }
+
 .about-links {
   line-height: 1.5;
   display: flex;
   column-gap: 1rem;
   justify-content: end;
   flex-wrap: wrap;
+
   a {
-    // break-inside: avoid;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }

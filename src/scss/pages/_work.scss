@@ -17,32 +17,41 @@
     column-gap: 1rem;
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
+
   .case-study-block {
     @include screen(xl) {
       grid-column: 1 / 13;
+
       &:nth-child(1) {
         grid-column-start: 3;
       }
+
       &:nth-child(3) {
         grid-column-end: span 9;
       }
+
       &:nth-child(4) {
         grid-column-end: span 11;
       }
+
       &:nth-child(6) {
         grid-column-start: 3;
       }
+
       &:nth-child(7) {
         grid-column-start: 4;
       }
+
       &:nth-child(8) {
         grid-column-start: 3;
       }
+
       &:nth-child(10) {
         grid-column-end: span 11;
       }
     }
   }
+
   .list-design-element {
     display: none;
 
@@ -51,16 +60,19 @@
       border: 2px solid currentColor;
       border-radius: $bdrs;
       background: $color-text-mid;
+
       &:nth-of-type(1) {
         grid-column: 1 / span 2;
         grid-row: 1;
       }
+
       &:is(:nth-of-type(2), :nth-of-type(3), :nth-of-type(4)) {
         background-image: url('/img/crown.png');
         background-repeat: no-repeat;
         background-position: center bottom;
         background-size: var(--crown-height) var(--crown-height);
       }
+
       &:nth-of-type(2) {
         grid-column: 10 / span 3;
         grid-row: 3;
@@ -68,19 +80,19 @@
         background-color: $color-text;
         background-position: right top;
       }
+
       &:nth-of-type(3) {
         position: relative;
         z-index: 1;
         grid-column: 12;
         grid-row: 4;
         margin-block: calc(-1.5rem - 2px);
-        border-radius: 0;
-        background-position: right center;
-
-        background-color: $color-text;
-
         border-block: 0;
+        border-radius: 0;
+        background-color: $color-text;
+        background-position: right center;
       }
+
       &:nth-of-type(4) {
         grid-column: 9 / span 4;
         grid-row: 5;
@@ -88,27 +100,32 @@
         background-color: $color-text;
         background-position: right bottom;
       }
+
       &:nth-of-type(5) {
+        display: grid;
         grid-column: 1 / span 8;
         grid-row: 5;
-        height: 8rem;
-        display: grid;
         place-items: center;
+        height: 8rem;
+
         img {
           max-height: calc(100% - 2rem);
         }
       }
+
       &:is(:nth-of-type(6), :nth-of-type(7)) {
         background-image: url('/img/collar-motif.png');
         background-repeat: no-repeat;
         background-size: var(--collar-width);
       }
+
       &:nth-of-type(6) {
         grid-column: 1 / span 2;
         grid-row: 7 / span 3;
         background-color: #d9d9d9;
         background-position: left center;
       }
+
       &:nth-of-type(7) {
         grid-column: 3;
         grid-row: 8;
@@ -119,6 +136,7 @@
         background-color: #d9d9d9;
         background-position: right center;
       }
+
       &:nth-of-type(8) {
         grid-column: 12 / span 1;
         grid-row: 11;

@@ -1,7 +1,13 @@
 @use './abstract/variables' as *;
 
 body {
-  //   background-color: #fafafa;
+  --color-text: #fafafa;
+  --color-background: #000;
+  --color-text-mid: #666;
+  --color-border-mid: #bdbdbd;
+  --color-border-light: #eee;
+  --color-background-art: #201d18;
+
   font-family: 'Neue Montreal', sans-serif;
   position: relative;
   display: grid;
@@ -13,19 +19,10 @@ body {
   margin: 0;
   padding: 24px;
   color: $color-text;
-  //   color: #2a2722;
   border-inline-start: 24px solid #2a2722;
-  //   background-color: var(--color-background);
   background-color: var(--color-background);
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --color-text: #fafafa;
-  --color-background: #000;
-  --color-text-mid: #666;
-  --color-border-mid: #bdbdbd;
-  --color-border-light: #eee;
-  --color-background-art: #201d18;
 
   &.light {
     --color-text: #2a2722;
@@ -33,40 +30,48 @@ body {
     --color-background: #fafafa;
   }
 }
+
 .has-barbed-border {
   background-image: url('/img/thorn-vertical-dark.svg');
   background-repeat: repeat-y;
+  background-position-x: 24px;
   background-position-y: 50%;
   background-size: 195px;
-  background-position-x: 24px;
 }
+
 .container {
   max-width: 1000px;
+
   &--centered {
     margin-inline: auto;
   }
+
   &--bottom {
     align-self: end;
   }
+
   &--wide {
     max-width: calc(100vw - 4rem);
   }
 }
+
 .logo {
-  max-width: 64px;
-  max-height: 64px;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: contain;
   position: fixed;
   top: 32px;
   left: calc(2rem + 24px);
+  width: 100%;
+  max-width: 64px;
+  max-height: 64px;
+  object-fit: contain;
+  aspect-ratio: 1;
 }
+
 .header {
   position: absolute;
   top: 2rem;
   left: 2rem;
   max-width: 520px;
+
   p {
     margin: 0;
   }
@@ -76,15 +81,17 @@ body {
   font-size: 24px;
   text-transform: uppercase;
   color: $color-text-mid;
+
+  &--centered {
+    margin-inline: auto;
+    text-align: center;
+  }
+
   .accent {
     color: $color-text;
   }
-  &--centered {
-    text-align: center;
-    // max-width: 800px;
-    margin-inline: auto;
-  }
 }
+
 h1 {
   font-family: $font-serif-display;
   font-size: 100px;
@@ -93,23 +100,27 @@ h1 {
   margin: 0;
   text-wrap: balance;
 }
+
 .page-title {
+  font-family: $font-display;
   font-size: 240px;
   line-height: 0.8;
-  font-family: $font-display;
   text-transform: uppercase;
 }
+
 .row {
   display: grid;
+  column-gap: 2rem;
   grid-template-columns: min-content 1fr;
   align-items: end;
-  column-gap: 2rem;
 }
+
 .case-title {
   font-size: 136px;
-  text-align: center;
   line-height: 0.9;
+  text-align: center;
 }
+
 .tags {
   font-size: 24px;
   position: fixed;
@@ -117,6 +128,7 @@ h1 {
   left: calc(2rem + 24px);
   text-transform: uppercase;
 }
+
 .background-art {
   position: fixed;
   z-index: -1;
@@ -127,6 +139,7 @@ h1 {
   height: 100%;
   max-height: calc(100vh - 64px);
   color: var(--color-background-art);
+
   svg {
     width: 100%;
     max-width: 100%;
@@ -134,6 +147,7 @@ h1 {
     max-height: 100%;
   }
 }
+
 .footer {
   font-size: 24px;
   text-transform: uppercase;

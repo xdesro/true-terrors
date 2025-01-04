@@ -42,6 +42,7 @@
       grid-row-end: span 6;
     }
   }
+
   &__title {
     position: relative;
     z-index: -1;
@@ -50,19 +51,19 @@
     grid-row: 1 / span 5;
     grid-template-columns: inherit;
     grid-template-rows: inherit;
+
     .segment {
       .word {
         display: inline-block;
-
-        @include screen(sm) {
-        }
       }
+
       .char {
         @include screen(sm) {
           display: inline-block;
         }
       }
     }
+
     .segment--first {
       font-family: $font-display;
       font-size: 37.6cqmin;
@@ -95,10 +96,12 @@
       @include screen(1512px) {
         font-size: 25.8vw;
       }
+
       .char {
         clip-path: polygon(0% 0%, 100% 0%, 100% 102%, 0% 102%);
       }
     }
+
     .segment--second {
       font-family: $font-serif-display;
       font-size: 62px;
@@ -129,6 +132,7 @@
         font-size: 8.2vw;
       }
     }
+
     .segment--third {
       font-family: $font-serif-display;
       font-size: 17.5vw;
@@ -154,11 +158,13 @@
       @include screen(1512px) {
         font-size: 9.2vw;
       }
+
       .char {
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
     }
   }
+
   &__warning {
     font-size: 0.75rem;
     grid-column: 2;
@@ -187,6 +193,7 @@
       white-space: nowrap;
     }
   }
+
   &__description {
     line-height: 1.1;
     grid-column: 2;
@@ -207,11 +214,13 @@
       grid-row: -2 / span 2;
       align-self: end;
     }
+
     .line {
       display: inline-block;
       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
   }
+
   &__accent-image {
     overflow: hidden;
     grid-column: 2;
@@ -240,6 +249,7 @@
       object-fit: cover;
     }
   }
+
   &__marquee {
     line-height: 1;
     display: grid;
@@ -250,9 +260,9 @@
     margin-block-start: 2rem;
     padding-block: 0.5rem;
     text-transform: uppercase;
+    border-block: 2px solid currentColor;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 
-    border-block: 2px solid currentColor;
     @include screen(sm) {
       margin-block-start: 1rem;
     }
@@ -263,20 +273,20 @@
       margin-block-start: 0;
     }
   }
+
   &__marquee-inner {
-    // max-width: 100%;
-    // overflow: hidden;
     display: flex;
     column-gap: 0.5ch;
     align-items: center;
-    // white-space: nowrap;
     width: max-content;
     padding-right: 0.5ch;
   }
+
   &__marquee-locale,
   &__marquee-time {
     color: $color-text-mid;
   }
+
   .home-nav {
     @include screen(lg) {
       grid-column: 1 / span 8;
@@ -287,16 +297,19 @@
 }
 
 .home-letter {
-  position: relative;
-  padding: 1rem;
   --letter-spacing: 6rem;
 
+  position: relative;
+  padding: 1rem;
+
   @include screen(sm) {
-    text-align: center;
     --letter-spacing: 4rem;
+
+    text-align: center;
     text-wrap: balance;
   }
-  &:before {
+
+  &::before {
     position: absolute;
     inset: 1rem;
     display: block;
@@ -305,15 +318,17 @@
     pointer-events: none;
     border: 1px solid currentColor;
   }
-  &:after {
+
+  &::after {
     display: block;
     margin-block-end: 1rem;
     margin-inline: auto;
     content: 'A brief letter from the editor';
     transform: rotate(180deg);
   }
+
   &__title,
-  &:after {
+  &::after {
     font-size: 0.75rem;
     font-weight: 400;
     text-align: center;
@@ -321,10 +336,12 @@
     text-transform: uppercase;
     color: $color-text-mid;
   }
+
   &__title {
     margin-block-start: 1rem;
     margin-block-end: var(--letter-spacing);
   }
+
   &__text {
     font-family: $font-serif;
     font-size: 1.25rem;
@@ -337,8 +354,10 @@
     @include screen(lg) {
       font-size: 1.5rem;
     }
+
     p {
       margin-block-end: 1em;
+
       &:last-child {
         margin-block-end: 0;
       }
@@ -364,8 +383,8 @@
     margin-block-end: 0.5rem;
     padding-block: 1rem;
     text-transform: uppercase;
-
     border-block: 2px solid currentColor;
+
     @include screen(sm) {
       font-size: min(10.3vw, 8.125rem);
     }
@@ -373,20 +392,24 @@
       font-size: clamp(5.9rem, 2.6279rem + 5.817vw, 8.125rem);
     }
   }
+
   &__title-inner {
     position: relative;
     display: inline-block;
   }
+
   &__title-echo {
     position: absolute;
     right: calc(100% + 0.25ch);
     width: max-content;
     color: #eee;
+
     &:last-child {
       right: unset;
       left: calc(100% + 0.25ch);
     }
   }
+
   &__marquee {
     font-size: 0.75rem;
     display: grid;
@@ -397,9 +420,11 @@
     color: $color-text-mid;
     border-block-end: 2px solid $color-text;
   }
+
   &__marquee-inner {
     width: max-content;
   }
+
   &__layout {
     @include screen(sm) {
       display: grid;
@@ -410,6 +435,7 @@
       grid-template-columns: repeat(12, minmax(0, 1fr));
     }
   }
+
   &__text {
     font-size: 1.25rem;
     line-height: 1.2;
@@ -421,6 +447,7 @@
     @include screen(1200px) {
       grid-column: 2 / span 4;
     }
+
     h3 {
       font-size: inherit;
       font-weight: 400;
@@ -429,6 +456,7 @@
       text-transform: uppercase;
       color: $color-text-mid;
     }
+
     p {
       margin-block-end: 1em;
 
@@ -437,6 +465,7 @@
       }
     }
   }
+
   &__image {
     position: absolute;
     z-index: -1;
@@ -453,10 +482,12 @@
       bottom: unset;
       max-width: 65vw;
     }
+
     svg {
       shape-rendering: crispEdges;
     }
   }
+
   &__aside {
     width: 100%;
     max-width: 18rem;
@@ -474,18 +505,11 @@
 .home-work {
   padding: 4rem 1rem;
 
-  // @include screen(sm) {
-  //   display: grid;
-  //   grid-template-columns: 1fr auto;
-  //   column-gap: 1rem;
-  // }
-
   &__title {
     font-family: $font-display;
     font-size: 7.5rem;
     font-weight: 400;
     line-height: 0.8;
-    // font-style: italic;
     max-width: 10ch;
     margin-block-end: 1.5rem;
     text-transform: uppercase;
@@ -495,7 +519,13 @@
       column-gap: 0.1em;
       align-items: center;
       max-width: unset;
-      &:after {
+    }
+    @include screen(lg) {
+      font-size: clamp(7.5rem, -3.5294rem + 19.6078vw, 15rem);
+    }
+
+    &::after {
+      @include screen(sm) {
         display: block;
         flex: 1;
         height: 0.1em;
@@ -503,16 +533,15 @@
         background-color: currentColor;
       }
     }
-    @include screen(lg) {
-      font-size: clamp(7.5rem, -3.5294rem + 19.6078vw, 15rem);
-    }
   }
+
   &__link {
     font-size: 0.75rem;
     display: block;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
+
     &:hover,
     &:focus {
       text-decoration: underline;
@@ -523,8 +552,10 @@
     margin-bottom: 2rem;
   }
 }
+
 .home-articles {
   padding: 4rem 1rem;
+
   &__title {
     font-family: $font-display;
     font-size: 7.5rem;
@@ -537,7 +568,13 @@
       display: flex;
       column-gap: 0.1em;
       align-items: center;
-      &:before {
+    }
+    @include screen(lg) {
+      font-size: clamp(7.5rem, -3.5294rem + 19.6078vw, 15rem);
+    }
+
+    &::before {
+      @include screen(sm) {
         display: block;
         width: 100%;
         height: 0.1em;
@@ -545,19 +582,19 @@
         background-color: currentColor;
       }
     }
-    @include screen(lg) {
-      font-size: clamp(7.5rem, -3.5294rem + 19.6078vw, 15rem);
-    }
   }
+
   .articles-list {
     margin-block-end: 2rem;
   }
+
   &__link {
     font-size: 0.75rem;
     display: block;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
+
     &:hover,
     &:focus {
       text-decoration: underline;
