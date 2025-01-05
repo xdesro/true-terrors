@@ -35,6 +35,17 @@
     color: $color-text-mid;
   }
 
+  h4 {
+    font-size: 1em;
+    font-weight: normal;
+    // font-style: italic;
+    margin-block-start: 2em;
+    margin-block-end: 1em;
+    color: $color-text-mid;
+    font-family: $font-sans;
+    text-transform: uppercase;
+  }
+
   > p {
     margin-block-end: 1em;
 

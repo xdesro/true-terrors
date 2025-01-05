@@ -29,7 +29,6 @@ bun run start:quiet
     - Faculty Case
     - RM Case
     - Blog header images
-- case study clickable blocks don’t enhance if you load straight in
 - Looks like `math` is too small on large screens?
 - Undo/redo splitting call on resize
 - Animated underlines on foot breadcrumbs
@@ -39,18 +38,19 @@ bun run start:quiet
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
 - Design rework of hireme.website?
 - Walk back case study row `webc`?
-- JS linting?
+- ~~JS linting?~~
 - Component for code embeds
 - Component for asides/footnotes on large screens.
 - Remove splitting.js dependency
 - Consider speeding up transitions after first visit
 - Case studies design blocks need _better_ graphics lol
-- Dark mode and grid mode easter eggs
 
 ### Ice
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ case study clickable blocks don’t enhance if you load straight in
+- ✅ Dark mode and grid mode easter eggs
 - ✅ Sass linting
 - ✅ Finish YouTube Case
 - ✅ Real font licenses
