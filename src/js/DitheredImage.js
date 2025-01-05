@@ -5,6 +5,9 @@ export default class DitheredImage {
     this.options = {
       THRESHOLD: 90,
     };
+    if (this.img.dataset.threshold) {
+      this.options.THRESHOLD = this.img.dataset.threshold;
+    }
     this.bayer = [
       [15, 135, 45, 165],
       [195, 75, 225, 105],

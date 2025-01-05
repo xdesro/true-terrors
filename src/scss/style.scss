@@ -118,8 +118,10 @@
     }
   }
 
-  .article-block {
+  .article-block,
+  .case-study-block {
     max-width: 60ch;
+    margin-block-end: 1lh;
   }
 
   picture {

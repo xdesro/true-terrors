@@ -17,6 +17,27 @@ import DefaultTransition from './transitions/Default';
 import CaseBlocks from './CaseBlocks';
 import graffiti from './graffiti';
 
+const fetchSpotify = () =>
+  fetch('/.netlify/functions/spotify')
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      const trackEls = document.querySelectorAll('.spotify-widget__track');
+      const artistsEls = document.querySelectorAll('.spotify-widget__artists');
+
+      trackEls.forEach((trackEl) => {
+        trackEl.setAttribute('href', data.url);
+        trackEl.textContent = data.name;
+      });
+
+      artistsEls.forEach((artistEl) => {
+        artistEl.innerHTML = `${data.artists
+          .map((artist) => artist.name)
+          .join(', ')}`;
+      });
+    })
+    .catch();
+
 window.navManager = new NavManager();
 history.scrollRestoration = 'manual';
 
@@ -30,7 +51,6 @@ let caseBlocks = null;
 
 class DefaultRenderer extends Renderer {
   initialLoad() {
-    console.log(graffiti, 'color: lightslategray');
     window.addEventListener('keypress', ({ shiftKey, key }) => {
       if (shiftKey && key === 'D') {
         document.body.classList.toggle('themed');
@@ -40,6 +60,7 @@ class DefaultRenderer extends Renderer {
         document.body.classList.toggle('with-grid');
       }
     });
+    // fetchSpotify();
     this.onEnter();
   }
   onEnter() {
@@ -103,7 +124,10 @@ class DefaultRenderer extends Renderer {
       new CaseWaterfall();
     }
     if (document.querySelector('[data-tag="currentTime"]')) {
-      new Clock(document.querySelector('[data-tag="currentTime"]'));
+      const clocks = document.querySelectorAll('[data-tag="currentTime"]');
+      clocks.forEach((clock) => {
+        new Clock(clock);
+      });
     }
     if (document.querySelector('.home-hero__marquee')) {
       new Marquee({
@@ -119,7 +143,6 @@ class DefaultRenderer extends Renderer {
     }
 
     if (document.querySelector('.article-block, .case-study-block')) {
-      console.log('test');
       const cards = document.querySelectorAll(
         '.article-block, .case-study-block'
       );

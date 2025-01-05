@@ -40,7 +40,7 @@ bodyClass: "article"
         {% include 'table-of-contents.njk' %}
         <div class="article-header__graphic-wrapper">
             {% if useHero %}
-            <img alt="" src="{{ heroImage }}" class="article-header__image">
+            <img alt="" {% if customThreshold %}data-threshold="{{ customThreshold }}"{% endif %} src="{{ heroImage }}" class="article-header__image">
             {% else %}
             <img alt="" src="/img/milan-cover-photo.jpg" class="article-header__image">
             {% endif %}

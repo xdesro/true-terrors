@@ -158,21 +158,21 @@ export const WorkExitToCaseTransition = (
     .to(
       '.list-design-element',
       {
-        y: '2rem',
+        x: 10,
         opacity: 0,
-        stagger: 0.02,
+        stagger: 0.01,
       },
       '<'
     )
     .to(
       '.case-study-block',
       {
-        y: '2rem',
         opacity: 0,
+        x: 10,
         ease: 'linear',
         stagger: {
           from: idxClicked,
-          each: 0.05,
+          each: 0.01,
           grid: 'auto',
         },
       },
