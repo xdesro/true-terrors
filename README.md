@@ -31,6 +31,7 @@ bun run start:quiet
 - Undo/redo splitting call on resize
 
 ### Nice-to-have
+- "Micro" re-launch
 - Next post for case study?
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
 - Design rework of hireme.website?
