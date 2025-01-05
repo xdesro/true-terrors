@@ -33,35 +33,17 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(pluginWebc, {
-    components: [
-      './src/_components/**/*.webc',
-      // 'npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc',
-    ],
+    components: ['./src/_components/**/*.webc'],
   });
-  // eleventyConfig.addPlugin(syntaxHighlight);
 
-  //   eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-syntaxhighlight"));
-
-  //   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
-  //   eleventyConfig.addWatchTarget("./_components/*");
   eleventyConfig.addWatchTarget('./src/scss/**/*');
   eleventyConfig.addWatchTarget('./src/js/**/*');
 
-  //   eleventyConfig.addPassthroughCopy("./css");
-  // eleventyConfig.addPassthroughCopy("./js");
   eleventyConfig.addPassthroughCopy('./src/js/vendor', 'js');
   eleventyConfig.addPassthroughCopy('./src/meta');
   eleventyConfig.addPassthroughCopy('./src/fonts');
   eleventyConfig.addPassthroughCopy('./src/img');
   eleventyConfig.addPassthroughCopy('./src/functions');
-
-  // eleventyConfig.on('eleventy.beforeWatch', (changedFiles) => {
-  //   if (!changedFiles.some((filePath) => filePath.includes('_components'))) {
-  //     console.log('🤠 Component files updated -- coercing layout reload.');
-  //     exec('find _components/*.webc -type f -exec touch {} +');
-  //   }
-  // });
 
   eleventyConfig.addCollection('hosted case study', function (collectionsApi) {
     return collectionsApi.getFilteredByTag('case study').filter((el) => {
@@ -82,7 +64,6 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('youtubeIdFromUrl', (youtubeUrl) => {
-    // https://www.youtube.com/watch?v=P-I5D6BlejM
     const url = new URL(youtubeUrl);
     const params = new URLSearchParams(url.search);
     if (params.get('v')) {
@@ -97,9 +78,7 @@ export default function (eleventyConfig) {
       const matchedPost = collectionsAll.find(
         (post) => post.outputPath && post.outputPath?.includes(postUrl)
       );
-      // console.log(Object.keys(matchedPost.data));
       return { ...matchedPost.data, url: matchedPost.url };
-      // console.log(allPosts);
     }
   );
 
@@ -166,20 +145,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('toISOString', (str) => {
     return str.toISOString();
   });
-
-  // eleventyConfig.addTransform('fixInlineStyle', async function (content) {
-  //   const isAWritingPage =
-  //     this.outputPath &&
-  //     this.outputPath.split('.').some((str) => str.includes('writing'));
-  //   if (isAWritingPage) {
-  //     content = content
-  //       .replaceAll(/&amp(?:<span[^>]*>)?;?/gm, '&')
-  //       .replaceAll('&amp;;', '&')
-  //       .replaceAll(/&gt;/g, '>');
-  //   }
-  //   // console.log(content);
-  //   return content;
-  // });
 
   eleventyConfig.setLibrary(
     'md',

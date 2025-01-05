@@ -30,7 +30,6 @@ bun run start:quiet
     - RM Case
     - Blog header images
 - Undo/redo splitting call on resize
-- Animated underlines on foot breadcrumbs
 
 ### Nice-to-have
 - Next post for case study?
@@ -48,6 +47,7 @@ bun run start:quiet
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ Animated underlines on foot breadcrumbs
 - ✅ Looks like `math` is too small on large screens?
 - ✅ case study clickable blocks don’t enhance if you load straight in
 - ✅ Dark mode and grid mode easter eggs

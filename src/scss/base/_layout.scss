@@ -52,7 +52,7 @@ a:not([class]) {
 
 ul,
 ol {
-  padding-left: 1rem;
+  padding-inline-start: 1rem;
 }
 
 del {
@@ -76,7 +76,7 @@ pre {
 
 :not(pre) > code {
   position: relative;
-  background-color: #eee;
+  background-color: var(--color-border-light);
 
   &::before {
     position: absolute;
@@ -84,7 +84,7 @@ pre {
     inset: -0.5ex;
     content: '';
     border-radius: 4px;
-    background-color: #eee;
+    background-color: var(--color-border-light);
   }
 }
 

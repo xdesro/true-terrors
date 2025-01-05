@@ -43,20 +43,21 @@ picture:has(.footer-border) {
 
   &__breadcrumbs {
     line-height: 1.7;
+
     @include screen(lg) {
-      display: flex;
       line-height: 1;
+      display: flex;
       gap: 0.5ch;
     }
   }
 
   &__breadcrumb {
     font-size: 1.25rem;
+    position: relative;
     display: flex;
     gap: 0.5ch;
-    text-decoration: none;
-    position: relative;
     padding-inline-start: 1.5ch;
+    text-decoration: none;
 
     @include screen(lg) {
       font-size: 1rem;
@@ -72,8 +73,25 @@ picture:has(.footer-border) {
       left: 0;
       content: '⮡';
       text-decoration: none;
+
       @include screen(lg) {
         content: '→';
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -1px;
+      left: 1.5ch;
+      width: calc(100% - 1.5ch);
+      height: 1px;
+      content: '';
+      transition: transform 0.2s $ease-out-editorial;
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      background-color: currentColor;
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0s;
       }
     }
 
@@ -94,19 +112,31 @@ picture:has(.footer-border) {
 
       &::before {
         content: '→';
+
         @include screen(lg) {
           content: unset;
         }
       }
+
+      &::after {
+        left: 0;
+        width: 100%;
+      }
     }
 
     &:hover {
-      text-decoration: underline;
-
-      &::before {
-        text-decoration: none;
+      &::after {
+        transform: scaleX(1);
       }
     }
+
+    // &:hover {
+    //   text-decoration: underline;
+
+    //   &::before {
+    //     text-decoration: none;
+    //   }
+    // }
   }
 
   &__nav {
@@ -131,11 +161,8 @@ picture:has(.footer-border) {
       margin-block-end: 0;
     }
     @include screen(xl) {
-      grid-row: 2;
       grid-column-end: span 2;
-    }
-
-    &--link-group {
+      grid-row: 2;
     }
 
     &--garden,
@@ -147,8 +174,8 @@ picture:has(.footer-border) {
 
     &--meta {
       @include screen(xl) {
-        grid-row: 3;
         grid-column-start: 3;
+        grid-row: 3;
       }
     }
 
@@ -162,8 +189,8 @@ picture:has(.footer-border) {
       @include screen(lg) {
         grid-column: 1 / -1;
         grid-row: 1;
-        margin-block-end: 0;
         grid-row-end: 1;
+        margin-block-end: 0;
       }
     }
 
@@ -176,10 +203,10 @@ picture:has(.footer-border) {
         grid-row-start: 2;
       }
       @include screen(xl) {
-        grid-row-start: 2;
-        grid-row-end: span 2;
         grid-column-start: auto;
         grid-column-end: span 2;
+        grid-row-end: span 2;
+        grid-row-start: 2;
       }
     }
   }
@@ -196,12 +223,12 @@ picture:has(.footer-border) {
   &__link {
     font-size: 1.25rem;
     line-height: 1.2;
+    position: relative;
     display: inline-block;
     margin-inline-end: 0.5ch;
     padding-block: 0.25rem;
     text-decoration: none;
     letter-spacing: -0.01em;
-    position: relative;
 
     @include screen(lg) {
       font-size: 1rem;
@@ -262,11 +289,11 @@ picture:has(.footer-border) {
     @include screen(lg) {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
       right: 0;
       width: 200px;
       max-height: calc(100% - 5rem);
       aspect-ratio: 1 / 2;
+      transform: translateY(-50%);
     }
     @include screen(xl) {
       height: calc(100% - 9rem);

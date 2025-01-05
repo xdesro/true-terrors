@@ -30,6 +30,7 @@ let caseBlocks = null;
 
 class DefaultRenderer extends Renderer {
   initialLoad() {
+    console.log(graffiti, 'color: lightslategray');
     window.addEventListener('keypress', ({ shiftKey, key }) => {
       if (shiftKey && key === 'D') {
         document.body.classList.toggle('themed');
