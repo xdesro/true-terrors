@@ -21,7 +21,7 @@
                 <!-- {% for link in linkGroup.links %} -->
                 <li class="home-nav__list-item" webc:for="link of linkGroup.links">
                     <a class="home-nav__link" :href="link.url">
-                        <template webc:nokeep @text="link.text"></template>
+                        <span class="home-nav__link-title" @text="link.text"></span>
                         <span class="home-nav__link-description" inert @text="`— ${link.description}`">— {{
                             link.description
                             }}</span></a>

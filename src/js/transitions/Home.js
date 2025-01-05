@@ -121,7 +121,6 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
 
 export const HomeExitTransition = (transitioningView, mediaQueries) => {
   const { prefersReducedMotion, isMobile } = mediaQueries;
-
   const exitTl = gsap.timeline({
     onStart() {
       if (isMobile) {
@@ -162,6 +161,15 @@ export const HomeExitTransition = (transitioningView, mediaQueries) => {
         duration: 1,
         ease: 'power4.inOut',
       })
+      .to(
+        '.home-hero ~ *',
+        {
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.3,
+        },
+        '<'
+      )
       .to(
         '.segment--third .char',
         {

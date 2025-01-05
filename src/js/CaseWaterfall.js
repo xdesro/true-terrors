@@ -59,7 +59,7 @@ export default class CaseWaterfall {
   }
   animate() {
     MatchMediaManager.add(({ conditions }) => {
-      const { prefersReducedMotion } = conditions;
+      const { prefersReducedMotion, isMobile } = conditions;
       this.rows.forEach((row) => {
         const tl = gsap.timeline({
           autoRemoveChildren: true,
@@ -79,10 +79,11 @@ export default class CaseWaterfall {
                   0.3
                 ),
             duration: 2,
+            ease: isMobile ? 'linear' : 'power1.in',
             scrollTrigger: {
               trigger: row,
               start: 'bottom bottom',
-              end: 'top center',
+              end: isMobile ? 'top bottom+=300px' : 'top center',
               scrub: 1.5,
             },
           });
