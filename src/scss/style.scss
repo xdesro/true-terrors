@@ -127,6 +127,15 @@
     display: contents;
   }
 
+  img {
+    background-color: $color-border-light;
+    color: $color-text;
+
+    &.with-transparent-bg {
+      background-color: transparent;
+    }
+  }
+
   .flow {
     margin-block-end: 1lh;
   }

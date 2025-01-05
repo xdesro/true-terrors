@@ -3,17 +3,16 @@
         return new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     }
 </script>
-<!-- <marquee class="home-hero__marquee"> -->
 <div class="home-hero__marquee">
     <div class="home-hero__marquee-inner">
         <div webc:nokeep class="home-hero__marquee-inner" webc:for="n in [1,2]">
-            <!-- TODO remove duplication of markup -->
-            <div class="spotify-widget">
+            <div class="spotify-widget" :aria-hidden="n > 0">
                 <a href="https://open.spotify.com/user/1239993406?si=tpFk1Vt5Q_yH6qM0E8wjXA"
                     aria-label="Visit the author’s Spotify profile">
                     <social-icon @icon="spotify" class="spotify-widget__icon"></social-icon>
                 </a>
-                <div webc:if="recentListening && recentListening.url" class="spotify-widget__inner">
+                <div :aria-hidden="n > 0" webc:if="recentListening && recentListening.url"
+                    class="spotify-widget__inner">
                     <a class="spotify-widget__track" :href="recentListening.url" @text="recentListening.name"></a>,
                     <span class="spotify-widget__artists">
                         <span webc:for="(artist, index) of recentListening.artists" @text="artist.name.trim()">
@@ -23,11 +22,12 @@
                 </div>
                 —
             </div>
-            <span class="home-hero__marquee-locale">48ºF @ N 39º 43’ 31.56” W 104º 58’ 0.94” (Denver, Colorado)
+            <span :aria-hidden="n > 0" class="home-hero__marquee-locale">48ºF @ N 39º 43’ 31.56” W 104º 58’ 0.94”
+                (Denver, Colorado)
                 —&nbsp;</span>
-            <span class="home-hero__marquee-time" data-tag="currentTime" @text="`${getTime()}&nbsp;`">11:03AM</span>
-            <span class="home-hero__marquee-time">—&nbsp;</span>
+            <span :aria-hidden="n > 0" class="home-hero__marquee-time" data-tag="currentTime"
+                @text="`${getTime()}&nbsp;`">11:03AM</span>
+            <span :aria-hidden="n > 0" class="home-hero__marquee-time">—&nbsp;</span>
         </div>
     </div>
-    <!-- </marquee> -->
 </div>

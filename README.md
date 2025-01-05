@@ -25,7 +25,6 @@ bun run start:quiet
 ### Go-live
 - **Content:**
     - NYT Case?
-    - Matter Case
     - Faculty Case
     - RM Case
     - Blog header images
@@ -53,6 +52,7 @@ bun run start:quiet
 - ✅ Dark mode and grid mode easter eggs
 - ✅ Sass linting
 - ✅ Finish YouTube Case
+- ✅ Matter Case
 - ✅ Real font licenses
 - ✅ Barbed wire scrolling effect
 - ✅ Case studies design blocks need graphics

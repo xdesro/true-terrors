@@ -1,4 +1,4 @@
 [dev]
-    command = 'npm run start'
+    command = 'bun run start'
     publish = '_site'
-    functions = 'functions'
+    functions = 'src/functions'
