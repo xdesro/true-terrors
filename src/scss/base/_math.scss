@@ -4,9 +4,10 @@ mjx-container {
   overflow-x: scroll;
   overflow-y: visible;
   max-width: 100%;
+  padding-block: 2rem;
+  padding-inline: 1rem;
   border: 2px solid #eee;
   border-radius: $bdrs;
-  padding: 1rem;
 }
 
 math {

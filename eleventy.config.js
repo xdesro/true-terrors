@@ -189,6 +189,9 @@ export default function (eleventyConfig) {
       typographer: true,
     })
       .use(markdownItMathJax, {
+        svg: {
+          scale: 2,
+        },
         chtml: { displayAlign: 'left' },
       })
       .use(markdownItAttr)

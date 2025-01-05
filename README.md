@@ -29,7 +29,6 @@ bun run start:quiet
     - Faculty Case
     - RM Case
     - Blog header images
-- Looks like `math` is too small on large screens?
 - Undo/redo splitting call on resize
 - Animated underlines on foot breadcrumbs
 
@@ -49,6 +48,7 @@ bun run start:quiet
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 
 ### Sorted
+- ✅ Looks like `math` is too small on large screens?
 - ✅ case study clickable blocks don’t enhance if you load straight in
 - ✅ Dark mode and grid mode easter eggs
 - ✅ Sass linting
