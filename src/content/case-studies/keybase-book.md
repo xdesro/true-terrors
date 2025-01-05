@@ -44,7 +44,9 @@ I elected to use system fonts for the project — not only would this allow for 
 
 Another consideration I made was this three column layout, which allows for navigation in the first, a comfortable, uncramped reading experience with readable line-lengths in the second, and a third column for meta-information such as term definitions or Keybase-related calls-to-action.
 
-![A screenshot of a website comp that features three distinct columns, one for a side nav, one for the bulk of the content, and one more meta information.](https://res.cloudinary.com/henry-codes/image/upload/v1735169300/keybase-case-01_u8dzea.png)
+<div class="flow" style="--standard-column: 4 / span 7">
+  <img alt="More screenshots of the Keybase book project. This shows the homepage and the first chapter." src="https://res.cloudinary.com/henry-codes/image/upload/v1735169300/keybase-case-01_u8dzea.png">
+</div>
 
 ### Ilustration
 
@@ -84,6 +86,12 @@ I spent a lot of time earlier in my careeer trying to be very clever with both m
 
 This project proved a great opportunity for me to collaborate from many aspects of a project with many verticals of product design, be it content strategists or other developers or illustrators. The book we created followed all usability best practices, was accessible and readable, and had a clean, concise design that neatly bookended the wealth of information it would render.
 
-Keybase was acquired by Zoom about two months after this project launched. Much of the project has changed from our initial vision, and that community evolution is an exciting part of shipping open-source work. If you'd like to, it is still possible to [check out the production instance of the Book](https://book.keybase.io/).
+You can read more about this work on the Faculty website: 
 
-![More screenshots of the Keybase book project. This shows the homepage and the first chapter.](https://res.cloudinary.com/henry-codes/image/upload/v1735169300/keybase-case-01_u8dzea.png)
+{% renderTemplate 'webc' %}
+<embed-card :external="true" title="Keybase Book" url="https://faculty.com/work/keybase" :show-url="true">
+Making a technical app accessible
+</embed-card>
+{% endrenderTemplate %}
+
+Keybase was acquired by Zoom about two months after this project launched. Much of the project has changed from our initial vision, and that community evolution is an exciting part of shipping open-source work. If you'd like to, it is still possible to [check out the production instance of the Book](https://book.keybase.io/).

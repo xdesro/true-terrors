@@ -53,7 +53,7 @@ The graphical complexity (size and blurred edges) meant `gl.POINTS` wouldn’t d
 
 The procedural nature of the engine meant it wasn’t possible to bind positions to scroll the way I could with the 3D models *(imagine trying to update the lifecycle position of literally 12,000 particles, 60+ times a second)*, so we elected to have the emitter enabled and disabled depending on scroll position — if the user scrolled past the particle simulation, no new particles would be emitted, and the existing particles would die their natural deaths.
 
-<video autoplay muted loop loading="lazy">
+<video autoplay muted loop playsinline loading="lazy">
   <source src="https://res.cloudinary.com/henry-codes/video/upload/v1736113850/CleanShot_2025-01-05_at_14.50.39_dy2up9.mov"></source>
   <p>An animation of the particle simulator described. Many small, blurred spore-like dots appear in a hexagonal pattern, and gently drift out to the edges of the frame, fading from light blue to purple to red.</p>
 </video>

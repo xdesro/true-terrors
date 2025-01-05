@@ -2,7 +2,9 @@
 title: How I Set Up A New Laptop
 abstract: Comes a time in any young man’s life where he must, inevitably, set up a new Mac computer for web development and other every-day purposes. Here’s how I do it!
 publishDate: 2024-03-23T14:00-06:00
-socialSharingImage: ./img/9gk.how-i-set-up-a-new-laptop.png
+heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1735169308/stormy-sky_jaazo9.jpg
+customThreshold: 135
+useHero: true
 tags:
   - article
 category: resource

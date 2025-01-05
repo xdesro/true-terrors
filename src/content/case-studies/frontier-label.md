@@ -50,3 +50,11 @@ Some highlights from this process include a custom component created for Frontie
 ## TL;DR
 
 With a bold but trustworthy design and completely refreshed brand identity and design system, the team at Faculty and I have created a modern and robust ecommerce experience to serve many varied styles of clientele. Blending a sense of personality and neighborly warmth with a regimented, robust approach to the user interface, Frontier Label's new digital presence will allow them to continue to grow and thrive to yet new heights.
+
+You can read more about this work on the Faculty website: 
+
+{% renderTemplate 'webc' %}
+<embed-card :external="true" title="Frontier Label" url="https://faculty.com/work/frontier-label" :show-url="true">
+A custom solution for a custom manufacturer
+</embed-card>
+{% endrenderTemplate %}
