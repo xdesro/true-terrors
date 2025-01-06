@@ -106,7 +106,7 @@
   gap: 1rem;
   align-items: start;
   width: 100vw;
-  margin-left: calc(50% - 50vw);
+  margin-inline-start: calc(50% - 50vw);
   padding-inline: 3rem;
   scrollbar-width: none;
   overscroll-behavior-x: none;
@@ -134,8 +134,10 @@
     font-family: $font-serif;
     position: sticky;
     left: 0;
-    grid-column-end: span 3;
     color: $color-text-mid;
+    @include screen(sm) {
+      grid-column-end: span 3;
+    }
   }
 
   .card {

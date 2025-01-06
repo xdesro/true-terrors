@@ -47,7 +47,6 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
         },
         '<'
       )
-
       .from(
         '.segment--second',
         {
@@ -57,7 +56,7 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
         },
         '<+=.5'
       )
-
+      .add('quickstart', '<')
       .from(
         '.home-hero__marquee',
         {
@@ -68,7 +67,7 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
         },
         '<'
       )
-      .add('test', '>')
+      .add('navstart', '>')
       .from(
         '.home-nav__meta-title, .home-nav__list-item',
         {
@@ -97,7 +96,7 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
           duration: 0.5,
           stagger: 0.04,
         },
-        '<'
+        isMobile ? 'quickstart' : '<'
       )
       .from(
         '.home-hero__accent-image',
@@ -105,7 +104,7 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
           opacity: 0,
           ease: 'power4.inOut',
         },
-        isMobile ? 'transitionstart' : 'test'
+        isMobile ? 'transitionstart' : 'navstart'
       )
       .from(
         '.home-hero__warning',

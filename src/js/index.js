@@ -16,6 +16,7 @@ import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 import DefaultTransition from './transitions/Default';
 import CaseBlocks from './CaseBlocks';
 import graffiti from './graffiti';
+import { HomeEntranceTransition } from './transitions/Home';
 
 const fetchSpotify = () =>
   fetch('/.netlify/functions/spotify')
@@ -60,7 +61,15 @@ class DefaultRenderer extends Renderer {
         document.body.classList.toggle('with-grid');
       }
     });
-    // fetchSpotify();
+    fetchSpotify();
+    if (window.location.pathname === '/') {
+      MatchMediaManager.add(({ conditions }) => {
+        HomeEntranceTransition(
+          document.querySelector('[data-taxi-view]'),
+          conditions
+        );
+      });
+    }
     this.onEnter();
   }
   onEnter() {
