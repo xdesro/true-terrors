@@ -63,6 +63,14 @@ class DefaultRenderer extends Renderer {
       }
     });
     fetchSpotify();
+
+    if (document.querySelector('.home-hero__marquee')) {
+      // new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
+    }
+    if (document.querySelector('.home-about__marquee')) {
+      new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
+    }
+
     this.onEnter();
     if (window.location.pathname === '/') {
       navManager.hide(true);
@@ -137,12 +145,15 @@ class DefaultRenderer extends Renderer {
       });
     }
     if (document.querySelector('.home-hero__marquee')) {
+      // bizarre xPercent bug on hard refresh
       setTimeout(() => {
         new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
-      }, 10);
+      }, 1);
     }
     if (document.querySelector('.home-about__marquee')) {
-      new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
+      setTimeout(() => {
+        new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
+      }, 1);
     }
     if (
       document.querySelector(

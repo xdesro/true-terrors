@@ -59,6 +59,7 @@ export default function horizontalLoop(items, config) {
   });
   gsap.set(items, { x: 0 });
   totalWidth = getTotalWidth();
+
   for (i = 0; i < length; i++) {
     item = items[i];
     curX = (xPercents[i] / 100) * widths[i];
