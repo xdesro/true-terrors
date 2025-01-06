@@ -82,7 +82,9 @@ class DefaultRenderer extends Renderer {
         });
       });
     } else {
-      navManager.show();
+      if (navManager.hidingNav.progress() > 0) {
+        navManager.show();
+      }
       document.body.classList.remove('home');
     }
     if (document.querySelector('.article-header__graphic-wrapper')) {
@@ -145,7 +147,7 @@ class DefaultRenderer extends Renderer {
 
     if (document.querySelector('.article-block, .case-study-block')) {
       const cards = document.querySelectorAll(
-        '.article-block, .case-study-block'
+        '.article-block, .case-study-block, .card--linked'
       );
       cards.forEach((card) => {
         let downTime;
@@ -154,8 +156,10 @@ class DefaultRenderer extends Renderer {
         if (link) {
           if (card.classList.contains('article-block')) {
             card.classList.add('article-block--clickable');
-          } else {
+          } else if (card.classList.contains('case-study-block')) {
             card.classList.add('case-study-block--clickable');
+          } else {
+            card.classList.add('card--clickable');
           }
 
           card.addEventListener('mousedown', () => {
