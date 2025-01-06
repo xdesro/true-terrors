@@ -130,7 +130,7 @@
         grid-column: 3;
         grid-row: 8;
         margin-inline-start: calc(-1rem - 2px);
-        border-left: 0;
+        border-inline-start: 0;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         background-color: #d9d9d9;
@@ -142,5 +142,99 @@
         grid-row: 11;
       }
     }
+  }
+}
+
+.subsection-header {
+  font-family: $font-sans;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-block-end: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.past-portfolios-list {
+  margin-block-end: 3rem;
+  @include screen(500px) {
+    justify-items: start;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include screen(magazine) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.past-portfolio {
+  counter-increment: case-studies;
+  font-family: $font-serif-display;
+  font-size: 3rem;
+  font-weight: normal;
+  padding: 1rem;
+  margin-inline: -1rem;
+  display: grid;
+  grid-template-columns: auto 1lh 1fr;
+  align-items: center;
+  letter-spacing: -0.01em;
+  position: relative;
+  border-radius: $bdrs;
+  border: 2px solid transparent;
+
+  &:focus-within,
+  &:has(a:hover) {
+    border-color: $color-border-mid;
+  }
+
+  &::before {
+    font-size: 0.75rem;
+    display: inline-block;
+    align-self: start;
+    font-family: $font-sans;
+    margin-block-end: 0.75rem;
+    content: '(' counter(case-studies, blocks) ')';
+  }
+
+  @include screen(xl) {
+    font-size: clamp(3.5rem, -0.5049rem + 5.8252vw, 5rem);
+  }
+
+  &--current {
+    &::after {
+      content: '(You Are Here)';
+      font-weight: bold;
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      text-transform: uppercase;
+      color: $color-text;
+      font-family: $font-sans;
+      font-size: 1rem;
+    }
+
+    > * {
+      filter: blur(1.5px);
+      opacity: 0.2;
+    }
+  }
+
+  &__logo {
+    max-width: 1lh;
+    margin-inline-end: 0.5ch;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  &__season {
+    font-weight: normal;
+    line-height: 1;
+  }
+  &__link {
+    position: absolute;
+    inset: 0;
+    display: block;
   }
 }

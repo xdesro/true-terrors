@@ -13,6 +13,7 @@
     }
 }
 ---
+{% from './_includes/portfolio-logo.njk' import portfolioLogo %}
 
 <header class="page-header page-header--case-studies">
     <div class="page-header__inner">
@@ -34,5 +35,22 @@
         <span class="list-design-element"></span>
         <span class="list-design-element"></span>
         <span class="list-design-element"></span>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="subsection-header">Past portfolios</h2>
+    <div class="past-portfolios-list">
+        <article class="past-portfolio past-portfolio--current">
+            {{ portfolioLogo('SS25', class="past-portfolio__logo")}}
+            <h1 class="past-portfolio__season">SS25</h1>
+        </article>
+        {% for portfolio in collections['past portfolio'] | reverse  %}
+            <article class="past-portfolio">
+            {{ portfolioLogo(portfolio.data.season, class="past-portfolio__logo")}}
+                 <h1 class="past-portfolio__season">{{ portfolio.data.season }}</h1>
+                 <a class="past-portfolio__link" href="{{ portfolio.data.archiveUrl }}"><span class="visually-hidden">Visit the {{ portfolio.data.season }} edition of this portfolio</span></a>
+            </article>
+        {% endfor %}
     </div>
 </section>

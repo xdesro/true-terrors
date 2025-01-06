@@ -59,25 +59,26 @@ Thanks to Andy, Robb, David, Brynski, Levi, and everyone else who had to listen 
 - Undo/redo splitting call on resize
 
 ### Nice-to-have
+- Gotta figure out 11ty/image code lol
 - Case studies design blocks need _better_ graphics lol
 - "Micro" re-launch, including syndication to masto/bsky
 - Next post for case study?
 - Projects page (passages dot)
-- Past portfolios on work page
 - Reading list?
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
-- Design rework of hireme.website?
 - ~~JS linting?~~
 - Component for code embeds
 - Component for asides/footnotes on large screens.
 - Remove splitting.js dependency
 - Consider speeding up transitions after first visit
 
-### Ice
+### ❄️ Ice
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
 - Walk back case study row `webc`?
 
-### Sorted
+### 🧼 Sorted
+- ✅ Past portfolios on work page
+- ✅ Design rework of hireme.website?
 - ✅ Animated underlines on foot breadcrumbs
 - ✅ Looks like `math` is too small on large screens?
 - ✅ case study clickable blocks don’t enhance if you load straight in

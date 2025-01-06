@@ -2,6 +2,7 @@
 title: Vogue
 season: FW19
 date: 2019-10-01T00:00-06:00
+archiveUrl: 'https://fw19.henry.codes'
 # permalink: /past-portfolios/fw19/index.html
 ---
 

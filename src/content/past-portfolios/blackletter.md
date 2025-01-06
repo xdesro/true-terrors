@@ -8,7 +8,7 @@ thumbnailImage: ./img/NbV.Thumb_ SS2019.jpg
 involvement: design,development
 date: 2019-05-01T00:00-06:00
 description: Unsatisfied with my two years out-of-date personal site and its ability to showcase my creative development ability, I endeavored to redesign with an updated aesthetic, fluid page transitions, and modern technology.
-link: https://summer2019.henry.codes
+archiveUrl: https://fw18.henry.codes
 slug: blackletter
 topics:
   - vue
