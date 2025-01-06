@@ -17,6 +17,7 @@ import DefaultTransition from './transitions/Default';
 import CaseBlocks from './CaseBlocks';
 import graffiti from './graffiti';
 import { HomeEntranceTransition } from './transitions/Home';
+import horizontalLoop from './utils/horizontalLoop';
 
 const fetchSpotify = () =>
   fetch('/.netlify/functions/spotify')
@@ -136,16 +137,10 @@ class DefaultRenderer extends Renderer {
       });
     }
     if (document.querySelector('.home-hero__marquee')) {
-      new Marquee({
-        wrapperEl: document.querySelector('.home-hero__marquee'),
-        listEl: document.querySelector('.home-hero__marquee-inner'),
-      });
+      new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
     }
     if (document.querySelector('.home-about__marquee')) {
-      new Marquee({
-        wrapperEl: document.querySelector('.home-about__marquee'),
-        listEl: document.querySelector('.home-about__marquee-inner'),
-      });
+      new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
     }
 
     if (document.querySelector('.article-block, .case-study-block')) {

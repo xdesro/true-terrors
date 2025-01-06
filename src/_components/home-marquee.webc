@@ -26,8 +26,8 @@
                 (Denver, Colorado)
                 —&nbsp;</span>
             <span :aria-hidden="n > 0" class="home-hero__marquee-time" data-tag="currentTime"
-                @text="`${getTime()}&nbsp;`">11:03AM</span>
-            <span :aria-hidden="n > 0" class="home-hero__marquee-time">—&nbsp;</span>
+                @text="`${getTime()}`">11:03AM</span>
+            <span :aria-hidden="n > 0">—&nbsp;</span>
         </div>
     </div>
 </div>

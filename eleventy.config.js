@@ -1,12 +1,8 @@
-// import { exec } from 'child_process';
 import { EleventyRenderPlugin as pluginRender } from '@11ty/eleventy';
 import { eleventyImageTransformPlugin as pluginImage } from '@11ty/eleventy-img';
 import pluginWebc from '@11ty/eleventy-plugin-webc';
 import pluginRss from '@11ty/eleventy-plugin-rss';
-// const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 import slugify from '@sindresorhus/slugify';
-
-// import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 
 import markdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
@@ -82,9 +78,6 @@ export default function (eleventyConfig) {
     }
   );
 
-  //   eleventyConfig.addFilter("sortedByDate", (arr) => {
-  //     return arr.sort((a, b) => b.date - a.date);
-  //   });
   // TODO: This should probably just be a sortBy function that takes a property to sort by as an argument
   eleventyConfig.addFilter('sortedByPublishDate', (arr) => {
     return arr.sort(

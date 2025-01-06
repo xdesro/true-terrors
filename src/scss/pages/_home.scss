@@ -84,6 +84,7 @@
         line-height: 0.75;
         grid-column-end: span 2;
         grid-row: 1;
+        width: unset;
         height: unset;
         transform: unset;
         white-space: unset;
@@ -91,6 +92,7 @@
       @include screen(lg) {
         font-size: clamp(14.3rem, -0.5162rem + 26.3399vw, 24.375rem);
         grid-column-end: span 12;
+        width: max-content;
       }
       @include screen(1512px) {
         font-size: 25.8vw;
@@ -145,8 +147,8 @@
         font-size: 13.4vw;
         grid-column-end: span 2;
         grid-row: 3;
-        max-width: unset;
         width: max-content;
+        max-width: unset;
       }
       @include screen(lg) {
         font-size: clamp(5rem, -0.4412rem + 9.6732vw, 8.7rem);
@@ -292,6 +294,12 @@
     color: $color-text-mid;
   }
 
+  &__marquee-time {
+    display: block;
+    width: 7ch;
+    text-align: center;
+  }
+
   .home-nav {
     @include screen(lg) {
       grid-column: 1 / span 8;
@@ -428,6 +436,12 @@
 
   &__marquee-inner {
     width: max-content;
+    margin-inline-start: -1rem;
+
+    span {
+      display: inline-block;
+      margin-inline-end: 0.5ex;
+    }
   }
 
   &__layout {
