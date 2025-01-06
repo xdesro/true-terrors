@@ -62,14 +62,6 @@ class DefaultRenderer extends Renderer {
       }
     });
     fetchSpotify();
-    if (window.location.pathname === '/') {
-      MatchMediaManager.add(({ conditions }) => {
-        HomeEntranceTransition(
-          document.querySelector('[data-taxi-view]'),
-          conditions
-        );
-      });
-    }
     this.onEnter();
   }
   onEnter() {
