@@ -2,7 +2,7 @@
 
 # True Terrors | The Personal Site & Portfolio of Henry Desroches
 
-The ~~best and brightest~~ worst and darkest portfolio/personal site for the Denver-based creative web developer Henry Desroches. Really quite something. [Looking for a resume](https://github.com/xdesro/resume)? [Looking for the previous iteration](https://github.com/xdesro/soon)? [Looking for the version before that?](https://github.com/xdesro/vogue)?
+The ~~best and brightest~~ worst and darkest portfolio/personal site for the Denver-based creative web developer Henry Desroches. Really quite something. [Looking for a resume](https://github.com/xdesro/resume)? [Looking for the previous iteration](https://github.com/xdesro/soon)? [Looking for the version before that](https://github.com/xdesro/vogue)?
 
 ## 📝 Colophon
 
@@ -47,65 +47,10 @@ bun run build
 ## 🗣 Attribution
 Thanks to Andy, Robb, David, Brynski, Levi, and everyone else who had to listen to me talk about this puppy for the past million trillion years.
 
+<hr /> 
 
-
-## TODOS
-
-### Go-live
-- **Content:**
-    - NYT Case?
-    - Faculty Case
-    - Blog header images
-- Undo/redo splitting call on resize
-
-### Nice-to-have
-- Gotta figure out 11ty/image code lol
-- Case studies design blocks need _better_ graphics lol
-- "Micro" re-launch, including syndication to masto/bsky
-- Next post for case study?
-- Projects page (passages dot)
-- Reading list?
-- ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
-- ~~JS linting?~~
-- Component for code embeds
-- Component for asides/footnotes on large screens.
-- Remove splitting.js dependency
-- Consider speeding up transitions after first visit
-
-### ❄️ Ice
-- Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
-- Walk back case study row `webc`?
-
-### 🧼 Sorted
-- ✅ Past portfolios on work page
-- ✅ Design rework of hireme.website?
-- ✅ Animated underlines on foot breadcrumbs
-- ✅ Looks like `math` is too small on large screens?
-- ✅ case study clickable blocks don’t enhance if you load straight in
-- ✅ Dark mode and grid mode easter eggs
-- ✅ Sass linting
-- ✅ Finish YouTube Case
-- ✅ Matter Case
-- ✅ RM Case
-- ✅ Real font licenses
-- ✅ Barbed wire scrolling effect
-- ✅ Case studies design blocks need graphics
-- ✅ Animated link underlines for article blocks.p
-- ✅ OpenGraph images service
-- ✅ Animated link underlines for case blocks
-- ✅ Clearer delineation of reading list posts vs authored posts
-- ✅ Embed cards
-- ✅ Clearer indication of what happens when you click a case study link
-- ✅ Set up RSS feeds
-- ✅ Home-to-article route
-- ✅ Home-to-case route
-- ✅ Article-to-article route
-- ✅ Footer breadcrumbs
-- ✅ Twitter cards
-
-## Embed Cards
+## 📝 Embed Cards
 There are two ways to reference embedded articles. The important thing for both of them is the `{% renderTemplate 'webc' %}` tag, which tells 11ty to switch to `webc` rendering temporarily. This workaround is necessary because rendering with markdown and webc breaks code snippets for some reason lol.
-
 
 ### Local Articles
 These can use the `:post` attribute to look up a local post by its 11ty URL, but require `collections.all` and the `findPostByPath()` functions.
