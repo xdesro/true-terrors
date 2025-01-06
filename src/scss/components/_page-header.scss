@@ -97,6 +97,7 @@
     margin-block-end: 0.5rem;
     border: 2px solid $color-text;
     border-radius: $bdrs;
+    width: auto;
 
     @include screen(lg) {
       align-self: end;

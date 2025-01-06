@@ -25,6 +25,11 @@ export default function (eleventyConfig) {
       loading: 'lazy',
       decoding: 'async',
       sizes: 'auto',
+      widths: [1400, 800, 400],
+    },
+    sharpOptions: {
+      animated: true,
+      limitInputPixels: false,
     },
   });
 

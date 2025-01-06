@@ -134,7 +134,7 @@ One of my favorite projects was my work on the Countdowns project, which was a w
 
 I initially joined the project at the start of the design phase, as an interactivity consultant. I worked with Jessie to isolate some really cool moments of interactivity, and then worked as a liaison between her and the adjunct engineering team that would be implementing her designs. I wrote technical specifications and documentation to accompany Jessie’s comps — I really enjoyed this sort of work, making sure a designer was able to execute on their fullest version of a project, and making sure engineering was enabled to hit the ground running.
 
-<img class="flow" alt="An animated GIF of a user scrolling the Countdowns website, showing how the featured video collapses partially to the side of the frame, as a nod to the traditional YouTube interface." src="https://res.cloudinary.com/henry-codes/image/upload/v1735953082/countdowns-scrolling_tdz6u2.gif" eleventy:ignore />
+<img class="flow" alt="An animated GIF of a user scrolling the Countdowns website, showing how the featured video collapses partially to the side of the frame, as a nod to the traditional YouTube interface." src="https://res.cloudinary.com/henry-codes/image/upload/v1735953082/countdowns-scrolling_tdz6u2.gif" eleventy:formats="gif" />
 
 I actually ended up back on this project in the end — a round of layoffs meant the eng team building Countdowns no longer existed. I stepped up to inherit the work of understanding how much of the project had already been built, and how much still needed doing.
 
