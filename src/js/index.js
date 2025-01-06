@@ -16,6 +16,7 @@ import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 import DefaultTransition from './transitions/Default';
 import CaseBlocks from './CaseBlocks';
 import graffiti from './graffiti';
+import linkifyCards from './utils/linkifyCards';
 
 const fetchSpotify = () =>
   fetch('/.netlify/functions/spotify')
@@ -141,36 +142,12 @@ class DefaultRenderer extends Renderer {
     if (document.querySelector('.home-about__marquee')) {
       new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
     }
-
-    if (document.querySelector('.article-block, .case-study-block')) {
-      const cards = document.querySelectorAll(
+    if (
+      document.querySelector(
         '.article-block, .case-study-block, .card:has(> a)'
-      );
-      cards.forEach((card) => {
-        let downTime;
-
-        const link = card.querySelector('a');
-        if (link) {
-          if (card.classList.contains('article-block')) {
-            card.classList.add('article-block--clickable');
-          } else if (card.classList.contains('case-study-block')) {
-            card.classList.add('case-study-block--clickable');
-          } else {
-            card.classList.add('card--clickable');
-          }
-
-          card.addEventListener('mousedown', () => {
-            downTime = Date.now();
-          });
-
-          card.addEventListener('mouseup', () => {
-            const upTime = Date.now();
-            if (upTime - downTime < 200) {
-              link.click();
-            }
-          });
-        }
-      });
+      )
+    ) {
+      linkifyCards('.article-block, .case-study-block, .card:has(> a)');
     }
 
     updateFooterBreadcrumbs();

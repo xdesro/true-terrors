@@ -1,24 +1,53 @@
 ![](https://github.com/xdesro/true-terrors/blob/bd40cb500958dc384947c7a42121322e10a728e4/src/img/og-default.png)
 
-# true-terrors
+# True Terrors | The Personal Site & Portfolio of Henry Desroches
 
-To install dependencies:
+The ~~best and brightest~~ worst and darkest portfolio/personal site for the Denver-based creative web developer Henry Desroches. Really quite something. [Looking for a resume](https://github.com/xdesro/resume)? [Looking for the previous iteration](https://github.com/xdesro/soon)? [Looking for the version before that?](https://github.com/xdesro/vogue)?
+
+## 📝 Colophon
+
+- Technology:
+  - Built with [11ty](https://www.11ty.dev/) and uses Nunjucks and [webc](https://github.com/11ty/webc) in some cases for templating.
+  - Brought to life by CSS and [GSAP](https://greensock.com/gsap/).
+- Fonts In Use:
+  - [Neue Montreal](https://pangrampangram.com/products/neue-montreal), from Pangram Pangram.
+  - [Louize](https://www.205.tf/collection/louize), from 205TF.
+  - [Mānuka](https://klim.co.nz/retail-fonts/manuka/), from Klim.
+
+
+🚧 Development
+
+I’ve been using `bun` but I'm sure it works with NPM too.
+
+1. **Install** dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
+2. **Run** the project for local development (hot reloads at localhost:8080):
 
 ```bash
 bun run start
 ```
 
-To run without all the Eleventy logging:
+3. **Run** the project without all the Eleventy logging:
 
 ```bash
 bun run start:quiet
 ```
+
+
+3. Generate the static site at _site/ for production:
+
+```bash
+bun run build
+```
+
+## 🗣 Attribution
+Thanks to Andy, Robb, David, Brynski, Levi, and everyone else who had to listen to me talk about this puppy for the past million trillion years.
+
+
 
 ## TODOS
 
@@ -30,6 +59,7 @@ bun run start:quiet
 - Undo/redo splitting call on resize
 
 ### Nice-to-have
+- Case studies design blocks need _better_ graphics lol
 - "Micro" re-launch, including syndication to masto/bsky
 - Next post for case study?
 - Projects page (passages dot)
@@ -37,16 +67,15 @@ bun run start:quiet
 - Reading list?
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
 - Design rework of hireme.website?
-- Walk back case study row `webc`?
 - ~~JS linting?~~
 - Component for code embeds
 - Component for asides/footnotes on large screens.
 - Remove splitting.js dependency
 - Consider speeding up transitions after first visit
-- Case studies design blocks need _better_ graphics lol
 
 ### Ice
 - Page wipe transition for external links? _(Not currently possible without modifying Taxi)_
+- Walk back case study row `webc`?
 
 ### Sorted
 - ✅ Animated underlines on foot breadcrumbs
