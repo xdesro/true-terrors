@@ -9,7 +9,7 @@
                 <p>(These links will take you far away from this place. <em>Go with care,</em> and come on back sometime soon.)</p>
             </aside>
             {% for post in recentReading.posts %}
-                <article class="card card--linked">
+                <article class="card">
                     <h1 class="card__title">{{ post.title }}</h1>
                     <div class="card__author">{{ post.author }}</div>
                     <a class="card__link with-arrow with-arrow--out" href="{{ post.url }}">Read more</a>

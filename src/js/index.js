@@ -147,7 +147,7 @@ class DefaultRenderer extends Renderer {
 
     if (document.querySelector('.article-block, .case-study-block')) {
       const cards = document.querySelectorAll(
-        '.article-block, .case-study-block, .card--linked'
+        '.article-block, .case-study-block, .card:has(> a)'
       );
       cards.forEach((card) => {
         let downTime;
