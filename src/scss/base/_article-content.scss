@@ -74,10 +74,11 @@
     background-color: $color-border-light;
     color: $color-text;
     grid-column: var(--standard-column);
+    height: auto;
   }
 
   .flow {
-    margin-block-end: 1lh;
+    margin-block: 2lh;
   }
 }
 

@@ -21,11 +21,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginImage, {
     extensions: 'html',
     formats: ['webp', 'jpeg'],
+    widths: ['auto', 400, 800, 1400],
     defaultAttributes: {
       loading: 'lazy',
       decoding: 'async',
-      sizes: 'auto',
-      widths: [1400, 800, 400],
+      sizes: '100vw',
     },
     sharpOptions: {
       animated: true,
