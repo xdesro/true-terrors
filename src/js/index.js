@@ -137,7 +137,9 @@ class DefaultRenderer extends Renderer {
       });
     }
     if (document.querySelector('.home-hero__marquee')) {
-      new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
+      setTimeout(() => {
+        new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
+      }, 10);
     }
     if (document.querySelector('.home-about__marquee')) {
       new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
