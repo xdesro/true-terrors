@@ -16,8 +16,6 @@ import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 import DefaultTransition from './transitions/Default';
 import CaseBlocks from './CaseBlocks';
 import graffiti from './graffiti';
-import { HomeEntranceTransition } from './transitions/Home';
-import horizontalLoop from './utils/horizontalLoop';
 
 const fetchSpotify = () =>
   fetch('/.netlify/functions/spotify')
@@ -53,6 +51,7 @@ let caseBlocks = null;
 
 class DefaultRenderer extends Renderer {
   initialLoad() {
+    console.log(graffiti, 'color: #666');
     window.addEventListener('keypress', ({ shiftKey, key }) => {
       if (shiftKey && key === 'D') {
         document.body.classList.toggle('themed');

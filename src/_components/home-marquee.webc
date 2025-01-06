@@ -20,14 +20,14 @@
                         </span>
                     </span>
                 </div>
-                —
             </div>
+            <span :aria-hidden="n > 0">—</span>
             <span :aria-hidden="n > 0" class="home-hero__marquee-locale">48ºF @ N 39º 43’ 31.56” W 104º 58’ 0.94”
-                (Denver, Colorado)
-                —&nbsp;</span>
+                (Denver, Colorado)</span>
+            <span :aria-hidden="n > 0">—</span>
             <span :aria-hidden="n > 0" class="home-hero__marquee-time" data-tag="currentTime"
                 @text="`${getTime()}`">11:03AM</span>
-            <span :aria-hidden="n > 0">—&nbsp;</span>
+            <span :aria-hidden="n > 0">—</span>
         </div>
     </div>
 </div>
