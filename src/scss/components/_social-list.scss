@@ -42,7 +42,7 @@
     &::after {
       position: absolute;
       z-index: -1;
-      bottom: round(0.25em, 1px);
+      bottom: 2px;
       left: $padding-left;
       width: calc(100% - #{$padding-left});
       height: 1px;

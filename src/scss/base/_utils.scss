@@ -1,4 +1,4 @@
-@use '../abstract/variables';
+@use '../abstract/variables' as *;
 
 .visually-hidden {
   position: absolute;
@@ -26,13 +26,31 @@
 }
 
 .text-mid {
-  color: variables.$color-text-mid;
+  color: $color-text-mid;
 }
 
 .text-serif {
-  font-family: variables.$font-serif;
+  font-family: $font-serif;
 }
 
 .text-italic {
   font-style: italic;
+}
+
+.with-soft-outline {
+  border: 1px solid $color-border-light;
+}
+
+.with-soft-filter-outline {
+  filter: drop-shadow(1px 1px 0 #{$color-border-light})
+    drop-shadow(-1px -1px 0 #{$color-border-light});
+}
+
+.with-curved-border {
+  border-radius: $bdrs;
+}
+
+.with-transparent-bg,
+img.with-transparent-bg {
+  background-color: transparent;
 }

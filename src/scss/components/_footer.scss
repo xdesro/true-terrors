@@ -58,6 +58,7 @@ picture:has(.footer-border) {
     gap: 0.5ch;
     padding-inline-start: 1.5ch;
     text-decoration: none;
+    width: fit-content;
 
     @include screen(lg) {
       font-size: 1rem;
@@ -81,7 +82,7 @@ picture:has(.footer-border) {
 
     &::after {
       position: absolute;
-      bottom: -1px;
+      bottom: 5px;
       left: 1.5ch;
       width: calc(100% - 1.5ch);
       height: 1px;
@@ -90,6 +91,9 @@ picture:has(.footer-border) {
       transform: scaleX(0);
       transform-origin: 0 0;
       background-color: currentColor;
+      @include screen(lg) {
+        bottom: -1px;
+      }
       @media (prefers-reduced-motion: reduce) {
         transition-duration: 0s;
       }
@@ -119,8 +123,10 @@ picture:has(.footer-border) {
       }
 
       &::after {
-        left: 0;
-        width: 100%;
+        @include screen(lg) {
+          left: 0;
+          width: 100%;
+        }
       }
     }
 

@@ -74,7 +74,8 @@ export default class CaseWaterfall {
               trigger: row,
               start: 'bottom bottom',
               end: isMobile ? 'top bottom+=300px' : 'top center',
-              scrub: 1.5,
+              // end: 'top bottom+=300px',
+              scrub: 1,
             },
           });
         }

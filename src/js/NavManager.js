@@ -93,7 +93,7 @@ export default class NavManager {
           ? null
           : 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
         x: 0,
-        duration: prefersReducedMotion ? 0.2 : 0.3,
+        duration: prefersReducedMotion ? 0.2 : 0.4,
       });
     }
   }

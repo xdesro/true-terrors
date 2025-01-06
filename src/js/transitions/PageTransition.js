@@ -11,9 +11,6 @@ export default class PageTransition extends Transition {
   onLeave({ from, done }) {
     const tl = gsap.timeline({
       paused: true,
-      onStart: () => {
-        window.navManager.hide();
-      },
       onComplete: () => {
         done();
       },

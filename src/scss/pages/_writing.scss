@@ -56,7 +56,7 @@
     margin-inline: -2rem;
     padding-block-end: 1rem;
     padding-inline: 2rem;
-    border-bottom: 0.5px dashed var(--color-border-light);
+    border-block-end: 0.5px dashed var(--color-border-light);
   }
 
   &__title {
@@ -83,6 +83,8 @@
   }
 
   &__description {
+    text-wrap: balance;
+
     @include screen(sm) {
       font-size: 1.25rem;
       align-self: last baseline;
@@ -107,9 +109,9 @@
   align-items: start;
   width: 100vw;
   margin-inline-start: calc(50% - 50vw);
-  padding-inline: 3rem;
   scrollbar-width: none;
   overscroll-behavior-x: none;
+  padding-inline: 3rem;
 
   .writing-section--card & {
     @media not all and (min-resolution: 0.001dpcm) {
@@ -135,7 +137,8 @@
     position: sticky;
     left: 0;
     color: $color-text-mid;
-    @include screen(sm) {
+
+    @include screen(lg) {
       grid-column-end: span 3;
     }
   }

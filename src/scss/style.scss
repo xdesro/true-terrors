@@ -4,10 +4,11 @@
 @use 'abstract/variables' as *;
 @use 'abstract/mixins' as *;
 
-@use 'base/utils';
 @use 'base/layout';
 @use 'base/rendered';
 @use 'base/math';
+@use 'base/article-content';
+@use 'base/utils';
 
 @use 'components/page-nav';
 @use 'components/home-nav';
@@ -58,104 +59,6 @@
   display: grid;
   place-content: center;
   min-height: 30rem;
-}
-
-.article-content {
-  margin-block-end: 4.5rem;
-  counter-reset: h2s;
-
-  @include screen(magazine) {
-    display: grid;
-    column-gap: 1rem;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-
-    --standard-column: 4 / span 6;
-    --pre-column: 4 / span 7;
-
-    > * {
-      grid-column: var(--standard-column);
-    }
-
-    // stylelint-disable-next-line
-    > .cp_embed_wrapper {
-      grid-column-end: span 6;
-    }
-  }
-  @include screen(1200px) {
-    --standard-column: 5 / span 5;
-    --pre-column: 5 / span 5;
-  }
-  @include screen(1512px) {
-    --standard-column: 5 / span 4;
-  }
-
-  h2 {
-    @include screen(magazine) {
-      position: relative;
-
-      &::before {
-        font-size: 1em;
-        position: absolute;
-        right: calc(100% + 1rem);
-        width: max-content;
-        content: '0' counter(h2s) ' —';
-        color: $color-text;
-      }
-    }
-    @include screen(1200px) {
-      grid-column-end: span 7;
-    }
-  }
-
-  pre {
-    grid-column: var(--pre-column);
-    max-width: 80ch;
-    margin-block-end: 2rem;
-
-    @include screen(magazine) {
-      max-width: unset;
-      padding: 1.5rem;
-    }
-  }
-
-  .article-block,
-  .case-study-block {
-    max-width: 60ch;
-    margin-block-end: 1lh;
-  }
-
-  picture {
-    // TODO Workaround for @eleventy-img attributes on <picture>
-    display: contents;
-  }
-
-  img {
-    background-color: $color-border-light;
-    color: $color-text;
-    grid-column: var(--standard-column);
-
-    &.with-transparent-bg {
-      background-color: transparent;
-    }
-  }
-
-  .flow {
-    margin-block-end: 1lh;
-  }
-}
-
-.subgrid {
-  display: grid;
-  grid-template-columns: subgrid;
-  align-content: start;
-
-  .column {
-    --column: 1 / -1;
-    --row: auto;
-
-    grid-column: var(--column);
-    grid-row: var(--row);
-  }
 }
 
 .further-reading {

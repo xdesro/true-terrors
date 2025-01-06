@@ -3,20 +3,17 @@
 .card {
   display: grid;
   padding: 1rem;
-  border: 2px solid $color-border-light;
+  border: 2px solid $color-border-mid;
   border-radius: $bdrs;
-
-  &--linked {
-    position: relative;
-    transition: border-color 0.1s ease;
-
-    &:has(a:hover) {
-      border-color: $color-border-mid;
-    }
-  }
 
   &--clickable {
     cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:focus-within &:has(a:hover) {
+      border-color: $color-border-light;
+    }
   }
 
   &__title {

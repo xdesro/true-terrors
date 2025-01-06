@@ -21,7 +21,6 @@ export default class DefaultTransition extends Transition {
       navManager.hide();
       document.body.classList.add('home');
     } else {
-      navManager.show();
       document.body.classList.remove('home');
     }
     const tl = gsap.timeline({
