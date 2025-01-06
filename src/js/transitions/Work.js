@@ -26,15 +26,12 @@ export const WorkEnterTransition = (transitioningView, mediaQueries) => {
           opacity: 0,
           duration: 1,
           ease: 'power4.inOut',
-          // onComplete: done
         },
         '<'
       )
       .from(
         '.page-header__bar',
         {
-          //   scaleX: 0,
-          // x: "-10%",
           opacity: 0,
           duration: 0.3,
         },
@@ -81,7 +78,6 @@ export const WorkExitTransition = (transitioningView) => {
         opacity: 0,
         duration: 1,
         ease: 'power4.inOut',
-        // onComplete: done
       },
       '<'
     )
@@ -95,7 +91,6 @@ export const WorkExitTransition = (transitioningView) => {
     .to(
       '.page-header__bar',
       {
-        //   scaleX: 0,
         height: 0,
         yPercent: 0,
         y: '-3rem',
@@ -138,14 +133,12 @@ export const WorkExitToCaseTransition = (
         opacity: 0,
         duration: 0.5,
         ease: 'power3.in',
-        // onComplete: done
       },
       '<'
     )
     .to(
       '.page-header__bar',
       {
-        //   scaleX: 0,
         height: 0,
         yPercent: 0,
         y: '-3rem',

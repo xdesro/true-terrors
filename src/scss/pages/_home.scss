@@ -84,7 +84,6 @@
         line-height: 0.75;
         grid-column-end: span 2;
         grid-row: 1;
-        width: unset;
         height: unset;
         transform: unset;
         white-space: unset;
@@ -147,6 +146,7 @@
         grid-column-end: span 2;
         grid-row: 3;
         max-width: unset;
+        width: max-content;
       }
       @include screen(lg) {
         font-size: clamp(5rem, -0.4412rem + 9.6732vw, 8.7rem);

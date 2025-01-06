@@ -33,7 +33,6 @@ export default class CaseBlocks {
       const height = block.getBoundingClientRect().width;
       compositeWidth += height;
     });
-    // caseBlocks[0].getBoundingClientRect() / compos
     document
       .querySelector('.cases-block-list')
       .style.setProperty('--collar-width', `${compositeWidth}px`);

@@ -120,15 +120,7 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
 
 export const HomeExitTransition = (transitioningView, mediaQueries) => {
   const { prefersReducedMotion, isMobile } = mediaQueries;
-  const exitTl = gsap.timeline({
-    onStart() {
-      if (isMobile) {
-        // window.scrollTo({
-        //   top: '0',
-        // });
-      }
-    },
-  });
+  const exitTl = gsap.timeline();
 
   const title = transitioningView.querySelector('.segment--first');
   const desc = transitioningView.querySelector('.home-hero__description');

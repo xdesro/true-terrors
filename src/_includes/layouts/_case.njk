@@ -25,7 +25,6 @@ bodyClass: "case"
                     <ul class="case-header__topics-list" role="list">
                     {%- for category in categories -%}
                         <li>{{ category }}</li>
-                    {# {% if not loop.last%} — {% endif %} #}
                     {%- endfor -%}
                     </ul>
                 </dd>
@@ -45,19 +44,9 @@ bodyClass: "case"
         {% if toc.length %}
         {% include 'table-of-contents.njk' %}
         {% endif %}
-        {# <img src="/img/cdf-landscape.png" class="article-header__image"> #}
     {% endif %}
 </header>
 
 <article class="article-content rendered" @raw="content">
     {{ content | safe }}
 </article>
-
-{# {% if nextPost or prevPost %}
-    <!-- TODO: Next post doesn't work with webC -->
-    <aside class="further-reading container">
-        {% set caseStudy = nextPost or prevPost %}
-        <h2>Further Reading</h2>
-        {% include 'case-study-block.njk' %}
-    </aside>
-{% endif %} #}

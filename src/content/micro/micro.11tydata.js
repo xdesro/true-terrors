@@ -1,12 +1,13 @@
 export default {
-  tags: ["micro"],
-  layout: "layouts/_post.njk",
+  tags: ['micro'],
+  layout: 'layouts/_post.njk',
   eleventyComputed: {
-    text: function(data){return data.page.rawInput},
+    text: function (data) {
+      return data.page.rawInput;
+    },
     footerLinks: function (data) {
       return [
-        // ...data.footerLinks,
-        { name: "Micro", url: "/micro" },
+        { name: 'Micro', url: '/micro' },
         {
           name: data.date.toISOString(),
           url: `/micro/${this.slugify(data.date.toISOString())}/`,

@@ -29,6 +29,10 @@
     }
   }
 
+  &--coming-soon {
+    border-style: dashed;
+  }
+
   &::before {
     font-size: 0.75rem;
     display: inline-block;

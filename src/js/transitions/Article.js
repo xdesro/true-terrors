@@ -69,7 +69,6 @@ export const ArticleEnterTransition = (transitioningView, conditions) => {
         },
         '<+=.2'
       );
-    //   tl.to(title)
   }
   return tl;
 };

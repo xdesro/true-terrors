@@ -64,7 +64,6 @@ export default class CaseWaterfall {
         const tl = gsap.timeline({
           autoRemoveChildren: true,
         });
-        // const rect = row.getBoundingClientRect();
         if (!prefersReducedMotion) {
           tl.to(row, {
             '--factor': 0,
@@ -74,7 +73,6 @@ export default class CaseWaterfall {
               trigger: row,
               start: 'bottom bottom',
               end: isMobile ? 'top bottom+=300px' : 'top center',
-              // end: 'top bottom+=300px',
               scrub: 1,
             },
           });

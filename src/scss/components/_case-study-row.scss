@@ -8,9 +8,9 @@ $transition: transform $duration ease-in;
   display: grid;
   overflow: hidden;
   row-gap: 0.5ch;
-  width: 100vw;
   margin-inline-start: calc(50% - 50vw);
   counter-reset: rows;
+  transform: translate3d(0, 0, 0); // Thanks Darn.es :)
 }
 
 .case-study-row {
@@ -148,7 +148,6 @@ $transition: transform $duration ease-in;
     }
 
     .case-study-row--coming-soon & {
-      // color: var(--color-echo);
       color: $color-text-mid;
       filter: blur(1.5px);
       opacity: 0.5;

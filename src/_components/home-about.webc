@@ -41,7 +41,7 @@
                 </div>
                 <div>
                     <h3>Contact</h3>
-                    <p>I’m most active and reachable <a href="#">via email</a>. You can also <a
+                    <p>I’m most active and reachable <a href="mailto:yo@henry.codes">via email</a>. You can also <a
                             href="https://resume.henry.codes">check out my resume</a>, if you’re into that sort of
                         thing.
                     </p>
@@ -49,17 +49,12 @@
             </div>
             <div class="home-about__image">
                 <knight-svg></knight-svg>
-                <!-- {% include 'graphics/knight.svg' %} -->
             </div>
-            <!-- {# <img class="home-about__image" src="https://placehold.co/400x400"> #} -->
             <aside class="home-about__aside window to-elsewhere">
                 <h3>Elsewhere</h3>
                 <ul class="social-list">
                     <social-link-list-item webc:for="socialLink of social"
                         :@socialLink="socialLink"></social-link-list-item>
-                    <!-- {% for socialLink in social %}
-                    {% include "social-link-list-item.njk" %}
-                    {% endfor %} -->
                 </ul>
             </aside>
         </div>

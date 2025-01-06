@@ -1,4 +1,3 @@
-// import { Transition } from "@unseenco/taxi";
 import gsap from 'gsap';
 import { convertSplitElIntoLines } from '../utils/convertSplitElIntoLines';
 import { DefaultFadeOut } from './Fade';
@@ -30,7 +29,6 @@ export const WritingEnterTransition = (transitioningView) => {
         opacity: 0,
         duration: 1,
         ease: 'power4.inOut',
-        // onComplete: done
       },
       '<'
     )
@@ -41,9 +39,7 @@ export const WritingEnterTransition = (transitioningView) => {
         opacity: 0,
         stagger: 0.05,
         clipPath: 'polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)',
-        //   clipPath: "polygon(0% 140%, 100% 140%, 100% 140%, 0% 140%)",
         duration: 0.5,
-        // color: "red",
       },
       '>-=.5'
     )
@@ -85,7 +81,6 @@ export const WritingExitTransition = (transitioningView, mediaQueries) => {
           opacity: 0,
           duration: 1,
           ease: 'power4.inOut',
-          // onComplete: done
         },
         '<'
       )

@@ -1,5 +1,5 @@
 <nav class="page-nav">
-    <a href="/" class="page-nav__brand">✷ season fw24 <span class="page-nav__brand-flag">Go Home</span></a>
+    <a href="/" class="page-nav__brand">✷ season ss25 <span class="page-nav__brand-flag">Go Home</span></a>
     <p class="page-nav__tagline">(the Personal site & Portfolio of <span>Henry from online</span>)</p>
     <a :href="backLink || '/'" class="page-nav__back-link">
         ← <span @text="backLinkText || 'Back to home'"></span>

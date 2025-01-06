@@ -63,6 +63,9 @@ class DefaultRenderer extends Renderer {
     });
     fetchSpotify();
     this.onEnter();
+    if (window.location.pathname === '/') {
+      navManager.hide(true);
+    }
   }
   onEnter() {
     navManager.updateLink();

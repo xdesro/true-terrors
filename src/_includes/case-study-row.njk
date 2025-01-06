@@ -1,11 +1,3 @@
-{# {% from './client-logo.njk' import clientLogo %} #}
-{# {% if caseStudy.data.viewTheWork %}
-        <a class="case-study-block__link" href="{{ caseStudy.data.link }}">View the work →</a>
-    {% elif caseStudy.content.length > 0 %}
-        <a class="case-study-block__link" href="/work/{{ caseStudy.data.title | slugify }}">Read more <span class="visually-hidden">about my work with {{ caseStudy.data.title }}</span>→</a>
-    {% else %}
-        <p class="case-study-block__coming-soon">(Case study coming soon)</a>
-    {% endif %} #}
 {% if (not caseStudy.data.viewTheWork) and (not caseStudy.content.length > 0) %}
     {% set inert = true %}
 {% endif %}
@@ -18,11 +10,6 @@
             <span class="case-study-row__echo" aria-hidden="true">{{ caseStudy.data.title }}</span>
         </div>
         <h1 class="case-study-row__title">
-            {# {% renderTemplate 'webc'%}
-            {% endrenderTemplate %} #}
-            {# {% renderTemplate 'webc', {title: caseStudy.data.title.toLowerCase(), class: 'case-study-row__logo' } %}
-            <client-logo :title="title" :class="class"></client-logo>
-            {% endrenderTemplate %} #}
             {{ clientLogo(title = caseStudy.data.title.toLowerCase(), class = 'case-study-row__logo') }}  #}
             <div class="case-study-row__title-text">
                 <span class="case-study-row__half">{{- caseStudy.data.title.slice(0, caseStudy.data.titleSplitIndex) -}}

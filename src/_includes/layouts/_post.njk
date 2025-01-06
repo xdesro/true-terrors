@@ -4,15 +4,9 @@ bodyClass: "article"
 ---
 {% from '../social-icon.njk' import socialIcon %}
 
-{# {% renderTemplate "webc" %}
-<page-nav back-link="/micro" back-link-text="Back to all posts"></page-nav>
-{% endrenderTemplate %} #}
-
 <div class="layout-post container">
- <article class="post post--by-self">
-        {# <div class="post__content">{{ content | safe }}</div> #}
+    <article class="post post--by-self">
         <footer class="post__footer">
-            {# <time class="post__date">{{ date | humanReadableDateTime }}</time> #}
             <div class="post__links">
                 {% if blueskyUrl %}
                 <a href="{{ blueskyUrl }}">

@@ -15,8 +15,6 @@ export default class Marquee {
 
     this.init();
     this.addListeners();
-
-    // this.scaleFactor = 0;
   }
   init() {
     this.animationLoop();

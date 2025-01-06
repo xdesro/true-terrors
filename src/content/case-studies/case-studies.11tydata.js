@@ -7,7 +7,6 @@ export default {
   layout: 'layouts/_case.njk',
   tags: ['case study'],
   hasToc: true,
-  // templateEngineOverride: "md, webc",
   briefAbstract: false,
   tocHasTitle: true,
   eleventyComputed: {

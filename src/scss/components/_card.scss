@@ -39,7 +39,7 @@
     text-decoration: none;
     font-family: $font-sans;
     text-transform: uppercase;
-    display: inline-block;
+    display: block;
     position: relative;
     width: fit-content;
 
@@ -61,7 +61,6 @@
 
     &:hover,
     .card--clickable:is(:hover, :focus) & {
-      // text-decoration: underline;
       &::before {
         transform: scale(1);
       }
