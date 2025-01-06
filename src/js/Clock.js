@@ -4,6 +4,7 @@ export default class Clock {
     this.init();
   }
   init() {
+    this.updateTime.bind(this);
     setInterval(this.updateTime.bind(this), 1000);
   }
   updateTime() {

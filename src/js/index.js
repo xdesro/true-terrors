@@ -64,13 +64,6 @@ class DefaultRenderer extends Renderer {
     });
     fetchSpotify();
 
-    if (document.querySelector('.home-hero__marquee')) {
-      // new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
-    }
-    if (document.querySelector('.home-about__marquee')) {
-      new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
-    }
-
     this.onEnter();
     if (window.location.pathname === '/') {
       navManager.hide(true);
