@@ -29,12 +29,13 @@ $transition: transform $duration ease-in;
       font-weight: bold;
       position: absolute;
       z-index: 2;
-      inset-block: 0;
-      inset-inline-start: 0;
+      // inset-block: 0;
+      // inset-inline-start: 0;
+      inset: 0;
       display: grid;
       place-content: center;
       width: var(--coming-soon-width);
-      margin-inline: auto;
+      // margin-inline: auto;
       content: 'Coming soon';
       text-transform: uppercase;
       color: $color-text;
@@ -45,13 +46,13 @@ $transition: transform $duration ease-in;
       z-index: 1;
       inset: 0;
       content: '';
-      backdrop-filter: blur(2px);
+      // backdrop-filter: blur(2px);
     }
 
     .no-js & {
       &::before {
         inset: 0;
-        backdrop-filter: blur(2px);
+        // backdrop-filter: blur(2px);
       }
 
       &::after {
@@ -152,7 +153,10 @@ $transition: transform $duration ease-in;
     }
 
     .case-study-row--coming-soon & {
+      // color: var(--color-echo);
       color: $color-text-mid;
+      filter: blur(1.5px);
+      opacity: 0.5;
     }
 
     &::before {
