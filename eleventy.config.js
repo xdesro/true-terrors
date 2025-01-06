@@ -78,6 +78,9 @@ export default function (eleventyConfig) {
     }
   );
 
+  eleventyConfig.addFilter('sortedByDate', (arr) => {
+    return arr.sort((a, b) => b.date - a.date);
+  });
   // TODO: This should probably just be a sortBy function that takes a property to sort by as an argument
   eleventyConfig.addFilter('sortedByPublishDate', (arr) => {
     return arr.sort(

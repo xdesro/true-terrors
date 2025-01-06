@@ -126,6 +126,13 @@
     }
   }
 
+  &__recognition {
+    grid-column: 1 / -1;
+    @include screen(magazine) {
+      grid-column: 3 / -1;
+    }
+  }
+
   .barb-bar {
     @include screen(sm) {
       grid-column: 2;
@@ -155,7 +162,7 @@
     }
   }
 
-  p {
+  p:not([class]) {
     font-family: $font-serif;
     line-height: 1.5;
     margin-block-end: 1em;

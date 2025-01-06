@@ -59,5 +59,11 @@
         <p>I’m most active and reachable via email. My <a href="https://resume.henry.codes">Serious & Professional Resume lives here</a> and my <a href="https://hireme.website">Not Very Serious At All Resume lives here</a>.
         <a class="card__link with-arrow with-arrow--out" href="mailto:yo@henry.codes">Reach out and touch faith</a>
     </section>
+    <section class="card about-layout__recognition" id="recognition">
+        <h2>Recognition</h2>
+        {% renderTemplate 'webc', {recognition: recognition, publishers: publishers} %}
+        <recognition-chart :@recognition="recognition" :@publishers="publishers"></recognition-chart>
+        {% endrenderTemplate%}
+    </section>
 </article>
 

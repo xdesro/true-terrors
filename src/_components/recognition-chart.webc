@@ -1,0 +1,35 @@
+<table class="recognition-chart">
+    <thead>
+        <tr>
+            <th>Organization</th>
+            <th>Recognition</th>
+            <th>Project</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr webc:for="entry of sortedByDate(recognition)">
+            <td @text="entry.publisher"></td>
+            <td @text="entry.award"></td>
+            <td @text="entry.title"></td>
+            <td>
+                <a :href="entry.link" class="recognition-chart__link">
+                    <svg aria-label="Go check out the project" class="recognition-chart__icon"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 10">
+                        <path fill-rule="evenodd" d="M7.31 1.57H.56V0H10v9.44H8.43V2.7L1.1 10 0 8.89l7.31-7.32z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="recognition-mobile" aria-hidden="true">
+    <div class="recognition-mobile__section" webc:for="(publisher, awards) in publishers">
+        <p class="recognition-mobile__org" @text="publisher"></p>
+        <div class="recognition-mobile__row" webc:for="(awardName, projects) in awards">
+            <span @text="awardName"></span>
+            <span @text="`${projects.length}X`"></span>
+        </div>
+    </div>
+</div>

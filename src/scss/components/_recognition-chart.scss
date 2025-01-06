@@ -1,0 +1,130 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.recognition-chart {
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+  font-family: $font-sans;
+
+  @include screen(lg) {
+    display: block;
+  }
+
+  thead,
+  tbody {
+    display: block;
+  }
+
+  thead {
+    border-block-end: 2px solid $color-border-mid;
+    color: $color-text-mid;
+    position: sticky;
+    top: 0;
+    text-transform: uppercase;
+    text-align: left;
+
+    tr::after {
+      content: unset;
+    }
+  }
+
+  th {
+    font-weight: normal;
+  }
+
+  tr {
+    position: relative;
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-template-columns: repeat(16, 1fr);
+    padding-block: 0.75rem;
+    border-block-end: 2px solid $color-border-light;
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      display: block;
+      width: 5rem;
+      height: 2px;
+      content: '';
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      background-color: currentColor;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &:last-of-type {
+      border-block-end: none;
+    }
+  }
+
+  th,
+  td {
+    grid-column-end: span 4;
+
+    &:nth-of-type(3) {
+      grid-column-end: span 7;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding-block-start: 1rem;
+    text-align: right;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1ch;
+    max-width: 1rem;
+    transform: translateY(-50%);
+  }
+}
+
+.recognition-mobile {
+  text-transform: uppercase;
+  border-block-end: 2px solid $color-border-light;
+
+  @include screen(lg) {
+    display: none;
+  }
+
+  &__section {
+    padding-block: 1rem;
+    border-block-start: 2px solid $color-border-light;
+    @include screen(sm) {
+      display: grid;
+      column-gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__org {
+    // font-size: 0.75rem;
+    font-family: $font-sans;
+    color: $color-text-mid;
+    // font-weight: bold;
+  }
+
+  &__row {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    @include screen(sm) {
+      grid-column: 2;
+    }
+  }
+}
