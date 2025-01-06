@@ -64,20 +64,10 @@ export default class CaseWaterfall {
         const tl = gsap.timeline({
           autoRemoveChildren: true,
         });
+        // const rect = row.getBoundingClientRect();
         if (!prefersReducedMotion) {
           tl.to(row, {
-            '--factor': prefersReducedMotion
-              ? 0
-              : mapRange(
-                  Math.abs(
-                    0,
-                    row.getBoundingClientRect().top - window.innerHeight / 2
-                  ),
-                  0,
-                  window.innerHeight / 2,
-                  0,
-                  0.3
-                ),
+            '--factor': 0,
             duration: 2,
             ease: isMobile ? 'linear' : 'power1.in',
             scrollTrigger: {
