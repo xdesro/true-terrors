@@ -2,6 +2,7 @@
 title: Faculty
 abstract: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ad consequuntur ab perferendis facilis nam illo saepe exercitationem ex? Soluta cupiditate ex quos.
 briefAbstract: A new home for new work, new agency relationships, and a place to share standards and best practices.
+comingSoon: true
 categories:
   - web design
   - web development

@@ -1,6 +1,6 @@
 ---
 title: Uber Eats x Taco Bell
-abstract: A killer, interactive website to support a far-out marketing campaign with two huge brands.
+abstract: A killer, interactive website to support a far-out marketing campaign with two impressive brands.
 isFeatured: true
 categories:
   - interactive development
