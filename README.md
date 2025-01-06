@@ -26,13 +26,14 @@ bun run start:quiet
 - **Content:**
     - NYT Case?
     - Faculty Case
-    - RM Case
     - Blog header images
 - Undo/redo splitting call on resize
 
 ### Nice-to-have
-- "Micro" re-launch
+- "Micro" re-launch, including syndication to masto/bsky
 - Next post for case study?
+- Projects page (passages dot)
+- Reading list?
 - ⏳ Ordered diffusion effect for header images _(Sorted, needs build-time service)_
 - Design rework of hireme.website?
 - Walk back case study row `webc`?
@@ -54,6 +55,7 @@ bun run start:quiet
 - ✅ Sass linting
 - ✅ Finish YouTube Case
 - ✅ Matter Case
+- ✅ RM Case
 - ✅ Real font licenses
 - ✅ Barbed wire scrolling effect
 - ✅ Case studies design blocks need graphics

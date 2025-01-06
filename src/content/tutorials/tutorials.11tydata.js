@@ -20,7 +20,10 @@ export default {
         slugged = this.slugify(title);
       }
       // TODO dev.henry.codes
-      const ogTargetUrl = `https://dev.henry.codes/opengraph/writing/${slugged}`;
+      // console.log(process.env);
+      const ogTargetUrl = `${
+        process.env.URL || 'localhost:8080'
+      }/opengraph/writing/${slugged}`;
       const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
         ogTargetUrl
       )}/opengraph`;

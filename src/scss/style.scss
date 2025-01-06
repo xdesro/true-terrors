@@ -132,6 +132,7 @@
   img {
     background-color: $color-border-light;
     color: $color-text;
+    grid-column: var(--standard-column);
 
     &.with-transparent-bg {
       background-color: transparent;
@@ -146,6 +147,7 @@
 .subgrid {
   display: grid;
   grid-template-columns: subgrid;
+  align-content: start;
 
   .column {
     --column: 1 / -1;
