@@ -259,9 +259,8 @@
 
   &__marquee {
     line-height: 1;
-    display: grid;
+    display: flex;
     overflow: hidden;
-    grid-auto-flow: column;
     grid-column: 1 / span 2;
     grid-row: 6;
     margin-block-start: 2rem;
@@ -283,6 +282,7 @@
 
   &__marquee-inner {
     display: flex;
+    flex-shrink: 0;
     column-gap: 0.5ch;
     align-items: center;
     width: max-content;
@@ -425,17 +425,20 @@
 
   &__marquee {
     font-size: 0.75rem;
-    display: grid;
-    grid-auto-flow: column;
     margin-block-end: 2rem;
     padding-block-end: 0.4rem;
     text-transform: uppercase;
     color: $color-text-mid;
     border-block-end: 2px solid $color-text;
     column-gap: 4ch;
+    display: flex;
   }
 
   &__marquee-inner {
+    display: flex;
+    flex-shrink: 0;
+    column-gap: 0.5ch;
+
     width: max-content;
     margin-inline-start: -1rem;
 
