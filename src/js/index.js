@@ -3,6 +3,7 @@ import { Core, Renderer } from '@unseenco/taxi';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+gsap.config({ nullTargetWarn: false });
 
 import CaseWaterfall from './CaseWaterfall';
 import Clock from './Clock';
