@@ -135,7 +135,8 @@ class DefaultRenderer extends Renderer {
     if (document.querySelector('[data-tag="currentTime"]')) {
       const clocks = document.querySelectorAll('[data-tag="currentTime"]');
       clocks.forEach((clock) => {
-        new Clock(clock);
+        const clockMachine = new Clock(clock);
+        clockMachine.updateTime();
       });
     }
     if (
