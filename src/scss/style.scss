@@ -111,3 +111,17 @@
     background-size: min(7vw, 105px);
   }
 }
+
+.hire-me-link {
+  border-radius: 100%;
+  display: block;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 100%;
+  max-width: 8rem;
+  mix-blend-mode: difference;
+  aspect-ratio: 1;
+  overflow: hidden;
+  padding: 1px;
+}

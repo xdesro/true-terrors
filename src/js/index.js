@@ -5,9 +5,11 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
 
+import CaseBlocks from './CaseBlocks';
 import CaseWaterfall from './CaseWaterfall';
 import Clock from './Clock';
 import DitheredImage from './DitheredImage';
+import HiringButton from './HiringButton';
 import Marquee from './Marquee';
 import MatchMediaManager from './MatchMediaManager';
 import NavManager from './NavManager';
@@ -15,7 +17,7 @@ import NavManager from './NavManager';
 import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 
 import DefaultTransition from './transitions/Default';
-import CaseBlocks from './CaseBlocks';
+
 import graffiti, { aSecretMessage } from './graffiti';
 import linkifyCards from './utils/linkifyCards';
 
@@ -65,10 +67,14 @@ class DefaultRenderer extends Renderer {
     });
     fetchSpotify();
 
-    this.onEnter();
+    if (document.querySelector('.hire-me')) {
+      new HiringButton();
+    }
+
     if (window.location.pathname === '/') {
       navManager.hide(true);
     }
+    this.onEnter();
   }
   onEnter() {
     navManager.updateLink();
@@ -139,6 +145,7 @@ class DefaultRenderer extends Renderer {
         clockMachine.updateTime();
       });
     }
+
     if (
       document.querySelector(
         '.article-block, .case-study-block, .card:has(> a)'
