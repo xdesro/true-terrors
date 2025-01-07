@@ -66,6 +66,15 @@ export default class HiringButton {
       });
       this.focusTl.play();
     });
+    anchor.addEventListener('blur', () => {
+      gsap.to(this, {
+        idleTimeScale: 1,
+        onUpdate: () => {
+          this.idleTl.timeScale(this.idleTimeScale);
+        },
+      });
+      this.focusTl.reverse();
+    });
     anchor.addEventListener('mouseout', (e) => {
       gsap.to(this, {
         idleTimeScale: 1,
