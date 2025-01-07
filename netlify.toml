@@ -1,4 +1,7 @@
 [dev]
     command = 'bun run start'
     publish = '_site'
-    functions = 'src/functions'
+    functions = '.netlify/functions'
+
+[functions]
+  directory = "src/functions"
