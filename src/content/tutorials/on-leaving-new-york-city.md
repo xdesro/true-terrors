@@ -1,7 +1,8 @@
 ---
 title: On Leaving New York City
 slug: leaving-new-york
-heroImage: ./img/7HI.on-leaving-new-york-og.png
+heroImage: https://nyc.henry.codes/img/skyline-sunset.jpg
+useHero: true
 excerpt: Lmao why does every writer in tech have to do this post about why they’re leaving their city? It’s punishing! Anyway here’s mine. :)
 tags:
   - article
@@ -50,7 +51,7 @@ Finally, I’m honestly a huge mama’s boy, and it’s taxing to be so far away
 
 ## The Bittersweet Part
 
-There’s something poignant about saying goodbye to a city like New York. It’s taken me month to shake loose the fear that I’m somehow giving up on a version of myself I fantasized about being for years. I’m still learning to part with all those imagined futures of SoHo loftdom and weekly West Village diner mornings and painfully-well-dressed see-and-be-seen Central Park walks.
+There’s something poignant about saying goodbye to a city like New York. It’s taken me months to shake loose the fear that I’m somehow giving up on a version of myself I fantasized about being for years. I’m still learning to part with all those imagined futures of SoHo loftdom and weekly West Village diner mornings and painfully-well-dressed see-and-be-seen Central Park walks.
 
 It’s the hidden cost of romanticizing and daydreaming about a million possible lives: you can live all of those lives a little bit if you want, but never at the same time. I think the growth I need to do here is getting comfortable with viewing my lifetime as a collage of lifetimes. It’s the end of this NYC chapter _for now_, but not necessarily forever, and the tapestry becomes more thoroughly woven with each life I weave into it.
 
