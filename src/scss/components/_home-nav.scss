@@ -59,7 +59,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       .home-nav__link-title {
         &::after {
           transform: scaleX(1);
@@ -85,7 +86,8 @@
       opacity: 0.2;
       filter: blur(2px);
 
-      a:hover & {
+      a:hover &,
+      a:focus & {
         opacity: 1;
         filter: blur(0);
       }
