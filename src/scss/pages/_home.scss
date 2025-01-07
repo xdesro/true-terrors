@@ -282,11 +282,12 @@
 
   &__marquee-inner {
     display: flex;
-    flex-shrink: 0;
     column-gap: 0.5ch;
     align-items: center;
     width: max-content;
     padding-inline-end: 0.5ch;
+
+    flex-shrink: 0;
   }
 
   &__marquee-locale,
@@ -409,15 +410,21 @@
   &__title-inner {
     position: relative;
     display: inline-block;
-  }
 
-  &__title-echo {
-    position: absolute;
-    right: calc(100% + 0.25ch);
-    width: max-content;
-    color: $color-border-light;
+    &::before,
+    &::after {
+      position: absolute;
+      width: max-content;
+      content: 'About the author';
+      color: $color-border-light;
+    }
 
-    &:last-child {
+    &::before {
+      right: calc(100% + 0.25ch);
+    }
+
+    &::after {
+      top: 0;
       right: unset;
       left: calc(100% + 0.25ch);
     }
@@ -425,22 +432,22 @@
 
   &__marquee {
     font-size: 0.75rem;
+    display: flex;
+    column-gap: 4ch;
     margin-block-end: 2rem;
     padding-block-end: 0.4rem;
     text-transform: uppercase;
     color: $color-text-mid;
     border-block-end: 2px solid $color-text;
-    column-gap: 4ch;
-    display: flex;
   }
 
   &__marquee-inner {
     display: flex;
-    flex-shrink: 0;
     column-gap: 0.5ch;
-
     width: max-content;
     margin-inline-start: -1rem;
+
+    flex-shrink: 0;
 
     span {
       display: inline-block;
@@ -552,11 +559,11 @@
     &::after {
       @include screen(sm) {
         display: block;
-        transform-origin: 0 0;
-        transform: scaleX(var(--banner-scale));
         flex: 1;
         height: 0.1em;
         content: '';
+        transform: scaleX(var(--banner-scale));
+        transform-origin: 0 0;
         background-color: currentColor;
       }
     }
@@ -604,12 +611,12 @@
 
     &::before {
       @include screen(sm) {
-        transform-origin: 100% 0;
-        transform: scaleX(var(--banner-scale));
         display: block;
         width: 100%;
         height: 0.1em;
         content: '';
+        transform: scaleX(var(--banner-scale));
+        transform-origin: 100% 0;
         background-color: currentColor;
       }
     }
