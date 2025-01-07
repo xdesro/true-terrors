@@ -14,7 +14,7 @@
     }
 }
 ---
-{%- for post in collections.micro | reverse %}
+{%- for post in collections.micro | sortedByPublishDate %}
 {%- set absolutePostUrl = post.url | htmlBaseUrl(metadata.base) %}
 <item>
     <title>{{ post.data.title }}</title>
