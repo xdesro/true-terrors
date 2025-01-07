@@ -109,6 +109,7 @@ export const WorkExitToCaseTransition = (
   conditions,
   target
 ) => {
+  const { isMobile } = conditions;
   const idxClicked = [
     ...transitioningView.querySelectorAll('.case-study-block'),
   ].findIndex((el) => el.querySelector('a') === target);
@@ -151,7 +152,8 @@ export const WorkExitToCaseTransition = (
     .to(
       '.list-design-element',
       {
-        x: 10,
+        x: isMobile ? 0 : 10,
+        y: isMobile ? -10 : 0,
         opacity: 0,
         stagger: 0.01,
       },
@@ -161,7 +163,8 @@ export const WorkExitToCaseTransition = (
       '.case-study-block',
       {
         opacity: 0,
-        x: 10,
+        x: isMobile ? 0 : 10,
+        y: isMobile ? -10 : 0,
         ease: 'linear',
         stagger: {
           from: idxClicked,
