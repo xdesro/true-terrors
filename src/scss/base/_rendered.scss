@@ -64,7 +64,7 @@
 
   blockquote {
     display: block;
-    width: 100vw;
+    // width: 100vw;
     max-width: 60ch;
     margin-block: 2rem;
     padding-inline-start: calc(1.25rem - 0.5rem);
@@ -85,12 +85,12 @@
 .twitter-tweet {
   font-family: $font-sans;
   display: block;
-  width: 100vw;
+  width: calc(100vw - 1rem);
   margin-inline-start: calc(50% - 50vw);
   padding-inline-start: 0.5rem;
   padding-inline-end: 1rem;
   color: $color-text-mid;
-  border-inline-start: 0.5rem solid $color-border-light;
+  border-inline-start: 1rem solid $color-border-light;
 
   @include screen(sm) {
     width: auto;
