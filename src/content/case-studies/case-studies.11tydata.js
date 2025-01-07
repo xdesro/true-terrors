@@ -20,8 +20,7 @@ export default {
       if (!slug) {
         slugged = this.slugify(title);
       }
-      // TODO dev.henry.codes
-      const ogTargetUrl = `https://dev.henry.codes/opengraph/work/${slugged}`;
+      const ogTargetUrl = `https://henry.codes/opengraph/work/${slugged}`;
       const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
         ogTargetUrl
       )}/opengraph`;
