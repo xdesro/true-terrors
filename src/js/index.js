@@ -138,15 +138,6 @@ class DefaultRenderer extends Renderer {
         new Clock(clock);
       });
     }
-    document.addEventListener('DOMContentLoaded', () => {
-      if (document.querySelector('.home-hero__marquee')) {
-        // bizarre xPercent bug on hard refresh
-        new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
-      }
-      if (document.querySelector('.home-about__marquee')) {
-        new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
-      }
-    });
     if (
       document.querySelector(
         '.article-block, .case-study-block, .card:has(> a)'
@@ -154,7 +145,17 @@ class DefaultRenderer extends Renderer {
     ) {
       linkifyCards('.article-block, .case-study-block, .card:has(> a)');
     }
-
+    if (document.querySelector('.home-hero__marquee')) {
+      setTimeout(() => {
+        new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
+      }, 100);
+      // bizarre xPercent bug on hard refresh
+    }
+    if (document.querySelector('.home-about__marquee')) {
+      setTimeout(() => {
+        new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
+      }, 100);
+    }
     updateFooterBreadcrumbs();
   }
   onEnterCompleted() {}

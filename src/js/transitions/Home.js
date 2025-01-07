@@ -1,6 +1,5 @@
 import gsap from 'gsap';
 import { DefaultFadeOut } from './Fade';
-import MatchMediaManager from '../MatchMediaManager';
 import { convertSplitElIntoLines } from '../utils/convertSplitElIntoLines';
 
 export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
