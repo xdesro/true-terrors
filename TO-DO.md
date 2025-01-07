@@ -8,7 +8,7 @@
 - [ ] Undo/redo splitting call on resize
 
 ## Nice-to-have
-- [ ] Gotta figure out 11ty/image code lol
+- [ ] Gotta figure out 11ty/image code. Can’t be doing the wrapper thing, need to manually generate the picture tag from the attributes on img. [Discussed here](https://github.com/11ty/eleventy-img/issues/243) but it doesn’t really solve the issue.
 - [ ] Case studies design blocks need _better_ graphics lol
 - [ ] "Micro" re-launch, including syndication to masto/bsky
 - [ ] Next post for case study?

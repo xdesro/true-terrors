@@ -33,9 +33,9 @@ In a major restructuring of the Art Department structure, the engineering team w
 
 The majority of my work at YouTube was the creation of pages and interfaces for Standards.  Standards does a lot, but is mostly an internal platform for documenting and communicating the YouTube design system and its priorities to YouTube designers, developers, and external partners. I built pages in HTML, CSS, and Angular to teach concepts such as how YouTube uses shapes, gradients, and more to communicate meaningfully with users.
 
-<div class="subgrid flow" style="--standard-column: 2 / span 10;">
-  <img class="column" style="--column: 1 / span 5; --row: 1" src="https://res.cloudinary.com/henry-codes/image/upload/v1735939639/gradients-page_yrhjnk.jpg" alt="">
-  <img class="column" style="--column: 6 / span 5; --row: 1" alt="" src="https://res.cloudinary.com/henry-codes/image/upload/v1735939639/shapes-page_rv4pyw.jpg">
+<div class="subgrid flow two-col" style="--standard-column: 2 / span 10;">
+  <img alt="A screenshot of the Standards page design for gradients" src="https://res.cloudinary.com/henry-codes/image/upload/v1735939639/gradients-page_yrhjnk.jpg">
+  <img alt="A screenshot of the Standards page design for shapes" src="https://res.cloudinary.com/henry-codes/image/upload/v1735939639/shapes-page_rv4pyw.jpg">
 </div>
 
 I also built some really cool tools for educating how technologies like variable fonts work, allowing engineers and designers to play with different axes and showing designers how subtle variations in font-weight and optical sizing can make huge differences in readability through color scheme changes, etc. 
@@ -44,7 +44,7 @@ The variable fonts tooling, for example, guided readers through the basic concep
 
 For _reasons_ I can't share exactly the tooling I created, but I’ve created a similar demo of some of the features here.
 
-<iframe class="flow" height="500" style="width: 100%;" scrolling="no" src="https://codepen.io/xdesro/embed/PwYOJrQ/16e623761a378e86fa934ea995b92cd2?default-tab=result&theme-id=37307" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe title="Variable Font Tooling" class="flow" height="500" style="width: 100%;" scrolling="no" src="https://codepen.io/xdesro/embed/PwYOJrQ/16e623761a378e86fa934ea995b92cd2?default-tab=result&theme-id=37307" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/xdesro/pen/PwYOJrQ/16e623761a378e86fa934ea995b92cd2">
   Untitled</a> by Henry Desroches (<a href="https://codepen.io/xdesro">@xdesro</a>)
   on <a href="https://codepen.io">CodePen</a>.
@@ -70,7 +70,7 @@ In my initial audit, I found there to be oceans of disagreement between how the 
 For instance, at the time of writing, there are six different ways that visual focus is indicated on a button in the masthead of the YouTube app alone.
 
 <div class="subgrid flow" style="--standard-column: 2 / span 10;">
-  <img class="column" style="--column: 1 / -1" src="https://res.cloudinary.com/henry-codes/image/upload/v1735946855/too-many-focus-states_dzrgjt.jpg" alt="A screenshot of the YouTube desktop app, showing as many as 6 distinct styles of indicating visual focus on interactive elements. The screenshot has all these focus states superimposed so the effect is dramatized." />
+    <img src="https://res.cloudinary.com/henry-codes/image/upload/v1735946855/too-many-focus-states_dzrgjt.jpg" alt="A screenshot of the YouTube desktop app, showing as many as 6 distinct styles of indicating visual focus on interactive elements. The screenshot has all these focus states superimposed so the effect is dramatized." />
 </div>
 
 After some initial conversations with my team and the YouTube Material Design lead, I went through the entire YouTube desktop app, testing every interactive app to make sure it A. could receive visual focus in meaningful order, B. visually-indicated focus to the user in an accessible way, and C. visually-indicated focus to the user as specified by the design systems team. I created a document that enumerated every instance of elements that failed these requirements, with my recommendations on the urgency and best strategy for their repair.
@@ -134,7 +134,9 @@ One of my favorite projects was my work on the Countdowns project, which was a w
 
 I initially joined the project at the start of the design phase, as an interactivity consultant. I worked with Jessie to isolate some really cool moments of interactivity, and then worked as a liaison between her and the adjunct engineering team that would be implementing her designs. I wrote technical specifications and documentation to accompany Jessie’s comps — I really enjoyed this sort of work, making sure a designer was able to execute on their fullest version of a project, and making sure engineering was enabled to hit the ground running.
 
-<img class="flow" alt="An animated GIF of a user scrolling the Countdowns website, showing how the featured video collapses partially to the side of the frame, as a nod to the traditional YouTube interface." src="https://res.cloudinary.com/henry-codes/image/upload/v1735953082/countdowns-scrolling_tdz6u2.gif" eleventy:formats="gif" />
+<div class="flow" style="--standard-column: 4 / span 8">
+  <img alt="An animated GIF of a user scrolling the Countdowns website, showing how the featured video collapses partially to the side of the frame, as a nod to the traditional YouTube interface." src="https://res.cloudinary.com/henry-codes/image/upload/v1735953082/countdowns-scrolling_tdz6u2.gif" eleventy:formats="gif" />
+</div>
 
 I actually ended up back on this project in the end — a round of layoffs meant the eng team building Countdowns no longer existed. I stepped up to inherit the work of understanding how much of the project had already been built, and how much still needed doing.
 

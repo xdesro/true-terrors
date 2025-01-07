@@ -67,7 +67,7 @@
 
   picture {
     // TODO Workaround for @eleventy-img attributes on <picture>
-    display: contents;
+    // display: contents;
   }
 
   img {
@@ -84,14 +84,40 @@
 
 .subgrid {
   display: grid;
-  grid-template-columns: subgrid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   align-content: start;
+  @include screen(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include screen(magazine) {
+    grid-template-columns: subgrid;
+  }
+
+  > *:not([class]) {
+    grid-column: 1 / -1;
+  }
 
   .column {
     --column: 1 / -1;
     --row: auto;
+    --column-sm: 1 / -1;
+    --row-sm: auto;
 
-    grid-column: var(--column);
-    grid-row: var(--row);
+    grid-column: var(--column-sm);
+    grid-row: var(--row-sm);
+    @include screen(magazine) {
+      grid-column: var(--column);
+      grid-row: var(--row);
+    }
+  }
+
+  &.two-col > * {
+    @include screen(sm) {
+      grid-column: auto / span 1;
+    }
+    @include screen(magazine) {
+      grid-column-end: span 5;
+    }
   }
 }

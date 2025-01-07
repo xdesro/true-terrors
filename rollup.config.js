@@ -17,11 +17,5 @@ export default [
         include: 'src/js/routes/**.js',
       }),
     ],
-    // plugins: [
-    //   nodeResolve({ dedupe: ['gsap'] }),
-    //   dynamicImportVars({
-    //     include: 'src/js/routes/**.js',
-    //   }),
-    // ],
   },
 ];

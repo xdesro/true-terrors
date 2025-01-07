@@ -9,9 +9,9 @@
     <div class="container">
         <h2 class="home-about__title">
             <div class="home-about__title-inner">
-                <span class="home-about__title-echo" aria-hidden="true">about the author</span>
+                <span class="home-about__title-echo" aria-hidden="true" role="presentation">about the author</span>
                 <span class="home-about__title-text">about the author</span>
-                <span class="home-about__title-echo" aria-hidden="true">about the author</span>
+                <span class="home-about__title-echo" aria-hidden="true" role="presentation">about the author</span>
             </div>
         </h2>
         <div class="home-about__marquee">

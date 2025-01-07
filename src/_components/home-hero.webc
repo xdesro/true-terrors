@@ -10,7 +10,7 @@
     </hgroup>
     <span class="home-hero__warning">(Scroll with caution and with care.)</span>
     <div class="home-hero__accent-image">
-        <img src="/img/gargoyle-with-texture.png" alt="">
+        <img src="/img/gargoyle-with-texture.png" alt="" eleventy:ignore>
     </div>
     <home-marquee class="home-hero__marquee" :@recent-listening="recentListening"></home-marquee>
     <nav class="home-nav">

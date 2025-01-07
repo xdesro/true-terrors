@@ -10,7 +10,6 @@
     "editor.formatOnSave": true
   },
   "files.associations": {
-    // extension as blob: language
     "*.webc": "html"
   },
   "stylelint.validate": ["css", "scss"],
