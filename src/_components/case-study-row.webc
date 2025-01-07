@@ -14,7 +14,7 @@
                     </span><span class="case-study-row__title-divider"></span><span class="case-study-row__half"
                         @text="caseStudy.title.slice(caseStudy.titleSplitIndex)"></span>
                 </div>
-                <a class="case-study-row__link"
+                <a class="case-study-row__link" :tab-index="`${caseStudy.comingSoon ? -1 : null}`"
                     :href="caseStudy.viewTheWork ? caseStudy.link : `/work/${ this.slugify(caseStudy.title)}`">
                     <span class="visually-hidden">Read the case study</span>
                 </a>

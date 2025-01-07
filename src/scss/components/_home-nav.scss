@@ -38,6 +38,8 @@
       font-size: 1.25rem;
     }
 
+    @include with-focus-outline;
+
     &-title {
       position: relative;
       display: inline-block;

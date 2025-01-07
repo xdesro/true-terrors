@@ -1,15 +1,28 @@
-@use "sass:map";
+@use 'sass:map';
 
-@use "./variables" as *;
-
+@use './variables' as *;
 
 @mixin screen($breakpoint) {
-    $bk: $breakpoint;
+  $bk: $breakpoint;
 
-    @if (map.get($breakpoints, $breakpoint)) {
-        $bk: map.get($breakpoints, $breakpoint);
+  @if (map.get($breakpoints, $breakpoint)) {
+    $bk: map.get($breakpoints, $breakpoint);
+  }
+  @media screen and (min-width: #{$bk}) {
+    @content;
+  }
+}
+
+@mixin with-focus-outline($focusWithin: false) {
+  @if ($focusWithin) {
+    &:focus-within {
+      outline: 1px dashed $color-border-mid;
+      outline-offset: 5px;
     }
-    @media screen and (min-width: #{$bk}) {
-      @content;
+  } @else {
+    &:focus {
+      outline: 2px dashed $color-border-mid;
+      outline-offset: 2px;
     }
   }
+}

@@ -33,6 +33,8 @@ body {
 a {
   color: inherit;
 
+  @include with-focus-outline;
+
   &.with-arrow {
     &::after {
       display: inline-block;
