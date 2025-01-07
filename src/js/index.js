@@ -20,7 +20,7 @@ import graffiti, { aSecretMessage } from './graffiti';
 import linkifyCards from './utils/linkifyCards';
 
 const fetchSpotify = () =>
-  fetch('/.netlify/functions/spotify')
+  fetch('https://henry.codes/.netlify/functions/spotify')
     .then((res) => res.json())
     .then((data) => {
       const trackEls = document.querySelectorAll('.spotify-widget__track');
