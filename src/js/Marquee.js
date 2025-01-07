@@ -10,6 +10,7 @@ export default class Marquee {
   init() {
     const marqueeContent = this.marquee.querySelector('[data-marquee-inner]');
     if (!marqueeContent) {
+      console.error('Marquee inner content not found for', this.marquee);
       return;
     }
     this.marqueeContent = marqueeContent;
