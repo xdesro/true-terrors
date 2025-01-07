@@ -138,17 +138,15 @@ class DefaultRenderer extends Renderer {
         new Clock(clock);
       });
     }
-    if (document.querySelector('.home-hero__marquee')) {
-      // bizarre xPercent bug on hard refresh
-      setTimeout(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.querySelector('.home-hero__marquee')) {
+        // bizarre xPercent bug on hard refresh
         new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
-      }, 1);
-    }
-    if (document.querySelector('.home-about__marquee')) {
-      setTimeout(() => {
+      }
+      if (document.querySelector('.home-about__marquee')) {
         new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
-      }, 1);
-    }
+      }
+    });
     if (
       document.querySelector(
         '.article-block, .case-study-block, .card:has(> a)'
