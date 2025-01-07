@@ -2,7 +2,8 @@ import gsap from 'gsap';
 import { convertSplitElIntoLines } from '../utils/convertSplitElIntoLines';
 import { DefaultFadeOut } from './Fade';
 
-export const WritingEnterTransition = (transitioningView) => {
+export const WritingEnterTransition = (transitioningView, conditions) => {
+  const { prefersReducedMotion } = conditions;
   const title = transitioningView.querySelector('.page-header__title');
   const description = transitioningView.querySelector(
     '.page-header__description'
@@ -21,8 +22,10 @@ export const WritingEnterTransition = (transitioningView) => {
     .from(
       title.querySelectorAll('.char'),
       {
-        y: '100%',
-        clipPath: 'polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)',
+        y: prefersReducedMotion ? 0 : '100%',
+        clipPath: prefersReducedMotion
+          ? null
+          : 'polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)',
         stagger: {
           each: 0.02,
         },
@@ -35,10 +38,12 @@ export const WritingEnterTransition = (transitioningView) => {
     .from(
       '.page-header__description .line, .table-of-contents :is(h2, li)',
       {
-        y: '50%',
+        y: prefersReducedMotion ? 0 : '50%',
         opacity: 0,
-        stagger: 0.05,
-        clipPath: 'polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)',
+        stagger: prefersReducedMotion ? 0 : 0.05,
+        clipPath: prefersReducedMotion
+          ? null
+          : 'polygon(0% 0%, 140% 0%, 140% 0%, 0% 0%)',
         duration: 0.5,
       },
       '>-=.5'

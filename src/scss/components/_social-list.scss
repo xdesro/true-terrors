@@ -51,6 +51,9 @@
       transform: scaleX(0);
       transform-origin: 0 0;
       background-color: currentColor;
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0s;
+      }
     }
 
     &:hover {

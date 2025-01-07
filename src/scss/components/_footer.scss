@@ -135,6 +135,11 @@ picture:has(.footer-border) {
         transform: scaleX(1);
       }
     }
+    @media (prefers-reduced-motion: reduce) {
+      &::after {
+        transition-duration: 0s;
+      }
+    }
   }
 
   &__nav {
@@ -243,6 +248,10 @@ picture:has(.footer-border) {
       transform: scaleX(0);
       transform-origin: 0 0;
       background-color: currentColor;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0s;
+      }
     }
 
     &:hover {

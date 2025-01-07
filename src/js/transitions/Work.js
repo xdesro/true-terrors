@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-import MatchMediaManager from '../MatchMediaManager';
+// import MatchMediaManager from '../MatchMediaManager';
 import { DefaultFadeIn } from './Fade';
 
 export const WorkEnterTransition = (transitioningView, mediaQueries) => {
@@ -58,6 +58,8 @@ export const WorkEnterTransition = (transitioningView, mediaQueries) => {
 };
 
 export const WorkExitTransition = (transitioningView) => {
+  const { prefersReducedMotion } = mediaQueries;
+
   const title = transitioningView.querySelector('.page-header__title');
   if (title && !title.classList.contains('splitting')) {
     Splitting({ target: title, by: 'chars' });
@@ -70,8 +72,10 @@ export const WorkExitTransition = (transitioningView) => {
     .to(
       '.page-header__title .char',
       {
-        y: '-100%',
-        clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
+        y: prefersReducedMotion ? 0 : '-100%',
+        clipPath: prefersReducedMotion
+          ? null
+          : 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
         stagger: {
           each: 0.02,
         },
@@ -91,9 +95,9 @@ export const WorkExitTransition = (transitioningView) => {
     .to(
       '.page-header__bar',
       {
-        height: 0,
+        height: prefersReducedMotion ? null : 0,
         yPercent: 0,
-        y: '-3rem',
+        y: prefersReducedMotion ? 0 : '-3rem',
         opacity: 0,
         duration: 0.4,
         ease: 'power3.in',
@@ -109,7 +113,7 @@ export const WorkExitToCaseTransition = (
   conditions,
   target
 ) => {
-  const { isMobile } = conditions;
+  const { isMobile, prefersReducedMotion } = conditions;
   const idxClicked = [
     ...transitioningView.querySelectorAll('.case-study-block'),
   ].findIndex((el) => el.querySelector('a') === target);
@@ -125,8 +129,10 @@ export const WorkExitToCaseTransition = (
     .to(
       '.page-header__title .char',
       {
-        y: '-100%',
-        clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
+        y: prefersReducedMotion ? 0 : '-100%',
+        clipPath: prefersReducedMotion
+          ? null
+          : 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
         stagger: {
           each: 0.02,
           ease: 'power2.out',
@@ -140,9 +146,9 @@ export const WorkExitToCaseTransition = (
     .to(
       '.page-header__bar',
       {
-        height: 0,
+        height: prefersReducedMotion ? null : 0,
         yPercent: 0,
-        y: '-3rem',
+        y: prefersReducedMotion ? 0 : '-3rem',
         opacity: 0,
         duration: 0.3,
         ease: 'power3.in',
@@ -163,8 +169,20 @@ export const WorkExitToCaseTransition = (
       '.case-study-block',
       {
         opacity: 0,
-        x: isMobile ? 0 : 10,
-        y: isMobile ? -10 : 0,
+        x: () => {
+          if (isMobile || prefersReducedMotion) {
+            return 0;
+          } else {
+            return 10;
+          }
+        },
+        y: () => {
+          if (!isMobile || prefersReducedMotion) {
+            return 0;
+          } else {
+            return -10;
+          }
+        },
         ease: 'linear',
         stagger: {
           from: idxClicked,

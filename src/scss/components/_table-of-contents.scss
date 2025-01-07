@@ -52,6 +52,10 @@
       &:hover {
         background-size: 100% 1px;
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0s;
+      }
     }
   }
 }

@@ -286,8 +286,11 @@
     align-items: center;
     width: max-content;
     padding-inline-end: 0.5ch;
-
     flex-shrink: 0;
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none !important;
+    }
   }
 
   &__marquee-locale,
@@ -448,6 +451,10 @@
     margin-inline-start: -1rem;
 
     flex-shrink: 0;
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none !important;
+    }
 
     span {
       display: inline-block;

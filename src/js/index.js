@@ -75,25 +75,32 @@ class DefaultRenderer extends Renderer {
       navManager.hide(true);
     }
     if (document.querySelector('.home-work__title')) {
-      gsap.from('.home-work__title', {
-        '--banner-scale': 0,
-        scrollTrigger: {
-          trigger: '.home-work__title',
-          start: 'top bottom',
-          end: 'bottom center',
-          scrub: 2,
-        },
+      MatchMediaManager.add(({ conditions }) => {
+        const { prefersReducedMotion } = conditions;
+        gsap.from('.home-work__title', {
+          '--banner-scale': prefersReducedMotion ? 1 : 0,
+
+          scrollTrigger: {
+            trigger: '.home-work__title',
+            start: 'top bottom',
+            end: 'bottom center',
+            scrub: 2,
+          },
+        });
       });
     }
     if (document.querySelector('.home-articles__title')) {
-      gsap.from('.home-articles__title', {
-        '--banner-scale': 0,
-        scrollTrigger: {
-          trigger: '.home-articles__title',
-          start: 'top bottom',
-          end: 'bottom center',
-          scrub: 2,
-        },
+      MatchMediaManager.add(({ conditions }) => {
+        const { prefersReducedMotion } = conditions;
+        gsap.from('.home-articles__title', {
+          '--banner-scale': prefersReducedMotion ? 1 : 0,
+          scrollTrigger: {
+            trigger: '.home-articles__title',
+            start: 'top bottom',
+            end: 'bottom center',
+            scrub: 2,
+          },
+        });
       });
     }
     this.onEnter();
