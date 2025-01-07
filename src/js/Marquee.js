@@ -1,21 +1,72 @@
 import gsap from 'gsap';
-import MatchMediaManager from './MatchMediaManager';
-import horizontalLoop from './utils/horizontalLoop';
-const INIT_SCALE_FACTOR = 0.4;
-
 export default class Marquee {
-  constructor(targetWrapperSelector, targetSelector) {
-    this.targetWrapper = document.querySelector(targetWrapperSelector);
-    this.targets = gsap.utils.toArray(targetSelector);
-    this.marquee = horizontalLoop(this.targets, {
-      repeat: -1,
-      speed: 0.75,
+  constructor(element, duration = 20) {
+    this.marquee = element;
+    this.duration = duration;
+    this.tween = null;
+    this.init();
+  }
+
+  init() {
+    const marqueeContent = this.marquee.querySelector('[data-marquee-inner]');
+    if (!marqueeContent) {
+      return;
+    }
+    this.marqueeContent = marqueeContent;
+    this.marqueeContentClone = marqueeContent.cloneNode(true);
+    this.marquee.appendChild(this.marqueeContentClone);
+
+    this.playMarquee();
+
+    this.setupEventListeners();
+  }
+
+  calculateTranslationDistance() {
+    const originalWidth = this.marqueeContent.offsetWidth;
+    return -1 * originalWidth; // Translate the full width of the original content
+  }
+
+  playMarquee() {
+    const progress = this.tween ? this.tween.progress() : 0;
+
+    if (this.tween) {
+      this.tween.progress(0).kill();
+    }
+
+    const distanceToTranslate = this.calculateTranslationDistance();
+
+    this.tween = gsap.fromTo(
+      this.marquee.children,
+      { x: 0 },
+      {
+        x: distanceToTranslate,
+        duration: this.duration,
+        ease: 'none',
+        repeat: -1,
+      }
+    );
+
+    this.tween.progress(progress);
+  }
+
+  setupEventListeners() {
+    const debounce = (func, delay = 500) => {
+      let timer;
+      return function (...args) {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+      };
+    };
+
+    const handleResize = debounce(() => this.playMarquee());
+    window.addEventListener('resize', handleResize);
+
+    this.marquee.addEventListener('mouseover', () => {
+      if (this.tween) this.tween.timeScale(0.2);
     });
-    this.targetWrapper.addEventListener('mouseenter', () =>
-      gsap.to(this.marquee, { timeScale: 0.1, overwrite: true })
-    );
-    this.targetWrapper.addEventListener('mouseleave', () =>
-      gsap.to(this.marquee, { timeScale: 1, overwrite: true })
-    );
+
+    this.marquee.addEventListener('mouseout', () => {
+      if (this.tween) this.tween.timeScale(1);
+    });
   }
 }

@@ -3,29 +3,27 @@
         return new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     }
 </script>
-<div class="home-hero__marquee">
-    <div class="home-hero__marquee-inner">
-        <div webc:nokeep class="home-hero__marquee-inner" webc:for="n in [1,2]">
-            <div class="spotify-widget">
-                <a href="https://open.spotify.com/user/1239993406?si=tpFk1Vt5Q_yH6qM0E8wjXA"
-                    aria-label="Visit the author’s Spotify profile">
-                    <social-icon @icon="spotify" class="spotify-widget__icon"></social-icon>
-                </a>
-                <div webc:if="recentListening && recentListening.url" class="spotify-widget__inner">
-                    <a class="spotify-widget__track" :href="recentListening.url" @text="recentListening.name"></a>,
-                    <span class="spotify-widget__artists">
-                        <span webc:for="(artist, index) of recentListening.artists" @text="artist.name.trim()">
-                            <span webc:nokeep webc:if="index + 1 < recentListening.artists.length">,&nbsp;</span>
-                        </span>
+<div class="home-hero__marquee" data-marquee>
+    <div class="home-hero__marquee-inner" data-marquee-inner>
+        <div class="spotify-widget">
+            <a href="https://open.spotify.com/user/1239993406?si=tpFk1Vt5Q_yH6qM0E8wjXA"
+                aria-label="Visit the author’s Spotify profile">
+                <social-icon @icon="spotify" class="spotify-widget__icon"></social-icon>
+            </a>
+            <div webc:if="recentListening && recentListening.url" class="spotify-widget__inner">
+                <a class="spotify-widget__track" :href="recentListening.url" @text="recentListening.name"></a>,
+                <span class="spotify-widget__artists">
+                    <span webc:for="(artist, index) of recentListening.artists" @text="artist.name.trim()">
+                        <span webc:nokeep webc:if="index + 1 < recentListening.artists.length">,&nbsp;</span>
                     </span>
-                </div>
+                </span>
             </div>
-            <span>—</span>
-            <span class="home-hero__marquee-locale">48ºF @ N 39º 43’ 31.56” W 104º 58’ 0.94”
-                (Denver, Colorado)</span>
-            <span>—</span>
-            <span class="home-hero__marquee-time" data-tag="currentTime" @text="`${getTime()}`">11:03AM</span>
-            <span>—</span>
         </div>
+        <span>—</span>
+        <span class="home-hero__marquee-locale">48ºF @ N 39º 43’ 31.56” W 104º 58’ 0.94”
+            (Denver, Colorado)</span>
+        <span>—</span>
+        <span class="home-hero__marquee-time" data-tag="currentTime" @text="`${getTime()}`">11:03AM</span>
+        <span>—</span>
     </div>
 </div>

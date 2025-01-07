@@ -5,7 +5,7 @@ export default class Clock {
   }
   init() {
     this.updateTime.bind(this);
-    setInterval(this.updateTime.bind(this), 1000);
+    setInterval(this.updateTime.bind(this), 20000);
   }
   updateTime() {
     const time = this.time;

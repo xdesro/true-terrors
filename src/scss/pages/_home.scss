@@ -432,6 +432,7 @@
     text-transform: uppercase;
     color: $color-text-mid;
     border-block-end: 2px solid $color-text;
+    column-gap: 4ch;
   }
 
   &__marquee-inner {
