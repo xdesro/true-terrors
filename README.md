@@ -1,4 +1,4 @@
-![](https://github.com/xdesro/true-terrors/blob/bd40cb500958dc384947c7a42121322e10a728e4/src/img/og-default.png)
+![](https://github.com/xdesro/true-terrors/blob/6dbc666916bb69aed9129468cff50ba9537d1795/src/img/og/og-default.png)
 
 # True Terrors | The Personal Site & Portfolio of Henry Desroches
 
