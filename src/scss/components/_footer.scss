@@ -2,25 +2,23 @@
 @use '../abstract/mixins' as *;
 
 picture:has(.footer-border) {
-  width: 100%;
-  object-fit: cover;
-  object-position: bottom right;
-  aspect-ratio: 71/87;
-  margin-block-end: -1px;
-
-  @include screen(404px) {
-    aspect-ratio: 71/55;
-  }
-  @include screen(sm) {
-    aspect-ratio: 71/25;
-  }
-  @include screen(lg) {
-    object-fit: contain;
-    aspect-ratio: auto;
-  }
-
   img {
-    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom right;
+    aspect-ratio: 71/87;
+    margin-block-end: -1px;
+
+    @include screen(404px) {
+      aspect-ratio: 71/55;
+    }
+    @include screen(sm) {
+      aspect-ratio: 71/25;
+    }
+    @include screen(lg) {
+      object-fit: contain;
+      aspect-ratio: auto;
+    }
   }
 }
 
@@ -29,6 +27,8 @@ picture:has(.footer-border) {
   max-width: 100vw;
   padding-block-start: 3rem;
   padding-inline: 1rem;
+  // padding-block-end: 3rem;
+  margin-block-end: -3rem;
 
   @include screen(lg) {
     padding-block-end: 3rem;
