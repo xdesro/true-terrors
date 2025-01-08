@@ -12,7 +12,7 @@ export default [
     },
     plugins: [
       nodeResolve(),
-      // terser({ format: { comments: false } }),
+      terser({ format: { comments: false } }),
       dynamicImportVars({
         include: 'src/js/routes/**.js',
       }),
