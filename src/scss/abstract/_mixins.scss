@@ -24,5 +24,8 @@
       outline: 2px dashed $color-border-mid;
       outline-offset: 2px;
     }
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
   }
 }
