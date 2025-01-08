@@ -5,12 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
 
-import CaseBlocks from './CaseBlocks';
-import CaseWaterfall from './CaseWaterfall';
-import Clock from './Clock';
-import DitheredImage from './DitheredImage';
 import HiringButton from './HiringButton';
-import Marquee from './Marquee';
 import MatchMediaManager from './MatchMediaManager';
 import NavManager from './NavManager';
 
@@ -19,7 +14,6 @@ import { updateFooterBreadcrumbs } from './utils/updateFooterBreadcrumbs';
 import DefaultTransition from './transitions/Default';
 
 import graffiti, { aSecretMessage } from './graffiti';
-import linkifyCards from './utils/linkifyCards';
 
 const fetchSpotify = () =>
   fetch('https://henry.codes/.netlify/functions/spotify')
@@ -39,7 +33,9 @@ const fetchSpotify = () =>
           .join(', ')}`;
       });
     })
-    .catch();
+    .catch((err) => {
+      console.error(err);
+    });
 
 window.navManager = new NavManager();
 history.scrollRestoration = 'manual';
@@ -129,23 +125,36 @@ class DefaultRenderer extends Renderer {
       document.body.classList.remove('home');
     }
     if (document.querySelector('.article-header__graphic-wrapper')) {
-      ditheredImages.push(
-        new DitheredImage({
-          img: document.querySelector('.article-header__image'),
-          wrapper: document.querySelector('.article-header__graphic-wrapper'),
+      import('./DitheredImage')
+        .then(({ default: DitheredImage }) => {
+          ditheredImages.push(
+            new DitheredImage({
+              img: document.querySelector('.article-header__image'),
+              wrapper: document.querySelector(
+                '.article-header__graphic-wrapper'
+              ),
+            })
+          );
         })
-      );
+        .catch((error) => {
+          console.error('Failed to load the CaseBlocks module:', error);
+        });
     } else {
       ditheredImages.forEach((imageClass) => {
         imageClass.removeListeners();
       });
     }
     if (document.querySelector('.cases-block-list')) {
+      import('./CaseBlocks')
+        .then(({ default: CaseBlocks }) => {
+          caseBlocks = new CaseBlocks();
+        })
+        .catch((error) => {
+          console.error('Failed to load the CaseBlocks module:', error);
+        });
       if (caseBlocks) {
         caseBlocks.mount();
         caseBlocks.addListeners();
-      } else {
-        caseBlocks = new CaseBlocks();
       }
     } else {
       if (caseBlocks) {
@@ -165,14 +174,26 @@ class DefaultRenderer extends Renderer {
       });
     }
     if (document.querySelector('.case-study-rows')) {
-      new CaseWaterfall();
+      import('./CaseWaterfall')
+        .then(({ default: CaseWaterfall }) => {
+          new CaseWaterfall();
+        })
+        .catch((error) => {
+          console.error('Failed to load the CaseWaterfall module:', error);
+        });
     }
     if (document.querySelector('[data-tag="currentTime"]')) {
-      const clocks = document.querySelectorAll('[data-tag="currentTime"]');
-      clocks.forEach((clock) => {
-        const clockMachine = new Clock(clock);
-        clockMachine.updateTime();
-      });
+      import('./Clock')
+        .then(({ default: Clock }) => {
+          const clocks = document.querySelectorAll('[data-tag="currentTime"]');
+          clocks.forEach((clockElement) => {
+            const clockMachine = new Clock(clockElement);
+            clockMachine.updateTime();
+          });
+        })
+        .catch((error) => {
+          console.error('Failed to load the Clock module:', error);
+        });
     }
 
     if (
@@ -180,25 +201,26 @@ class DefaultRenderer extends Renderer {
         '.article-block, .case-study-block, .card:has(> a)'
       )
     ) {
-      linkifyCards('.article-block, .case-study-block, .card:has(> a)');
+      import('./utils/linkifyCards')
+        .then(({ default: linkifyCards }) => {
+          linkifyCards('.article-block, .case-study-block, .card:has(> a)');
+        })
+        .catch((error) => {
+          console.error('Failed to load the Card Linkifier module:', error);
+        });
     }
     if (document.querySelector('[data-marquee]')) {
-      const marquees = document.querySelectorAll('[data-marquee]');
-      marquees.forEach((marqueeElement) => {
-        new Marquee(marqueeElement);
-      });
+      import('./Marquee')
+        .then(({ default: Marquee }) => {
+          const marquees = document.querySelectorAll('[data-marquee]');
+          marquees.forEach((marqueeElement) => {
+            new Marquee(marqueeElement);
+          });
+        })
+        .catch((error) => {
+          console.error('Failed to load the Marquee module:', error);
+        });
     }
-    // if (document.querySelector('.home-hero__marquee')) {
-    //   setTimeout(() => {
-    //     new Marquee('.home-hero__marquee', '.home-hero__marquee-inner > *');
-    //   }, 100);
-    //   // bizarre xPercent bug on hard refresh
-    // }
-    // if (document.querySelector('.home-about__marquee')) {
-    //   setTimeout(() => {
-    //     new Marquee('.home-about__marquee', '.home-about__marquee-inner > *');
-    //   }, 100);
-    // }
     updateFooterBreadcrumbs();
   }
   onEnterCompleted() {}

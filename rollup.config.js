@@ -11,8 +11,8 @@ export default [
       sourcemap: false,
     },
     plugins: [
-      nodeResolve({ dedupe: ['gsap'] }),
-      terser({ format: { comments: false } }),
+      nodeResolve(),
+      // terser({ format: { comments: false } }),
       dynamicImportVars({
         include: 'src/js/routes/**.js',
       }),
