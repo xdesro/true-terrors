@@ -10,8 +10,10 @@
     </hgroup>
     <span class="home-hero__warning">(Scroll with caution and with care.)</span>
     <div class="home-hero__accent-image">
-        <img src="/img/gargoyle-with-texture.png" alt="" decoding="sync" loading="eager"
-            eleventy:formats="avif,webp,jpg" eleventy:widths="1000,600,300">
+        <img srcset="/img/gargoyle-with-texture-400w.avif 400w, /img/gargoyle-with-texture-600w.avif 600w, /img/gargoyle-with-texture-800w.avif 800w, /img/gargoyle-with-texture-1000w.avif 1000w"
+            sizes="(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (min-width: 801px) 1000px"
+            src="/img/gargoyle-with-texture-optimized.png" alt="" width="1002" height="1250" loading="eager"
+            fetchpriority="high" eleventy:ignore />
     </div>
     <home-marquee class="home-hero__marquee" :@recent-listening="recentListening"></home-marquee>
     <nav class="home-nav">
