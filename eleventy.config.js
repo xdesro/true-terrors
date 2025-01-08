@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import { EleventyRenderPlugin as pluginRender } from '@11ty/eleventy';
 import { eleventyImageTransformPlugin as pluginImage } from '@11ty/eleventy-img';
 import pluginWebc from '@11ty/eleventy-plugin-webc';
@@ -26,6 +28,12 @@ export default function (eleventyConfig) {
       loading: 'lazy',
       decoding: 'async',
       sizes: '100vw',
+    },
+    filenameFormat: function (id, src, width, format, options) {
+      const extension = path.extname(src);
+      const name = path.basename(src, extension);
+
+      return `${name}-${width}w.${format}`;
     },
     sharpOptions: {
       animated: true,
