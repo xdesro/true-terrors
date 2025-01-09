@@ -66,7 +66,7 @@
             <p class="writing-section-header__description">Usually one-liners that don't need a whole blog post tutorial breaking them down. Read more of these on <a href="/notes">the notes page</a>.</p>
         </header>
         <div class="articles-list">
-            {% for article in collections['note'] | sortedByPublishDate %}
+            {% for article in collections['note'] | sortedByDate %}
                 {% if loop.index0 < 4 %}
                     {{ articleBlock(article) }}
                 {% endif %}
