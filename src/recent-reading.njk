@@ -1,0 +1,25 @@
+---js
+{
+    backLink: '/',
+    backLinkText: 'Go home',
+    tags: ['page'],
+    og: 'https://henry.codes/img/og/og-recent-reading.png',
+}
+---
+<main class="container page rendered centered">
+    <div class="writing-section">
+    <header class="writing-section-header with-sans">
+        <h1 class="writing-section-header__title">Recent Reading: <small>Heaters From Friends &amp; Brighter Minds Than Mine</small></h1>
+        <p class="writing-section-header__description">Blogroll of posts I’ve recently read and recommend. You can <a href="/rss/reading-list.xml">subscribe to this feed via RSS</a>.</p>
+    </header>
+    <div class="recent-reading-stack styled-rows">
+    {% for post in recentReading.posts %}
+        <article class="styled-rows__row">
+            <h1 class="recent-reading-stack__title styled-rows__cell styled-rows__cell--wide">{{ post.title }}</h1>
+            <div class="styled-rows__cell">{{ post.author }}</div>
+            <a class="styled-rows__cell styled-rows__cell-link with-arrow with-arrow--out" href="{{ post.url }}">Read the post</a>
+        </article>
+    {% endfor %}
+    </div>
+    </div>
+</main>

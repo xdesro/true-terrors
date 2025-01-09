@@ -13,4 +13,8 @@
     "*.webc": "html"
   },
   "stylelint.validate": ["css", "scss"],
+  "json.schemas": [{
+    "fileMatch": ["src/_data/recentReading.js"],
+    "url": "./recentReading.schema.json"
+  }]
 }

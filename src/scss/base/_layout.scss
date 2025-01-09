@@ -56,6 +56,12 @@ a:not([class]) {
   }
 }
 
+h1:not([class]) {
+  font-weight: normal;
+  font-family: $font-serif-display;
+  font-size: 3rem;
+}
+
 ul,
 ol {
   padding-inline-start: 1rem;
@@ -135,3 +141,13 @@ pre {
 .router-target {
   min-height: 100vh;
 }
+
+.page {
+  padding-block-start: 13rem;
+}
+
+// .centered {
+//   > * {
+//     text-align: center;
+//   }
+// }

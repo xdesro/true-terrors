@@ -1,0 +1,32 @@
+{
+  "title": "Recent Reading",
+  "description": "A list of recently read articles online.",
+  "type": "object",
+  "properties": {
+    "posts": {
+      "type": "array",
+      "properties": {
+        "posts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": ["title", "author", "url"]
+          }
+        }
+      }
+    }
+  },
+  "required": ["posts"]
+}

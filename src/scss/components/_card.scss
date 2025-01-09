@@ -6,6 +6,10 @@
   border: 2px solid $color-border-mid;
   border-radius: $bdrs;
 
+  &--with-light-border {
+    border-color: $color-border-light;
+  }
+
   &--clickable {
     cursor: pointer;
 
@@ -13,6 +17,14 @@
     &:focus,
     &:focus-within &:has(a:hover) {
       border-color: $color-border-light;
+    }
+
+    &.card--with-light-border {
+      &:hover,
+      &:focus,
+      &:focus-within &:has(a:hover) {
+        border-color: $color-border-mid;
+      }
     }
   }
 
