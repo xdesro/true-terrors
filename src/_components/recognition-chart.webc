@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr webc:for="entry of sortedByDate(recognition)">
+        <tr webc:for="entry of sortedByDate(recognition).reverse()">
             <td @text="entry.publisher"></td>
             <td @text="entry.award"></td>
             <td @text="entry.title"></td>
