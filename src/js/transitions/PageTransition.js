@@ -15,6 +15,10 @@ export default class PageTransition extends Transition {
         done();
       },
     });
+    addEventListener('popstate', (event) => {
+      tl.seek(tl.endTime());
+      done();
+    });
     tl.add(this.exitTransition(from, window.mediaQueries));
     tl.play();
   }
@@ -25,6 +29,10 @@ export default class PageTransition extends Transition {
       onComplete: () => {
         done();
       },
+    });
+    addEventListener('popstate', (event) => {
+      tl.seek(tl.endTime());
+      done();
     });
     tl.add(this.enterTransition(to, window.mediaQueries));
     tl.play();

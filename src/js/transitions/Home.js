@@ -24,7 +24,9 @@ export const HomeEntranceTransition = (transitioningView, mediaQueries) => {
       target: desc,
       by: 'lines',
     });
-    desc.innerHTML = convertSplitElIntoLines(desc);
+    if (desc) {
+      desc.innerHTML = convertSplitElIntoLines(desc);
+    }
     tl.addLabel('transitionstart');
     tl.from('.segment--first .char', {
       y: '1em',

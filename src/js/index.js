@@ -195,7 +195,6 @@ class DefaultRenderer extends Renderer {
           console.error('Failed to load the Clock module:', error);
         });
     }
-
     if (
       document.querySelector(
         '.article-block, .case-study-block, .card:has(> a)'
