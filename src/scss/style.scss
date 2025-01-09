@@ -115,8 +115,9 @@
 .hire-me-link {
   border-radius: 100%;
   display: block;
-  position: fixed;
+  position: sticky;
   bottom: 1rem;
+  margin-inline-start: auto;
   z-index: 2;
   right: 1rem;
   width: 100%;
