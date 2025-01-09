@@ -34,6 +34,7 @@ export default {
     },
   },
   hasToc: true,
+  hasHero: true,
   layout: 'layouts/_article.njk',
   tags: ['article'],
   templateEngineOverride: 'md,njk',

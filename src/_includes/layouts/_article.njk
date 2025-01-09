@@ -37,6 +37,8 @@ bodyClass: "article"
     {% if hasToc %}
         {% set toc = content | getTOC %}
         {% include 'table-of-contents.njk' %}
+    {% endif %}
+    {% if hasHero %}
         <div class="article-header__graphic-wrapper">
             {% if useHero %}
             <img alt="" {% if customThreshold %}data-threshold="{{ customThreshold }}"{% endif %} src="{{ heroImage }}" class="article-header__image">
