@@ -5,26 +5,29 @@
   "properties": {
     "posts": {
       "type": "array",
-      "properties": {
-        "posts": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "title": {
-                "type": "string"
-              },
-              "author": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": ["title", "author", "url"]
+      "items": {
+        "type": "object",
+        "defaultSnippets": [
+          {
+            "label": "New recent reading",
+            "description": "Creates a post in recent reading list",
+            "body": { "title": "$1", "author": "$2", "url": "$3" }
           }
-        }
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["title", "author", "url"]
       }
     }
   },
