@@ -4,7 +4,8 @@
         :style="`${ caseStudy.viewTheWorkText ?`--view-the-work: '(${caseStudy.viewTheWorkText})'` : '' }`">
         <div class="case-study-row__inner">
             <div class="case-study-row__echoes" role="presentation" inert>
-                <span webc:for="n of [1,2,3]" class="case-study-row__echo" aria-hidden="true" @text="caseStudy.title">{{
+                <span webc:for="n of [1,2,3,4,5]" class="case-study-row__echo" aria-hidden="true"
+                    @text="caseStudy.title">{{
                     caseStudy.data.title }}</span>
             </div>
             <h1 class="case-study-row__title">

@@ -1,6 +1,11 @@
 {
   "$schema": "../../.vscode/recentReading.schema.json",
   "posts": [
+   {
+    "title": "Every site needs a Links Page / Why linking matters",
+    "author": "Melonking",
+    "url": "https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters"
+   },
     {
       "title": "if I’m in therapy and you’re in therapy...then who's driving this societal collapse",
       "author": "mamoudou n’diaye",
