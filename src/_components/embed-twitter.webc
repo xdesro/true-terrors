@@ -24,7 +24,7 @@
 <div class="embed card embed--twitter">
     <div class="embed__header">
         <span class="embed__author" @text="author"></span>
-        <date class="embed__date" @text="date"></date>
+        <time class="embed__date" @text="date"></time>
     </div>
     <blockquote>
         <slot></slot>

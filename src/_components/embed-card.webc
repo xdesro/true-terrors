@@ -18,7 +18,7 @@
         <div>
             <dt class="visually-hidden">Last updated</dt>
             <dd>
-                <date>Last updated <template webc:nokeep @text="humanReadableDate(post.publishDate)"></template></date>
+                <time>Last updated <template webc:nokeep @text="humanReadableDate(post.publishDate)"></template></time>
             </dd>
         </div>
     </dl>
