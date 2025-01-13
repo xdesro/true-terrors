@@ -256,8 +256,6 @@ const taxi = new Core({
     element.src.includes('codepen.io'),
 });
 
-taxi.setDefaultTransition('default');
-
 const loadTransitions = async () => ({
   articleToArticle: (await import('./routes/ArticleToArticle')).default,
   articleToHome: (await import('./routes/ArticleToHome')).default,

@@ -39,7 +39,14 @@
         {
           "text": "RSS",
           "description": "Carefully-crafted and homegrown XML feeds",
-          "url": "/rss"
+          "url": "/rss",
+          "footerOnly": true
+        },
+        {
+          "text": "Links",
+          "description": "Carefully-crafted and homegrown XML feeds",
+          "url": "/links",
+          "footerOnly": true
         }
       ]
     }

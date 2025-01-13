@@ -66,9 +66,41 @@
   }
 }
 
+// .links-list:before {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   display: block;
+//   width: 30rem;
+//   aspect-ratio: 1;
+//   content: '';
+//   transform: translateX(-50%) translateY(-50%);
+//   border: 1px solid red;
+//   border-radius: 100%;
+// }
+
 .links-list {
   line-height: 1.5;
   margin-inline-start: 1rem;
+  //   background-image: linear-gradient(
+  //       to right,
+  //       transparent,
+  //       transparent 50%,
+  //       red 50%,
+  //       red calc(50% + 1px),
+  //       transparent calc(50% + 1px)
+  //     ),
+  //     linear-gradient(
+  //       to bottom,
+  //       transparent,
+  //       transparent 50%,
+  //       red 50%,
+  //       red calc(50% + 1px),
+  //       transparent calc(50% + 1px)
+  //     );
+
+  //   border: 1px solid red;
+  //   border-radius: 100%;
 
   &--radial {
     line-height: 1;
@@ -79,7 +111,7 @@
     margin-inline-start: 0;
     padding: 0;
     list-style: none;
-    transform: translateX(calc(-50% + 20vw));
+    transform: translateX(calc(-50% + 20vw)) rotate(var(--main-rotation));
 
     @include screen(sm) {
       display: block;
@@ -89,7 +121,7 @@
       margin-block: 0;
       margin-inline: auto;
       padding: 1rem;
-      transform: none;
+      transform: rotate(var(--main-rotation));
       border-radius: 100%;
     }
     @include screen(lg) {
@@ -113,9 +145,8 @@
       inset: 50%;
       width: max-content;
       height: 1lh;
-      transform: translateX(calc(var(--x) * 1px))
-        translateY(calc(-50% + var(--y) * 1px))
-        rotate(calc(var(--rotation) * 1deg));
+      transform: rotate(calc(var(--rotation) * 1deg))
+        translateX(calc(var(--x) * 1px));
       transform-origin: 0 0;
 
       @media (prefers-reduced-motion: reduce) {
@@ -152,7 +183,7 @@
     inset-inline: 0;
     max-width: calc(100% - 8rem);
     margin-inline: auto;
-    transform: translateY(-50%) rotate(var(--main-rotation, 0deg));
+    transform: translateY(-50%) rotate(calc(var(--main-rotation, 0deg) * 0.1));
     transform-origin: center;
 
     @media (prefers-reduced-motion: reduce) {

@@ -20,7 +20,7 @@
         <template webc:nokeep webc:for="linkGroup of site.nav">
             <p class="home-nav__meta-title" @text="linkGroup.title">{{ linkGroup.title }}</p>
             <ul class="home-nav__list" role="list">
-                <li class="home-nav__list-item" webc:for="link of linkGroup.links">
+                <li class="home-nav__list-item" webc:for="link of linkGroup.links" webc:if="!link.footerOnly">
                     <a class="home-nav__link" :href="link.url">
                         <span class="home-nav__link-title" @text="link.text"></span>
                         <span class="home-nav__link-description" inert @text="`— ${link.description}`">— {{
