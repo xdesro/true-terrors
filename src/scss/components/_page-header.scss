@@ -20,6 +20,14 @@
     border-block-end: none;
   }
 
+  &--without-border {
+    border-block-end: none;
+  }
+
+  &--compact {
+    margin-block-end: 0;
+  }
+
   &__inner {
     display: flex;
     align-items: start;

@@ -1,0 +1,176 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.links-page {
+  @include screen(sm) {
+    position: relative;
+  }
+  @include screen(magazine) {
+    overflow: hidden;
+    max-width: 100vw;
+    margin-block-start: -10rem;
+    padding-block: 10rem;
+  }
+}
+
+.links-list-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+
+  @include screen(magazine) {
+    display: contents;
+  }
+}
+
+.links-page-description {
+  text-align: center;
+
+  @include screen(sm) {
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    max-width: 23ch;
+    margin-block-end: 3rem;
+    margin-inline: auto;
+    transform: translateY(-50%);
+    @media (prefers-reduced-motion: reduce) {
+      position: relative;
+      max-width: unset;
+      margin-block-start: 2rem;
+      margin-block-end: 0;
+      margin-inline-start: 1rem;
+      text-align: left;
+    }
+  }
+  @include screen(658px) {
+    max-width: 30ch;
+  }
+  @include screen(lg) {
+    max-width: fit-content;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    margin-block-end: 3em;
+    text-transform: uppercase;
+    color: $color-text-mid;
+  }
+
+  &__warning {
+    font-family: $font-serif;
+    font-style: italic;
+  }
+}
+
+.links-list {
+  line-height: 1.5;
+  margin-inline-start: 1rem;
+
+  &--radial {
+    line-height: 1;
+    position: relative;
+    width: 150%;
+    max-height: 90vh;
+    aspect-ratio: 1;
+    margin-inline-start: 0;
+    padding: 0;
+    list-style: none;
+    transform: translateX(calc(-50% + 20vw));
+
+    @include screen(sm) {
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      max-height: unset;
+      margin-block: 0;
+      margin-inline: auto;
+      padding: 1rem;
+      transform: none;
+      border-radius: 100%;
+    }
+    @include screen(lg) {
+      // TODO kind of a magic number,
+      // might need checking as new links are added
+      max-width: 82ch;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      line-height: 1.5;
+      position: relative;
+      overflow: visible;
+      margin-inline: 2rem;
+      padding: initial;
+      list-style-type: initial;
+      transform: none;
+      border-radius: 0;
+    }
+
+    li {
+      position: absolute;
+      inset: 50%;
+      width: max-content;
+      height: 1lh;
+      transform: translateX(calc(var(--x) * 1px))
+        translateY(calc(-50% + var(--y) * 1px))
+        rotate(calc(var(--rotation) * 1deg));
+      transform-origin: 0 0;
+
+      @media (prefers-reduced-motion: reduce) {
+        position: relative;
+        inset: unset;
+        margin: initial;
+        padding: initial;
+        transform: none;
+      }
+    }
+  }
+
+  a {
+    transition: all 0.1s ease-in;
+
+    &:hover,
+    &:focus {
+      color: hsl(240deg 100% 50%);
+    }
+  }
+}
+
+.links-page-background {
+  position: absolute;
+  z-index: -1;
+  inset-inline: auto;
+  top: 50%;
+  width: 100%;
+  height: 100vh;
+  transform: translateY(-50%) translateX(calc(-50% + 20vw));
+  color: $color-border-light;
+
+  @include screen(sm) {
+    inset-inline: 0;
+    max-width: calc(100% - 8rem);
+    margin-inline: auto;
+    transform: translateY(-50%) rotate(var(--main-rotation, 0deg));
+    transform-origin: center;
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: translateY(-50%);
+    }
+  }
+  @include screen(magazine) {
+    max-width: 1000px;
+    // max-width: unset;
+    height: auto;
+    max-height: 1000px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transform: translateY(-50%);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

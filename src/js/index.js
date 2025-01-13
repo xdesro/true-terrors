@@ -70,6 +70,7 @@ class DefaultRenderer extends Renderer {
     if (window.location.pathname === '/') {
       navManager.hide(true);
     }
+
     if (document.querySelector('.home-work__title')) {
       MatchMediaManager.add(({ conditions }) => {
         const { prefersReducedMotion } = conditions;
@@ -160,6 +161,15 @@ class DefaultRenderer extends Renderer {
       if (caseBlocks) {
         caseBlocks.removeListeners();
       }
+    }
+    if (document.querySelector('.links-list')) {
+      import('./LinksSigil')
+        .then(({ default: LinksSigil }) => {
+          new LinksSigil();
+        })
+        .catch((error) => {
+          console.error('Failed to load the LinksSigil module:', error);
+        });
     }
     if (document.querySelector('.page-header__bar, .barb-bar')) {
       MatchMediaManager.add(({ conditions }) => {

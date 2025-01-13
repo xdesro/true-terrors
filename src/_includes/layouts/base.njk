@@ -81,7 +81,7 @@
         <page-nav :@back-link="backLink" :@back-link-text="backLinkText"></page-nav>
     {% endrenderTemplate %}
     <div data-taxi class="router-target">
-        <div data-taxi-view view={{ page.url }}>
+        <div data-taxi-view data-view="{{ page.url }}">
 
         {{ content | safe }}
         {% renderTemplate "webc", { backLink: backLink, backLinkText: backLinkText, footerLinks: footerLinks } %}

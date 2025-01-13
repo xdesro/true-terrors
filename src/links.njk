@@ -1,0 +1,35 @@
+---js
+{
+    backLink: '/',
+    backLinkText: 'Home',
+    og: 'https://henry.codes/img/og/og-links.png',
+    tags: ['page']
+}
+---
+{% from './_includes/article-block.njk' import articleBlock %}
+
+<header class="page-header page-header--without-border page-header--compact">
+    <div class="page-header__inner">
+        <h1 class="page-header__title">Links</h1>
+        <p class="page-header__description"><em>We were once Internet Explorers.</em> Read more about the importance of links pages from <a href="https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters">melonking</a> and from <a href="https://art.teleportacia.org/observation/vernacular/links.html">olia lialina</a>.</p>
+    </div>
+</header>
+<div class="links-page">
+    <div class="container links-page-description">
+        <p class="links-page-description__title">you are leaving henry.codes</p>
+        <p class="links-page-description__subtitle">bound for stranger pastures in the wider web</p>
+        <p  class="links-page-description__warning">(go with caution and with care)</p>
+    </div>
+    <div class="links-list-wrapper">
+        <ul class="links-list">
+            {% for link in links %}
+                <li>
+                    <a href="{{ link.url }}">{{ link.text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="links-page-background">
+            {% include 'graphics/crown.svg' %}
+        </div>
+    </div>
+</div>
