@@ -143,7 +143,6 @@ export default class LinksSigil {
 
     window.addEventListener('resize', (e) => {
       this.descriptionWidth = this.description.getBoundingClientRect().width;
-      this.list.classList.add('links-list--radial');
       const { width: listWidth, height: listHeight } =
         this.list.getBoundingClientRect();
       const maxListItem = Math.max(

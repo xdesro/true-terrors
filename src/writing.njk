@@ -51,7 +51,7 @@
                 {% endif %}
             {% endfor %}
             {% for article in collections['article'] | sortedByPublishDate %}
-                {% if not article.data.isFeatured %}
+                {% if not article.data.featured %}
                     {{ articleBlock(article) }}
                 {% endif %}
             {% endfor %}
