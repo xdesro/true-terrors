@@ -2,6 +2,7 @@
 @use '../abstract/mixins' as *;
 
 .links-page {
+  margin-block-end: 6rem;
   @include screen(sm) {
     position: relative;
   }
@@ -11,43 +12,36 @@
     margin-block-start: -10rem;
     padding-block: 10rem;
   }
-}
 
-.links-list-wrapper {
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
-
-  @include screen(magazine) {
-    display: contents;
-  }
-}
-
-.links-page-description {
-  text-align: center;
-
-  @include screen(sm) {
-    position: absolute;
-    inset-inline: 0;
-    top: 50%;
-    max-width: 23ch;
+  &__description {
     margin-block-end: 3rem;
-    margin-inline: auto;
-    transform: translateY(-50%);
-    @media (prefers-reduced-motion: reduce) {
-      position: relative;
-      max-width: unset;
-      margin-block-start: 2rem;
-      margin-block-end: 0;
-      margin-inline-start: 1rem;
-      text-align: left;
+
+    &--positioned {
+      text-align: center;
+      @include screen(sm) {
+        position: absolute;
+        inset-inline: 0;
+        top: 50%;
+        max-width: 23ch;
+        margin-inline: auto;
+        transform: translateY(-50%);
+
+        @media (prefers-reduced-motion: reduce) {
+          position: relative;
+          max-width: unset;
+          margin-block-start: 2rem;
+          margin-block-end: 0;
+          margin-inline-start: 1rem;
+          text-align: left;
+        }
+      }
+      @include screen(658px) {
+        max-width: 30ch;
+      }
+      @include screen(lg) {
+        max-width: fit-content;
+      }
     }
-  }
-  @include screen(658px) {
-    max-width: 30ch;
-  }
-  @include screen(lg) {
-    max-width: fit-content;
   }
 
   &__title {
@@ -63,6 +57,55 @@
   &__warning {
     font-family: $font-serif;
     font-style: italic;
+  }
+
+  &__action {
+    display: inline-block;
+    background: none;
+    border: none;
+    font-family: $font-sans;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-inline: auto;
+    font-style: italic;
+    width: 100%;
+    color: $color-text-mid;
+
+    padding: 0;
+
+    span {
+      transition: background-size 0.2s $ease-out-editorial;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-repeat: no-repeat;
+      background-position: 0 calc(100% - 1px);
+      background-size: 0% 1px;
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0s;
+      }
+    }
+
+    @include screen(sm) {
+      margin-inline: 1rem;
+      width: fit-content;
+    }
+
+    &:hover {
+      color: $color-text;
+
+      span {
+        background-size: 100% 1px;
+      }
+    }
+  }
+}
+
+.links-list-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+
+  @include screen(magazine) {
+    display: contents;
   }
 }
 
@@ -82,25 +125,6 @@
 .links-list {
   line-height: 1.5;
   margin-inline-start: 1rem;
-  //   background-image: linear-gradient(
-  //       to right,
-  //       transparent,
-  //       transparent 50%,
-  //       red 50%,
-  //       red calc(50% + 1px),
-  //       transparent calc(50% + 1px)
-  //     ),
-  //     linear-gradient(
-  //       to bottom,
-  //       transparent,
-  //       transparent 50%,
-  //       red 50%,
-  //       red calc(50% + 1px),
-  //       transparent calc(50% + 1px)
-  //     );
-
-  //   border: 1px solid red;
-  //   border-radius: 100%;
 
   &--radial {
     line-height: 1;
