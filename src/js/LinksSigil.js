@@ -143,18 +143,21 @@ export default class LinksSigil {
     });
     let raf;
     let loop;
-    this.spinButton.addEventListener('mousedown', (e) => {
-      e.preventDefault();
+    const handleTouchStart = (e) => {
       raf = () => {
         this.rotationOffset -= 3;
         loop = requestAnimationFrame(raf);
         this.drawPositions();
       };
       raf();
-    });
-    this.spinButton.addEventListener('mouseup', (e) => {
+    };
+    const handleTouchEnd = (e) => {
       cancelAnimationFrame(loop);
-    });
+    };
+    this.spinButton.addEventListener('mousedown', handleTouchStart);
+    this.spinButton.addEventListener('touchstart', handleTouchStart);
+    this.spinButton.addEventListener('mouseup', handleTouchEnd);
+    this.spinButton.addEventListener('touchend', handleTouchEnd);
 
     window.addEventListener('resize', (e) => {
       this.descriptionWidth = this.description.getBoundingClientRect().width;
