@@ -104,7 +104,8 @@
     position: absolute;
     right: 1rem;
     bottom: 100px;
-    width: 3rem;
+    width: 4rem;
+    font-size: 2rem;
     aspect-ratio: 1;
     padding: 0;
     cursor: pointer;
@@ -112,6 +113,7 @@
     border-radius: 100%;
     background-color: transparent;
     color: inherit;
+    user-select: none;
 
     @media (pointer: fine) {
       display: none;
