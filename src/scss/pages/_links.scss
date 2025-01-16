@@ -3,6 +3,7 @@
 
 .links-page {
   margin-block-end: 6rem;
+
   @include screen(sm) {
     position: relative;
   }
@@ -18,6 +19,7 @@
 
     &--positioned {
       text-align: center;
+
       @include screen(sm) {
         position: absolute;
         inset-inline: 0;
@@ -60,18 +62,22 @@
   }
 
   &__action {
-    display: inline-block;
-    background: none;
-    border: none;
     font-family: $font-sans;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-inline: auto;
     font-style: italic;
+    display: inline-block;
     width: 100%;
-    color: $color-text-mid;
-
+    margin-inline: auto;
     padding: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: $color-text-mid;
+    border: none;
+    background: none;
+
+    @include screen(sm) {
+      width: fit-content;
+      margin-inline: 1rem;
+    }
 
     span {
       transition: background-size 0.2s $ease-out-editorial;
@@ -84,17 +90,31 @@
       }
     }
 
-    @include screen(sm) {
-      margin-inline: 1rem;
-      width: fit-content;
-    }
-
     &:hover {
       color: $color-text;
 
       span {
         background-size: 100% 1px;
       }
+    }
+  }
+
+  &__spinner {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 100px;
+    width: 3rem;
+    aspect-ratio: 1;
+    padding: 0;
+    cursor: pointer;
+    border: 1px solid var(--color-border-light);
+    border-radius: 100%;
+    background-color: transparent;
+    color: inherit;
+
+    @media (pointer: fine) {
+      display: none;
     }
   }
 }

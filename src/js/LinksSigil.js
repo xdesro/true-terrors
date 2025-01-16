@@ -16,7 +16,8 @@ export default class LinksSigil {
     this.list = document.querySelector('.links-list');
     this.listItems = document.querySelectorAll('.links-list li');
     this.description = document.querySelector('.links-page__description');
-    this.button = document.querySelector('.links-page__action');
+    this.layoutButton = document.querySelector('.links-page__action');
+    this.spinButton = document.querySelector('.links-page__spinner');
 
     this.list.classList.add('links-list--radial');
     this.description.classList.add('links-page__description--positioned');
@@ -84,7 +85,7 @@ export default class LinksSigil {
       }
     });
 
-    this.button.addEventListener('click', () => {
+    this.layoutButton.addEventListener('click', () => {
       this.active = !this.active;
       console.log('clicked');
       if (this.active) {
@@ -96,7 +97,7 @@ export default class LinksSigil {
         .timeline({
           onComplete: () => {
             this.toggleLayoutClasses();
-            this.button.querySelector('span').textContent = this.active
+            this.layoutButton.querySelector('span').textContent = this.active
               ? this.actionText[0]
               : this.actionText[1];
             gsap
@@ -139,6 +140,20 @@ export default class LinksSigil {
           },
           '<'
         );
+    });
+    let raf;
+    let loop;
+    this.spinButton.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      raf = () => {
+        this.rotationOffset -= 3;
+        loop = requestAnimationFrame(raf);
+        this.drawPositions();
+      };
+      raf();
+    });
+    this.spinButton.addEventListener('mouseup', (e) => {
+      cancelAnimationFrame(loop);
     });
 
     window.addEventListener('resize', (e) => {
