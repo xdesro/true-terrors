@@ -2,6 +2,11 @@
   "$schema": "../../.vscode/recentReading.schema.json",
   "posts": [
     {
+      "title": "Why Is CSS So Weird?",
+      "author": "Miriam Suzanne",
+      "url": "https://youtu.be/aHUtMbJw8iA"
+    },
+    {
       "title": "Every site needs a Links Page / Why linking matters",
       "author": "Melonking",
       "url": "https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters"
