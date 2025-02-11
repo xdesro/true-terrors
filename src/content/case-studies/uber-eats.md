@@ -12,5 +12,6 @@ titleSplitIndex: 6
 viewTheWork: true
 viewTheWorkText: 'Read the case study on OddCommon.com'
 permalink: false
-link: https://oddcommon.com/work/nacho-crystal
+# link: https://oddcommon.com/work/nacho-crystal
+link: https://web.archive.org/web/20241229204302/https://oddcommon.com/work/nacho-crystal
 ---
