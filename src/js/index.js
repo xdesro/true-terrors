@@ -5,7 +5,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
 
-import HiringButton from './HiringButton';
 import MatchMediaManager from './MatchMediaManager';
 import NavManager from './NavManager';
 
@@ -62,10 +61,6 @@ class DefaultRenderer extends Renderer {
       }
     });
     fetchSpotify();
-
-    if (document.querySelector('.hire-me')) {
-      new HiringButton();
-    }
 
     if (window.location.pathname === '/') {
       navManager.hide(true);
