@@ -30,22 +30,25 @@ export default class FooterShader {
     };
     window.gui = new dat.GUI({ hideable: false });
     window.gui.hide();
+
     const windFolder = window.gui.addFolder('Wind');
     const vhsFolder = window.gui.addFolder('VHS');
     const driftFolder = window.gui.addFolder('Drift');
 
-    windFolder.add(shaderProps, 'WIND_SCALE', 0.0, 300.0, 1);
+    windFolder.open();
+    windFolder.add(shaderProps, 'WIND_SCALE', 0.0, 100.0, 1);
     windFolder.add(shaderProps, 'WIND_SPEED', 0.0, 10.0, 0.1);
     windFolder.add(shaderProps, 'WIND_AMPLITUDE_X', 0.0, 1, 0.001);
-    // windFolder.add(shaderProps, 'WIND_AMPLITUDE_Y', 0.0, 1, 0.001);
 
+    vhsFolder.open();
     vhsFolder.add(shaderProps, 'COLOR_SHIFT', 0, 1, 0.01);
     vhsFolder.add(shaderProps, 'JITTER_INTENSITY', 0, 0.25, 0.001);
 
-    // driftFolder.add(shaderProps, 'DRIFT_SPEED', 0, 2, 0.1);
+    driftFolder.open();
     driftFolder.add(shaderProps, 'DRIFT_INTENSITY', 0, 1, 0.001);
     driftFolder.add(shaderProps, 'DRIFT_SCALE', 0, 10, 0.1);
     driftFolder.add(shaderProps, 'VERTICAL_BIAS', 0, 1, 0.01);
+    window.gui.getSaveObject();
 
     const prefersReducedMotion =
       window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||

@@ -31,8 +31,6 @@ picture:has(.footer-border) {
   }
 
   canvas {
-    mix-blend-mode: multiply;
-    // filter: grayscale(1);
     margin-block-end: -12px;
   }
 }

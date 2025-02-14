@@ -13,7 +13,6 @@ uniform float WIND_SPEED;
 uniform vec2 WIND_AMPLITUDE;
 
 const float NOISE_INTENSITY = 0.01;
-const float SCANLINE_INTENSITY = 0.00;
 // const float COLOR_SHIFT = 0.0;
 uniform float COLOR_SHIFT;
 // const float JITTER_INTENSITY = 0.001;
@@ -126,11 +125,14 @@ void main() {
     color.b = colorB.b;
     color.a = baseColor.a;
 
-    float scanline = sin(uv.y * 400.0) * 0.5 + 0.5;
-    color.rgb *= 1.0 - (scanline * SCANLINE_INTENSITY);
-
     float staticNoise = vhsNoise(vec2(uv.x * 100.0 + u_time, uv.y * 100.0 + u_time));
     color.rgb = mix(color.rgb, vec3(staticNoise), NOISE_INTENSITY);
+
+    float luminance = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+
+    if(luminance > 0.7) {
+        discard;
+    }
 
     gl_FragColor = color;
 }
