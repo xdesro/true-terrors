@@ -225,6 +225,11 @@ class DefaultRenderer extends Renderer {
           console.error('Failed to load the Marquee module:', error);
         });
     }
+    if (document.querySelector('.footer-border')) {
+      import('./FooterShader').then(({ default: FooterShader }) => {
+        new FooterShader();
+      });
+    }
     updateFooterBreadcrumbs();
   }
   onEnterCompleted() {}

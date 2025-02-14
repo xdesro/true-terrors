@@ -2,7 +2,16 @@
 @use '../abstract/mixins' as *;
 
 picture:has(.footer-border) {
-  img {
+  position: relative;
+
+  &:has(canvas) {
+    img {
+      display: none;
+    }
+  }
+
+  img,
+  canvas {
     width: 100%;
     object-fit: cover;
     object-position: bottom right;
@@ -19,6 +28,12 @@ picture:has(.footer-border) {
       object-fit: contain;
       aspect-ratio: auto;
     }
+  }
+
+  canvas {
+    mix-blend-mode: multiply;
+    // filter: grayscale(1);
+    margin-block-end: -12px;
   }
 }
 
