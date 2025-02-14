@@ -19,9 +19,12 @@ uniform float COLOR_SHIFT;
 // const float JITTER_INTENSITY = 0.001;
 uniform float JITTER_INTENSITY;
 
-uniform float DRIFT_SPEED;
+const float DRIFT_SPEED = 0.2;
+// const float DRIFT_SCALE = 5.0;
 uniform float DRIFT_SCALE;
+// const float DRIFT_INTENSITY = 0.001;
 uniform float DRIFT_INTENSITY;
+// const float VERTICAL_BIAS = 0.01;
 uniform float VERTICAL_BIAS;
 
 vec3 mod289(vec3 x) {

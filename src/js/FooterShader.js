@@ -24,7 +24,6 @@ export default class FooterShader {
       WIND_AMPLITUDE_Y: 0.004,
       COLOR_SHIFT: 0.0,
       JITTER_INTENSITY: 0.001,
-      DRIFT_SPEED: 0.2,
       DRIFT_SCALE: 5.0,
       DRIFT_INTENSITY: 0.001,
       VERTICAL_BIAS: 0.01,
@@ -43,9 +42,9 @@ export default class FooterShader {
     vhsFolder.add(shaderProps, 'COLOR_SHIFT', 0, 1, 0.01);
     vhsFolder.add(shaderProps, 'JITTER_INTENSITY', 0, 0.25, 0.001);
 
-    driftFolder.add(shaderProps, 'DRIFT_SPEED', 0, 2, 0.1);
-    driftFolder.add(shaderProps, 'DRIFT_SCALE', 0, 10, 0.1);
+    // driftFolder.add(shaderProps, 'DRIFT_SPEED', 0, 2, 0.1);
     driftFolder.add(shaderProps, 'DRIFT_INTENSITY', 0, 1, 0.001);
+    driftFolder.add(shaderProps, 'DRIFT_SCALE', 0, 10, 0.1);
     driftFolder.add(shaderProps, 'VERTICAL_BIAS', 0, 1, 0.01);
 
     const prefersReducedMotion =
@@ -158,10 +157,10 @@ export default class FooterShader {
           gl.getUniformLocation(program, 'JITTER_INTENSITY'),
           shaderProps.JITTER_INTENSITY
         );
-        gl.uniform1f(
-          gl.getUniformLocation(program, 'DRIFT_SPEED'),
-          shaderProps.DRIFT_SPEED
-        );
+        // gl.uniform1f(
+        //   gl.getUniformLocation(program, 'DRIFT_SPEED'),
+        //   shaderProps.DRIFT_SPEED
+        // );
         gl.uniform1f(
           gl.getUniformLocation(program, 'DRIFT_SCALE'),
           shaderProps.DRIFT_SCALE
