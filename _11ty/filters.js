@@ -70,7 +70,6 @@ export const readTime = (str) => {
 };
 
 export const monthYearDate = (date) => {
-  console.log(date, new Date(date));
   return new Date(date).toLocaleDateString('en-US', {
     month: 'short',
     year: 'numeric',
