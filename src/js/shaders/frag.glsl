@@ -5,19 +5,24 @@ uniform float u_time;
 uniform vec2 u_resolution;
 varying vec2 v_texCoord;
 
-const float WIND_SCALE = 3.0;
-const float WIND_SPEED = 0.2;
-const vec2 WIND_AMPLITUDE = vec2(0.001, 0.004);
+// const float WIND_SCALE = 3.0;
+uniform float WIND_SCALE;
+// const float WIND_SPEED = 0.2;
+uniform float WIND_SPEED;
+// const vec2 WIND_AMPLITUDE = vec2(0.001, 0.004);
+uniform vec2 WIND_AMPLITUDE;
 
 const float NOISE_INTENSITY = 0.01;
 const float SCANLINE_INTENSITY = 0.00;
-const float COLOR_SHIFT = 0.0;
-const float JITTER_INTENSITY = 0.001;
+// const float COLOR_SHIFT = 0.0;
+uniform float COLOR_SHIFT;
+// const float JITTER_INTENSITY = 0.001;
+uniform float JITTER_INTENSITY;
 
-const float DRIFT_SPEED = 0.2;
-const float DRIFT_SCALE = 5.0;
-const float DRIFT_INTENSITY = 0.001;
-const float VERTICAL_BIAS = 0.01;
+uniform float DRIFT_SPEED;
+uniform float DRIFT_SCALE;
+uniform float DRIFT_INTENSITY;
+uniform float VERTICAL_BIAS;
 
 vec3 mod289(vec3 x) {
     return x - floor(x * (1.0 / 289.0)) * 289.0;

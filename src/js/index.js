@@ -99,6 +99,7 @@ class DefaultRenderer extends Renderer {
   }
   onEnter() {
     navManager.updateLink();
+
     if (window.location.pathname === '/') {
       navManager.hide();
       document.body.classList.add('home');
@@ -233,7 +234,12 @@ class DefaultRenderer extends Renderer {
     updateFooterBreadcrumbs();
   }
   onEnterCompleted() {}
-  onLeave() {}
+  onLeave() {
+    if (window.gui) {
+      window.gui.destroy();
+      delete window.gui;
+    }
+  }
   onLeaveCompleted() {
     window.scrollTo({
       top: 0,

@@ -30,6 +30,7 @@
     "@sindresorhus/slugify": "^2.2.1",
     "@unseenco/taxi": "1.8.0",
     "concurrently": "^9.0.1",
+    "dat.gui": "^0.7.9",
     "eleventy-plugin-toc": "^1.1.5",
     "gsap": "^3.12.5",
     "jsdom": "^25.0.1",
