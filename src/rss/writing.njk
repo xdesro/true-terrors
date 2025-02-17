@@ -20,7 +20,7 @@
     <title>{{ post.data.title }}</title>
     <link>{{ absolutePostUrl }}</link>
     <description>{{ post.content | renderTransforms(post.data.page, metadata.base) }}</description>
-    <pubDate>{{ post.data.publishDate or post.date | dateToRfc822 }}</pubDate>
+    <pubDate>{{ post.data.publishDate | dateToRfc822 or post.date | dateToRfc822 }}</pubDate>
     <dc:creator>{{ metadata.author.name }}</dc:creator>
     <guid>{{ absolutePostUrl }}</guid>
 </item>
