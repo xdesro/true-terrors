@@ -92,3 +92,9 @@ export const humanReadableDateTime = (dateStr) => {
 export const toISOString = (str) => {
   return str.toISOString();
 };
+
+export const getSocialUrl = (networkName, socialData) => {
+  return socialData.find((network) => {
+    return network.name.toLowerCase() === networkName.toLowerCase();
+  }).url;
+};

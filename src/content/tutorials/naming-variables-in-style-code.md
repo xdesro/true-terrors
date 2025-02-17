@@ -69,7 +69,7 @@ Instead, we’ll come up with a purpose for the color in the context of the app 
 
 ## Conclusion
 
-Anyway, thanks for reading. I know this is a short one but I figured better this than 30 Tweets. I would love to hear what you think about this strategy, why your approach is better, why I’ll never amount to half the developer that you are, etc.—get at me on Bluesky [@strange.website](https://bsky.app/profile/strange.website).
+Anyway, thanks for reading. I know this is a short one but I figured better this than 30 Tweets. I would love to hear what you think about this strategy, why your approach is better, why I’ll never amount to half the developer that you are, etc.—get at me on Bluesky [@strange.website]({{ 'bluesky' | getSocialUrl(social) }}).
 
 ### Colophon
 

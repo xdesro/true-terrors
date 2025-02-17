@@ -16,6 +16,7 @@ import {
   monthYearDate,
   humanReadableDateTime,
   toISOString,
+  getSocialUrl,
 } from './_11ty/filters.js';
 import { markdownLibrary } from './_11ty/libraries.js';
 import { collectionHostedCaseStudy } from './_11ty/collections.js';
@@ -72,6 +73,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('humanReadableDateTime', humanReadableDateTime);
   eleventyConfig.addFilter('humanReadableDate', humanReadableDate);
   eleventyConfig.addFilter('toISOString', toISOString);
+  eleventyConfig.addFilter('getSocialUrl', getSocialUrl);
 
   eleventyConfig.setLibrary('md', markdownLibrary);
 

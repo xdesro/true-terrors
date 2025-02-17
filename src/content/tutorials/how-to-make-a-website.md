@@ -18,11 +18,9 @@ topics:
   - rants
 ---
 
-
 I got an email recently from a kind online friend who said they thought my work was swell, and that they'd like to ask about my process or what makes a good website. Aside from that being a really nice email to receive, it's also good impetus for me to be a little more candid and critical about my practice. Here's my breakdown on how to make a Good Website.
 
 It's fine if you disagree with me on these things — let me know by email what great sins I have committed against thee and I shall dearly repent :){.editors-note}
-
 
 ## TL;DR
 
@@ -63,7 +61,6 @@ Nunjucks is a first-class citizen in 11ty, but I've also written a (possibly sli
 {% renderTemplate 'webc', { collectionsAll: collections.all } %}
 <embed-card :post="findPostByPath(collectionsAll, 'writing/how-to-use-vue-to-template-your-eleventy-projects')"></embed-card>
 {% endrenderTemplate %}
-
 
 ## Style Code (or How I Learned To Stop Worrying and Love The Cascade)
 
@@ -172,19 +169,21 @@ Then if I want to do something like use an `IntersectionObserver` to reveal the 
 
 ```js
 // main.js
-import { CardRevealAnimation } from "./animations/cardReveal.animation";
+import { CardRevealAnimation } from './animations/cardReveal.animation';
 
 const revealHandler = (entries, observer) => {
   entries.forEach((entry) => {
     const animation = CardRevealAnimation(entry.target);
     animation.play();
-    animation.eventCallback("onComplete", animation.kill);
+    animation.eventCallback('onComplete', animation.kill);
   });
 };
 
 const revealObserver = new IntersectionObserver(revealHandler);
 
-[...document.querySelectorAll("[reveal]")].forEach((el) => revealObserver.observe(el));
+[...document.querySelectorAll('[reveal]')].forEach((el) =>
+  revealObserver.observe(el)
+);
 ```
 
 ### Transitions
@@ -199,7 +198,7 @@ There are a lot of ways to do the partial AJAX SPA-style of routing we're talkin
 
 ## Conclusion
 
-I'd like to make this rant into a resource, more robust guidelines, etc. If there's something I didn't cover that you'd like to learn about, something I _did_ cover that I didn't cover well enough, or if you just think I'm wrong and stupid, please don't hesitate to hit me up [via email](mailto:yo@henry.codes) or [on Bluesky](https://bsky.app/profile/strange.website).
+I'd like to make this rant into a resource, more robust guidelines, etc. If there's something I didn't cover that you'd like to learn about, something I _did_ cover that I didn't cover well enough, or if you just think I'm wrong and stupid, please don't hesitate to hit me up [via email](mailto:yo@henry.codes) or [on Bluesky]({{ 'bluesky' | getSocialUrl(social) }}).
 
 Candidly, I hope this hasn't felt too pedantic or peremptory. Websites are fun, the internet is a gift. It's important to remember the experience of your users is ten thousand times more important than your developer experience. Have fun, be safe, protect each other, and don't talk to cops.
 
@@ -210,4 +209,3 @@ Candidly, I hope this hasn't felt too pedantic or peremptory. Websites are fun, 
 - The [WCAG Spec](https://www.w3.org/TR/WCAG20/)
 - [Responsible Javascript](https://abookapart.com/products/responsible-javascript), by Jeremy Wagner
 - Andy Bell's [Be The Browser's Mentor, Not Its Micromanager](https://buildexcellentwebsit.es/)
-

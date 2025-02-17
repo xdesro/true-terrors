@@ -9,7 +9,7 @@ category: tutorial
 topics: [netlify, serverless, lambda, node.js]
 publishDate: 2020-12-12T09:00-07:00
 socialSharingImage: ./img/21T.Frame 6.png
-templateEngineOverride: "md"
+templateEngineOverride: 'md'
 ---
 
 I recently\* built this really cool feature for my personal website that allows me to use Netlify Functions to show my most-recently-listened-to tracks from Spotify.
@@ -34,7 +34,7 @@ Here’s a basic outline of what we’re going to do to get this working today:
 - Writing a Netlify Function to request data from the Spotify API
 - Rendering the response in HTML
 
-This article won't cover a fully-featured loop for managing authentication, refresh tokens, refresh timeout, etc. That would probably require a database and other infrastructure, and we don’t need that noise to make this work. ⚠️ __This is probably not the way to make a very very secure serverless auth loop!__ ⚠️ It's just a fun tech demo. Be safe.{.editors-note}
+This article won't cover a fully-featured loop for managing authentication, refresh tokens, refresh timeout, etc. That would probably require a database and other infrastructure, and we don’t need that noise to make this work. ⚠️ **This is probably not the way to make a very very secure serverless auth loop!** ⚠️ It's just a fun tech demo. Be safe.{.editors-note}
 
 ## Initial Setup & Prerequisites
 
@@ -261,8 +261,8 @@ Let's create a new file in our `functions` directory — I called mine `spotify.
 At the top of the file, we'll `require()` the dependencies we need and initialize our `dotenv` configuration so our function is aware of that `.env` file. We'll also add the basic async wrapper for a Netlify function:
 
 ```js
-const fetch = require("node-fetch");
-const dotenv = require("dotenv");
+const fetch = require('node-fetch');
+const dotenv = require('dotenv');
 dotenv.config();
 
 exports.handler = async (event, context) => {
@@ -328,7 +328,7 @@ Then, we can return the results of a `fetch` call to the API:
 ```js
 // That `?limit=1` part is because I only want the API to return a single song.
 return fetch(`${playerEndpoint}?limit=1`, {
-  method: "GET",
+  method: 'GET',
   headers: {
     Authorization: `Bearer ${accessToken}`,
   },
@@ -417,7 +417,7 @@ In our `src` directory, let's make an `index.js` file and link that file in our 
 Next, we'll add some code in that `index.js` file to hit the Netlify Function endpoint we created:
 
 ```js
-fetch("/.netlify/functions/spotify")
+fetch('/.netlify/functions/spotify')
   .then((res) => res.json())
   .then((data) => console.log(data))
   .catch((error) => console.error(error));
@@ -436,10 +436,11 @@ This, obviously doesn't adhere to best practices of progressive enhancement. Thi
 Here's my final `index.js` file, which uses some template literals and destructuring assignment to shape the data exactly how we want.
 
 ```js
-const spotifyWrapper = document.querySelector(".spotify");
-const artistTemplate = (artistObject) => `<a href="${artistObject.url}">${artistObject.name}</a>`;
+const spotifyWrapper = document.querySelector('.spotify');
+const artistTemplate = (artistObject) =>
+  `<a href="${artistObject.url}">${artistObject.name}</a>`;
 
-fetch("/.netlify/functions/spotify")
+fetch('/.netlify/functions/spotify')
   .then((res) => res.json())
   .then(({ trackUrl, name, artists, artworkUrl }) => {
     spotifyWrapper.innerHTML = `<div class="song">
@@ -447,7 +448,9 @@ fetch("/.netlify/functions/spotify")
                 ${name}
             </a>
         </div>
-        <div class="artists">${artists.map((artist) => artistTemplate(artist)).join(", ")}</div>
+        <div class="artists">${artists
+          .map((artist) => artistTemplate(artist))
+          .join(', ')}</div>
         <img class="artwork" src="${artworkUrl}"/>`;
   })
   .catch((err) => console.error(err));
@@ -455,7 +458,7 @@ fetch("/.netlify/functions/spotify")
 
 ## Conclusion
 
-So thanks for reading, I hope this was super cute and fun and helpful. I love Netlify Functions, they make Lambda/serverless tasks really accessible — especially as I'm not personally much of a back-end developer. If you have any issues, questions, comments, concerns, or professions of love and/or eternal hatred, [get at me on Bluesky](https://bsky.app/profile/strange.website). I'm happy to update this post at any point to go into more detail about specific aspects, so please def reach out!
+So thanks for reading, I hope this was super cute and fun and helpful. I love Netlify Functions, they make Lambda/serverless tasks really accessible — especially as I'm not personally much of a back-end developer. If you have any issues, questions, comments, concerns, or professions of love and/or eternal hatred, [get at me on Bluesky]({{ 'bluesky' | getSocialUrl(social) }}). I'm happy to update this post at any point to go into more detail about specific aspects, so please def reach out!
 
 - The code for this tutorial can be found [here on my GitHub page](https://github.com/xdesro/spotify-widget).
 - A live version of the site is deployed with Netlify [right here](https://spotify-widget-netlify-functions.netlify.app).

@@ -5,7 +5,7 @@ heroImage: ./img/bxo.boat.jpg
 excerpt: My guide, start to finish, floor to ceiling, on coding, styling, and animating a slider element with Vue.js.
 publishDate: 2019-06-04T20:36-06:00
 socialSharingImage: ./img/4t0.Frame 12.png
-templateEngineOverride: "md"
+templateEngineOverride: 'md'
 tags:
   - article
 category: tutorial
@@ -118,7 +118,9 @@ I want to keep the slider slides and headline separate, because they animate in 
     <img class="main__slide-image" src="slide1.jpg" />
   </div>
   <div class="main__headline">
-    <span class="main__headline-span">Simplicity is the ultimate sophistication.</span>
+    <span class="main__headline-span"
+      >Simplicity is the ultimate sophistication.</span
+    >
   </div>
   <div class="main__nav">
     <p>Play Video</p>
@@ -301,12 +303,12 @@ Next we'll add some more visual style to the app.
 So the first thing I'm gonna mention is that I don't actually know what font is in use here off-hand, so I'll be using instead this really nice sans-serif font called [Inter](https://rsms.me/inter/). Let's go ahead and include it in our style sheet.
 
 ```scss
-@import url("https://rsms.me/inter/inter.css");
+@import url('https://rsms.me/inter/inter.css');
 html {
   font-size: calc(#{$app-width} / 100);
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   @supports (font-variation-settings: normal) {
-    font-family: "Inter var", sans-serif;
+    font-family: 'Inter var', sans-serif;
   }
 }
 ```
@@ -338,11 +340,17 @@ In the HTML, we can use [source.unsplash.com](http://source.unsplash.com) to get
 
 ```html
 <div class="main__slider">
-  <img class="main__slide-image" src="https://source.unsplash.com/random/1350x1080" />
+  <img
+    class="main__slide-image"
+    src="https://source.unsplash.com/random/1350x1080"
+  />
 </div>
 <!-- ... -->
 <div class="aside__slider">
-  <img class="aside__slide-image" src="https://source.unsplash.com/random/1350x1080" />
+  <img
+    class="aside__slide-image"
+    src="https://source.unsplash.com/random/1350x1080"
+  />
 </div>
 ```
 
@@ -387,7 +395,7 @@ In CSS grid, you can actually use pseudo elements as grid-level elements, and th
   // ...
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: block;
     width: 1rem;
     height: 0.1rem;
@@ -416,7 +424,7 @@ Next let's do the progress indicator. We'll use pseudo elements for the numbers 
     color: $color--neutral;
   }
   &:before {
-    content: "01";
+    content: '01';
   }
   &:after {
     content: attr(data-slides-count);
@@ -463,7 +471,7 @@ Once we've got Vue included, let's add an ID to the markup of the app and initia
 
 ```js
 const app = new Vue({
-  el: "#app",
+  el: '#app',
 });
 ```
 
@@ -473,22 +481,22 @@ In our Vue instance, let's add some data for slides and a currently-active slide
 
 ```js
 const app = new Vue({
-  el: "#app",
+  el: '#app',
   data() {
     return {
       currentActiveSlide: 0,
       slides: [
         {
-          headline: "Lorem ipsum dolor sit amet",
-          img: "https://source.unsplash.com/random/1350x1080",
+          headline: 'Lorem ipsum dolor sit amet',
+          img: 'https://source.unsplash.com/random/1350x1080',
         },
         {
-          headline: "Consectetur adipiscing elit, sed do.",
-          img: "https://source.unsplash.com/random/1350x1081",
+          headline: 'Consectetur adipiscing elit, sed do.',
+          img: 'https://source.unsplash.com/random/1350x1081',
         },
         {
-          headline: "Eiusmod tempor incididunt ut labore.",
-          img: "https://source.unsplash.com/random/1350x1082",
+          headline: 'Eiusmod tempor incididunt ut labore.',
+          img: 'https://source.unsplash.com/random/1350x1082',
         },
       ],
     };
@@ -525,7 +533,9 @@ const app = new Vue({
   // ...
   computed: {
     nextActiveSlide() {
-      return this.currentActiveSlide + 1 >= this.slides.length ? 0 : this.currentActiveSlide + 1;
+      return this.currentActiveSlide + 1 >= this.slides.length
+        ? 0
+        : this.currentActiveSlide + 1;
     },
   },
 });
@@ -570,15 +580,15 @@ const app = new Vue({
       let direction;
       const calculatedNextSlide = this.currentActiveSlide + val;
       if (val > 0) {
-        direction = "next";
+        direction = 'next';
       } else {
-        direction = "previous";
+        direction = 'previous';
       }
-      if (direction === "next" && calculatedNextSlide < this.slides.length) {
+      if (direction === 'next' && calculatedNextSlide < this.slides.length) {
         this.currentActiveSlide += val;
-      } else if (direction === "next") {
+      } else if (direction === 'next') {
         this.currentActiveSlide = 0;
-      } else if (direction === "previous" && calculatedNextSlide < 0) {
+      } else if (direction === 'previous' && calculatedNextSlide < 0) {
         this.currentActiveSlide = this.slides.length - 1;
       } else {
         this.currentActiveSlide += val;
@@ -613,7 +623,12 @@ Let's start by transitioning the headline when you change slides with `<transiti
 The first step is to convert the `.main__headline` div into a `<transition-group>`:
 
 ```html
-<transition-group tag="div" class="main__headline" name="main__headline-span" mode="out-in">
+<transition-group
+  tag="div"
+  class="main__headline"
+  name="main__headline-span"
+  mode="out-in"
+>
   <span
     v-for="(slide, index) of slides"
     :key="index"
@@ -669,7 +684,12 @@ Let's use `<transition-group>` again to prepare the main and aside sliders to be
 
 ```html
 <!-- ... -->
-<transition-group tag="div" class="main__slider" name="main__slide-image" mode="out-in">
+<transition-group
+  tag="div"
+  class="main__slider"
+  name="main__slide-image"
+  mode="out-in"
+>
   <img
     v-for="(slide, index) of slides"
     :key="index"
@@ -695,7 +715,12 @@ Let's implement that in our SCSS. We're reusing this animation for both sliders,
 
 ```scss
 @mixin clip-path-wipe {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); // Specify the "slide visible" state
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  ); // Specify the "slide visible" state
   &-enter {
     clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
     transform: scale(1.3);
@@ -764,7 +789,7 @@ And just like that, we're all ready to rumble. If you wanted to, there are a cou
 - Add a boolean `loaded` state to the Vue `data()`, and transition in the navigation and slider depending on whether `loaded === true` or not.
 - Use [Vibrant.js](https://jariz.github.io/vibrant.js/) or similar to set the background of the slider to an accent color of the slider image!
 
-If you end up giving this a shot or customizing it in any way, let me know on Bluesky [@strange.website](https://bsky.app/profile/strange.website)! I'd love to see it. Thanks for reading. As promised, [here's the finished pen](https://codepen.io/xdesro/pen/dEwMOq).
+If you end up giving this a shot or customizing it in any way, let me know on Bluesky [@strange.website]({{ 'bluesky' | getSocialUrl(social) }})! I'd love to see it. Thanks for reading. As promised, [here's the finished pen](https://codepen.io/xdesro/pen/dEwMOq).
 
 <p class="codepen" data-height="400" data-theme-id="37307" data-default-tab="result" data-user="xdesro" data-slug-hash="dEwMOq" style="height: 400px;" data-pen-title="Vue Slider UI Interaction">
 </p>
