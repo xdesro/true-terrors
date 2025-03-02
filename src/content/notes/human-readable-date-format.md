@@ -4,7 +4,7 @@ drafted: false
 topics:
   - code snippet
   - js
-date: 2025-03-02T00:06:56.689Z
+publishDate: 2025-03-02T00:06:56.689Z
 hasToc: true
 ---
 
