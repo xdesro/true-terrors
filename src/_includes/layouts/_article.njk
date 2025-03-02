@@ -19,7 +19,7 @@ bodyClass: "article"
             <div>
                 <dt>Last Updated</dt>
                 <dd>
-                    {{ publishDate | monthYearDate }}
+                    {{ (publishDate or page.date) | monthYearDate }}
                 </dd>
             </div>
             <div class="article-header__topics" webc:if="topics">

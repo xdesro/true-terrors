@@ -23,7 +23,13 @@
         <div>
             <dt class="visually-hidden">Last updated</dt>
             <dd>
-                <time>Last updated {{ (article.data.publishDate or article.date) | humanReadableDate }}</time>
+                {# <time>Last updated 
+                    {% if article.data.publishDate %}
+                        {{ article.data.publishDate | humanReadableDate }}
+                    {% elseif article.date %}
+                        {{ article.date | humanReadableDate }}
+                    {% endif %}
+                </time> #}
             </dd>
         </div>
     </dl>
