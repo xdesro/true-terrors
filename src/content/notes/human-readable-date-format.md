@@ -66,7 +66,7 @@ new Date().toLocaleDateString('en-US', {
 ### 01/03/25 (blimey lol)
 
 ```js
-new Date().toLocaleDateString('en-UK', {
+new Date().toLocaleDateString('en-GB', {
   month: '2-digit',
   year: '2-digit',
   day: '2-digit',
