@@ -2,6 +2,11 @@
   "$schema": "../../.vscode/recentReading.schema.json",
   "posts": [
     {
+      "title": "Tech continues to be political",
+      "author": "Miriam Suzanne",
+      "url": "https://www.miriamsuzanne.com/2025/02/12/tech-ai-wtf/"
+    },
+    {
       "title": "Design engineering writing and resources",
       "author": "Sean Voisen",
       "url": "https://sean.voisen.org/blog/design-engineering-resources"
