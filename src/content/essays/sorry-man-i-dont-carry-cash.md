@@ -69,7 +69,10 @@ There's no shame in helping because it makes us feel good to help. Our reasons f
 
 We take care of us, we keep each other safe. There's an uneasy silence among middle-class people in neoliberal cities like Denver, like San Francisco, like Seattle, etc, about the routine violence of our police against homeless or mentally ill people. We cannot rely on the government to solve problems; we must show each other love and care freely and openly and unconditionally.
 
+None of this is new or revolutionary — quite the opposite, I came way too late to this way of thinking _[(garfield-you-are-not-immune-to-propaganda.bmp)](https://e1.pxfuel.com/desktop-wallpaper/129/350/desktop-wallpaper-you-are-not-immune-to-propaganda-1920-%C3%97-1080.jpg)_. But the second I switched over to this mindset it instantly became the easiest, most obvious, most soulful contribution I'm able to make to my neighborhood every single day. We're late but we're not too late. I hope you'll join me.{.editors-note}
+
 As always, [email me](mailto:yo@henry.codes) to talk more or challenge these ideas. Thanks for reading.
+
 
 <style>
 .further-reading {
