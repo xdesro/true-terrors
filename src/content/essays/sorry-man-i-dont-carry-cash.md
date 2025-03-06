@@ -53,7 +53,7 @@ You don't believe that guy exists, and neither do I, and we sound silly saying i
 
 Many people do! And it is possible to hold true two things: the government programs, government workers, and volunteers all do great work, _and_ people still need help beyond that. If the government responded adequately to the needs of its citizens, we'd have a lot fewer problems in many more directions. Additionally, [many shelters are unsafe for myriad reasons](https://www.sciencedirect.com/science/article/pii/S1353829223001296), and many programs simply can't meet the demand, and must turn people away. It's something but it just isn't enough — our direct action we take when called upon is one more raindrop that raises the sea.
 
-There's sometimes this sentiment that "well I pay taxes, I'm helping enough," but when was the last time you saw your taxes do _enough_ for your neighborhood? You know what your taxes are used for, and it's the police.
+<!-- There's sometimes this sentiment that "well I pay taxes, I'm helping enough," but when was the last time you saw your taxes do _enough_ for your neighborhood? You know what your taxes are used for, and it's the police.{.editors-note} -->
 
 ## Why you really ought to
 
