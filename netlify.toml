@@ -1,7 +1,16 @@
 [dev]
-    command = 'bun run start'
+    command = 'bun run start:quiet'
     publish = '_site'
     functions = '.netlify/functions'
 
 [functions]
   directory = "src/functions"
+
+[[plugins]]
+  package = "netlify-plugin-cache"
+
+[plugins.inputs]
+    paths = [
+      "_site/img/",
+      ".cache"
+    ]
