@@ -1,5 +1,5 @@
 ---
-title: "The spare change thing: A case for unconditional giving"
+title: "A case for unconditional giving"
 slug: a-case-for-unconditional-giving
 abstract: It's time for a new paradigm for how we treat folks that ask us for help.
 publishDate: 2025-03-06T04:09:30.927Z
