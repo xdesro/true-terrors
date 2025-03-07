@@ -1,6 +1,6 @@
 ---js
 {
-    permalink: false,
+    permalink: '/micro/index.html',
     title: 'Micro',
     tags: ['page'],
     og: 'https://henry.codes/img/og/og-micro.png',
@@ -50,7 +50,7 @@
         </svg>
         {% for post in collections['micro'] | sortedByPublishDate %}
         <article class="h-entry post post--by-self">
-            {% if title %}<h1 class="p-name post__title">{{ title }}</h1>{% endif %}
+            <!-- {% if title %}<h1 class="p-name post__title">{{ title }}</h1>{% endif %} -->
             <div class="e-content post__content">
                 <p>{{ post.data.text }}</p>
             </div>

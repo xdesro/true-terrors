@@ -1,5 +1,12 @@
 # TO-DO
 
+## POSSE / Webmentions
+- [ ] Render all content to micro as cards
+- [ ] Properly add and format webmentions
+- [ ] Cron for webmentions
+- [ ] Publisher client should post to Mastodon/Bsky properly
+- [ ] Do I have to create a whole new thing to publish
+
 ## Go-live
 - [ ] **Content:**
     - [ ] NYT Case?

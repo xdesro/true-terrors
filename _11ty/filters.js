@@ -1,19 +1,19 @@
-import { JSDOM } from 'jsdom';
+import { JSDOM } from "jsdom";
 
 export const humanReadableDate = (dateStr) => {
   const date = new Date(dateStr);
   const timezoneDiff = date.getTimezoneOffset() * 60000;
   const adjustedDate = new Date(date.valueOf() + timezoneDiff);
-  return adjustedDate.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
+  return adjustedDate.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   });
 };
 
 export const getTOC = (md) => {
   const { document } = new JSDOM(md).window;
-  const h2s = [...document.querySelectorAll('h2')];
+  const h2s = [...document.querySelectorAll("h2")];
   const tocData = h2s.map((h2) => {
     if (h2.textContent) {
       return { text: h2.textContent, id: h2.id };
@@ -26,8 +26,8 @@ export const getTOC = (md) => {
 export const youtubeIdFromUrl = (youtubeUrl) => {
   const url = new URL(youtubeUrl);
   const params = new URLSearchParams(url.search);
-  if (params.get('v')) {
-    return params.get('v');
+  if (params.get("v")) {
+    return params.get("v");
   }
   return youtubeUrl;
 };
@@ -58,11 +58,11 @@ export const toSet = (arr) => {
 export const readTime = (str) => {
   const { document } = new JSDOM(`${str}`).window;
   // Calculate read time without code samples or mathJax.
-  const elementsToRemove = [...document.querySelectorAll('pre, mjx-container')];
+  const elementsToRemove = [...document.querySelectorAll("pre, mjx-container")];
   elementsToRemove.forEach((element) => element.remove());
   const text = document.body.textContent;
 
-  const wordCount = text.split(' ').length;
+  const wordCount = text.split(" ").length;
   const wordsPerMinute = 200;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
 
@@ -70,9 +70,9 @@ export const readTime = (str) => {
 };
 
 export const monthYearDate = (date) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    month: 'short',
-    year: 'numeric',
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
   });
 };
 
@@ -80,12 +80,12 @@ export const humanReadableDateTime = (dateStr) => {
   const date = new Date(dateStr);
   const timezoneDiff = date.getTimezoneOffset() * 60000;
   const adjustedDate = new Date(date.valueOf() + timezoneDiff);
-  return adjustedDate.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
+  return adjustedDate.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 };
 
@@ -98,3 +98,13 @@ export const getSocialUrl = (networkName, socialData) => {
     return network.name.toLowerCase() === networkName.toLowerCase();
   }).url;
 };
+
+// Webmentions
+export const webmentionsByUrl = (webmentions, url) =>
+  webmentions.filter((webmention) => webmention["wm-target"] === url);
+export const getLikes = (webmentions) =>
+  webmentions.filter((webmention) => webmention["wm-property"] === "like-of");
+export const getReplies = (webmentions) =>
+  webmentions.filter(
+    (webmention) => webmention["wm-property"] === "in-reply-to"
+  );

@@ -45,7 +45,7 @@ const createOrUpdateFiles = (filename, template) =>
     branch: "main",
     changes: [
       {
-        message: `📝 - Adding note: ${filename}`,
+        message: `📝 - Adding micro post: ${filename}`,
         files: {
           "functions/micropub-latest.json": `{ "latest": "notes/${filename}.md" }`,
           [`src/content/micro/${filename}.md`]: {
@@ -61,8 +61,8 @@ export const handler = async (event) => {
     const syndicationTargets = {
       "syndicate-to": [
         {
-          uid: "https://mastodon.social/@xdesrobots",
-          name: "Xdesrobots Mastodon",
+          uid: "https://front-end.social/@henry",
+          name: "Mastodon",
         },
       ],
     };

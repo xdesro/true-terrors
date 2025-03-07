@@ -53,6 +53,54 @@ bodyClass: "article"
     {{ content | safe }}
 </article>
 
+<div class="container">
+{% set publicUrl = "https://henry.codes"  + page.url %}
+
+{% if webmentions %}
+    {% set filteredMentions = webmentions | webmentionsByUrl(publicUrl) %}
+{% endif %}
+{% if filteredMentions %}
+    {% set likes = filteredMentions | getLikes %}
+    {% set replies = filteredMentions | getReplies %}
+    <section>
+    <style>
+    .profile-pic {
+        border-radius: 100%;
+        aspect-ratio: 1;
+        max-width: 2rem;
+    }
+    </style>
+        <h2>Webmentions</h2>
+        {% if likes %}
+        <section>
+            <h3>Liked by:</h3>
+            {% for like in likes %}
+            <a href="{{ like.author.url }}">
+                <img class="profile-pic" src="{{ like.author.photo }}" alt=""  eleventy:ignore/>
+            </a>
+            {% endfor %}
+        </section>
+        {% endif %}
+        {% if replies %}
+        <section>
+            <h3>Replies:</h3>
+            {% for reply in replies %}
+            <article>
+                <header>
+                    <img class="profile-pic" src="{{ reply.author.photo }}" alt=""  eleventy:ignore/>
+                    <h1>{{ reply.author.name }}</h1>
+                    <a href="{{ reply.author.url }}">Go to profile</a>
+                </header>
+                <div>{{ reply.content.html | safe}}</div>
+                <a href="{{ reply.url }}">Go to reply</a>
+            </article>
+            {% endfor %}
+        </section>
+        {% endif %}
+    </section>
+    {% endif %}
+</div>
+
 {% if nextPost or prevPost %}
     <!-- TODO: Next post doesn't work with webC -->
     <aside class="further-reading container">

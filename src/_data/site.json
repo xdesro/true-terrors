@@ -19,6 +19,11 @@
           "text": "Notes",
           "description": "The tending of seeds and saplings of ideas",
           "url": "/notes"
+        },
+        {
+          "text": "Micro",
+          "description": "Temporal, fleeting whims and outright shitposts",
+          "url": "/micro"
         }
       ]
     },
