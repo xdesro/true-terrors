@@ -1,8 +1,13 @@
-const querystring = require("node:querystring");
-let { Octokit } = require("@octokit/rest");
-Octokit = Octokit.plugin(require("octokit-commit-multiple-files"));
-const slugify = require("@sindresorhus/slugify");
-require("dotenv").config();
+import querystring from "node:querystring";
+import slugify from "@sindresorhus/slugify";
+
+import { Octokit } from "@octokit/rest";
+import octokitCommitMultipleFiles from "octokit-commit-multiple-files";
+
+Octokit.plugin(octokitCommitMultipleFiles);
+
+import dotenv from "dotenv";
+dotenv.config();
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_ACCESS_TOKEN,
@@ -51,7 +56,7 @@ const createOrUpdateFiles = (filename, template) =>
     ],
   });
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
   if (event.httpMethod === "GET") {
     const syndicationTargets = {
       "syndicate-to": [
