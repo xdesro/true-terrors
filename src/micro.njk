@@ -23,7 +23,9 @@
     ]
 }
 ---
+{% from './_includes/micro-post.njk' import microPost %}
 {% from './_includes/social-icon.njk' import socialIcon %}
+
 
 <div class="infinite-scroll">
     <header class="micro-header">
@@ -49,35 +51,16 @@
                 clip-rule="evenodd" />
         </svg>
         {% for post in collections['micro'] | sortedByPublishDate %}
-        <article class="h-entry post post--by-self">
-            <!-- {% if title %}<h1 class="p-name post__title">{{ title }}</h1>{% endif %} -->
-            <div class="e-content post__content">
-                <p>{{ post.data.text }}</p>
-            </div>
-            <footer class="post__footer">
-                <time class="dt-published post__date">{{ post.data.date | humanReadableDateTime }}</time>
-                <div class="post__links">
-                    {% if post.data.blueskyUrl %}
-                    <a class="post__link" href="{{ post.data.blueskyUrl }}">
-                        {{ socialIcon({ icon: 'bluesky' }) }}
-                        <span class="visually-hidden">View on Bluesky</span>
-                    </a>
-                    {% endif %}
-                    {% if post.data.mastodonUrl %}
-                    <a class="post__link" href="{{ post.data.mastodonUrl }}">
-                        {{ socialIcon({ icon: 'mastodon' }) }}
-                        <span class="visually-hidden">View on Mastodon</span>
-                    </a>
-                    {% endif %}
-                    <a class="post__permalink" href="/micro/{{ post.data.date | toISOString | slugify }}">Permalink</a>
-                </div>
-            </footer>
-        </article>
-        {% if not loop.last %}
-        <svg class="feed-divider" xmlns="http://www.w3.org/2000/svg" fill="#dadada" viewBox="0 0 2 86">
-            <path fill-rule="evenodd" d="M2 0v86H0V0h2Z" clip-rule="evenodd" />
-        </svg>
-        {% endif %}
+            {% if post.data.attachment %}
+                {{ microPost(post.data.text, post.data.date, post.data.blueskyUrl, post.data.mastodonUrl, post.data.attachment, collections) }}
+            {% else %}
+                {{ microPost(post.data.text, post.data.date, post.data.blueskyUrl, post.data.mastodonUrl) }}
+            {% endif %}
+            {% if not loop.last %}
+            <svg class="feed-divider" xmlns="http://www.w3.org/2000/svg" fill="#dadada" viewBox="0 0 2 86">
+                <path fill-rule="evenodd" d="M2 0v86H0V0h2Z" clip-rule="evenodd" />
+            </svg>
+            {% endif %}
         {% endfor %}
     </div>
 </div>

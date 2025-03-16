@@ -1,0 +1,78 @@
+{% from './social-icon.njk' import socialIcon %}
+
+{% macro microPost(text, date, blueskyUrl, mastodonUrl, attachment, collections) %}
+  <article class="h-entry post post--by-self{% if attachment.local %} themed dark{% endif %}">
+    <div class="e-content post__content">
+        <p>{{ text }}</p>
+    </div>
+    {% if attachment %}
+    <article class="post__attachment{% if not attachment.local %} post__attachment--external{% endif %}">
+        {% if attachment.local %}
+            {% set localAttachment = collections.all | findPostByPath(attachment.url)%}
+            <dl class="article-block__meta">
+                <div>
+                    <dt class="visually-hidden">Category</dt>
+                    <dd @text="post.category">{{ localAttachment.category }}</dd>
+                </div>
+                <div>
+                    <dt class="visually-hidden">Tags</dt>
+                    <dd>{{ localAttachment.topics | join(' | ') }}</dd>
+                </div>
+            </dl>
+            <h1 class="article-block__title">{{ localAttachment.title }}</h1>
+            <dl class="article-block__meta">
+                <div>
+                    <dt class="visually-hidden">Reading Time</dt>
+                    <dd @text="post.readTime">{{ localAttachment.readTime }}</dd>
+                </div>
+                <div>
+                    <dt class="visually-hidden">Last updated</dt>
+                    <dd>
+                        <time>Last updated {{ localAttachment.publishDate | humanReadableDate }}</time>
+                    </dd>
+                </div>
+            </dl>
+            <a class="article-block__link with-arrow" href="{{ localAttachment.url }}">Read more</a>
+        {% else %}
+            {% if attachment.title %}
+                <h1 class="article-block__title">{{ attachment.title }}</h1>
+            {% endif %}
+            {% if attachment.author or attachment.showUrl %}
+                <div class="article-block__meta">
+                    {% if attachment.author %}<p class="article-block__meta-highlight">by {{ attachment.author }}</p>{% endif %}
+                    {% if attachment.showUrl %}<p>{{ attachment.url }}</p>{% endif %}
+                </div>
+            {% endif %}
+            {% if attachment.excerpt %}
+                <div class="article-block__excerpt">
+                    {{ attachment.excerpt }}
+                </div>
+            {% endif %}
+            <div class="article-block__external-disclaimer">
+                <span>this link goes some strange place beyond this website</span>
+                <span>go with care</span>
+            </div>
+            <a class="article-block__link with-arrow with-arrow--out" href="{{ attachment.url }}">Read more</a>
+        {% endif %}
+    </article>
+    {% endif %}
+    <footer class="post__footer">
+        <time class="dt-published post__date">{{ date | humanReadableDateTime }}</time>
+        <div class="post__links">
+            {% if blueskyUrl %}
+            <a class="post__link" href="{{ blueskyUrl }}">
+                {{ socialIcon({ icon: 'bluesky' }) }}
+                <span class="visually-hidden">View on Bluesky</span>
+            </a>
+            {% endif %}
+            {% if mastodonUrl %}
+            <a class="post__link" href="{{ mastodonUrl }}">
+                {{ socialIcon({ icon: 'mastodon' }) }}
+                <span class="visually-hidden">View on Mastodon</span>
+            </a>
+            {% endif %}
+            <a class="post__permalink" href="/micro/{{ date | toISOString | slugify }}">Permalink</a>
+        </div>
+    </footer>
+</article>
+{% endmacro %}

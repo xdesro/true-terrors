@@ -33,10 +33,29 @@
     margin-block-end: 2rem;
   }
 
+  &__attachment {
+    grid-column: 1 / -1;
+    position: relative;
+    padding-block: 1.5rem;
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+    border-block: 2px dashed var(--color-border-light);
+    margin-block-end: 2rem;
+
+    &--external {
+      margin-block-start: 1rem;
+    }
+  }
+
+  .article-block__external-disclaimer {
+    inset-inline: 1.5rem;
+  }
+
   &__footer {
     font-size: 0.75rem;
     line-height: 1.1;
     display: flex;
+    grid-column: 1 / -1;
     justify-content: space-between;
     text-transform: uppercase;
     color: $color-text-mid;

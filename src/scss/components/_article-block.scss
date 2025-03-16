@@ -40,33 +40,6 @@
     .article-block__excerpt {
       font-family: $font-sans;
     }
-
-    .article-block__external-disclaimer {
-      font-family: $font-sans;
-      font-size: 0.75rem;
-      position: absolute;
-      inset-inline: 0;
-      bottom: calc(100% + 0.5rem);
-      display: flex;
-      justify-content: space-between;
-      text-transform: uppercase;
-      color: #777;
-
-      @include screen(1200px) {
-        font-size: clamp(0.61rem, -0.1536rem + 1.0182vw, 0.75rem);
-      }
-      @include screen(1420px) {
-        font-size: 0.75rem;
-      }
-
-      span:last-child {
-        display: none;
-
-        @include screen(sm) {
-          display: inline-block;
-        }
-      }
-    }
   }
 
   &--featured,
@@ -164,6 +137,33 @@
 
     &:hover {
       background-size: 100% 1px;
+    }
+  }
+
+  &__external-disclaimer {
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    position: absolute;
+    inset-inline: 0;
+    bottom: calc(100% + 0.5rem);
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: #777;
+
+    @include screen(1200px) {
+      font-size: clamp(0.61rem, -0.1536rem + 1.0182vw, 0.75rem);
+    }
+    @include screen(1420px) {
+      font-size: 0.75rem;
+    }
+
+    span:last-child {
+      display: none;
+
+      @include screen(sm) {
+        display: inline-block;
+      }
     }
   }
 }
