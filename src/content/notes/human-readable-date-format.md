@@ -11,16 +11,16 @@ hasToc: true
 Have one of these?
 
 ```md
-Sat Mar 01 2025 19:50:03 GMT-0500 (Eastern Standard Time)
+Sat Mar 22 2025 19:50:03 GMT-0500 (Eastern Standard Time)
 
 <!-- or perhaps one of these? -->
-<!-- 2025-03-02T01:23:48.693Z -->
+<!-- 2025-03-22T01:23:48.693Z -->
 ```
 
 Need one of these?
 
 ```txt
-March 1, 2025
+March 22, 2025
 ```
 
 Or some other format? You probably don’t need `moment.js` or piles of StackOverflow-ing into your apartment, you just need `Date.toLocaleDateString()`. Here’s some common use cases:
@@ -29,7 +29,7 @@ Or some other format? You probably don’t need `moment.js` or piles of StackOve
 
 ## Date Only
 
-### March 1, 2025
+### March 22, 2025
 
 ```js
 new Date().toLocaleDateString('en-US', {
@@ -42,12 +42,12 @@ new Date().toLocaleDateString('en-US', {
 This `.toLocaleDateString()` method exists on any `Date` object. If we've got a string that represents a date, we'll need to parse a `Date` object from it first:
 
 ```js
-const someArbitraryDate = new Date(Date.parse('2025-03-02T01:23:48.693Z'));
+const someArbitraryDate = new Date(Date.parse('2025-03-22T01:23:48.693Z'));
 
 someArbitraryDate.toLocaleDateString();
 ```
 
-### 3/1/2025
+### 3/22/2025
 
 ```js
 new Date().toLocaleDateString('en-US');
@@ -63,7 +63,7 @@ new Date().toLocaleDateString('en-US', {
 });
 ```
 
-### 01/03/25 (blimey lol)
+### 22/03/25 (blimey lol)
 
 ```js
 new Date().toLocaleDateString('en-GB', {
@@ -73,7 +73,7 @@ new Date().toLocaleDateString('en-GB', {
 });
 ```
 
-### Saturday, March 1, 2025
+### Saturday, March 22, 2025
 
 ```js
 new Date().toLocaleDateString('en-US', {
@@ -155,13 +155,13 @@ new Date().toLocaleTimeString('en-US', {
 
 You can use `Date.toLocaleString` to combine the two:
 
-### 3/1/2025, 8:08:03 PM
+### 3/22/2025, 8:08:03 PM
 
 ```js
 new Date().toLocaleString('en-US');
 ```
 
-### Mar 1, 2025, 8:08 PM
+### Mar 22, 2025, 8:08 PM
 
 ```js
 new Date().toLocaleString('en-US', {
