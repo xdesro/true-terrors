@@ -79,6 +79,7 @@
 </head>
 
 <body class="no-js {% if bodyClass %}{{ bodyClass }}{% endif %}">
+    {% include 'humanity.njk' %}
     {% renderTemplate "webc", {site: site, backLink: backLink, backLinkText: backLinkText} %}
         <page-nav :@back-link="backLink" :@back-link-text="backLinkText"></page-nav>
     {% endrenderTemplate %}

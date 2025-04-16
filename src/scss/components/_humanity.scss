@@ -1,0 +1,57 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.callout {
+  --d: 200vw;
+  --angle: 45deg;
+  padding: 1rem;
+  position: relative;
+
+  @keyframes AnimationName {
+    0% {
+      background-position: calc(var(--d) / sin(var(--angle))) 0;
+    }
+  }
+
+  &:after {
+    height: 0.5rem;
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    background-size: calc(var(--d) / sin(var(--angle))) 100%;
+    animation: AnimationName 20s linear infinite reverse;
+    background-image: repeating-linear-gradient(
+      var(--angle),
+      rgb(85, 205, 252),
+      rgb(179, 157, 233),
+      rgb(247, 168, 184),
+      rgb(246, 216, 221),
+      rgb(255, 255, 255) calc(var(--d) * 0.45),
+      rgb(255, 255, 255),
+      rgb(255, 255, 255) calc(var(--d) * 0.55),
+      rgb(246, 216, 221),
+      rgb(247, 168, 184),
+      rgb(179, 157, 233),
+      rgb(85, 205, 252) var(--d)
+    );
+  }
+
+  &__title {
+    font-weight: normal;
+    color: $color-text-mid;
+    // font-family: $font-display;
+    font-family: $font-serif-display;
+    text-transform: uppercase;
+    // font-size: clamp(1rem, 5vw, 3rem);
+    line-height: 0.9;
+    // mix-blend-mode: difference;
+    text-align: center;
+
+    @include screen(lg) {
+      font-size: 2.4vw;
+    }
+  }
+}

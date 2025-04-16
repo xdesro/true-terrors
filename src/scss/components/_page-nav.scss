@@ -2,12 +2,14 @@
 @use '../abstract/mixins' as *;
 
 .page-nav {
+  --banner-offset: 5rem;
+
   position: absolute;
   z-index: 3;
   inset-inline: 0;
   top: 0;
   margin-inline: 1rem;
-  padding-block-start: 1rem;
+  padding-block-start: calc(1rem + var(--banner-offset, 0));
   transform: translateY(0);
   text-transform: uppercase;
   text-wrap: balance;
