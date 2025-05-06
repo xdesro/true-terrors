@@ -4,16 +4,17 @@
 .callout {
   --d: 200vw;
   --angle: 45deg;
+
   padding: 1rem;
   position: relative;
 
-  @keyframes AnimationName {
+  @keyframes drift-forever {
     0% {
       background-position: calc(var(--d) / sin(var(--angle))) 0;
     }
   }
 
-  &:after {
+  &::after {
     height: 0.5rem;
     position: absolute;
     inset-block-start: 100%;
@@ -22,7 +23,7 @@
     display: block;
     width: 100%;
     background-size: calc(var(--d) / sin(var(--angle))) 100%;
-    animation: AnimationName 20s linear infinite reverse;
+    animation: drift-forever 20s linear infinite reverse;
     background-image: repeating-linear-gradient(
       var(--angle),
       rgb(85, 205, 252),
