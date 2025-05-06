@@ -87,4 +87,8 @@ export default [
     text: 'whenwe.love',
     url: 'https://whenwe.love/',
   },
+  {
+    text: 'eva.town',
+    url: 'https://eva.town/',
+  },
 ];

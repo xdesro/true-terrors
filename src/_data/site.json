@@ -6,11 +6,6 @@
       "footerClass": "footer__section--garden",
       "links": [
         {
-          "text": "Case Studies",
-          "description": "Long-form project write-ups",
-          "url": "/work"
-        },
-        {
           "text": "Articles",
           "description": "Polished, complete guides and essays.",
           "url": "/writing"
@@ -19,6 +14,11 @@
           "text": "Notes",
           "description": "The tending of seeds and saplings of ideas",
           "url": "/notes"
+        },
+        {
+          "text": "Case Studies",
+          "description": "Long-form project write-ups",
+          "url": "/work"
         }
       ]
     },
