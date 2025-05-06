@@ -2,7 +2,7 @@
 @use '../abstract/mixins' as *;
 
 .page-nav {
-  --banner-offset: 5rem;
+  --banner-offset: 7rem;
 
   position: absolute;
   z-index: 3;
@@ -15,6 +15,9 @@
   text-wrap: balance;
   opacity: 1;
 
+  @include screen(504px) {
+    --banner-offset: 5rem;
+  }
   @include screen(sm) {
     display: grid;
     grid-template-columns: auto auto;
