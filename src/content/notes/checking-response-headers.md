@@ -13,6 +13,8 @@ Fastest cleanest way if you're a Terminal Enjoyer™ is with `curl`:
 curl -I https://henry.codes/
 ```
 
+The `-I` flag, short for `--head`, includes only HTTP headers in the output. [Here’s a tidy little `curl` cheat sheet](https://devhints.io/curl) for you; don't spend it all in one place.{.editors-note}
+
 But if you prefer using a browser dev inspector, you can go `Inspector > Network > HTML > [the current page]` and scroll to Response Headers.
 
 ![A screenshot of a browser window as described, requesting the homepage of henry.codes and revealing its relevant HTTP headers in the right-side inspector panel.](https://res.cloudinary.com/henry-codes/image/upload/v1746557143/CleanShot_2025-05-06_at_12.43.59_2x_htycso.png)
