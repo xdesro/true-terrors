@@ -18,7 +18,7 @@ export default {
       { name: 'Notes', url: '/notes' },
       { name: data.title, url: data.url, isTitle: true },
     ],
-    meta: function ({ topics }) {
+    meta: function ({ topics, readTime }) {
       const topicsList = topics.filter((topic) => {
         return topic != 'code snippet';
       });
@@ -27,7 +27,9 @@ export default {
         type: 'conjunction',
       }).format(topicsList);
       return {
-        description: topics.length && `A quick note about ${formattedList}.`,
+        description:
+          topics.length &&
+          `A quick note about ${formattedList}. It's about a ${readTime}.`,
       };
     },
     og: function ({ title, slug }) {
