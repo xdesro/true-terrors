@@ -15,7 +15,9 @@ topics:
   - the other world
 ---
 
-Anyone online has seen over the past years how the frequency of Palestinian accounts on Bluesky and other platforms has increased, two- and four-fold, folks asking for help and linking to GoFundMes. They share their stories and plea for help, to flee Gaza, to buy price-gouged food for their children, to afford healthcare. I've noticed a strange attitude or a strange silence from my peers in response. There's a reflex to keep staring straight ahead, or there's a great, perfect-posture, chin-up reflex to Verify™. Because [it's easy to sock-puppet on the web](https://en.wikipedia.org/wiki/Sock_puppet_account) these days, and at the end of the day:
+Anyone online has seen over the past years how the frequency of Palestinian accounts on Bluesky and other platforms has increased, two- and four-fold, folks asking for help and linking to GoFundMes. They share their stories and plea for help, to flee Gaza, to buy price-gouged food for their children, to afford healthcare. I have made the choice to move from my values, namely that [_no one asks for help that doesn't need it_](/writing/a-case-for-unconditional-giving/): I make an effort to give aid to everyone who asks me to. But what if it's a mistake to do so?
+
+I've noticed a strange contrary attitude or a strange silence from my peers in response to these requests for aid. There's a reflex to keep staring straight ahead, or there's a great, perfect-posture, chin-up reflex to Verify™. Because [it's easy to sock-puppet on the web](https://en.wikipedia.org/wiki/Sock_puppet_account) these days, and at the end of the day, anonymity is baked into the fiber of the Internet, and you can't possibly know if you're donating to a real person or some deft scammer.
 
 ## You can't possibly know
 
@@ -24,6 +26,12 @@ The folks who genuinely need help are likely indistinguishable from the maliciou
 ## Besides, we donate to legacy aid institutions
 
 I've written about this before, and donating to aid groups like Doctors Without Borders, UNRWA, the World Food Program, etc, is an honorable and necessary act. But in the case of Israel's genocide of the Palestinian people, that critical aid is arriving in a [disturbingly diminished capacity](https://www.wfp.org/news/risk-famine-across-all-gaza-new-report-says), and often [not arriving at all](https://www.bbc.com/news/articles/c9q4w99je78o). That's not to say that these institutions aren't critical, that they don't make a difference. But if your $50 donation is spread among the [now millions of Gazans that need aid to get by](https://www.thenewhumanitarian.org/opinion/2022/05/03/aid-to-palestinians-has-failed-heres-how-to-fix-it), and arrives months from now if ever, it starts to impel questions of whether or not there are more effective ways to make a difference.
+
+## So what if I'm wrong?
+
+What if my GoFundMe donation actually ends up in the hands of a malicious actor? What if I can't afford the time and energy to vet the legitimacy of everyone who asks for help? Won't I be embarassed? Won't I be a fool, won't I have wasted money on something so foolish as hope, as prayer?
+
+_Yes._
 
 ## But what if I'm right?
 
