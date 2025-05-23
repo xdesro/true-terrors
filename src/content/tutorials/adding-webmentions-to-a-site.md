@@ -30,11 +30,15 @@ One of the major tenets of the IndieWeb is this concept that your personal domai
 
 The way `rel="me"` works is:
 
-1. On your website, you can add a link to another online profile or source of identity, such as GitHub, your email inbox, or Mastodon (for this tutorial we'll use GitHub), and add an attribute `rel="me"`, which "indicates that the current resource is represented by the linked party." [More on the rel="me" configuration can be found on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/me). Here's how it might look for me:
+1. On your website, you can add a link to another online profile or source of identity, such as GitHub, your email inbox, or Mastodon (for this tutorial we'll use GitHub, as that's one of the acceptable providers for IndieAuth), and add an attribute `rel="me"`, which "indicates that the current resource is represented by the linked party." [More on the rel="me" configuration can be found on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/me). Here's how it might look for me:
 
    ```html
-   <a href="https://bsky.app/profile/strange.website" rel="me">Bluesky</a>
    <a href="https://github.com/xdesro/" rel="me">GitHub</a>
+
+   <!-- Bluesky & Mastodon links are good use cases for a rel="me" link,
+    but for IndieAuth to work in this demo, we'll need to use GitHub.
+    You could also use your email or a PGP key! -->
+   <a href="https://bsky.app/profile/strange.website" rel="me">Bluesky</a>
    <a href="https://front-end.social/@henry" rel="me">Mastodon</a>
    ```
 
