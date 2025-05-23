@@ -1,10 +1,10 @@
 ---
 title: How to collect Webmentions for your site
 slug: collecting-webmentions
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1739910453/DSCF9710_oenpul.jpg
+heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1748024029/diane-picchiottino-_7VlBuRHsC4-unsplash_estxsa.jpg
 customThreshold: 138
 useHero: true
-excerpt: I'm a twisted animal with a penchant for moving every two years, and the universal upside of moving every two years, as everyone will agree, is hanging new gallery walls. Here’s a guide for how I use Figma to make the process super simple.
+excerpt: Here’s a quick blog post on how to use Webmention.io and some other IndieWeb services to collect webmentions for your site!
 publishDate: 2025-05-23T17:59:28.792Z
 tags:
   - article
