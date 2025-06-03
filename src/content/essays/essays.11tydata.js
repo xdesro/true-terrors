@@ -24,7 +24,7 @@ export default {
       }/opengraph/writing/${slugged}`;
       const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
         ogTargetUrl
-      )}/opengraph`;
+      )}`;
       return ogScreenshotUrl;
     },
     meta: function ({ excerpt }) {
