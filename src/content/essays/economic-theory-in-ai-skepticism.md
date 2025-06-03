@@ -4,6 +4,8 @@ slug: economics-and-labor-rights-in-ai-skepticism
 abstract: There's a growing attitude in the technology industry is that LLM technology is or will be the next great innovation to our work, but uncritical adoption will be disastrous for labor rights.
 publishDate: 2025-06-03T18:30:55.064Z
 heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1748977311/623e9f92-e556-439a-85eb-15c691a7c1d9_kayg0l.jpg
+eleventyComputed:
+  og: https://henry.codes/img/og/og-economic-theory-in-ai-skepticism.png
 customThreshold: 150
 useHero: true
 tags:
