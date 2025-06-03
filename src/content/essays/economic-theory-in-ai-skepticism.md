@@ -19,7 +19,7 @@ topics:
 
 There's a growing attitude in the technology industry that LLM technology is, or will be, the next great innovation to our work. Business owners and workers alike seem to be in unlikely agreement: owners are thrilled at the prospect of making their businesses more efficient and productive, and workers are thrilled at the prospect of simplifying their workstreams or making their jobs easier. It's a surprising alliance in the prevailing economic system.
 
-This post assumes claims of LLM force multiplication and efficiency gains to be true. There is plenty of criticism of countless aspects of LLM technologies online, but this post engages primarily with the economic concerns.{.editors-note}
+This is a post about the economic implications of adopting AI in your work, not about whether or not they actually improve your productivity. For the sake of argument, this will assume there is some productivity added. There is plenty of criticism of countless aspects of AI/LLMs/et al technologies online, but this post engages primarily with the concerns of labor.{.editors-note}
 
 ## Some context on capitalism
 
