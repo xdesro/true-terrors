@@ -47,7 +47,7 @@ In the `woff2` directory:
 make clean all
 ```
 
-If there were no errors, we should be good to go! (If there _were_ errors, [send me a DM](https://twitter.com/messages/compose?recipient_id=2509306208) and we'll debug through so it so I can update this blog post with troubleshooting steps.
+If there were no errors, we should be good to go! (If there _were_ errors, get at me [via email](mailto:yo@henry.codes) or [on Bluesky](https://bsky.app/profile/strange.website)) and we'll debug through so it so I can update this blog post with troubleshooting steps.
 
 ## Converting the `.TTF`
 
@@ -68,4 +68,4 @@ Compressed 216568 to 94577.
 
 And voilà, we've got a variable WOFF2 file, ready for use on the web.
 
-Thanks for taking the time to read this. If you've got any questions or concerns, please [reach out and touch faith](https://twitter.com/messages/compose?recipient_id=2509306208) and we'll work through it together! Have a great day.
+Thanks for taking the time to read this. If you've got any questions or concerns, please [reach out and touch faith](https://bsky.app/profile/strange.website) and we'll work through it together! Have a great day.

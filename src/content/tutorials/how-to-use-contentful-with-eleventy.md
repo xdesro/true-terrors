@@ -142,8 +142,8 @@ CTF_CDA_ACCESS_TOKEN=HuKYnGA87XYI0cNM...
 We now need a Contentful client with which to ask the content API for posts. Let's create a file `utils.js` in the root of our directory and create our client in there, using the `dotenv` package we installed earlier to reference our local `.env` variables.
 
 ```js
-require("dotenv").config();
-const contentful = require("contentful");
+require('dotenv').config();
+const contentful = require('contentful');
 
 const contentfulClient = contentful.createClient({
   accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
@@ -161,14 +161,14 @@ Now we can create a JavaScript file in the `_data` directory that will grab all 
 
 ```js
 // import the client we just created
-const client = require("../utils").contentfulClient;
+const client = require('../utils').contentfulClient;
 
 module.exports = async () => {
   // create a request for all entries that match our post type.
   // we can use the `order` property to sort them reverse-chronologically by their published date.
   const posts = await client.getEntries({
-    content_type: "post",
-    order: "-fields.publishDate",
+    content_type: 'post',
+    order: '-fields.publishDate',
   });
   return posts.items;
 };
@@ -260,10 +260,12 @@ The "Rich Text" concept in Contentful is extremely powerful, as it allows you to
 We'll install the Contentful renderer as an Eleventy filter. Create a file `.eleventy.js` at the root of the project, and add the following:
 
 ```js
-const { documentToHtmlString } = require("@contentful/rich-text-html-renderer");
+const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addFilter("renderRichTextAsHtml", (value) => documentToHtmlString(value));
+  eleventyConfig.addFilter('renderRichTextAsHtml', (value) =>
+    documentToHtmlString(value)
+  );
 };
 ```
 
@@ -285,7 +287,7 @@ Looking genuinely exceptional, I'd say. You're great at the work you do. You're 
 
 ## Conclusion
 
-Feel free to [reach out and touch faith](https://bsky.app/profile/strange.website) on Twitter if you've got questions about this article. It would be great to expand this article upon finding new challenges folks face with this integration. I reckon this could also cover:
+Feel free to [reach out and touch faith](https://bsky.app/profile/strange.website) on Bluesky if you've got questions about this article. It would be great to expand this article upon finding new challenges folks face with this integration. I reckon this could also cover:
 
 - Using the GraphQL API (_as mentioned, I'm not particularly an advocate of this approach, but I know some folks like it and want to use it._)
 - Extending the Contentful Rich Text engine to render references (it really is incredibly powerful for content creation).
