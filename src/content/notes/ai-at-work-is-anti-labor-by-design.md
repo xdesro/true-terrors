@@ -24,4 +24,4 @@ Reject AI: reject its devaluation of your fellow workers' labor and its destruct
 
 ### Further reading
 
-I’ve also [written a bit more about the inherent anti-labor tilt of the AI project](writing/economics-and-labor-rights-in-ai-skepticism/) elsewhere on the blog :)
+I’ve also [written a bit more about the inherent anti-labor tilt of the AI project](/writing/economics-and-labor-rights-in-ai-skepticism/) elsewhere on the blog :)
