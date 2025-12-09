@@ -43,13 +43,11 @@
   &__title {
     font-weight: normal;
     color: $color-text-mid;
-    // font-family: $font-display;
     font-family: $font-serif-display;
     text-transform: uppercase;
-    // font-size: clamp(1rem, 5vw, 3rem);
     line-height: 0.9;
-    // mix-blend-mode: difference;
     text-align: center;
+    font-size: 1.4rem;
 
     @include screen(lg) {
       font-size: 2.4vw;
