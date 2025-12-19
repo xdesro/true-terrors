@@ -22,7 +22,7 @@ export default {
       const ogTargetUrl = `${
         process.env.URL || 'localhost:8080'
       }/opengraph/writing/${slugged}`;
-      const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
+      const ogScreenshotUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(
         ogTargetUrl
       )}/opengraph`;
       return ogScreenshotUrl;

@@ -38,7 +38,7 @@ export default {
         slugged = this.slugify(title);
       }
       const ogTargetUrl = `https://henry.codes/opengraph/writing/${slugged}`;
-      const ogScreenshotUrl = `https://screenshot.henry.codes/${encodeURIComponent(
+      const ogScreenshotUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(
         ogTargetUrl
       )}/opengraph`;
       return ogScreenshotUrl;
