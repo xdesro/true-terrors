@@ -7,7 +7,8 @@ useHero: true
 excerpt: I got an email recently from a kind online friend asking to learn about my process or what makes a good website. It's also good impetus for me to be a little more candid and critical about my practice — here's my breakdown on how to make a Good Website.
 publishDate: 2023-01-16T22:31-05:00
 socialSharingImage: ./img/ct5.how-to-make-a-website.png
-featured: true
+featured: false
+highlighted: true
 tags:
   - article
 category: resource
