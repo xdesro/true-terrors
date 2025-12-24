@@ -1,203 +1,13 @@
 @use '../vendor/reset';
 
-@use '../abstract/mixins' as *;
-@use '../abstract/variables' as *;
+// @use '../abstract/mixins' as *;
+@use '../abstract/variables' as g;
 
-$image-dir: '/img/custom/a-website-to-destroy-all-websites';
+@use './abstract' as *;
+@use './fonts' as *;
+@use './base' as *;
 
-$color-fog: #eae8e1;
-$color-oil: #32332e;
-$color-ash: #c5c5ba;
-
-$font-display: 'DaVinci', 'Louize Display', 'Louize', 'Times New Roman', serif;
-$font-display-secondary: 'Louize Display', 'Louize', 'Times New Roman', serif;
-$font-mono: 'SFMono', 'SF Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono',
-  'Ubuntu Mono', monospace;
-
-$spacing-large: 6.25rem;
-$spacing-small: 3.75rem;
-
-@mixin davinci {
-  font-family: $font-display;
-  font-weight: normal;
-  line-height: 1;
-  letter-spacing: -0.05em;
-}
-
-@mixin label {
-  font-style: italic;
-  position: absolute;
-  top: -0.6em;
-  display: inline-block;
-  padding-inline: 0.625rem;
-  background-color: var(--color-contrast);
-}
-
-@font-face {
-  font-family: 'DaVinci';
-  font-weight: normal;
-  font-style: normal;
-  src: url('/fonts/TRJNDaVinci-Regular.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'DaVinci';
-  font-weight: normal;
-  font-style: italic;
-  src: url('/fonts/TRJNDaVinci-Italic.woff') format('woff');
-}
-
-:root {
-  --color-contrast: #{$color-fog};
-  --color-primary: #{$color-oil};
-  --color-background: var(--color-contrast);
-  --color-text: var(--color-primary);
-  --color-border: #{$color-ash};
-}
-
-::selection {
-  background-color: hsla(47, 18%, 30%, 0.2);
-}
-
-html {
-  overscroll-behavior-y: none;
-
-  &:focus-within {
-    scroll-behavior: smooth;
-  }
-}
-
-body {
-  font-family: $font-serif;
-  color: var(--color-text);
-  background-color: var(--color-background);
-}
-
-picture img {
-  width: 100%;
-  height: 100%;
-}
-
-figure {
-  > picture,
-  > img {
-    margin-block-end: 0.5rem;
-  }
-  figcaption {
-    font-size: 0.75rem;
-    text-align: right;
-  }
-}
-p {
-  code {
-    font-family: $font-mono;
-    font-size: 0.75em;
-    white-space: nowrap;
-    color: #a18c3a;
-    font-size: 0.75em;
-    border: 1px solid hsl(48, 47%, 63%);
-    padding-inline: 0.5ch;
-    border-radius: 4px;
-  }
-}
-a {
-  &:is(:hover, :focus, :active) {
-    opacity: 0.8;
-  }
-  &:has(> code) {
-    text-decoration: none;
-  }
-}
-
-section {
-  scroll-margin-block-start: 11rem;
-}
-.footnote-inline {
-  font-size: 0.5em;
-  vertical-align: super;
-  color: inherit;
-}
-
-.rendered {
-  margin-block-end: $spacing-large;
-  margin-inline: 1rem;
-
-  &:has(+ .rendered) {
-    margin-block-end: $spacing-small;
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin-block-end: 1em;
-  }
-}
-
-.divider {
-  position: relative;
-  overflow: visible;
-  border: none;
-  border-top: 1px solid var(--color-border);
-
-  &:before {
-    line-height: 1;
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    padding-inline: 0.625rem;
-    content: '§';
-    transform: translateY(-70%) translateX(-50%);
-    color: var(--color-text);
-    background-color: var(--color-background);
-  }
-}
-
-.intro {
-  position: relative;
-  display: grid;
-  margin: 1.25rem 1rem $spacing-large;
-  padding: $spacing-small 1rem;
-  outline: 1px solid var(--color-border);
-  &__title {
-    font-family: $font-display;
-    font-size: 4.5rem;
-    font-weight: normal;
-    line-height: 1;
-    margin-block-end: 2rem;
-    text-align: center;
-    letter-spacing: -0.05em;
-    > span {
-      font-style: italic;
-    }
-    > em {
-      font-style: normal;
-      color: #9a9a9a;
-    }
-  }
-  &__subtitle {
-    font-size: 1.25rem;
-    text-align: center;
-    span {
-      // display: block;
-    }
-  }
-  &__label {
-    left: 1rem;
-    text-decoration: none;
-    color: inherit;
-
-    @include label;
-    text-underline-offset: 1px;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  &__card {
-    grid-row: 1;
-    max-width: 16rem;
-    margin-block-end: 2rem;
-    margin-inline: auto;
-  }
-}
+@use './intro';
 
 .toc {
   margin-block-end: $spacing-large;
@@ -259,6 +69,8 @@ section {
   &__title {
     font-family: $font-display;
     font-size: 4.5rem;
+    font-size: clamp(4.5rem, 17vw, 7.75rem);
+
     font-weight: normal;
     line-height: 0.9;
     display: grid;
@@ -312,9 +124,10 @@ section {
     @include davinci;
 
     font-size: 3rem;
+    justify-self: center;
     position: absolute;
     align-self: center;
-    margin-block-start: -1rem;
+    margixn-block-start: -1rem;
     text-align: center;
     color: #fefefe;
   }

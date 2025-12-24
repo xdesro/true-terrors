@@ -1,0 +1,29 @@
+$image-dir: '/img/custom/a-website-to-destroy-all-websites';
+
+$color-fog: #eae8e1;
+$color-oil: #32332e;
+$color-ash: #c5c5ba;
+
+$font-display: 'DaVinci', 'Louize Display', 'Louize', 'Times New Roman', serif;
+$font-display-secondary: 'Louize Display', 'Louize', 'Times New Roman', serif;
+$font-mono: 'SFMono', 'SF Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono',
+  'Ubuntu Mono', monospace;
+
+$spacing-large: 6.25rem;
+$spacing-small: 3.75rem;
+
+@mixin davinci {
+  font-family: $font-display;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+@mixin label {
+  font-style: italic;
+  position: absolute;
+  top: -0.6em;
+  display: inline-block;
+  padding-inline: 0.625rem;
+  background-color: var(--color-contrast);
+}

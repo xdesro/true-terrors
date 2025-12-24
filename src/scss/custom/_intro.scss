@@ -1,0 +1,104 @@
+@use '../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.intro {
+  position: relative;
+  display: grid;
+  margin: 1.25rem 1rem $spacing-large;
+  padding: $spacing-small 1rem;
+  outline: 1px solid var(--color-border);
+  @include screen(lg) {
+    overflow-x: clip;
+  }
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(4.5rem, 17vw, 5.5rem);
+    font-weight: normal;
+    line-height: 1;
+    margin-block-end: 2rem;
+    text-align: center;
+    letter-spacing: -0.05em;
+
+    @include screen(lg) {
+      font-size: 7.9vw;
+      white-space: nowrap;
+      z-index: 1;
+      padding-block: 0.15em;
+      position: absolute;
+      top: 50%;
+      left: -1ch;
+      right: -1ch;
+      margin-inline: auto;
+      transform: translateY(-92%);
+    }
+    > span {
+      font-style: italic;
+    }
+    > em {
+      font-style: normal;
+      color: #9a9a9a;
+      @include screen(lg) {
+        margin-inline: 0.5ch;
+        color: #fefefe;
+      }
+    }
+  }
+  &__subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+    text-wrap: balance;
+    @include screen(lg) {
+      display: grid;
+      grid-template-columns: 1fr 40vw 1fr;
+      gap: 1rem;
+      position: absolute;
+      width: 100%;
+      top: 54%;
+      font-size: clamp(1.25rem, 2.1vw, 2rem);
+    }
+    @include screen(1200px) {
+    }
+
+    span {
+      // display: block;
+      @include screen(lg) {
+        // position: absolute;
+        // top: calc(50% + 2rem);
+        max-width: 20ch;
+        margin-inline: auto;
+        &:nth-of-type(1) {
+          //   left: 25%;
+          //   transform: translateX(-80%);
+        }
+        &:nth-of-type(2) {
+          grid-column: 3;
+          //   right: 25%;
+          //   transform: translateX(80%);
+        }
+      }
+    }
+  }
+  &__label {
+    left: 1rem;
+    text-decoration: none;
+    color: inherit;
+
+    @include label;
+    text-underline-offset: 1px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__card {
+    grid-row: 1;
+    max-width: 16rem;
+    margin-block-end: 2rem;
+    margin-inline: auto;
+
+    @include screen(sm) {
+      transform: translateX(1vw);
+      max-width: 36vw;
+    }
+  }
+}
