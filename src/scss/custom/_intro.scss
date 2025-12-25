@@ -5,13 +5,21 @@
 .intro {
   position: relative;
   display: grid;
-  margin: 1.25rem 1rem $spacing-large;
-  padding: $spacing-small 1rem;
-  outline: 1px solid var(--color-border);
+  padding: var(--spacing-small) 0;
+  margin-block-end: var(--spacing-large);
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 1.25rem;
+    outline: 1px solid var(--color-border);
+  }
 
   @include screen(lg) {
     overflow-x: clip;
-    margin: 1.5rem 1.5rem 10rem;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    // margin: 1.5rem 1.5rem 10rem;
   }
   &__title {
     font-family: $font-display;
@@ -21,11 +29,11 @@
     margin-block-end: 2rem;
     text-align: center;
     letter-spacing: -0.05em;
+    z-index: 1;
 
     @include screen(lg) {
       font-size: 7.9vw;
       position: absolute;
-      z-index: 1;
       top: 50%;
       right: -1ch;
       left: -1ch;
@@ -51,38 +59,47 @@
     font-size: 1.25rem;
     text-align: center;
     text-wrap: balance;
+    padding-inline: 1.5rem;
 
     @include screen(lg) {
+      padding-inline: 0;
       font-size: clamp(1.25rem, 2.1vw, 2rem);
       position: absolute;
       top: 54%;
       display: grid;
       gap: 1rem;
-      grid-template-columns: 1fr 40vw 1fr;
+      grid-template-columns: repeat(16, minmax(0, 1fr));
       width: 100%;
-    }
-    @include screen(1200px) {
     }
 
     span {
       @include screen(lg) {
         max-width: 20ch;
         margin-inline: auto;
+        &:nth-of-type(1) {
+          grid-column: 1 / span 6;
+        }
         &:nth-of-type(2) {
-          grid-column: 3;
+          grid-column: 12 / span 6;
         }
       }
     }
   }
   &__label {
-    left: 1rem;
+    @include label();
+
+    left: 2.5rem;
+    top: 0.6rem;
     text-decoration: none;
     color: inherit;
-
-    @include label;
     text-underline-offset: 1px;
+
     &:hover {
       text-decoration: underline;
+    }
+    @include screen(sm) {
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   &__card {
@@ -94,6 +111,11 @@
     @include screen(sm) {
       max-width: 36vw;
       transform: translateX(0.5vw);
+    }
+    @include screen(lg) {
+      transform: translateX(0);
+      max-width: unset;
+      grid-column: 6 / span 6;
     }
   }
 }

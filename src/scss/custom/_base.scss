@@ -9,6 +9,12 @@
   --color-background: var(--color-contrast);
   --color-text: var(--color-primary);
   --color-border: #{$color-ash};
+  --spacing-small: 3.75rem;
+  --spacing-large: 6.25rem;
+  @include screen(lg) {
+    --spacing-small: 6rem;
+    --spacing-large: 8rem;
+  }
 }
 
 ::selection {
@@ -75,16 +81,21 @@ section {
 }
 
 .rendered {
-  margin-block-end: $spacing-large;
-  margin-inline: 1rem;
-
+  margin-block-end: var(--spacing-large);
+  display: grid;
+  grid-template-columns: subgrid;
+  // margin-inline: 1rem;
+  @include screen(sm) {
+    margin-inline: unset;
+  }
   &:has(+ .rendered) {
-    margin-block-end: $spacing-small;
+    margin-block-end: var(--spacing-small);
   }
 
   p {
     font-size: 1.25rem;
     margin-block-end: 1em;
+    grid-column: 1 / -1;
 
     @include screen(sm) {
       font-size: 1rem;
@@ -92,17 +103,13 @@ section {
   }
 
   @include screen(sm) {
-    display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    column-gap: 1rem;
     p {
       grid-column: 2 / span 6;
     }
   }
   @include screen(lg) {
-    grid-template-columns: repeat(16, minmax(0, 1fr));
     p {
-      grid-column: 6 / span 6;
+      grid-column: 7 / span 4;
     }
   }
 }

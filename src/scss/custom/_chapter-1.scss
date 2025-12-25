@@ -3,29 +3,35 @@
 @use './abstract' as *;
 
 .chapter-one {
-  margin-block-start: $spacing-large;
+  @include magazine-grid;
+  margin-block-start: var(--spacing-large);
 
   @include screen(sm) {
     margin-block-start: 17rem;
   }
 
+  > * {
+    grid-column: 1 / -1;
+  }
+
   .rendered {
+    display: grid;
+    grid-template-columns: subgrid;
     p {
       @include screen(sm) {
         max-width: 22.125rem;
         margin-inline: auto;
+      }
+      @include screen(lg) {
         text-align: justify;
       }
     }
     &:first-of-type > p:first-of-type {
-      width: 22.125rem;
+      width: 100%;
     }
   }
   .three-up {
     @include screen(lg) {
-      // display: grid;
-      // grid-template-columns: repeat(3, minmax(0, 1fr));
-      // column-gap: 1rem;
       &:before {
         grid-column: 7;
         grid-row: 3;
@@ -54,20 +60,24 @@
 
 .chapter-one-hero {
   --font: clamp(4.5rem, 17vw, 7.75rem);
-  margin-block-end: $spacing-large;
+  grid-column: 1 / -1;
+  margin-block-end: var(--spacing-large);
   padding-inline: 1rem;
 
   @include screen(sm) {
     --font: clamp(4.125rem, 10vw, 7.75rem);
     margin-block-end: 8rem;
+    padding-inline: unset;
+    transform: translateX(2vw);
 
     --frame: min(41vw, 37.5rem);
   }
   @include screen(lg) {
     position: relative;
+    transform: unset;
   }
   .chapter-counter {
-    margin-block-end: $spacing-small;
+    margin-block-end: var(--spacing-small);
 
     @include screen(sm) {
       margin-block-end: 8rem;
@@ -162,7 +172,7 @@
 .pastoral-aside {
   position: relative;
   display: grid;
-  margin-block-end: $spacing-large;
+  margin-block-end: var(--spacing-large);
 
   @include screen(lg) {
     display: grid;
@@ -174,7 +184,7 @@
     grid-row: 1;
 
     @include screen(lg) {
-      grid-column: 2 / span 13;
+      grid-column: 2 / span 14;
     }
   }
 
@@ -202,10 +212,13 @@
 
 .disclaimer {
   position: relative;
-  //  padding:1rem;
-  margin: 0 1rem $spacing-large;
-  padding-block: $spacing-small;
+  margin-block-end: var(--spacing-large);
+  padding-block: var(--spacing-small);
   outline: 1px solid var(--color-border);
+
+  @include screen(lg) {
+    grid-column: 2 / span 14;
+  }
   &__text {
     @include davinci;
 
@@ -221,10 +234,10 @@
     }
   }
   &__label {
+    @include label;
+
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
-
-    @include label;
   }
 }

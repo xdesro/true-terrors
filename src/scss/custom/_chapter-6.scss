@@ -1,0 +1,65 @@
+@use '../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.chapter-six {
+}
+.chapter-six-hero {
+  position: relative;
+  margin-block-end: var(--spacing-small);
+  &__inner {
+    position: absolute;
+    z-index: 2;
+    inset-inline: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fefefe;
+  }
+  .chapter-counter {
+    margin-block-end: 1.5rem;
+  }
+  &__title {
+    @include davinci;
+
+    font-size: 4rem;
+    font-style: italic;
+  }
+  figcaption {
+    margin-inline-end: 1rem;
+  }
+}
+
+.works-cited {
+  padding-inline: 1rem;
+  &__title {
+    font-family: $font-display-secondary;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-block-end: var(--spacing-small);
+  }
+}
+.works-cited-list {
+  padding: 0;
+  margin: 0;
+  counter-reset: works;
+  margin-block-end: var(--spacing-large);
+
+  li {
+    counter-increment: works;
+    list-style: none;
+    margin-block-end: 1em;
+    &:before {
+      content: counter(works);
+      font-size: 0.75em;
+      vertical-align: super;
+      margin-inline-end: 1ch;
+    }
+  }
+  :target {
+    outline: 1px dashed var(--color-border);
+    outline-offset: 0.5rem;
+    scroll-margin-block-start: 1rem;
+  }
+}

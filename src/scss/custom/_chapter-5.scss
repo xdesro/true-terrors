@@ -1,0 +1,95 @@
+@use '../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.chapter-five {
+  margin-block-start: var(--spacing-large);
+  scroll-margin-block-start: var(--spacing-large);
+}
+.chapter-five-hero {
+  position: relative;
+  margin-block-end: var(--spacing-large);
+  margin-inline: 1rem;
+  text-align: center;
+  &__inner {
+    position: absolute;
+    inset-block-start: var(--spacing-large);
+    inset-inline: 0;
+    color: #fefefe;
+  }
+  .chapter-counter {
+    margin-block-end: var(--spacing-large);
+  }
+  &__title {
+    @include davinci;
+
+    font-size: 4.5rem;
+  }
+  figure {
+    position: relative;
+    z-index: -1;
+  }
+  img {
+    height: 45rem;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+}
+
+.websites-callout {
+  @include davinci;
+
+  font-size: 4.5rem;
+  font-style: italic;
+  margin-block-end: var(--spacing-large);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  text-align: center;
+}
+
+.steps-list {
+  margin: 0;
+  margin-block-end: var(--spacing-large);
+  padding: 0;
+  counter-reset: steps;
+}
+
+.steps-list-item {
+  margin-block-end: var(--spacing-small);
+  padding-inline: 1rem;
+  counter-increment: steps;
+  &:last-child {
+    margin-block-end: 0;
+  }
+  &:before {
+    font-family: $font-display-secondary;
+    font-size: 2rem;
+    font-weight: 300;
+    display: block;
+    max-width: 3rem;
+    aspect-ratio: 1;
+    margin-block-end: 2rem;
+    margin-inline: auto;
+    // content: counter(steps) '.';
+    content: counter(steps);
+    text-align: center;
+    color: #a18c3a;
+    border: 1px solid currentColor;
+    border-radius: 100%;
+  }
+  h3 {
+    font-family: $font-display-secondary;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+    margin-block-end: var(--spacing-small);
+    text-align: center;
+    em {
+      font-style: normal;
+    }
+  }
+  p {
+    font-size: 1.25rem;
+  }
+}
