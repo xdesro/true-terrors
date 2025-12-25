@@ -36,14 +36,8 @@
   }
   &__title {
     @include davinci;
-
     font-size: clamp(4.5rem, 12vw, 7.5rem);
     padding-inline: 1rem;
-    @include screen(lg) {
-      // position: absolute;
-      // top: 50%;
-      // font-size: 7.5rem;
-    }
   }
   figure {
     position: relative;

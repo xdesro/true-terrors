@@ -3,10 +3,41 @@
 @use './abstract' as *;
 
 .chapter-six {
+  @include magazine-grid;
+  margin-block-end: var(--spacing-large);
+
+  > * {
+    grid-column: 1 / -1;
+  }
+  .rendered {
+    margin-block-end: 0;
+    p {
+      @include screen(lg) {
+        grid-column: 6 / -6;
+      }
+    }
+  }
+  .fin {
+    @include davinci;
+    text-align: center;
+    margin-block: var(--spacing-small);
+    font-size: 2rem;
+    font-feature-settings: 'liga';
+  }
+  .go-home {
+    text-align: center;
+    font-style: italic;
+    display: block;
+    color: #9a9a9a;
+  }
 }
 .chapter-six-hero {
   position: relative;
   margin-block-end: var(--spacing-small);
+  margin-inline: -1rem;
+  @include screen(sm) {
+    margin-inline: -1.5rem;
+  }
   &__inner {
     position: absolute;
     z-index: 2;
@@ -22,7 +53,8 @@
   &__title {
     @include davinci;
 
-    font-size: 4rem;
+    font-size: clamp(4rem, 12vw, 7.5rem);
+
     font-style: italic;
   }
   img {
@@ -32,39 +64,5 @@
   }
   figcaption {
     margin-inline-end: 1rem;
-  }
-}
-
-.works-cited {
-  padding-inline: 1rem;
-  &__title {
-    font-family: $font-display-secondary;
-    font-size: 2rem;
-    font-weight: 300;
-    font-style: italic;
-    margin-block-end: var(--spacing-small);
-  }
-}
-.works-cited-list {
-  padding: 0;
-  margin: 0;
-  counter-reset: works;
-  margin-block-end: var(--spacing-large);
-
-  li {
-    counter-increment: works;
-    list-style: none;
-    margin-block-end: 1em;
-    &:before {
-      content: counter(works);
-      font-size: 0.75em;
-      vertical-align: super;
-      margin-inline-end: 1ch;
-    }
-  }
-  :target {
-    outline: 1px dashed var(--color-border);
-    outline-offset: 0.5rem;
-    scroll-margin-block-start: 1rem;
   }
 }
