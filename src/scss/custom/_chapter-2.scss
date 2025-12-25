@@ -4,6 +4,7 @@
 
 .chapter-two {
   @include magazine-grid;
+
   margin-block-start: var(--spacing-large);
   > * {
     grid-column: 1 / -1;
@@ -12,40 +13,124 @@
 
 .chapter-two-hero {
   position: relative;
+  max-width: 34.625rem;
   margin-block-end: var(--spacing-large);
+  margin-inline: auto;
+
+  @include screen(lg) {
+    max-width: auto;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
   .chapter-counter {
     margin-block-end: var(--spacing-small);
+    @include screen(lg) {
+      grid-column: 1/ -1;
+      grid-row: 1;
+    }
+  }
+  &__inner {
+    @include screen(lg) {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+    }
   }
   &__title {
     @include davinci;
 
+    --font: clamp(6.2rem, 20vw, 7.5rem);
+    font-size: var(--font);
     color: #fefefe;
+    @include screen(lg) {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1 / -1;
+      margin-block-end: 6rem;
+      color: var(--color-text);
+      font-size: 9.3vw;
+    }
     > span {
       position: absolute;
+      @include screen(lg) {
+        position: relative;
+      }
+
       &:nth-of-type(1) {
-        bottom: calc(1.7rem + 17vw);
+        font-size: 1.75rem;
+        bottom: calc(1.6rem + var(--font));
         left: 3vw;
+        letter-spacing: -0.05em;
+        @include screen(lg) {
+          text-align: right;
+          align-self: end;
+          position: relative;
+          left: unset;
+          bottom: unset;
+          grid-column: 1 / span 9;
+          grid-row: 2;
+          font-size: inherit;
+        }
+        > span:last-child {
+          @include screen(lg) {
+            display: block;
+            font-style: italic;
+          }
+        }
       }
       &:nth-of-type(2) {
-        font-size: 18vw;
         inset-block-end: 1.7rem;
         inset-inline: 0;
         text-align: center;
+        @include screen(lg) {
+          inset: unset;
+          grid-column: 10 / span 7;
+          font-size: 9.3vw;
+          position: relative;
+          grid-row: 2;
+          align-self: end;
+          color: #fefefe;
+        }
       }
     }
   }
   &__frame {
-    figcaption {
-      // margin-inline-end: 1rem;
+    @include screen(lg) {
+      grid-row: 1 / span 2;
+      grid-column: 10 / span 7;
     }
   }
 }
 
 .no-longer-aside {
   margin-block-end: var(--spacing-large);
+
+  @include screen(sm) {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  @include screen(lg) {
+    align-items: center;
+  }
   figure {
+    @include screen(sm) {
+      grid-column-end: span 4;
+    }
+    @include screen(lg) {
+      grid-column-end: span 5;
+    }
     &:nth-of-type(1) {
       margin-block-end: 1.5rem;
+    }
+    &:nth-of-type(2) {
+      @include screen(sm) {
+        grid-column-start: 5;
+      }
+      @include screen(lg) {
+        grid-column-start: auto;
+      }
     }
   }
   &__text {
@@ -54,6 +139,17 @@
     font-size: 2rem;
     line-height: 1.2;
     margin-block-end: 1rem;
+
+    @include screen(sm) {
+      font-size: 2.5rem;
+      grid-column: 1 / -1;
+    }
+    @include screen(lg) {
+      grid-column: auto / span 6;
+    }
+    @include screen(xl) {
+      font-size: 3rem;
+    }
 
     span {
       display: block;

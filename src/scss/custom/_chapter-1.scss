@@ -4,6 +4,7 @@
 
 .chapter-one {
   @include magazine-grid;
+
   margin-block-start: var(--spacing-large);
 
   @include screen(sm) {
@@ -31,7 +32,7 @@
     }
   }
   .three-up {
-    @include screen(lg) {
+    @include screen(xl) {
       &:before {
         grid-column: 7;
         grid-row: 3;
@@ -195,11 +196,10 @@
     position: absolute;
     align-self: center;
     justify-self: center;
+    margin-block-start: -1rem;
     padding-inline: 1.5rem;
     text-align: center;
     color: #fefefe;
-
-    margixn-block-start: -1rem;
     span {
       font-style: italic;
     }

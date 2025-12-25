@@ -99,16 +99,13 @@ section {
 
     @include screen(sm) {
       font-size: 1rem;
-    }
-  }
-
-  @include screen(sm) {
-    p {
       grid-column: 2 / span 6;
     }
-  }
-  @include screen(lg) {
-    p {
+    @include screen(lg) {
+      grid-column: 6 / span 6;
+      text-align: justify;
+    }
+    @include screen(xl) {
       grid-column: 7 / span 4;
     }
   }
@@ -121,6 +118,11 @@ section {
 }
 .lg-mk {
   @include screen(lg) {
+    display: none;
+  }
+}
+.xl-mk {
+  @include screen(xl) {
     display: none;
   }
 }

@@ -15,9 +15,6 @@ $grid-xs: repeat(4, minmax(0, 1fr));
 $grid-sm: repeat(8, minmax(0, 1fr));
 $grid-lg: repeat(16, minmax(0, 1fr));
 
-$spacing-large: 6.25rem;
-$spacing-small: 3.75rem;
-
 @mixin davinci {
   font-family: $font-display;
   font-weight: normal;
