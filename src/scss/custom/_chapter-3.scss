@@ -3,11 +3,19 @@
 @use './abstract' as *;
 
 .chapter-three {
+  @include magazine-grid;
+
   margin-block-start: var(--spacing-large);
+
+  > * {
+    grid-column: 1 / -1;
+  }
+  .rendered > p:first-child {
+    hyphens: auto;
+  }
 }
 .chapter-three-hero {
   margin-block-end: var(--spacing-small);
-  margin-inline: 1rem;
   .chapter-counter {
     margin-block-end: var(--spacing-large);
   }
@@ -17,6 +25,11 @@
     font-size: 4.2rem;
     hyphens: auto;
 
+    @include screen(sm) {
+      font-size: clamp(4.2rem, 8.8vw, 7rem);
+      text-align: center;
+    }
+
     span {
       font-style: italic;
       color: #9a9a9a;
@@ -25,15 +38,51 @@
 }
 .tech-lockup {
   font-size: 1.25rem;
-  margin-inline: 1rem;
+  display: grid;
+  grid-template-columns: subgrid;
   > div {
+    grid-column: 1 / -1;
     margin-block-end: var(--spacing-large);
+
+    @include screen(sm) {
+      grid-column: 2 / span 6;
+    }
+    @include screen(lg) {
+      display: grid;
+      grid-column: 2 / span 14;
+      grid-template-columns: subgrid;
+      align-items: first baseline;
+      text-align: justify;
+    }
+    @include screen(xl) {
+      grid-column: 4 / span 10;
+    }
   }
   h3 {
-    @include davinci;
-
+    font-family: $font-display-secondary;
     font-size: 2rem;
+    // @include davinci;
+    font-weight: 100;
+    font-style: italic;
     margin-block-end: var(--spacing-small);
+
+    @include screen(lg) {
+      grid-column-end: span 5;
+    }
+    @include screen(xl) {
+      grid-column-end: span 4;
+    }
+  }
+  p {
+    @include screen(sm) {
+      font-size: 1rem;
+    }
+    @include screen(lg) {
+      grid-column: 6 / -1;
+    }
+    @include screen(xl) {
+      grid-column-start: 5ch;
+    }
   }
 }
 
@@ -43,6 +92,13 @@ picture {
     max-width: 160px;
     margin-block-end: 0.5rem;
     margin-inline-end: 1rem;
+    @include screen(lg) {
+      position: absolute;
+      right: calc(50% + 15rem);
+      rotate: -10deg;
+      float: none;
+      height: auto;
+    }
   }
 }
 .convivial-life {
@@ -51,12 +107,28 @@ picture {
     max-width: 160px;
     margin-block-end: 1rem;
     margin-inline-start: 1rem;
+    @include screen(lg) {
+      position: absolute;
+      left: calc(50% + 15rem);
+      rotate: 10deg;
+      float: none;
+      height: auto;
+    }
   }
   h3 {
-    @include davinci;
-
+    font-family: $font-display-secondary;
     font-size: 2rem;
+    // @include davinci;
+    font-weight: 100;
+    font-style: italic;
     line-height: 1.2;
     margin-block-end: var(--spacing-small);
+
+    @include screen(lg) {
+      text-align: center;
+    }
+  }
+  > p:first-child {
+    hyphens: auto;
   }
 }

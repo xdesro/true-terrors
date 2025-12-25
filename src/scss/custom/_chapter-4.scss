@@ -17,6 +17,7 @@
 .chapter-four-hero {
   position: relative;
   margin-block-end: var(--spacing-large);
+
   img {
     height: 42rem;
     object-fit: cover;
@@ -33,7 +34,7 @@
   &__title {
     @include davinci;
 
-    font-size: 26vw;
+    font-size: min(26vw, 9.375rem);
     font-style: italic;
     line-height: 0.8;
     color: #fefefe;

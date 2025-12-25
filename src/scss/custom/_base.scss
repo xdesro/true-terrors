@@ -91,7 +91,18 @@ section {
   &:has(+ .rendered) {
     margin-block-end: var(--spacing-small);
   }
-
+  h3 {
+    grid-column: 1 / -1;
+    @include screen(sm) {
+      grid-column: 2 / span 6;
+    }
+    @include screen(lg) {
+      grid-column: 5 / span 8;
+    }
+    @include screen(1300px) {
+      // grid-column: 7 / span 4;
+    }
+  }
   p {
     font-size: 1.25rem;
     margin-block-end: 1em;
@@ -105,7 +116,7 @@ section {
       grid-column: 6 / span 6;
       text-align: justify;
     }
-    @include screen(xl) {
+    @include screen(1300px) {
       grid-column: 7 / span 4;
     }
   }

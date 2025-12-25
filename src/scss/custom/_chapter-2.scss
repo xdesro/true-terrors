@@ -50,7 +50,7 @@
       grid-column: 1 / -1;
       margin-block-end: 6rem;
       color: var(--color-text);
-      font-size: 9.3vw;
+      font-size: 9.2vw;
     }
     > span {
       position: absolute;
@@ -87,7 +87,7 @@
         @include screen(lg) {
           inset: unset;
           grid-column: 10 / span 7;
-          font-size: 9.3vw;
+          font-size: inherit;
           position: relative;
           grid-row: 2;
           align-self: end;
@@ -151,17 +151,24 @@
       font-size: 3rem;
     }
 
-    span {
+    > span {
       display: block;
+      line-height: 1;
       &:nth-of-type(1) {
         margin-block-end: var(--spacing-small);
       }
       &:nth-of-type(2) {
         text-align: right;
       }
+      @include screen(lg) {
+        text-wrap: balance;
+      }
     }
     em {
       white-space: nowrap;
+      @include screen(lg) {
+        white-space: unset;
+      }
     }
   }
 }
