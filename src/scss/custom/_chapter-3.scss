@@ -1,0 +1,62 @@
+@use '../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.chapter-three {
+  margin-block-start: var(--spacing-large);
+}
+.chapter-three-hero {
+  margin-block-end: var(--spacing-small);
+  margin-inline: 1rem;
+  .chapter-counter {
+    margin-block-end: var(--spacing-large);
+  }
+  &__title {
+    @include davinci;
+
+    font-size: 4.2rem;
+    hyphens: auto;
+
+    span {
+      font-style: italic;
+      color: #9a9a9a;
+    }
+  }
+}
+.tech-lockup {
+  font-size: 1.25rem;
+  margin-inline: 1rem;
+  > div {
+    margin-block-end: var(--spacing-large);
+  }
+  h3 {
+    @include davinci;
+
+    font-size: 2rem;
+    margin-block-end: var(--spacing-small);
+  }
+}
+
+picture {
+  &:has(.book--tools) {
+    float: inline-start;
+    max-width: 160px;
+    margin-block-end: 0.5rem;
+    margin-inline-end: 1rem;
+  }
+}
+.convivial-life {
+  img {
+    float: inline-end;
+    max-width: 160px;
+    margin-block-end: 1rem;
+    margin-inline-start: 1rem;
+  }
+  h3 {
+    @include davinci;
+
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-block-end: var(--spacing-small);
+  }
+}

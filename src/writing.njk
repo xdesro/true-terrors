@@ -45,13 +45,18 @@
             <p class="writing-section-header__description">The greatest trick the devil ever pulled was getting us to use the word “blog” in everyday conversation. You can <a href="/rss/writing.xml">subscribe to this feed via RSS</a>.</p>
         </header>
         <div class="articles-list">
+            {# Render featured articles first #}
             {% for article in collections['article'] | sortedByPublishDate %}
                 {% if article.data.featured %}
                     {{ articleBlock(article, isFeatured = true) }}
                 {% endif %}
             {% endfor %}
+            {# Then render non-featured articles, as well as 
+               "highlighted" (visually featured but not sorted) posts #}
             {% for article in collections['article'] | sortedByPublishDate %}
-                {% if not article.data.featured %}
+                {% if article.data.highlighted %}
+                    {{ articleBlock(article, isFeatured = true) }}
+                {% elseif not article.data.featured %}
                     {{ articleBlock(article) }}
                 {% endif %}
             {% endfor %}
