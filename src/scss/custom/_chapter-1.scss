@@ -1,0 +1,230 @@
+@use '../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.chapter-one {
+  margin-block-start: $spacing-large;
+
+  @include screen(sm) {
+    margin-block-start: 17rem;
+  }
+
+  .rendered {
+    p {
+      @include screen(sm) {
+        max-width: 22.125rem;
+        margin-inline: auto;
+        text-align: justify;
+      }
+    }
+    &:first-of-type > p:first-of-type {
+      width: 22.125rem;
+    }
+  }
+  .three-up {
+    @include screen(lg) {
+      // display: grid;
+      // grid-template-columns: repeat(3, minmax(0, 1fr));
+      // column-gap: 1rem;
+      &:before {
+        grid-column: 7;
+        grid-row: 3;
+        content: '';
+      }
+      &:after {
+        grid-column: 11;
+        grid-row: 5;
+        content: '';
+      }
+      p {
+        grid-column-end: span 4;
+        &:nth-child(-n + 3) {
+          grid-column-start: 3;
+        }
+        &:nth-child(n + 4):nth-child(-n + 6) {
+          grid-column-start: 7;
+        }
+        &:nth-child(n + 6) {
+          grid-column-start: 11;
+        }
+      }
+    }
+  }
+}
+
+.chapter-one-hero {
+  --font: clamp(4.5rem, 17vw, 7.75rem);
+  margin-block-end: $spacing-large;
+  padding-inline: 1rem;
+
+  @include screen(sm) {
+    --font: clamp(4.125rem, 10vw, 7.75rem);
+    margin-block-end: 8rem;
+
+    --frame: min(41vw, 37.5rem);
+  }
+  @include screen(lg) {
+    position: relative;
+  }
+  .chapter-counter {
+    margin-block-end: $spacing-small;
+
+    @include screen(sm) {
+      margin-block-end: 8rem;
+    }
+    @include screen(lg) {
+      line-height: 1;
+      position: absolute;
+      right: unset;
+      bottom: 7vw;
+      left: 1rem;
+      max-width: 10vw;
+      margin-block-end: 0;
+      text-align: left;
+    }
+  }
+  &__inner {
+    position: relative;
+    display: grid;
+  }
+  &__title {
+    font-family: $font-display;
+    font-size: var(--font);
+    font-weight: normal;
+    line-height: 0.9;
+    display: grid;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    grid-template-rows: subgrid;
+    letter-spacing: -0.05em;
+
+    @include screen(sm) {
+      line-height: 1;
+      gap: 0.5ch;
+      grid-template-columns: minmax(0, 1fr) var(--frame) minmax(0, 2fr);
+      grid-template-rows: unset;
+      align-content: center;
+    }
+    @include screen(lg) {
+      grid-template-columns: 1fr var(--frame) 1fr;
+      justify-content: center;
+    }
+
+    > span {
+      display: block;
+      &:nth-of-type(1) {
+        @include screen(sm) {
+          text-align: right;
+        }
+      }
+      &:nth-of-type(2) {
+        align-self: center;
+        text-align: center;
+        color: #fefefe;
+      }
+      &:nth-of-type(3) {
+        text-align: right;
+
+        @include screen(sm) {
+          text-align: left;
+        }
+      }
+    }
+  }
+  &__frame {
+    position: relative;
+    z-index: -1;
+    grid-column: 1;
+    grid-row: 2;
+
+    @include screen(sm) {
+      max-width: var(--frame);
+      margin-inline: auto;
+      transform: translateX(-8vw);
+    }
+    @include screen(lg) {
+      transform: none;
+    }
+
+    figcaption {
+      position: absolute;
+      top: -0.3rem;
+      right: 0;
+      max-width: 30ch;
+      transform: translateY(-100%);
+    }
+    cite {
+      white-space: nowrap;
+    }
+  }
+}
+
+.pastoral-aside {
+  position: relative;
+  display: grid;
+  margin-block-end: $spacing-large;
+
+  @include screen(lg) {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+  }
+
+  > * {
+    grid-column: 1;
+    grid-row: 1;
+
+    @include screen(lg) {
+      grid-column: 2 / span 13;
+    }
+  }
+
+  &__title {
+    @include davinci;
+
+    font-size: clamp(3rem, 11vw, 6rem);
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    padding-inline: 1.5rem;
+    text-align: center;
+    color: #fefefe;
+
+    margixn-block-start: -1rem;
+    span {
+      font-style: italic;
+    }
+  }
+  img {
+    max-height: 510px;
+    object-fit: cover;
+  }
+}
+
+.disclaimer {
+  position: relative;
+  //  padding:1rem;
+  margin: 0 1rem $spacing-large;
+  padding-block: $spacing-small;
+  outline: 1px solid var(--color-border);
+  &__text {
+    @include davinci;
+
+    font-size: clamp(3rem, 11vw, 6rem);
+    text-align: center;
+
+    @include screen(sm) {
+      max-width: 16ch;
+      margin-inline: auto;
+    }
+    span {
+      font-style: italic;
+    }
+  }
+  &__label {
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+
+    @include label;
+  }
+}

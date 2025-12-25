@@ -1,3 +1,4 @@
+@use '../abstract/mixins' as *;
 $image-dir: '/img/custom/a-website-to-destroy-all-websites';
 
 $color-fog: #eae8e1;
@@ -26,4 +27,7 @@ $spacing-small: 3.75rem;
   display: inline-block;
   padding-inline: 0.625rem;
   background-color: var(--color-contrast);
+  @include screen(sm) {
+    font-size: 0.75rem;
+  }
 }

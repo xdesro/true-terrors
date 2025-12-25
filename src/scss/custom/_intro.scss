@@ -8,8 +8,10 @@
   margin: 1.25rem 1rem $spacing-large;
   padding: $spacing-small 1rem;
   outline: 1px solid var(--color-border);
+
   @include screen(lg) {
     overflow-x: clip;
+    margin: 1.5rem 1.5rem 10rem;
   }
   &__title {
     font-family: $font-display;
@@ -22,15 +24,15 @@
 
     @include screen(lg) {
       font-size: 7.9vw;
-      white-space: nowrap;
-      z-index: 1;
-      padding-block: 0.15em;
       position: absolute;
+      z-index: 1;
       top: 50%;
-      left: -1ch;
       right: -1ch;
+      left: -1ch;
       margin-inline: auto;
+      padding-block: 0.15em;
       transform: translateY(-92%);
+      white-space: nowrap;
     }
     > span {
       font-style: italic;
@@ -38,6 +40,7 @@
     > em {
       font-style: normal;
       color: #9a9a9a;
+
       @include screen(lg) {
         margin-inline: 0.5ch;
         color: #fefefe;
@@ -48,33 +51,25 @@
     font-size: 1.25rem;
     text-align: center;
     text-wrap: balance;
+
     @include screen(lg) {
-      display: grid;
-      grid-template-columns: 1fr 40vw 1fr;
-      gap: 1rem;
-      position: absolute;
-      width: 100%;
-      top: 54%;
       font-size: clamp(1.25rem, 2.1vw, 2rem);
+      position: absolute;
+      top: 54%;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr 40vw 1fr;
+      width: 100%;
     }
     @include screen(1200px) {
     }
 
     span {
-      // display: block;
       @include screen(lg) {
-        // position: absolute;
-        // top: calc(50% + 2rem);
         max-width: 20ch;
         margin-inline: auto;
-        &:nth-of-type(1) {
-          //   left: 25%;
-          //   transform: translateX(-80%);
-        }
         &:nth-of-type(2) {
           grid-column: 3;
-          //   right: 25%;
-          //   transform: translateX(80%);
         }
       }
     }
@@ -97,8 +92,8 @@
     margin-inline: auto;
 
     @include screen(sm) {
-      transform: translateX(1vw);
       max-width: 36vw;
+      transform: translateX(0.5vw);
     }
   }
 }
