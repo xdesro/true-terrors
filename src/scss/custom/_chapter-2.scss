@@ -4,6 +4,7 @@
 
 .chapter-two {
   @include magazine-grid;
+  overflow-x: clip;
 
   margin-block-start: var(--spacing-large);
   > * {

@@ -22,6 +22,7 @@
     }
   }
   .cols {
+    grid-column: 1 / -1;
     @include screen(sm) {
       grid-column: 2 / -2;
     }
@@ -37,7 +38,8 @@
 .chapter-four-hero {
   position: relative;
   margin-block-end: var(--spacing-large);
-  margin-inline: 1rem;
+  // margin-inline: -1rem;
+
   @include screen(sm) {
     margin-inline: unset;
   }
