@@ -43,6 +43,12 @@
     position: relative;
     z-index: -1;
   }
+  figcaption {
+    margin-inline-end: 1rem;
+    @include screen(sm) {
+      margin-inline-end: unset;
+    }
+  }
   img {
     height: 42rem;
     object-fit: cover;
