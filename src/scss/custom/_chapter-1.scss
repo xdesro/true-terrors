@@ -226,7 +226,7 @@
     text-align: center;
 
     @include screen(sm) {
-      max-width: 16ch;
+      max-width: min(16ch, calc(100% - 4rem));
       margin-inline: auto;
     }
     span {

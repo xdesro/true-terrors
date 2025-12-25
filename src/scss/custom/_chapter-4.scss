@@ -3,20 +3,47 @@
 @use './abstract' as *;
 
 .chapter-four {
+  @include magazine-grid;
   scroll-margin-block-start: 5rem;
-  .rendered h3 {
-    @include davinci;
 
+  > * {
+    grid-column: 1 / -1;
+  }
+  .rendered h3 {
+    font-family: $font-display-secondary;
     font-size: 2rem;
+    font-weight: 100;
     font-style: italic;
     line-height: 1.2;
     margin-block-end: var(--spacing-small);
     text-wrap: balance;
+    @include screen(lg) {
+      text-align: center;
+    }
+  }
+  .cols {
+    @include screen(sm) {
+      grid-column: 2 / -2;
+    }
+    @include screen(lg) {
+      text-align: justify;
+      columns: 2;
+    }
+    @include screen(1300px) {
+      grid-column: 5 / -5;
+    }
   }
 }
 .chapter-four-hero {
   position: relative;
   margin-block-end: var(--spacing-large);
+  margin-inline: 1rem;
+  @include screen(sm) {
+    margin-inline: unset;
+  }
+  @include screen(lg) {
+    grid-column: 2 / -2;
+  }
 
   img {
     height: 42rem;
@@ -45,10 +72,13 @@
   font-size: 1.25rem;
   margin-block-end: var(--spacing-large);
   text-align: center;
+  @include screen(sm) {
+    font-size: 1rem;
+  }
   &__title {
     @include davinci;
 
-    font-size: 3rem;
+    font-size: clamp(3rem, 8vw, 6rem);
     font-style: italic;
     margin-block-end: 1rem;
   }
