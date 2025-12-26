@@ -87,19 +87,34 @@
   &__label {
     @include label();
 
-    top: 0.6rem;
-    left: 2.5rem;
     text-decoration: none;
     color: inherit;
 
     text-underline-offset: 1px;
-    @include screen(sm) {
-      left: 50%;
-      transform: translateX(-50%);
-    }
 
     &:hover {
       text-decoration: underline;
+    }
+    &--author {
+      top: 0.6rem;
+      left: 2.5rem;
+
+      @include screen(sm) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &--word-count {
+      top: unset;
+      right: 2.5rem;
+      bottom: 0.7rem;
+      color: #9a9a9a;
+
+      @include screen(sm) {
+        right: 50%;
+        transform: translateX(50%);
+        color: var(--color-text);
+      }
     }
   }
   &__card {
