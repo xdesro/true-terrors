@@ -1,4 +1,4 @@
-@use '../abstract/mixins' as *;
+@use '../../abstract/mixins' as *;
 
 @use './abstract' as *;
 
@@ -12,6 +12,39 @@
   }
   .rendered > p:first-child {
     hyphens: auto;
+  }
+  .rendered {
+    p:has(> del) {
+      @include screen(lg) {
+        margin-block: calc(var(--spacing-small) - 1rem) var(--spacing-small);
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+        grid-auto-flow: dense;
+        font-size: 1.25rem;
+        text-align: left;
+        &:before {
+          align-self: center;
+          content: '→';
+          text-align: center;
+          grid-column: 8 / span 2;
+        }
+      }
+    }
+    del {
+      @include screen(lg) {
+        grid-column: 2 / span 6;
+        text-decoration: none;
+        color: #9a9a9a;
+      }
+    }
+    ins {
+      @include screen(lg) {
+        text-decoration: none;
+        grid-column: 10 / span 6;
+        font-style: italic;
+      }
+    }
   }
 }
 .chapter-three-hero {
