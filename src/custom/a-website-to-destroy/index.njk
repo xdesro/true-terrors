@@ -5,6 +5,8 @@ slug: a-website-to-destroy-all-websites
 layout: 'layouts/blank.njk'
 publishDate: 2025-12-15T16:15:01.343Z
 featured: true
+og: 'https://henry.codes/img/og/og-a-website-to-destroy-all-websites.png',
+pageDescription: How to win the war for the soul of the internet, and build the Web We Want.
 tags:
 - article
 category: journal
@@ -23,6 +25,9 @@ topics:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Website To End All Websites | Henry From Online</title>
+    <meta name="description" content="{{ pageDescription }}" />
+
+
 
     <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
@@ -37,7 +42,9 @@ topics:
     <meta name="generator" content="eleventy">
 
     <meta property="og:url" content="https://henry.codes{{ page.url }}">
+    <meta property="og:image" content="{{ og }}">
     <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ pageDescription }}">
 
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/custom/a-website-to-destroy-all-websites/index.css">
