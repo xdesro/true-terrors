@@ -22,4 +22,16 @@ export default [
       }),
     ],
   },
+  {
+    input: ['src/custom/a-website-to-destroy/index.js'],
+    output: {
+      dir: '_site/js/a-website-to-destroy',
+      format: 'es',
+      sourcemap: false,
+    },
+    plugins: [
+      nodeResolve(),
+      // terser({ format: { comments: false } })
+    ],
+  },
 ];
