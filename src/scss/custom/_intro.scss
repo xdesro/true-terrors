@@ -5,31 +5,30 @@
 .intro {
   position: relative;
   display: grid;
-  padding: var(--spacing-small) 0;
   margin-block-end: var(--spacing-large);
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    inset: 1.25rem;
-    outline: 1px solid var(--color-border);
-  }
+  padding: var(--spacing-small) 0;
 
   @include screen(lg) {
     overflow-x: clip;
     grid-template-columns: repeat(16, minmax(0, 1fr));
-    // margin: 1.5rem 1.5rem 10rem;
+  }
+
+  &:before {
+    position: absolute;
+    inset: 1.25rem;
+    display: block;
+    content: '';
+    outline: 1px solid var(--color-border);
   }
   &__title {
     font-family: $font-display;
     font-size: clamp(4.5rem, 17vw, 5.5rem);
     font-weight: normal;
     line-height: 1;
+    z-index: 1;
     margin-block-end: 2rem;
     text-align: center;
     letter-spacing: -0.05em;
-    z-index: 1;
 
     @include screen(lg) {
       font-size: 7.9vw;
@@ -57,12 +56,11 @@
   }
   &__subtitle {
     font-size: 1.25rem;
+    padding-inline: 1.5rem;
     text-align: center;
     text-wrap: balance;
-    padding-inline: 1.5rem;
 
     @include screen(lg) {
-      padding-inline: 0;
       font-size: clamp(1.25rem, 2.1vw, 2rem);
       position: absolute;
       top: 54%;
@@ -70,6 +68,7 @@
       gap: 1rem;
       grid-template-columns: repeat(16, minmax(0, 1fr));
       width: 100%;
+      padding-inline: 0;
     }
 
     span {
@@ -88,18 +87,19 @@
   &__label {
     @include label();
 
-    left: 2.5rem;
     top: 0.6rem;
+    left: 2.5rem;
     text-decoration: none;
     color: inherit;
-    text-underline-offset: 1px;
 
-    &:hover {
-      text-decoration: underline;
-    }
+    text-underline-offset: 1px;
     @include screen(sm) {
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
   &__card {
@@ -113,9 +113,9 @@
       transform: translateX(0.5vw);
     }
     @include screen(lg) {
-      transform: translateX(0);
-      max-width: unset;
       grid-column: 6 / span 6;
+      max-width: unset;
+      transform: translateX(0);
     }
   }
 }

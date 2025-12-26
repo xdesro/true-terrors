@@ -4,6 +4,7 @@
 
 .chapter-four {
   @include magazine-grid;
+
   scroll-margin-block-start: 5rem;
 
   > * {
@@ -17,17 +18,20 @@
     line-height: 1.2;
     margin-block-end: var(--spacing-small);
     text-wrap: balance;
+
     @include screen(lg) {
       text-align: center;
     }
   }
   .cols {
     grid-column: 1 / -1;
+
     @include screen(sm) {
       grid-column: 2 / -2;
     }
     @include screen(lg) {
       text-align: justify;
+
       columns: 2;
     }
     @include screen(1300px) {
@@ -74,6 +78,7 @@
   font-size: 1.25rem;
   margin-block-end: var(--spacing-large);
   text-align: center;
+
   @include screen(sm) {
     font-size: 1rem;
   }

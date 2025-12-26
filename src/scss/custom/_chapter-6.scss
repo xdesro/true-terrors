@@ -4,6 +4,7 @@
 
 .chapter-six {
   @include magazine-grid;
+
   margin-block-end: var(--spacing-large);
 
   > * {
@@ -19,15 +20,16 @@
   }
   .fin {
     @include davinci;
-    text-align: center;
-    margin-block: var(--spacing-small);
+
     font-size: 2rem;
     font-feature-settings: 'liga';
+    margin-block: var(--spacing-small);
+    text-align: center;
   }
   .go-home {
-    text-align: center;
     font-style: italic;
     display: block;
+    text-align: center;
     color: #9a9a9a;
   }
 }
@@ -35,6 +37,7 @@
   position: relative;
   margin-block-end: var(--spacing-small);
   margin-inline: -1rem;
+
   @include screen(sm) {
     margin-inline: -1.5rem;
   }
@@ -54,7 +57,6 @@
     @include davinci;
 
     font-size: clamp(4rem, 12vw, 7.5rem);
-
     font-style: italic;
   }
   img {

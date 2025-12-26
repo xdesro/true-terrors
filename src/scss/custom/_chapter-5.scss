@@ -26,16 +26,17 @@
   }
   &__inner {
     position: absolute;
-    inset-inline: 0;
-    color: #fefefe;
     inset-block-start: 50%;
+    inset-inline: 0;
     transform: translateY(calc(-50% - 1lh));
+    color: #fefefe;
   }
   .chapter-counter {
     margin-block-end: 2rem;
   }
   &__title {
     @include davinci;
+
     font-size: clamp(4.5rem, 12vw, 7.5rem);
     padding-inline: 1rem;
   }
@@ -45,6 +46,7 @@
   }
   figcaption {
     margin-inline-end: 1rem;
+
     @include screen(sm) {
       margin-inline-end: unset;
     }
@@ -117,24 +119,8 @@
   list-style-type: none;
   counter-increment: steps;
 
-  @include screen(1300px) {
-    // grid-column-end: span 4;
-  }
   @include screen(lg) {
     text-align: justify;
-    // grid-column-end: span 5;
-
-    &:nth-of-type(1),
-    &:nth-of-type(4) {
-      // grid-column-start: 2;
-    }
-    &:nth-of-type(2),
-    &:nth-of-type(5) {
-      // grid-column-start: 7;
-    }
-    &:nth-of-type(3) {
-      // grid-column-start: 12;
-    }
   }
   @include screen(1300px) {
     grid-column-end: span 4;

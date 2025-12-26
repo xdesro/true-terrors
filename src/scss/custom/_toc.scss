@@ -4,8 +4,10 @@
 
 .toc {
   @include magazine-grid;
+
   margin-block-end: var(--spacing-large);
   // padding-inline: 1rem;
+
   @include screen(lg) {
     margin-block-end: 10rem;
   }
@@ -13,9 +15,9 @@
     font-size: 1.25rem;
     font-weight: normal;
     font-style: italic;
+    grid-column: 1 / -1;
     margin-block-end: var(--spacing-small);
     text-align: center;
-    grid-column: 1 / -1;
 
     @include screen(sm) {
       font-size: 1rem;
@@ -23,12 +25,12 @@
   }
   &__list {
     font-size: 1.25rem;
-    margin: 0;
     display: grid;
+    grid-column: 1 / -1;
     grid-template-columns: subgrid;
+    margin: 0;
     padding: 0;
     counter-reset: toc;
-    grid-column: 1 / -1;
 
     @include screen(sm) {
       font-size: 1rem;
@@ -36,22 +38,22 @@
     }
 
     li {
-      grid-column: 1 / -1;
       display: grid;
+      grid-column: 1 / -1;
       column-gap: 3.5rem;
       grid-template-columns: 2ch 1fr;
       counter-increment: toc;
+
       @include screen(sm) {
         column-gap: 1rem;
         grid-template-columns: subgrid;
       }
-
       @include screen(lg) {
         text-align: center;
       }
       &::before {
-        content: '';
         content: counter(toc) '.';
+
         @include screen(sm) {
           grid-column: 2;
         }
@@ -65,16 +67,16 @@
     text-decoration: none;
 
     text-underline-offset: 1px;
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: underline;
-    }
     @include screen(sm) {
       grid-column-end: span 3;
     }
     @include screen(lg) {
       grid-column: 5 / span 8;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
     }
   }
 }

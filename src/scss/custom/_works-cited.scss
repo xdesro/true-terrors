@@ -4,6 +4,7 @@
 
 .works-cited {
   @include magazine-grid;
+
   margin-block-start: var(--spacing-large);
   > * {
     grid-column: 1 / -1;
@@ -14,16 +15,18 @@
     font-weight: 300;
     font-style: italic;
     margin-block-end: var(--spacing-small);
+
     @include screen(sm) {
       text-align: center;
     }
   }
 }
 .works-cited-list {
-  padding: 0;
   margin: 0;
-  counter-reset: works;
   margin-block-end: var(--spacing-large);
+  padding: 0;
+  counter-reset: works;
+
   @include screen(sm) {
     grid-column: 2 / -2;
   }
@@ -35,19 +38,19 @@
   }
 
   li {
-    counter-increment: works;
-    list-style: none;
     margin-block-end: 1em;
+    list-style: none;
+    counter-increment: works;
     &:before {
-      content: counter(works);
       font-size: 0.75em;
-      vertical-align: super;
       margin-inline-end: 1ch;
+      content: counter(works);
+      vertical-align: super;
     }
   }
   :target {
+    scroll-margin-block-start: 1rem;
     outline: 1px dashed var(--color-border);
     outline-offset: 0.5rem;
-    scroll-margin-block-start: 1rem;
   }
 }
