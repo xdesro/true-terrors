@@ -148,6 +148,7 @@ section {
   border: none;
   border-top: 1px solid var(--color-border);
 
+  --glyph-opacity: 1;
   &:before {
     line-height: 1;
     position: absolute;
@@ -155,6 +156,7 @@ section {
     left: 50%;
     padding-inline: 0.625rem;
     content: '§';
+    opacity: var(--glyph-opacity);
     transform: translateY(-70%) translateX(-50%);
     color: var(--color-text);
     background-color: var(--color-background);
@@ -166,4 +168,13 @@ section {
   font-size: 2rem;
   text-align: center;
   letter-spacing: -0.05em;
+}
+
+.drift {
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+  picture {
+    scale: 1.2;
+  }
 }
