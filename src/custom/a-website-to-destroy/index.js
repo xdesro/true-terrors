@@ -286,6 +286,31 @@ document.fonts.ready.then(function () {
         stagger: prefersReducedMotion ? 0 : 0.05,
       });
 
+    const bookCoverTl = gsap
+      .timeline()
+      .from('picture:has(.book--tools)', {
+        rotate: prefersReducedMotion ? null : 0,
+        autoAlpha: 0,
+        scrollTrigger: {
+          trigger: 'picture:has(.book--tools)',
+          start: 'bottom bottom',
+          end: 'center center',
+          scrub: 0.5,
+          once: true,
+        },
+      })
+      .from('.convivial-life img', {
+        rotate: prefersReducedMotion ? null : 0,
+        autoAlpha: 0,
+        scrollTrigger: {
+          trigger: '.convivial-life img',
+          start: 'bottom bottom',
+          end: 'center center',
+          scrub: 0.5,
+          once: true,
+        },
+      });
+
     const ch4HeaderTl = gsap.timeline({}).from(ch4TitleSplit.words, {
       x: prefersReducedMotion ? 0 : -32,
       autoAlpha: 0,

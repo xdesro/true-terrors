@@ -50,6 +50,34 @@ figure {
     font-size: 0.75rem;
     text-align: right;
   }
+  a {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    paint-order: stroke fill;
+    -webkit-text-stroke: 2px $color-fog;
+
+    &:after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      inset-block-end: 2px;
+      inset-inline: 0;
+      height: 1px;
+      background-color: currentColor;
+      transform-origin: 100% 0;
+      transform: scaleX(0);
+      transition: transform 0.3s g.$ease-out-editorial;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      &:after {
+        transform: scaleX(1);
+        transform-origin: 0 0;
+      }
+    }
+  }
 }
 p {
   code {

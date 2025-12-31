@@ -1,3 +1,4 @@
+@use '../../abstract/variables' as g;
 @use '../../abstract/mixins' as *;
 
 @use './abstract' as *;
@@ -64,19 +65,45 @@
     }
   }
   a {
+    position: relative;
+
+    justify-self: start;
+    text-underline-offset: 1px;
     text-decoration: none;
 
-    text-underline-offset: 1px;
     @include screen(sm) {
       grid-column-end: span 3;
     }
     @include screen(lg) {
       grid-column: 5 / span 8;
+      justify-self: center;
+    }
+
+    &:after {
+      @include screen(lg) {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        inset-block-end: 2px;
+        inset-inline: 0;
+        height: 1px;
+        background-color: currentColor;
+        transform-origin: 50% 0;
+        transform: scaleX(0);
+        transition: transform 0.3s g.$ease-out-editorial;
+      }
     }
     &:hover,
     &:focus,
     &:active {
       text-decoration: underline;
+      @include screen(lg) {
+        text-decoration: none;
+      }
+
+      &:after {
+        transform: scaleX(1);
+      }
     }
   }
 }
