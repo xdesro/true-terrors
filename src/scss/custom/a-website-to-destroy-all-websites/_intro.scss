@@ -50,7 +50,7 @@
     }
     > em {
       font-style: normal;
-      color: #9a9a9a;
+      color: #777;
 
       @include screen(lg) {
         margin-inline: 0.5ch;
@@ -113,7 +113,7 @@
       top: unset;
       right: 2.5rem;
       bottom: 0.7rem;
-      color: #9a9a9a;
+      color: #777;
 
       @include screen(sm) {
         right: 50%;
