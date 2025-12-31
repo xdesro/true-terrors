@@ -43,7 +43,7 @@
   &__title {
     @include davinci;
 
-    --font: clamp(6.2rem, 20vw, 7.5rem);
+    --font: clamp(4.7rem, 20vw, 7.5rem);
     font-size: var(--font);
     color: #fefefe;
 
@@ -57,7 +57,7 @@
     }
     > span {
       position: absolute;
-
+      clip-path: $blank-clip-davinci;
       @include screen(lg) {
         position: relative;
       }
@@ -67,6 +67,7 @@
         bottom: calc(1.6rem + var(--font));
         left: 3vw;
         letter-spacing: -0.05em;
+        z-index: 0;
 
         @include screen(lg) {
           font-size: inherit;

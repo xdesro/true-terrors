@@ -271,6 +271,8 @@ const loadTransitions = async () => ({
   caseToHome: (await import('./routes/CaseToHome')).default,
   default: DefaultTransition,
   homeToArticle: (await import('./routes/HomeToArticle')).default,
+  homeToAWebsiteToDestroy: (await import('./routes/HomeToAWebsiteToDestroy'))
+    .default,
   homeToCase: (await import('./routes/HomeToCase')).default,
   homeToWork: (await import('./routes/HomeToWork')).default,
   homeToWriting: (await import('./routes/HomeToWriting')).default,
@@ -286,6 +288,11 @@ const loadTransitions = async () => ({
   for (const transitionName in Transitions) {
     taxi.transitions[transitionName] = Transitions[transitionName];
   }
+  taxi.addRoute(
+    '*',
+    '/writing/a-website-to-destroy-all-websites',
+    'homeToAWebsiteToDestroy'
+  );
   taxi.addRoute('/', '/work', 'homeToWork');
   taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
   taxi.addRoute(`\/work`, '', 'workToHome');

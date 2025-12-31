@@ -19,7 +19,7 @@ topics:
 {% set imgDir = '/img/custom/a-website-to-destroy-all-websites' %}
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" class="no-js" >
 
 <head>
     <meta charset="UTF-8">
@@ -45,6 +45,11 @@ topics:
     <meta property="og:image" content="{{ og }}">
     <meta property="og:type" content="website">
     <meta property="og:description" content="{{ pageDescription }}">
+
+
+    <link rel="preload" href="/fonts/TRJNDaVinci-Regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/fonts/TRJNDaVinci-Italic.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/fonts/subset-Louize.woff2" as="font" type="font/woff2" crossorigin />
 
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/custom/a-website-to-destroy-all-websites/index.css">
@@ -104,7 +109,7 @@ topics:
                 <h3 class="pastoral-aside__title">it wasn’t <span>always</span> like this.</h3>
                 <figure>
                     <div class="drift">
-                    <img src="{{ imgDir }}/george-innes_pastoral-scene.jpg" alt="">
+                        <img src="{{ imgDir }}/george-innes_pastoral-scene.jpg" alt="">
                     </div>
                     <figcaption>Pastoral Scene, <cite>George Innes</cite> (1857)</figcaption>
                     <!-- https://artmuseum.princeton.edu/art/collections/objects/23254 -->
@@ -148,7 +153,9 @@ topics:
                 <div class="chapter-two-hero__inner">
                     <h2 class="chapter-two-hero__title"><span><span>The invention</span> <span>of the</span></span> <span>automobile</span></h2>
                     <figure class="chapter-two-hero__frame">
-                        <img src="{{ imgDir }}/tamara-de-lempicka_autoportrait.jpeg" alt="">
+                        <div class="drift">
+                            <img src="{{ imgDir }}/tamara-de-lempicka_autoportrait.jpeg" alt="">
+                        </div>
                         <figcaption>Autoportrait, <cite>Tamara de Lempicka</cite> (1929)</figcaption>
                     </figure>
                 </div>
@@ -241,7 +248,9 @@ topics:
                 <h2 class="chapter-four-hero__title">the Web we want</h2>
                 </div>
                 <figure>
-                    <img src="{{ imgDir }}/john-martin_the-plains-of-heaven.jpg" eleventy:widths="1500" alt="">
+                    <div class="drift">
+                        <img src="{{ imgDir }}/john-martin_the-plains-of-heaven.jpg" eleventy:widths="1500" alt="">
+                    </div>
                     <figcaption>The Plains of Heaven, <cite>John Martin</cite> (1851-3)</figcaption>
                 </figure>
             </header>
@@ -299,7 +308,9 @@ topics:
                     <h2 class="chapter-five-hero__title">so <em>where</em> do we go from <em>here?</em></h2>
                 </div>
                 <figure>
+                    <div class="drift">
                     <img src="{{ imgDir }}/caspar-david-friedrich_abbey-among-oak-trees.jpg" eleventy:widths="1500" alt="">
+                    </div>
                     <figcaption>Abbey Among Oak Trees, <cite>Caspar David Friedrich</cite> (1810)</figcaption>
                 </figure>
             </div>
@@ -405,6 +416,7 @@ topics:
             {% endasMarkdown %}
         </footer>
     </main>
+    <script>document.documentElement.classList.remove('no-js')</script>
     <script src="/js/a-website-to-destroy/index.js" type="module"></script>
 
 </body>

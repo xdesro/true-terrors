@@ -236,6 +236,7 @@
   &__label {
     @include label;
 
+    clip-path: $blank-clip;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;

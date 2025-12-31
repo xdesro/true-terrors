@@ -16,7 +16,7 @@ $grid-sm: repeat(8, minmax(0, 1fr));
 $grid-lg: repeat(16, minmax(0, 1fr));
 
 $blank-clip: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-$blank-clip-davinci: polygon(0% -10%, 100% -10%, 100% 100%, 0% 100%);
+$blank-clip-davinci: polygon(0% -10%, 110% -10%, 110% 110%, 0% 110%);
 
 @mixin davinci {
   font-family: $font-display;

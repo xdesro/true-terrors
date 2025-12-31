@@ -7,6 +7,10 @@
   display: grid;
   margin-block-end: var(--spacing-large);
   padding: var(--spacing-small) 0;
+  visibility: hidden;
+  &.no-js {
+    visibility: visible;
+  }
 
   @include screen(lg) {
     overflow-x: clip;
@@ -89,7 +93,7 @@
 
     text-decoration: none;
     color: inherit;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: $blank-clip;
 
     text-underline-offset: 1px;
 

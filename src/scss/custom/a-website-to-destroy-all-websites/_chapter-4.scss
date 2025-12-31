@@ -111,4 +111,7 @@
     font-style: italic;
     margin-block-end: 1rem;
   }
+  &__text {
+    text-wrap: balance;
+  }
 }
