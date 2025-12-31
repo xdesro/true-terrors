@@ -29,9 +29,6 @@ export default [
       format: 'es',
       sourcemap: false,
     },
-    plugins: [
-      nodeResolve(),
-      // terser({ format: { comments: false } })
-    ],
+    plugins: [nodeResolve(), terser({ format: { comments: false } })],
   },
 ];
