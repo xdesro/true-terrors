@@ -5,16 +5,16 @@
 .intro {
   position: relative;
   display: grid;
+  visibility: hidden;
   margin-block-end: var(--spacing-large);
   padding: var(--spacing-small) 0;
-  visibility: hidden;
-  &.no-js {
-    visibility: visible;
-  }
 
   @include screen(lg) {
     overflow-x: clip;
     grid-template-columns: repeat(16, minmax(0, 1fr));
+  }
+  &.no-js {
+    visibility: visible;
   }
 
   &:before {

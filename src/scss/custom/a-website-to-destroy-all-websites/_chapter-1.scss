@@ -133,8 +133,8 @@
         color: #fefefe;
       }
       &:nth-of-type(3) {
-        text-align: right;
         margin-block-start: 0.5rem;
+        text-align: right;
 
         @include screen(sm) {
           text-align: left;
@@ -236,9 +236,9 @@
   &__label {
     @include label;
 
-    clip-path: $blank-clip;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
+    clip-path: $blank-clip;
   }
 }

@@ -32,6 +32,7 @@ $blank-clip-davinci: polygon(0% -10%, 110% -10%, 110% 110%, 0% 110%);
   display: inline-block;
   padding-inline: 0.625rem;
   background-color: var(--color-contrast);
+
   @include screen(sm) {
     font-size: 0.75rem;
   }
@@ -39,9 +40,10 @@ $blank-clip-davinci: polygon(0% -10%, 110% -10%, 110% 110%, 0% 110%);
 
 @mixin magazine-grid {
   display: grid;
-  grid-template-columns: $grid-xs;
   column-gap: 1rem;
+  grid-template-columns: $grid-xs;
   margin-inline: 1rem;
+
   @include screen(sm) {
     grid-template-columns: $grid-sm;
     margin-inline: 1.5rem;

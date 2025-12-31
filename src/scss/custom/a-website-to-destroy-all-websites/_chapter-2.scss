@@ -58,16 +58,17 @@
     > span {
       position: absolute;
       clip-path: $blank-clip-davinci;
+
       @include screen(lg) {
         position: relative;
       }
 
       &:nth-of-type(1) {
         font-size: 1.75rem;
+        z-index: 0;
         bottom: calc(1.6rem + var(--font));
         left: 3vw;
         letter-spacing: -0.05em;
-        z-index: 0;
 
         @include screen(lg) {
           font-size: inherit;
