@@ -1,6 +1,6 @@
 import PageTransition from '../transitions/PageTransition';
 
-import { ToAWebsiteToDestroy } from '../transitions/Fade';
+import { ToAWebsiteToDestroy } from '../transitions/AWebsiteToDestroy';
 
 export default class HomeToAWebsiteToDestroyTransition extends PageTransition {
   constructor({ wrapper }) {
