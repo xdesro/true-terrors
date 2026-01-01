@@ -13,7 +13,7 @@
     overflow-x: clip;
     grid-template-columns: repeat(16, minmax(0, 1fr));
   }
-  &.no-js {
+  .no-js & {
     visibility: visible;
   }
 
