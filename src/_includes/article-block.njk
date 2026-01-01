@@ -33,6 +33,6 @@
             </dd>
         </div>
     </dl>
-    <a class="article-block__link" href="/writing/{% if article.data.slug %}{{ article.data.slug | slugify }}{% else %}{{ article.data.title | slugify }}{% endif %}">Read more →</a>
+    <a class="article-block__link" href="/writing/{% if article.data.slug %}{{ article.data.slug | slugify }}{% else %}{{ article.data.title | slugify }}{% endif %}" {% if article.data.withoutTransition %}data-taxi-ignore{% endif %}>Read more →</a>
 </article>
 {% endmacro %}
