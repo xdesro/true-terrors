@@ -1,0 +1,54 @@
+@use '../../abstract/mixins' as *;
+
+$image-dir: '/img/custom/a-website-to-destroy-all-websites';
+
+$color-fog: #eae8e1;
+$color-oil: #32332e;
+$color-ash: #c5c5ba;
+
+$font-display: 'DaVinci', 'Louize Display', 'Louize', 'Times New Roman', serif;
+$font-display-secondary: 'Louize Display', 'Louize', 'Times New Roman', serif;
+$font-mono: 'SFMono', 'SF Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono',
+  'Ubuntu Mono', monospace;
+
+$grid-xs: repeat(4, minmax(0, 1fr));
+$grid-sm: repeat(8, minmax(0, 1fr));
+$grid-lg: repeat(16, minmax(0, 1fr));
+
+$blank-clip: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+$blank-clip-davinci: polygon(0% -10%, 110% -10%, 110% 110%, 0% 110%);
+
+@mixin davinci {
+  font-family: $font-display;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+@mixin label {
+  font-style: italic;
+  position: absolute;
+  top: -0.6em;
+  display: inline-block;
+  padding-inline: 0.625rem;
+  background-color: var(--color-contrast);
+
+  @include screen(sm) {
+    font-size: 0.75rem;
+  }
+}
+
+@mixin magazine-grid {
+  display: grid;
+  column-gap: 1rem;
+  grid-template-columns: $grid-xs;
+  margin-inline: 1rem;
+
+  @include screen(sm) {
+    grid-template-columns: $grid-sm;
+    margin-inline: 1.5rem;
+  }
+  @include screen(lg) {
+    grid-template-columns: $grid-lg;
+  }
+}

@@ -1,0 +1,184 @@
+@use '../../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.chapter-two {
+  @include magazine-grid;
+
+  overflow-x: clip;
+  margin-block-start: var(--spacing-large);
+  > * {
+    grid-column: 1 / -1;
+  }
+}
+
+.chapter-two-hero {
+  position: relative;
+  max-width: 34.625rem;
+  margin-block-end: var(--spacing-large);
+  margin-inline: auto;
+
+  @include screen(lg) {
+    display: grid;
+    grid-template-columns: subgrid;
+    max-width: auto;
+  }
+  .chapter-counter {
+    margin-block-end: var(--spacing-small);
+
+    @include screen(lg) {
+      grid-column: 1/ -1;
+      grid-row: 1;
+    }
+  }
+  &__inner {
+    @include screen(lg) {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+    }
+  }
+  &__title {
+    @include davinci;
+
+    --font: clamp(4.7rem, 20vw, 7.5rem);
+    font-size: var(--font);
+    color: #fefefe;
+
+    @include screen(lg) {
+      font-size: 9.2vw;
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+      margin-block-end: 6rem;
+      color: var(--color-text);
+    }
+    > span {
+      position: absolute;
+      clip-path: $blank-clip-davinci;
+
+      @include screen(lg) {
+        position: relative;
+      }
+
+      &:nth-of-type(1) {
+        font-size: 1.75rem;
+        z-index: 0;
+        bottom: calc(1.6rem + var(--font));
+        left: 3vw;
+        letter-spacing: -0.05em;
+
+        @include screen(lg) {
+          font-size: inherit;
+          position: relative;
+          bottom: unset;
+          left: unset;
+          grid-column: 1 / span 9;
+          grid-row: 2;
+          align-self: end;
+          text-align: right;
+        }
+        > span:last-child {
+          @include screen(lg) {
+            font-style: italic;
+            display: block;
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        inset-block-end: 1.7rem;
+        inset-inline: 0;
+        text-align: center;
+
+        @include screen(lg) {
+          font-size: inherit;
+          position: relative;
+          inset: unset;
+          grid-column: 10 / span 7;
+          grid-row: 2;
+          align-self: end;
+          color: #fefefe;
+        }
+      }
+    }
+  }
+  &__frame {
+    @include screen(lg) {
+      grid-column: 10 / span 7;
+      grid-row: 1 / span 2;
+    }
+  }
+}
+
+.no-longer-aside {
+  margin-block-end: var(--spacing-large);
+
+  @include screen(sm) {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  @include screen(lg) {
+    align-items: center;
+  }
+  figure {
+    @include screen(sm) {
+      grid-column-end: span 4;
+    }
+    @include screen(lg) {
+      grid-column-end: span 5;
+    }
+    &:nth-of-type(1) {
+      margin-block-end: 1.5rem;
+    }
+    &:nth-of-type(2) {
+      @include screen(sm) {
+        grid-column-start: 5;
+      }
+      @include screen(lg) {
+        grid-column-start: auto;
+      }
+    }
+  }
+  &__text {
+    @include davinci;
+
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-block-end: 1rem;
+
+    @include screen(sm) {
+      font-size: 2.5rem;
+      grid-column: 1 / -1;
+    }
+    @include screen(lg) {
+      grid-column: auto / span 6;
+    }
+    @include screen(xl) {
+      font-size: 3rem;
+    }
+
+    > span {
+      line-height: 1;
+      display: block;
+
+      @include screen(lg) {
+        text-wrap: balance;
+      }
+      &:nth-of-type(1) {
+        margin-block-end: var(--spacing-small);
+      }
+      &:nth-of-type(2) {
+        text-align: right;
+      }
+    }
+    em {
+      white-space: nowrap;
+
+      @include screen(lg) {
+        white-space: unset;
+      }
+    }
+  }
+}

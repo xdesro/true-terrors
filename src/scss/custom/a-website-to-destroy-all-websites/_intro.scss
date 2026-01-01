@@ -1,0 +1,141 @@
+@use '../../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.intro {
+  position: relative;
+  display: grid;
+  visibility: hidden;
+  margin-block-end: var(--spacing-large);
+  padding: var(--spacing-small) 0;
+
+  @include screen(lg) {
+    overflow-x: clip;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+  }
+  &.no-js {
+    visibility: visible;
+  }
+
+  &:before {
+    position: absolute;
+    inset: 1.25rem;
+    display: block;
+    content: '';
+    outline: 1px solid var(--color-border);
+  }
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(4.5rem, 17vw, 5.5rem);
+    font-weight: normal;
+    line-height: 1;
+    z-index: 1;
+    margin-block-end: 2rem;
+    text-align: center;
+    letter-spacing: -0.05em;
+
+    @include screen(lg) {
+      font-size: 7.9vw;
+      position: absolute;
+      top: 50%;
+      right: -1ch;
+      left: -1ch;
+      margin-inline: auto;
+      padding-block: 0.15em;
+      transform: translateY(-92%);
+      white-space: nowrap;
+    }
+    > span {
+      font-style: italic;
+    }
+    > em {
+      font-style: normal;
+      color: #777;
+
+      @include screen(lg) {
+        margin-inline: 0.5ch;
+        color: #fefefe;
+      }
+    }
+  }
+  &__subtitle {
+    font-size: 1.25rem;
+    padding-inline: 1.5rem;
+    text-align: center;
+    text-wrap: balance;
+
+    @include screen(lg) {
+      font-size: clamp(1.25rem, 2.1vw, 2rem);
+      position: absolute;
+      top: 54%;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(16, minmax(0, 1fr));
+      width: 100%;
+      padding-inline: 0;
+    }
+
+    span {
+      @include screen(lg) {
+        max-width: 20ch;
+        margin-inline: auto;
+        &:nth-of-type(1) {
+          grid-column: 1 / span 6;
+        }
+        &:nth-of-type(2) {
+          grid-column: 12 / span 6;
+        }
+      }
+    }
+  }
+  &__label {
+    @include label();
+
+    text-decoration: none;
+    color: inherit;
+    clip-path: $blank-clip;
+
+    text-underline-offset: 1px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    &--author {
+      top: 0.6rem;
+      left: 2.5rem;
+
+      @include screen(sm) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &--word-count {
+      top: unset;
+      right: 2.5rem;
+      bottom: 0.7rem;
+      color: #777;
+
+      @include screen(sm) {
+        right: 50%;
+        transform: translateX(50%);
+        color: var(--color-text);
+      }
+    }
+  }
+  &__card {
+    grid-row: 1;
+    max-width: 16rem;
+    margin-block-end: 2rem;
+    margin-inline: auto;
+
+    @include screen(sm) {
+      max-width: 36vw;
+      transform: translateX(0.5vw);
+    }
+    @include screen(lg) {
+      grid-column: 6 / span 6;
+      max-width: unset;
+      transform: translateX(0);
+    }
+  }
+}

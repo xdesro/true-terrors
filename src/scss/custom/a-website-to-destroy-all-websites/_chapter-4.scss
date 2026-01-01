@@ -1,0 +1,117 @@
+@use '../../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.chapter-four {
+  @include magazine-grid;
+
+  scroll-margin-block-start: 5rem;
+
+  > * {
+    grid-column: 1 / -1;
+  }
+  .rendered h3 {
+    font-family: $font-display-secondary;
+    font-size: 2rem;
+    font-weight: 100;
+    font-style: italic;
+    line-height: 1.2;
+    margin-block-end: var(--spacing-small);
+    text-wrap: balance;
+
+    @include screen(lg) {
+      text-align: center;
+    }
+  }
+  .cols {
+    grid-column: 1 / -1;
+
+    @include screen(sm) {
+      grid-column: 2 / -2;
+    }
+    @include screen(lg) {
+      display: grid;
+      grid-auto-flow: dense;
+      column-gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      text-align: justify;
+    }
+    @include screen(1300px) {
+      grid-column: 5 / -5;
+    }
+    p {
+      @include screen(lg) {
+        grid-column: 1;
+        &:last-child {
+          grid-column: 2;
+        }
+      }
+    }
+    &.connecting {
+      p {
+        @include screen(lg) {
+          &:nth-last-child(2) {
+            grid-column: 2;
+          }
+        }
+      }
+    }
+    &.coding {
+      p:last-child {
+        @include screen(lg) {
+          grid-row-end: span 2;
+        }
+      }
+    }
+  }
+}
+.chapter-four-hero {
+  position: relative;
+  margin-block-end: var(--spacing-large);
+  // margin-inline: -1rem;
+
+  @include screen(sm) {
+    margin-inline: unset;
+  }
+  @include screen(lg) {
+    grid-column: 2 / -2;
+  }
+
+  img {
+    height: 42rem;
+    object-fit: cover;
+  }
+  &__inner {
+    position: absolute;
+    inset-inline: 0;
+    top: var(--spacing-small);
+    bottom: 2.5rem;
+    display: grid;
+    align-content: space-between;
+    text-align: center;
+  }
+  &__title {
+    @include davinci;
+
+    font-size: min(26vw, 9.375rem);
+    font-style: italic;
+    line-height: 0.8;
+    color: #fefefe;
+  }
+}
+
+.consider {
+  font-size: 1.25rem;
+  margin-block-end: var(--spacing-large);
+  text-align: center;
+  &__title {
+    @include davinci;
+
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-style: italic;
+    margin-block-end: 1rem;
+  }
+  &__text {
+    text-wrap: balance;
+  }
+}

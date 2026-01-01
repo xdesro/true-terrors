@@ -20,6 +20,7 @@ import {
 } from './_11ty/filters.js';
 import { markdownLibrary } from './_11ty/libraries.js';
 import { collectionHostedCaseStudy } from './_11ty/collections.js';
+import { asMarkdown } from './_11ty/shortcodes.js';
 
 /**
  *  @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig
@@ -74,6 +75,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('humanReadableDate', humanReadableDate);
   eleventyConfig.addFilter('toISOString', toISOString);
   eleventyConfig.addFilter('getSocialUrl', getSocialUrl);
+
+  eleventyConfig.addPairedShortcode('asMarkdown', asMarkdown);
 
   eleventyConfig.setLibrary('md', markdownLibrary);
 

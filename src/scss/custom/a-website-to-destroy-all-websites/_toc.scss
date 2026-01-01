@@ -1,0 +1,109 @@
+@use '../../abstract/variables' as g;
+@use '../../abstract/mixins' as *;
+
+@use './abstract' as *;
+
+.toc {
+  @include magazine-grid;
+
+  margin-block-end: var(--spacing-large);
+  // padding-inline: 1rem;
+
+  @include screen(lg) {
+    margin-block-end: 10rem;
+  }
+  &__title {
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-style: italic;
+    grid-column: 1 / -1;
+    margin-block-end: var(--spacing-small);
+    text-align: center;
+
+    @include screen(sm) {
+      font-size: 1rem;
+    }
+  }
+  &__list {
+    font-size: 1.25rem;
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc;
+
+    @include screen(sm) {
+      font-size: 1rem;
+      margin-inline: auto;
+    }
+
+    li {
+      display: grid;
+      grid-column: 1 / -1;
+      column-gap: 3.5rem;
+      grid-template-columns: 2ch 1fr;
+      counter-increment: toc;
+
+      @include screen(sm) {
+        column-gap: 1rem;
+        grid-template-columns: subgrid;
+      }
+      @include screen(lg) {
+        text-align: center;
+      }
+      &::before {
+        content: counter(toc) '.';
+
+        @include screen(sm) {
+          grid-column: 2;
+        }
+        @include screen(lg) {
+          grid-column: 4;
+        }
+      }
+    }
+  }
+  a {
+    position: relative;
+
+    justify-self: start;
+    text-underline-offset: 1px;
+    text-decoration: none;
+
+    @include screen(sm) {
+      grid-column-end: span 3;
+    }
+    @include screen(lg) {
+      grid-column: 5 / span 8;
+      justify-self: center;
+    }
+
+    &:after {
+      @include screen(lg) {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        inset-block-end: 2px;
+        inset-inline: 0;
+        height: 1px;
+        background-color: currentColor;
+        transform-origin: 50% 0;
+        transform: scaleX(0);
+        transition: transform 0.3s g.$ease-out-editorial;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+      @include screen(lg) {
+        text-decoration: none;
+      }
+
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
