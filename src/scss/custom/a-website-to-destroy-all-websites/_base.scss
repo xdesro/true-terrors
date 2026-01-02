@@ -101,7 +101,9 @@ a {
 }
 
 section {
-  scroll-margin-block-start: 11rem;
+  scroll-margin-block-start: calc(
+    var(--spacing-large) - 1em
+  ); // skip section marker
 }
 .footnote-inline {
   font-size: 0.5em;

@@ -6,7 +6,11 @@
   @include magazine-grid;
 
   margin-block-start: var(--spacing-large);
-  scroll-margin-block-start: var(--spacing-large);
+  scroll-margin-block-start: 0;
+
+  @include screen(sm) {
+    scroll-margin-block-start: 1.5rem;
+  }
 
   > * {
     grid-column: 1 / -1;

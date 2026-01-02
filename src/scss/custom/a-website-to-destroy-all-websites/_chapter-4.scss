@@ -5,7 +5,10 @@
 .chapter-four {
   @include magazine-grid;
 
-  scroll-margin-block-start: 5rem;
+  scroll-margin-block-start: 1rem;
+  @include screen(sm) {
+    scroll-margin-block-start: 1.5rem;
+  }
 
   > * {
     grid-column: 1 / -1;

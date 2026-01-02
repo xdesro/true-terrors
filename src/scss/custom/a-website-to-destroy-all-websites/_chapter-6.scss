@@ -6,6 +6,7 @@
   @include magazine-grid;
 
   margin-block-end: var(--spacing-large);
+  scroll-margin-block-start: 0;
 
   > * {
     grid-column: 1 / -1;

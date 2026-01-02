@@ -9,6 +9,7 @@
 
   @include screen(sm) {
     margin-block-start: 17rem;
+    scroll-margin-block-start: calc(17rem - 1em);
   }
 
   > * {
