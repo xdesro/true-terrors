@@ -75,7 +75,7 @@ The mechanic didn't do that btw, he just sent a "who did the last oil change on 
 - Read Rimbaud for the first time.
 - BACK to New York City babey!!! This time I saw Turnstile and Boy Harsher under a bridge in Brooklyn, ate immensely good food everywhere in town, and got rained out so hard in Central Park that my phone broke and my paperback book literally disintegrated.
 - Went to Utah to get lost, skydive, shoot guns, drift ATVs, make music, read book after book in the sun, and make & tell stories with beloved friends. Wore a cowboy hat and rode on the outside the Jeep more often than I sat inside the Jeep. Fell out of a plane at 13,000 ft in altitude again, but this time I did a flip or ten.
-- Did the brakes on my car and shot myself in the eye with one of the pad retaining springs it welted.
+- Did the brakes on my car and shot myself in the eye with one of the pad retaining springs so solidly that it welted.
 - Celebrated queer pride by reading only queer poets and seeing queer movies, doing queer-only motorcycle rides, and parading in the street.
 
 ![Two men in cowboy hats, pictured seated and from behind, having a conversation while the sun sets vibrantly in the far distance. Canyons and clifs fill with lavender haze.](https://res.cloudinary.com/henry-codes/image/upload/v1767481575/DSCF0706_j9huay.jpg)
