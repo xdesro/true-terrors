@@ -43,7 +43,7 @@ topics:
 
 - Fucked up a simple oil change on my BMW motorcycle so bad that my mechanic for an unrelated issue threatened me with a gun.
 
-He didn't do that btw, that's a bit of "lying" for you{.editors-note}
+The mechanic didn't do that btw, he just sent a "who did the last oil change on this" text. That's a bit of "lying" for you{.editors-note}
 
 - Apparently this is fr all I did this month. Rode motorcycles a lot, drove cars a lot.
 
