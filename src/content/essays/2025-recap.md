@@ -115,10 +115,10 @@ The mechanic didn't do that btw, he just sent a "who did the last oil change on 
 ### October
 
 - Off to the UK again, this time to Bristol to see my beloved friends and speak about personal websites at [Web Dev Conf](https://webdevconf.com/), which was an immense opportunity I am very grateful for.
-- And _back_ to New! York! City!. Literal one night trip to make the most of a layover back from Englang.
+- And _back_ to New! York! City! Literal one night trip to make the most of a layover back from England.
 - Ate at Eleven Madison Park, holy smokes one of the most incredible culinary experiences of my life.
 - _YOU GUESSED IT NEW YORK CITY AGAIN!_ Lola texted me a few months prior about going in Autumn (why does it seem so inviting), so we did. Met Cloisters, dumplings, rain and shine, live jazz, bought some art. Celebrated Halloween in arguably one of the greatest cities in the world to people-watch in. Highly recommend.
-- While I was in New York I walked for a few hours on the phone with the gal I had been seeing, and the phone call made me smile so hard I realized I wanted nothing more than to make her as happy as she made me. I wanted to make everything in her life wonderful — I basically sprinted home to ask her to be my girlfriend.
+- While I was in New York I walked for a few hours on the phone with the gal I had been seeing, and the phone call made me smile so hard I realized I wanted nothing more than to make her as happy as she made me. I basically sprinted home to ask her to be my girlfriend.
 - Ate at Brutø with now-gf. What an unreal restaurant, and what a miraculous tribute to Coloradan agriculture.
 - Carved pumpkins. Do you like him. Do you think he's nice.
 
@@ -130,7 +130,7 @@ The mechanic didn't do that btw, he just sent a "who did the last oil change on 
 - Got into archery. Turns out those elves were on to something in that one movie.
 - Entered my cafe racer into its first motorcycle show, won best bike in show and even won the rev competition (_the Triumph shoots flames when you rev it so it was hardly a competition 😉_)
 - Started building a bike from 1974 with the Bike Night boys for the Bike Relief Project, which donates motorcycles to vets to help with PTSD.
-- Got a tape deck solely off the dream of [putting this song](https://www.youtube.com/watch?v=1Sc8SyL47ao) on a mixtape I'd make for the girl I was seeing. I got her a restored vintage '80s Walkman to listen to it on. Typed up a love note for the liner on a Hermes Baby typewriter from like 1941. She loved it.
+- Got a tape deck solely off the dream of [putting this song](https://www.youtube.com/watch?v=1Sc8SyL47ao) on a mixtape I'd make for the girl I was seeing. I got her a restored vintage '80s Walkman to listen to it on. Typed up a love note for the liner on a Hermes Baby typewriter from like 1941.
 - Celebrated Thanksgiving down South with my parents and grandparents.
 - Flew straight from there to Dublin to celebrate a dear friend's Big 30th Birthday.
 
