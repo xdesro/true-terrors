@@ -97,6 +97,14 @@ The mechanic didn't do that btw, he just sent a "who did the last oil change on 
 ### September
 
 - Took my Triumph cafe racer way, way into the mountains, even found some dirt roads I definitely shouldn't have been on, but it turns out every bike is an adventure bike if you're not a scaredy-cat.
+
+<div class="subgrid flow" style="--standard-column: 2 / span 5;">
+  <img alt="A chrome Triumph motorcycle idling along a dirt road in the mountains. A dense forest to the background, and a dramatic overcast sky overhead." src="https://res.cloudinary.com/henry-codes/image/upload/v1767484831/IMG_3659_nmbatz.jpg" />
+</div>
+<div class="subgrid flow" style="--standard-column: auto / span 5">
+  <img alt="Another angle of the Triumph motorcycle, this time showing the valley stretching out far into rocky mountain distances." src="https://res.cloudinary.com/henry-codes/image/upload/v1767484832/IMG_3661_c25qlg.jpg"/>
+</div>
+
 - With the help of a local friend who is also a furniture freak, found a vintage Eames lounge chair in awful condition, and restored and reupholstered it. It's been a dream for a long time and I managed to sort the whole thing for less than a thousand bucks.
 - Blew the clutch in my car to pieces. The technician that worked on it texted me to let me know he'd never seen one so torched — he even kept it so we could laugh about it when I picked up the car after replacing it.
 - Went over Guanella Pass on my BMW airhead to look at Autumn leaves. Every time that bike does any decent mileage or questing, it feels like an achievement for both of us. I've brought some immense life back to this bike since getting it, just going through the whole thing and sorting it out. It's a real source of pride. And to think of the life it has had, from a factory in Germany a literal half-century ago, to nearly 12,000ft above sea level in the Colorado Rockies in 2025.
