@@ -146,7 +146,7 @@ The mechanic didn't do that btw, he just sent a "who did the last oil change on 
 
 ![The author, a white man with white hair, dressed all in black, pictured in Ireland, looking smugly over his shades at the photographer.](https://res.cloudinary.com/henry-codes/image/upload/v1767483185/DSCF1308_zz0pal.jpg)
 
-## What I'll Do
+## What I'll do now
 
 - Stop shopping online.
 - Rebuild the '74 BMW airhead I've been neglecting for a few years.
