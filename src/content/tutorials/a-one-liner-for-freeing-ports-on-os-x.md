@@ -34,7 +34,7 @@ function killport {
 
 This bad boy can also be found as a [script in Gist form on GitHub](https://gist.github.com/xdesro/e7bbec9b2a1c31f0c04a1e2d22597dd8).
 
-Sorry, this guide doesn’t currently solve for Windows or Linux systems, as far as I know. If y’all have an analogous solution, I’d happily include it in this post :){.editors-note}
+Sorry, this guide doesn’t currently solve for Windows ~~or Linux systems~~ _(apparently [it works on Linux](https://bsky.app/profile/vielle.dev/post/3mbrlvkvgmk2a))_, as far as I know. If y’all have an analogous solution, I’d happily include it in this post :){.editors-note}
 
 ## Finding the offending process
 
