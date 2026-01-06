@@ -1,5 +1,5 @@
 ---
-title: A One-Liner For Freeing Ports on OS X
+title: A one-liner for freeing ports on OS X
 slug: a-one-liner-for-freeing-ports-on-os-x
 heroImage: ./img/4no.A One-Liner For Freeing Ports on OS X.png
 excerpt: 'I used to be like you, constantly Googling “how to kill processes running at a specific port”. But now I’m different: stronger, better — and you can too. Here’s a quick-and-dirty bash function for saving you the search in the future.'

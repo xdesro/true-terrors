@@ -1,11 +1,11 @@
 ---
-title: How To Use Vue To Template Your Eleventy Projects
+title: How to use Vue to template your Eleventy projects
 slug: how-to-use-vue-to-template-your-eleventy-projects
 heroImage: ./img/4HJ.grant-whitty-ExV72ahe4sE-unsplash.jpg
 excerpt: If you like using Eleventy, but would love to leverage Vue syntax in your templates, here's a guide on how to do that.
 publishDate: 2021-12-17T00:00-05:00
 socialSharingImage: ./img/4SF.how-to-use-vue-eleventy-og.jpg
-templateEngineOverride: "md"
+templateEngineOverride: 'md'
 tags:
   - article
 category: tutorial
@@ -23,7 +23,7 @@ All of the code for this project can be found [in this repo](https://github.com/
 
 If you're using Eleventy because it's lovely, but like using Vue syntax to handle single-file components, template merging, interpolation, etc, I've got your back. This post teaches how to start a new project in Eleventy, integrate `eleventy-plugin-vue`, and deal with any arising quirks or idiosyncrasies.
 
-## Getting Started
+## Getting started
 
 This tutorial assumes you have Node and NPM installed. If you don't yet, you can head [over here](https://nodejs.org/en/) to get that running on your machine. Once that's in place, we can create a new directory, initialize it as a Node project, and install the two dependencies we need to get cookin'.
 
@@ -41,19 +41,19 @@ Let's also create some standard directories for an Eleventy project. I personall
 mkdir _data _includes
 ```
 
-### Creating The Eleventy Configuration and Scripts
+### Creating the Eleventy configuration and scripts
 
 To get any of this working, we'll need to add our configuration file to use the Vue plugin in our app. First, we'll create our `.eleventy.js` file in the base directory of the project and populate it!
 
 ```js
-const eleventyVue = require("@11ty/eleventy-plugin-vue"); // import the plugin
+const eleventyVue = require('@11ty/eleventy-plugin-vue'); // import the plugin
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyVue); // tell Eleventy about the plugin
 };
 ```
 
-### Eleventy Experimental Features
+### Eleventy experimental features
 
 Here's the first quirk of this process. At the time of writing, the default installations for `eleventy` and `eleventy-plugin-vue` rely on an experimental feature of Eleventy for Custom File Extensions. I've gotten around this requirement by installing the `@11ty/eleventy@beta` package, which implements custom file extensions as a feature.
 
@@ -79,11 +79,11 @@ If for some reason you can't use Eleventy 1.0.0, that's actually fine, you'll ju
 }
 ```
 
-## Layouts, Data Files, and Vue Templates
+## Layouts, data files, and Vue templates
 
 In this section, you'll create a layout, specify it as the default layout, and create your first Vue page template.
 
-### Creating A Layout
+### Creating a layout
 
 As [reported in the `eleventy-plugin-vue` README.md](https://github.com/11ty/eleventy-plugin-vue/#not-yet-available), you can't use `.vue` files as base layouts, so what we'll do instead is create a `layout.html` and specify it as the global layout template. This file will use some Nunjucks templating, so, sorry, you can't escape it entirely _(yet)_.
 
@@ -109,10 +109,10 @@ Note those `{{ title }}` and `{{ content }}` tags. These will use the Eleventy d
 Next, we'll need to tell Eleventy to use that file as the default layout. This is as simple as creating a `layout.js` in our `_data` directory and inputting the following JavaScript:
 
 ```js
-module.exports = "layout.html";
+module.exports = 'layout.html';
 ```
 
-### Adding Our First `.vue` Template
+### Adding our first `.vue` template
 
 Now we can get into the actual Vue side of things. Let's create our first page template, which, for now, will just have some content and set the page title.
 
@@ -125,7 +125,9 @@ We'll create a file `index.vue` at the base of our app.
   <article>
     <h1>This is a test</h1>
     <ul>
-      <li v-for="(listItem, index) in listItems" :key="index">{{ listItem }}</li>
+      <li v-for="(listItem, index) in listItems" :key="index">
+        {{ listItem }}
+      </li>
     </ul>
   </article>
 </template>
@@ -136,9 +138,9 @@ We'll create a file `index.vue` at the base of our app.
       return {
         title: "Wow I'm So Excited To Use Vue In My Templates!",
         listItems: [
-          "This is the first item",
-          "This is the second",
-          "This is perhaps the third, though who could truly say.",
+          'This is the first item',
+          'This is the second',
+          'This is perhaps the third, though who could truly say.',
         ],
       };
     },
@@ -152,7 +154,7 @@ The way the `eleventy-plugin-vue` works is by simply rendering the `<template>` 
 
 Here, we used Vue iteration to turn an array of strings into an unordered list. You'll even notice that the `layout.html` file automatically used the `title` data property as the title of the page. Nice work on this one, really just top notch work.
 
-## Rendering Content and Pagination
+## Rendering content and pagination
 
 Rendering content from either an API like Contentful introduces some challenges. Let's create a fake Markdown blog post API response and a post template.
 
@@ -161,16 +163,16 @@ In our `_data` directory, we can create a `posts.js` file that just exports a JS
 ```js
 module.exports = [
   {
-    title: "This is a test blog post",
-    slug: "this-is-a-test-blog-post",
+    title: 'This is a test blog post',
+    slug: 'this-is-a-test-blog-post',
     content:
-      "## Subtitle\nLorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, vero, odit animi praesentium obcaecati autem velit, labore voluptates itaque consequuntur ea reprehenderit quod eveniet nobis perspiciatis neque quas cum voluptatum.",
+      '## Subtitle\nLorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, vero, odit animi praesentium obcaecati autem velit, labore voluptates itaque consequuntur ea reprehenderit quod eveniet nobis perspiciatis neque quas cum voluptatum.',
   },
   {
-    title: "This is another blog post",
-    slug: "another-blog-post",
+    title: 'This is another blog post',
+    slug: 'another-blog-post',
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, vero, odit animi praesentium obcaecati autem velit, labore voluptates itaque consequuntur ea reprehenderit quod eveniet nobis perspiciatis neque quas cum voluptatum.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, vero, odit animi praesentium obcaecati autem velit, labore voluptates itaque consequuntur ea reprehenderit quod eveniet nobis perspiciatis neque quas cum voluptatum.',
   },
 ];
 ```
@@ -191,8 +193,8 @@ Next, create a file `posts/_slug.vue` which will be the template for our rendere
       return {
         pagination: {
           size: 1,
-          data: "posts",
-          alias: "post",
+          data: 'posts',
+          alias: 'post',
         },
         permalink: (data) => `posts/${data.post.slug}/index.html`,
         eleventyComputed: {
@@ -230,7 +232,7 @@ npm i -D markdown-it
 
 <script>
   // import and initialize our markdown renderer from markdown-it
-  const markdownRenderer = require("markdown-it")();
+  const markdownRenderer = require('markdown-it')();
 
   export default {
     data() {
@@ -253,7 +255,7 @@ We've added that `computed` property which has one `body()` function, which just
 - If you need to make data from a paginated page available higher in the data cascade (e.g. the page `title` in this case), use `eleventyComputed`.
 - If you need to transform data within a Vue template, you can use the Vue `computed` or `filter` properties, just like in a Vue single-page application.
 
-## Using Vue Components
+## Using Vue components
 
 Of course, a lot of the reason for using Vue templates is the single-file component architecture pattern. That works just fine in Eleventy as well! Let's create a `<Navigation />` component for use in our home page.
 
@@ -273,7 +275,7 @@ First, we'll create the file `_includes/Navigation.vue`,
 
 <script>
   export default {
-    props: ["posts"],
+    props: ['posts'],
   };
 </script>
 ```
@@ -308,7 +310,7 @@ This is a pretty rudimentary example, but some things to note, again:
 
 Everything else is more or less the same!
 
-## Using Single-File Component CSS
+## Using single-file component CSS
 
 `eleventy-plugin-vue` does have support for using single-file `<style>` tags, there's just a little additional setup. In our `index.vue` template, we can add a style tag with some arbitrary styles:
 
@@ -366,7 +368,7 @@ I'll update this post as I learn how to do more things, such as:
 
 Thanks to my king [Zach Leatherman](https://www.zachleat.com/) for pointing out the spots in this blog where I was being a doofus, and [Robb Owen](https://robbowen.digital/) for proof-reading me to safety while I was recovering from vaccine brain.
 
-### Further Reading:
+### Further reading:
 
 - [The Official Eleventy documentation](https://www.11ty.dev/docs/)
 - [`eleventy-plugin-vue` documentation](https://github.com/11ty/eleventy-plugin-vue/)

@@ -1,11 +1,11 @@
 ---
-title: How To Make an Animated Interactive Vue.js Slider
+title: How to make an animated interactive vue.js slider
 slug: how-to-make-an-animated-interactive-vue-js-slider
 heroImage: ./img/bxo.boat.jpg
 excerpt: My guide, start to finish, floor to ceiling, on coding, styling, and animating a slider element with Vue.js.
 publishDate: 2019-06-04T20:36-06:00
-socialSharingImage: ./img/4t0.Frame 12.png
 templateEngineOverride: 'md'
+hasHero: false
 tags:
   - article
 category: tutorial
@@ -15,17 +15,6 @@ topics:
   - css
   - css grid
 ---
-
-<!-- **Table of Contents**
-
-1. [Introduction](#introduction)
-2. [Getting Started](#getting-started)
-3. [Interactivity With Vue.js](#interactivity)
-4. [Animating With Vue.js &lt;transition> and &lt;transition-group>](#animation)
-5. [Conclusion](#conclusion)
-   {.toc} -->
-
-## [](#introduction){.header-anchor #introduction} Introduction
 
 So, I was looking for a fun example of UI interactivity to prototype on Codepen, and I stumbled upon [this really cool shot](https://dribbble.com/shots/6566320-Kalli-Hero) that [Alexsander Barhon](http://alexsanderbarhon.dribbble.com/) shared.
 
@@ -37,11 +26,11 @@ It's a simple enough animation, with a really nice loading effect and staggered 
 
 If you wanna skip the tutorial and get the source, scroll to the bottom of the post or just go check out the [finished pen](https://codepen.io/xdesro/pen/dEwMOq). This post is gonna go pretty in-depth on everything it took to get this running, including the foundational CSS, etc. If you're just looking for the [Vue Interactivity](#interactivity) or [Vue transitions section](#animation), that's cool too.
 
-## [](#getting-started){.header-anchor #getting-started}Getting Started
+## Getting Started
 
 When I'm building components like this, I always try to get markup and style in place before trying to futz with JavaScript. That way, I can focus on making things semantic and DRY without adding an additional layer of abstraction.
 
-### Basic HTML Structure
+### Basic HTML structure
 
 There's a bunch of different ways you could break this app down, but based on the way it animates in the Dribbble shot, I see it in three major components, and then a few sub-pieces:
 
@@ -92,7 +81,7 @@ You'll also notice I'm assigning seemingly-duplicative classes like `.nav` to th
 
 **Don't worry about style just yet.** If we make sure our HTML is meaningful and well-structured without style, it'll be that much easier to write up the CSS.
 
-#### Primary Nav
+#### Primary nav
 
 The navigation at the top has two distinct sections — the logo and the right-aligned nav items.
 
@@ -108,7 +97,7 @@ The navigation at the top has two distinct sections — the logo and the right-a
 </nav>
 ```
 
-#### Main Section & Slider
+#### Main section & slider
 
 I want to keep the slider slides and headline separate, because they animate in different ways, but close enough that they're clearly related.
 
@@ -139,7 +128,7 @@ I want to keep the slider slides and headline separate, because they animate in 
 </main>
 ```
 
-#### Aside & Secondary Slider
+#### Aside & secondary slider
 
 I know we need two buttons that navigate forward and backward in the slider, a secondary container for the aside slider that we'll mark up in a similar way to the first slider, and a progress indicator. I think I'm gonna use pseudo-elements for the counter on the progress indicator, so I'll pass it the total number of slides via a `data-slides-count` attribute.
 
@@ -160,7 +149,7 @@ I know we need two buttons that navigate forward and backward in the slider, a s
 
 And that's the markup done. I really love coding these puppies in layers like this because now that I know that my HTML is sound, I don't have to worry about it again for a while.
 
-### Basic Style
+### Basic style
 
 Let's get Sassy with it. In my initial iteration of this idea, I used CSS variables and other weird stuff, so if you're interested in that but have to support older browsers, it might be worth looking into a polyfill, or better yet, a _[ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/). 🦄_ This version of the tutorial doesn't include any of that crazy bonkers stuff.
 
@@ -187,7 +176,7 @@ This block does a few things:
 
 Let's keep trucking.
 
-#### Layout Style
+#### Layout style
 
 We're gonna default to using CSS Grid for most of our layout problems, with some absolute positioning.
 
@@ -298,7 +287,7 @@ Looking pretty slick so far. This looks about how we initially broke down the Dr
 
 Next we'll add some more visual style to the app.
 
-#### Visual Spice
+#### Visual spice
 
 So the first thing I'm gonna mention is that I don't actually know what font is in use here off-hand, so I'll be using instead this really nice sans-serif font called [Inter](https://rsms.me/inter/). Let's go ahead and include it in our style sheet.
 
@@ -386,7 +375,7 @@ In the SCSS, we'll use the same code for the images twice, so let's make it a `@
 
 I think the last two kinda strange parts of this are the social links and the progress indicator. Let's kick those off.
 
-#### Progress Indicator
+#### Progress indicator
 
 In CSS grid, you can actually use pseudo elements as grid-level elements, and that works out great for this example, where the social links are divided by two dashes. We already set the social links up as a grid, but now lets place the pseudo-elements in that grid:
 
@@ -455,7 +444,7 @@ I'll breeze through the rest of the styles we'll be adding. It's mostly simple v
 <p class="codepen" data-height="400" data-theme-id="37307" data-default-tab="result" data-user="xdesro" data-slug-hash="YbBogX" style="height: 400px;" data-pen-title="02 - Vue UI Slider [Visual Style & Debug]">
 </p>
 
-## [](#interactivity){.header-anchor #interactivity} Interactivity With Vue.js
+## Interactivity With Vue.js
 
 The first thing we'll do is get Vue included and turn our "app" into an App™.
 
@@ -475,7 +464,7 @@ const app = new Vue({
 });
 ```
 
-### Adding Slides
+### Adding slides
 
 In our Vue instance, let's add some data for slides and a currently-active slide index, and then populate that data in the template markup.
 
@@ -567,7 +556,7 @@ Last thing to do is the progress indicator. We can do this all in the template, 
 </ul>
 ```
 
-### Navigating Between Slides
+### Navigating between slides
 
 The actual slide navigation is pretty simple, thanks to Vue – it'll listen to the `currentActiveSlide` value and change everything we need based on that. We'll add a method to handle slide changes. I've elected to be kinda wordy with this method for the sake of readability, but you could be much more concise!
 
@@ -618,7 +607,7 @@ In Vue, you can use the `<transition>` component to trigger animations in CSS or
 
 Let's start by transitioning the headline when you change slides with `<transition-group>`, which is best for list transitions.
 
-### Transitioning the Headline
+### Transitioning the headline
 
 The first step is to convert the `.main__headline` div into a `<transition-group>`:
 
@@ -678,7 +667,7 @@ Now we can write the CSS to make some magic happen.
 }
 ```
 
-### Transitioning The Slides Using `clip-path`
+### Transitioning the slides using `clip-path`
 
 Let's use `<transition-group>` again to prepare the main and aside sliders to be animated.
 
@@ -781,7 +770,7 @@ And again in the `<aside>` slider:
 <p class="codepen" data-height="400" data-theme-id="37307" data-default-tab="result" data-user="xdesro" data-slug-hash="joREmZ" style="height: 400px;" data-pen-title="04 - Vue UI Slider [Animation with Vue]">
 </p>
 
-## [](#conclusion){.header-anchor #conclusion} Conclusion
+## Conclusion
 
 And just like that, we're all ready to rumble. If you wanted to, there are a couple of enhancements you could include:
 

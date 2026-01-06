@@ -1,5 +1,5 @@
 ---
-title: Agile For The Rest of Us
+title: Agile for the rest of us
 slug: agile-for-the-rest-of-us
 heroImage: ./img/5yF.plane.jpg
 excerpt: For the folks at home or those who might be new to the industry, what *is* agile development? Where did it come from? Who let it in? Should we feed it?

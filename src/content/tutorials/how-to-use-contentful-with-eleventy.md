@@ -1,10 +1,10 @@
 ---
-title: How To Use Contentful With Eleventy
+title: How to use Contentful with Eleventy
 slug: how-to-use-contentful-with-eleventy
 heroImage: ./img/2R9.how-to-use-contentful-eleventy-og.jpg
 excerpt: Here's a pretty 0-60 tutorial on integrating Contentful headless content with Eleventy static site generation! I hope you think it's nice!
 publishDate: 2021-12-23T00:00-07:00
-socialSharingImage: ./img/2R9.how-to-use-contentful-eleventy-og.jpg
+hasHero: false
 tags:
   - article
 category: tutorial
@@ -20,7 +20,7 @@ Contentful is an immensely well-featured headless content management system, but
 
 Contentful has a <abbr title="Representational State Transfer">REST</abbr> content delivery <abbr title="application programming interface">API</abbr> and a GraphQL API. This post covers using the REST API to query blog posts from Contentful and render the returned data in an Eleventy project, as well as create multiple pages from that data.
 
-### What About GraphQL?
+### What about GraphQL?
 
 Okay, I meant for this to be one paragraph about why I'm just covering REST but it ended up being kind of a lot, feel free to [skip this section](#creating-a-contentful-content-type) lol.{.editors-note}
 
@@ -32,7 +32,7 @@ As far as reducing bandwidth goes, it's a non-issue here — since Eleventy make
 
 Lastly, in terms of proliferation, nearly 82% of API practitioners and consumers use a REST style, according to SmartBear's 2020 [State of API report](https://smartbear.com/resources/ebooks/the-state-of-api-2020-report/), whereas only 19% use GraphQL. That's still a sizeable chunk to be sure, but it's at least self-evident that the likelihood you'll be integrating a GQL API with Eleventy any time is smaller than a RESTful one.
 
-## Creating A Contentful Content Type
+## Creating a Contentful content type
 
 This post assumes you've already created a Contentful Space — if you haven't, I recommend you head over to [read about how to get started with Contentful](https://www.contentful.com/help/contentful-101/).
 
@@ -44,7 +44,7 @@ If you'll have content editors in the dashboard that aren't you, it's good manne
 
 Now we can add some fields. For this example, let's add some Text, Date, Media, and Rich Text fields, in the form of a blog title, publish date, featured image, and body.
 
-### Some Things To Note As You Add Fields
+### Some things to note as you add fields
 
 - Make sure the Title is designated as the Entry title in Contentful.
 
@@ -66,11 +66,11 @@ Switch to the Content tab and click "Add entry". When prompted, select the Blog 
 
 That's all we'll need from the Contentful side until we get our Eleventy site going, at which point we'll need to come back to this dashboard to get some API credentials!
 
-## Creating An Eleventy Project
+## Creating an Eleventy project
 
 You can start from scratch or if you're an old Eleventy pro, you can skip down to where I write about [requesting data from Contentful](#requesting-data-from-contentful).
 
-### Initial Setup
+### Initial setup
 
 First, you'll create a new directory for the project to live in, initialize it as a Node project, and install some dependencies. In your terminal, run the following:
 
@@ -122,7 +122,7 @@ layout: layout.html
 
 Now, you can run `npx @11ty/eleventy --serve` to start hot-reloading this Eleventy project at `localhost:8080`.
 
-## Requesting Data From Contentful
+## Requesting data from Contentful
 
 With Eleventy, you can use JavaScript files to make requests to data sources at build time. We'll create our first file to request all of our posts (_or, just the one, I guess_) from Contentful.
 
@@ -137,7 +137,7 @@ CTF_CDA_ACCESS_TOKEN=HuKYnGA87XYI0cNM...
 
 ⚠️ **Don't ever publish your `.env` file.** ⚠️ It contains secrets. Don't commit it to git, don't text its contents to your tight homies.
 
-### Creating A Contentful Client
+### Creating a Contentful client
 
 We now need a Contentful client with which to ask the content API for posts. Let's create a file `utils.js` in the root of our directory and create our client in there, using the `dotenv` package we installed earlier to reference our local `.env` variables.
 
@@ -155,7 +155,7 @@ exports.contentfulClient = contentfulClient;
 
 When I have multiple content types, I prefer to create the client once and import it in each Eleventy `_data` file that needs it. If you prefer to re-initialize the client in each file, that's your prerogative. I'm proud of you for knowing what you believe in.{.editors-note}
 
-### Creating Our Request
+### Creating our request
 
 Now we can create a JavaScript file in the `_data` directory that will grab all our posts when we run Eleventy. You can call it `_data/posts.js` so you'll be able to reference the data it returns as `posts` in your templates.
 
@@ -176,7 +176,7 @@ module.exports = async () => {
 
 That oughta be working! (You may need to restart your Eleventy script in the terminal.) Now we can render the data in our templates.
 
-## Using Data
+## Using data
 
 In our `index.njk` file, let's add a Nunjucks tag to dump all the data we just requested to the template.
 
@@ -207,7 +207,7 @@ You can use Nunjucks to iterate over every blog post (_which, for now is only on
 
 That's probably looking much cleaner already. One thing you might notice is that I created a link to a page that doesn't exist yet, using the title of this post and the built-in Eleventy `slug` filter. We'll handle that next.
 
-## Creating Post Pages From Data
+## Creating post pages from data
 
 In this section, we'll cover the creation of a post template that will autogenerate every individual post page.
 
@@ -253,7 +253,7 @@ There are some quirks to note here as well.
 - Second, I've added a `?w=400` parameter to the image URL to make sure we're not grabbing a huge image every time. Contentful provides a number of image transformations by URL, you can [read more about URL image transformation methods here](https://www.contentful.com/developers/docs/references/images-api/).
 - Lastly, looks like that Rich Text `body` field renders some wild JSON. We'll fix that next.
 
-## Rendering Contentful Rich Text
+## Rendering Contentful rich text
 
 The "Rich Text" concept in Contentful is extremely powerful, as it allows you to generate your own renderer and custom overrides for how your content is displayed. For this tutorial we'll use the stock renderer, and won't extend it for any special embeds.
 

@@ -1,10 +1,10 @@
 ---
-title: What To Say When You Don't Know What To Say
+title: What to say when you don't know what to say
 slug: what-to-say
 heroImage: ./img/4HJ.grant-whitty-ExV72ahe4sE-unsplash.jpg
 excerpt: I have this weird relationship with Incredible Amounts Of Grief where, like, I’ve literally been there — I know there’s nothing to say, and nothing will heal but time. But I know well the urge to say ~something~. Here's what to say, and maybe more importantly, what not to say.
 publishDate: 2021-03-06T19:00-05:00
-socialSharingImage: ./img/9FV.Frame 5.png
+hasHero: false
 tags:
   - article
 category: journal
@@ -19,7 +19,7 @@ Despite this, I know what it is to watch someone grieve and feel desperately tha
 
 I've have tried to be critical of myself, thinking about how to improve my own response, given my particular expertise in this scenario. I thought back to when The Bad Thing happened to me, and how I would have changed their reactions. Most of the things people said fell into a few categories:
 
-## What Not To Say
+## What not to say
 
 ### I know what you're going through.
 
@@ -39,6 +39,8 @@ Honestly, what part of "kaleidoscope of pain" makes you think someone's grieving
 
 I know that, I've seen the movies about people experiencing grief and healing from it, but grief has this special, incisive way of annihilating any sense of temporality one might have — one finds themselves trapped in a singular plane of cyclical thought and emotion. Unless you have those _years_ of healing ready to inject intravenously, don't bring the promise of those years.
 
-## What To Say
+## What to say
 
-Just say "I'm sorry for your loss". It's not overdone — rather it carries the tradition of sorrow of millions of sorries-for-your-loss past. It's succinct and respectful of the grieving and their time. Listen, if they have something to share, and know unequivocally in this moment there is nothing else you can say.
+Just say _"I'm sorry for your loss"._
+
+It's not overdone! Rather, it carries the tradition of sorrow of millions of sorries-for-your-loss past. It's succinct and respectful of the grieving and their time. Listen, if they have something to share, and know unequivocally in this moment there is nothing else you can say.

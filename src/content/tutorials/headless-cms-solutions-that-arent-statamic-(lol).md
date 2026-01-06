@@ -1,10 +1,9 @@
 ---
-title: Headless CMS Solutions That Aren’t Statamic (Lol)
+title: Headless CMS solutions that aren’t Statamic (lol)
 slug: headless-cms-solutions-that-arent-statamic-lol
-heroImage: ./img/3DQ.philipp-kammerer-dD4-_LkdXvU-unsplash.jpg
+hasHero: false
 excerpt: The founder of Statamic recently revealed some extremely unfortunate views he holds about controlling women's bodies and destroying democracy. For those whom that might be troubling, I’ve compiled a brief list of alternatives to Statamic.
 publishDate: 2020-11-03T15:00-07:00
-socialSharingImage: ./img/7Eq.Frame 8.png
 tags:
   - article
 category: journal
@@ -23,7 +22,7 @@ He's written—and I'm not linking the post here because I believe in deoxygenat
 
 TL;DR? Statamic is run by a jerk and I'd love to recommend y'all some alternatives in case you're using it or considering it and want to course-correct.
 
-## Path of Least Resistance
+## Path of least resistance
 
 If you're looking for another PHP CMS with a configurable UI, your best bets are gonna be either Kirby or Craft:
 
@@ -43,7 +42,7 @@ Kirby also has a vibrant community, flat-file structure, a really sick customiza
 
 Additionally, Bastian Allgeier, the founder of Kirby, [has written](https://bastianallgeier.com/notes/train-of-thought) on [more than one occasion](https://bastianallgeier.com/notes/denial) about the climate crisis and his personal efforts to fight it, which I mention because Statamic Guy has decided climate change is not of interest to him when compared to controlling women.
 
-**[Check out Kirby](https://getkirby.com).**
+[Check out Kirby](https://getkirby.com).
 
 ### Craft CMS
 
@@ -58,9 +57,9 @@ Craft also has localization support out of the box, some really good user manage
 
 It's worth also mentioning that the Craft team sponsors diversity scholarships and conferences — that prioritization of diverse communities is something missing from Statamic, whose founder believes Black lives and the lives of queer folks and non-men are worth less than his right to legislate women's bodies.
 
-**[Check out Craft CMS](https://craftcms.com/).**
+[Check out Craft CMS](https://craftcms.com/).
 
-## Additional Alternatives
+## Additional alternatives
 
 I've had excellent experiences with a lot of these headless CMS tools. The Jamstack conf team has put together [this very good list of headless CMS options](https://jamstack.org/headless-cms/), and I have my own personal recommendations:
 
@@ -68,15 +67,15 @@ I've had excellent experiences with a lot of these headless CMS tools. The Jamst
 
 It's a single flat file you add to your site that manages flat files in Git with a configurable UI, it's free, it's open source, it's powered by Netlify. Its power lies in its simplicity. I've used this tool for a couple different projects with small businesses and otherwise, and it really serves a surprising amount of needs. The community is great, too, and they've written guides for getting you started with most front-end solutions. It's purely headless but a great solution for rapidly converting static projects to dynamic content.
 
-**[Check out Netlify CMS](https://www.netlifycms.org/).**
+[Check out Netlify CMS](https://www.netlifycms.org/).
 
 ### Contentful
 
 This blog post was written with Contentful — it's one of my favorite headless CMS solutions. Contentful is language/framework agnostic, though they provide a bunch of tooling for common integrations. You edit content and content-modeling in your configurable dashboard and it is served through a very flexible RESTful API. They also do a bunch of behind-the-scenes asset/CDN/caching optimization. Big recommend for small teams.
 
-**[Check out Contentful](https://www.contentful.com).**
+[Check out Contentful](https://www.contentful.com).
 
-## Questions or Concerns?
+## Questions or concerns?
 
 If you're a DJT supporter or you still think this is a matter of regular old red-v-blue politics, I would love to hear your opinion, feel free to email me at [lmfao@henry.codes](mailto:🖕). If you have other corrections or questions for this post, [get at me on Twitter](https://twitter.com/messages/compose?recipient_id=2509306208), I'm most responsive on there.
 

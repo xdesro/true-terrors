@@ -1,10 +1,10 @@
 ---
-title: Let’s Talk About Banning Political Ads On Twitter
+title: Let’s talk about banning political ads on Twitter
 slug: lets-talk-about-banning-political-ads-on-twitter
 heroImage: ./img/1vy.blog-post-header-birds.jpg
 excerpt: Jack Dorsey recently banned all political advertising on Twitter — here's why that's actually a super dangerous and violent thing to do.
 publishDate: 2019-10-31T12:00-06:00
-socialSharingImage: ./img/1In.Frame 11.png
+hasHero: false
 hasToc: false
 tags:
   - article
@@ -20,34 +20,34 @@ So, Twitter recently stopped allowing political advertising.
 
 {% renderTemplate 'webc' %}
 <embed-twitter author="jack 🌍🌏🌎 (@jack)" url="https://twitter.com/jack/status/1189634360472829952" date="October 30, 2019">
-    We’ve made the decision to stop all political advertising on Twitter globally. We believe political message reach should be earned, not bought. Why? A few reasons…🧵
+We’ve made the decision to stop all political advertising on Twitter globally. We believe political message reach should be earned, not bought. Why? A few reasons…🧵
 </embed-twitter>
 {% endrenderTemplate %}
 
 This, at first glance, sounds like a good thing — no more big money candidates paying big money for big money reach, no more "as president I promise to" in your TL. For a moment, I actually felt relieved by this announcement, but upon further inspection, I lost that faith. Stopping "all political advertising" is Bad, Actually™, and here are a few reasons why:
 
-- If the ban was explicitly imposed against _candidate ads_ alone (it’s not, and I’ll talk about that in a second), there’s a possibility it could be a good thing, for the above reasons. However, **the advertising budget for big money candidates still exists and will still be spent.** Whether that’s on huge TV campaigns or billboards or subway signage, the advertising deluge will simply be redistributed, it won’t just go away. The big money messaging might even stay on Twitter, in the form of [fake accounts and bots](https://www.adweek.com/digital/as-2020-election-nears-twitter-bots-have-only-gotten-better-at-seeming-human/).
-- Banning candidate ads is also bad for grassroots movements — plenty of small-budget candidates with really fantastic ideas have, in recent years, been enabled to run and build communities by affordable digital advertising on Twitter, _et al._ **Grassroots candidates will no longer have access to the same reach**, and by extension won’t be able to circulate their ideas.
+- If the ban was explicitly imposed against _candidate ads_ alone (it’s not, and I’ll talk about that in a second), there’s a possibility it could be a good thing, for the above reasons. However, _the advertising budget for big money candidates still exists and will still be spent._ Whether that’s on huge TV campaigns or billboards or subway signage, the advertising deluge will simply be redistributed, it won’t just go away. The big money messaging might even stay on Twitter, in the form of [fake accounts and bots](https://www.adweek.com/digital/as-2020-election-nears-twitter-bots-have-only-gotten-better-at-seeming-human/).
+- Banning candidate ads is also bad for grassroots movements — plenty of small-budget candidates with really fantastic ideas have, in recent years, been enabled to run and build communities by affordable digital advertising on Twitter, _et al._ _Grassroots candidates will no longer have access to the same reach_, and by extension won’t be able to circulate their ideas.
 
 In short, candidates with lots of money, powered by corporate PACs, will continue to be very loud, and smaller-budget candidates will be forced to return to more traditional, outdated methods of community building.
 
-But there’s a more sinister side to this policy change, and that’s the really dangerous part of the whole thing: **The ban doesn’t just prohibit candidate ads.**
+But there’s a more sinister side to this policy change, and that’s the really dangerous part of the whole thing: _The ban doesn’t just prohibit candidate ads._
 
 {% renderTemplate 'webc' %}
 <embed-twitter author="jack 🌍🌏🌎 (@jack)" url="https://twitter.com/jack/status/1189634372334280704" date="October 30, 2019">
-    We considered stopping only candidate ads, but issue ads present a way to circumvent. Additionally, it isn’t fair for everyone but candidates to buy ads for issues they want to push. So we&#39;re stopping these too.
+We considered stopping only candidate ads, but issue ads present a way to circumvent. Additionally, it isn’t fair for everyone but candidates to buy ads for issues they want to push. So we&#39;re stopping these too.
 </embed-twitter>
 {% endrenderTemplate %}
 
 _Here’s where this gets really dark._
 
-This implies that **Twitter will now be deciding what defines a political issue.** Based on Twitter’s stance on [refusing to remove violent fascists from their platform](https://www.vanityfair.com/news/2019/01/jack-dorsey-twitter-nazis-are-here-to-stay), one could infer that "issues" like climate change, women’s safe access to healthcare, and other civil liberties will no longer be acceptable to advertise about.
+This implies that _Twitter will now be deciding what defines a political issue._ Based on Twitter’s stance on [refusing to remove violent fascists from their platform](https://www.vanityfair.com/news/2019/01/jack-dorsey-twitter-nazis-are-here-to-stay), one could infer that "issues" like climate change, women’s safe access to healthcare, and other civil liberties will no longer be acceptable to advertise about.
 
 Further, marginalized groups that face unequaled oppression (on Twitter and every moment of every day IRL) like people of color and queer folks, are no longer able to advertise for their own safety, advocacy, and community-building. [John Hanawalt](https://www.hanawa.lt/) puts this exceptionally well:
 
 {% renderTemplate 'webc' %}
 <embed-twitter author="J ☠️ H N (@H4N4W4LT))" url="https://twitter.com/H4N4W4LT/status/1189712684075249664" date="October 31, 2019">
-    Fair question a few things: blanket policies can only approach fairness when all else is equal. But all else isn’t equal. <br><br>These communities will continue to face political attacks offline, and Twitter is limiting their ability to advocate for themselves by limiting paid reach.
+Fair question a few things: blanket policies can only approach fairness when all else is equal. But all else isn’t equal. <br><br>These communities will continue to face political attacks offline, and Twitter is limiting their ability to advocate for themselves by limiting paid reach.
 </embed-twitter>
 {% endrenderTemplate %}
 

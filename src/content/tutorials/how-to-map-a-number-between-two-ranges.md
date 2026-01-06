@@ -1,5 +1,5 @@
 ---
-title: How To Map A Number Between Two Ranges
+title: How to map a number between two ranges
 slug: how-to-map-a-number-between-two-ranges
 heroImage: ./img/5w9.og-map-range.png
 excerpt: A common task in creative web development and animation is converting a number in one range to a new range, also known as linear transformation. Here’s a basic rundown on executing that operation in a mathematical context, and how to translate that to JavaScript.
@@ -10,10 +10,10 @@ topics:
   - math
   - javascript
 toc:
-  - { title: TL;DR, url: "#tl-dr" }
-  - { title: The Math Part, url: "#the-math-part" }
-  - { title: The Code Part, url: "#the-code-part" }
-  - { title: Conclusion, url: "#conclusion" }
+  - { title: TL;DR, url: '#tl-dr' }
+  - { title: The Math Part, url: '#the-math-part' }
+  - { title: The Code Part, url: '#the-code-part' }
+  - { title: Conclusion, url: '#conclusion' }
 ---
 
 Often in creative web projects, I find myself having to take a number, which exists in a specific range of numbers, and find the number that would be in the same position if the range were changed. Examples of this type of operation can vary anywhere from converting Fahrenheit to Celsius, to my recent use-case of creating an array of 500 “particles” with 3D coordinates and assigning each one a position between `{ z: -10 }` and `{ z: 12 }` relative to its position in the original array (i.e. `particles[0].z = -10` and `particles[499].z = 12`).
@@ -42,7 +42,8 @@ To implement this concept more concretely, the first thing we’ll need to do is
 In the following diagram, we’ll use `v` to represent our input value and `A` and `B` to represent our input range’s minimum and maximum values.
 
 $$
-\displaylines{(v-A)/(B-A)\\\\(1-0)/(2-0)\\\\\frac{1}{2}}$$
+\displaylines{(v-A)/(B-A)\\\\(1-0)/(2-0)\\\\\frac{1}{2}}
+$$
 
 Just as we understood earlier, our value of 1 is 1/2 of distance between 0 and 2.
 
@@ -125,7 +126,10 @@ const mapRange = (v, A, B, C, D) => {
 // or better yet
 
 const mapRange = (value, inputMin, inputMax, outputMin, outputMax) => {
-  return ((value - inputMin) / (inputMax - inputMin)) * (outputMax - outputMin) + outputMin;
+  return (
+    ((value - inputMin) / (inputMax - inputMin)) * (outputMax - outputMin) +
+    outputMin
+  );
 };
 ```
 

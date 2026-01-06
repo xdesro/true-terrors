@@ -1,5 +1,5 @@
 ---
-title: On Leaving New York City
+title: On leaving New York City
 slug: leaving-new-york
 heroImage: https://nyc.henry.codes/img/skyline-sunset.jpg
 useHero: true
@@ -20,7 +20,7 @@ I’ve tried to write this post for a few weeks, and each time it just gets long
 
 Real talk, this one is mad self-indulgent, and has almost nothing to do with websites. You’ve been warned.{.editors-note}
 
-## That’s New York Babey
+## That’s New York babey
 
 I moved to New York City towards the start of the pandemic, after the Tiger King Era but before the Vaccine Era. Every movie I loved had a Central Park in Autumn scene, every post-punk revival band that got me through high school had some song about New York; there’s so much cinematic and cultural lore to the city, and I had known for a long time that I wanted to be part of it. New York is a town full of brave and confident main characters — when the isolation of the pandemic set in and I started to lose my senses of meaning and self, it felt like it’d be a good place to find them again.
 
@@ -43,7 +43,6 @@ I’ve always been enamored with the staggering drama of the Rockies and Wild We
 
 > And when I walk where the flowers talk  
 > I just feel good all over.
-
 
 I miss my friends, the DIY punk kids and queers and cyclists and car nerds and Arcteryx hiking fiends. New York has all types of people; in fact I’m sure there are these sorts of people here too, but they’re not _my_ people like these old Coloradan friends. You can’t replace your community.
 

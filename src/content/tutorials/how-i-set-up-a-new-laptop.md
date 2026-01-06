@@ -1,5 +1,5 @@
 ---
-title: How I Set Up A New Laptop
+title: How I set up a new laptop
 abstract: Comes a time in any young man’s life where he must, inevitably, set up a new Mac computer for web development and other every-day purposes. Here’s how I do it!
 publishDate: 2024-03-23T14:00-06:00
 heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1735169308/stormy-sky_jaazo9.jpg
@@ -13,13 +13,22 @@ topics:
   - configuration
   - powerusers
 toc:
-  - { title: TL;DR, url: "#tl-dr" }
-  - { title: Preheat the oven with Homebrew, url: "#preheat-the-oven-with-homebrew" }
-  - { title: Dotfiles Mise en Place, url: "#dotfiles-mise-en-place" }
-  - { title: Setting Up Git And Dotfiles, url: "#setting-up-git-and-dotfiles" }
-  - { title: Installing apps with Brewfiles, url: "#installing-apps-with-brewfiles" }
-  - { title: Installing apps without Brewfiles, url: "#installing-apps-without-brewfiles" }
-  - { title: Last steps, url: "#last-steps" }
+  - { title: TL;DR, url: '#tl-dr' }
+  - {
+      title: Preheat the oven with Homebrew,
+      url: '#preheat-the-oven-with-homebrew',
+    }
+  - { title: Dotfiles Mise en Place, url: '#dotfiles-mise-en-place' }
+  - { title: Setting Up Git And Dotfiles, url: '#setting-up-git-and-dotfiles' }
+  - {
+      title: Installing apps with Brewfiles,
+      url: '#installing-apps-with-brewfiles',
+    }
+  - {
+      title: Installing apps without Brewfiles,
+      url: '#installing-apps-without-brewfiles',
+    }
+  - { title: Last steps, url: '#last-steps' }
 ---
 
 Well it's that time again, migrating for one reason or another listlessly between computers as priorities and jobs change. Here's a middle-depth breakdown of how I speed-run getting a new machine off the ground.

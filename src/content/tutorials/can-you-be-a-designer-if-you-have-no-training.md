@@ -1,5 +1,5 @@
 ---
-title: Can You Be A Designer If You Have No Training?
+title: Can you be a designer if you have no training?
 slug: can-you-be-a-designer-if-you-have-no-training
 heroImage: ./img/1VP.can-you-be-a-designer-if-you-have-no-training.png
 excerpt: I recently saw it asserted that “if you don't have formal design training, you’re not a designer”. That’s a flawed statement because of the ubiquitous nature of design.
@@ -21,13 +21,13 @@ Right off the bat — L take, and I’m trying not to say that just because I am
 
 I didn’t link the post here because I don’t have any interest in either A. oxygenating platforms I don’t believe in, nor B. dunking on folks who I think just missed the mark.{.editors-note}
 
-## Design Isn’t A Thing
+## Design isn’t a thing
 
 Modern design—especially on the web—is just problem-solving. It’s the act of thinking carefully about the way systems and products will work, discovering potential or empirical failures in those systems, and proposing functional solutions. A lot of folks (me) get hung up on the fonts part of Being A Designer, but in earnest, the visual aspects of design e.g. color and type and rhythm and layout just serve to _solve a problem_, which is that communicating information clearly and memorably is hard.
 
 If this is our framework for understanding design, then design happens in a thousand little ways every day by _non-designers_. When folks choose the order of items on their restaurant menu, or make the newsletter for their community theater, or rearrange their living room to flow more naturally, they’re thinking about a system and enacting improvements to it. These are just people, though — they’re not necessarily academics nor are they necessarily not, but despite the lack of training in or even awareness of design thinking and discipline, they’re doing design.
 
-## Designers Aren’t A Thing
+## Designers aren’t a thing
 
 The threshold for design is care and consideration for problem solving, not formal steeping in impermanent design tools, not a slick <abbr title="Bachelor of Fine Arts">BFA</abbr> from <abbr title="Rhode Island School of Design">RISD</abbr>. “Being A Designer” is a mechanism we use to allow people who enjoy the exercise of that considerate problem-solving to do it for a living, but that’s the extent of its utility as a title.
 
@@ -35,7 +35,7 @@ The societal value of someone who spends a lot of time doing design is that they
 
 A really good designer is good because of their aptitude and willingness firstly to discover and constrain the shapes of problems, and then creatively apply different approaches until an amicable solution is found. A really good designer is not good because they know the most about Figma or the best type foundries, but because they’re dedicated to being curious and good at listening.
 
-## Controversial Opinions Aren’t A Thing
+## Controversial opinions aren’t a thing
 
 This is the least fair and least relevant and least-principled part of this analysis, so feel free to skip to the end bit.{.editors-note}
 

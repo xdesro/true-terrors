@@ -1,5 +1,5 @@
 ---
-title: Using Focal Points, Aspect Ratio & Object-Fit To Crop Images Correctly
+title: Using focal points, aspect ratio & object-fit to crop images correctly
 slug: pure-css-focal-points
 heroImage: ./img/35A.Using Focal Points, Aspect Ratio and Object-Fit To Crop Images Correctly.png
 excerpt: CSS has a lot of pretty rad and powerful features for managing image rendering these days. Let’s leverage some of these, like aspect-ratio, object-fit, and object-position for when we need to use a single image in many different contexts.
@@ -8,14 +8,6 @@ socialSharingImage: ./img/35A.Using Focal Points, Aspect Ratio and Object-Fit To
 templateEngineOverride: md
 category: tutorial
 topics: [css, css variables, aspect-ratio, object-fit]
-toc:
-  - { title: Choosing A Focal Point, url: "#choosing-a-focal-point" }
-  - { title: Using Aspect-Ratio To Size Images, url: "#using-aspect-ratio-to-size-images" }
-  - {
-      title: Using The Focal Point In Image Positioning,
-      url: "#using-the-focal-point-in-image-positioning",
-    }
-  - { title: Conclusion, url: "#conclusion" }
 ---
 
 Before I even get into the impetus for this blog post, if you came from a search engine and you just want the code, [here’s a demo](https://codepen.io/xdesro/pen/bGxVorV). Pleasure doing business with you.
@@ -24,7 +16,7 @@ Before I even get into the impetus for this blog post, if you came from a search
 
 In a client’s project recently, I found that their Wordpress setup required content editors to upload four separate versions of a blog post's featured image at varying dimensions to ensure a correct appearance in the many contexts that the post will be displayed in (i.e. homepage feature, blog list item, blog post page, social media sharing). Most of these images were getting created with the crop tool in GIMP or Photoshop, and not every content editor felt empowered to create all these images, so publishing timelines were getting pushed back waiting for the images to be generated. This is the sort of thing we can solve with modern CSS, so let’s do it! Don’t touch that dial!
 
-## Choosing A Focal Point
+## Choosing a focal point
 
 There are many solutions for implementing a focal point selector on images in Wordpress (other content management systems are available), but for the purposes of this tutorial, we’ll create an imitation focal point picker that uses client-side JavaScript to imitate what a back-end tool might do.
 
@@ -116,7 +108,7 @@ article > img {
 
 The images are looking a lot better now, but hark: in some of the images, the subject of the image is cropped out strangely. Let's sort that.
 
-## Using The Focal Point In Image Positioning
+## Using the focal point in image positioning
 
 Now we can use `object-position` (similar to `background-position`) to move the image until the thing we've decided is most important is in frame.
 
@@ -132,7 +124,7 @@ article > img {
 
 That's more like it. There’s a problem that used to take a couple minutes per post in an image editor, more-or-less solved with fifteen lines of CSS. Golly gosh is it a good day to be working on the web.
 
-### Possible Improvements
+### Possible improvements
 
 You'll find in some cases that setting a focal point in the corner or edge of an image doesn't work perfectly — the selected point will always be in the image but it won't always be centered in the image. I briefly tried to work out how this could be solved with exactly our markup and existing CSS, but I think there's more to it. By my estimate, roughly what would need to happen is:
 
