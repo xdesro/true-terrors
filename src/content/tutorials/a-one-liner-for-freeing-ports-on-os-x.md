@@ -2,19 +2,23 @@
 title: A One-Liner For Freeing Ports on OS X
 slug: a-one-liner-for-freeing-ports-on-os-x
 heroImage: ./img/4no.A One-Liner For Freeing Ports on OS X.png
-excerpt: "I used to be like you, constantly Googling “how to kill processes running at a specific port”. But now I’m different: stronger, better — and you can too. Here’s a quick-and-dirty bash function for saving you the search in the future."
+excerpt: 'I used to be like you, constantly Googling “how to kill processes running at a specific port”. But now I’m different: stronger, better — and you can too. Here’s a quick-and-dirty bash function for saving you the search in the future.'
 publishDate: 2023-02-28T12:07-07:00
 socialSharingImage: ./img/4no.A One-Liner For Freeing Ports on OS X.png
+hasHero: false
 tags:
   - article
 category: resource
 topics:
   - bash
 toc:
-  - { title: TL;DR, url: "#tl-dr" }
-  - { title: Finding the offending process, url: "#finding-the-offending-process" }
-  - { title: Killing in the port of, url: "#killing-in-the-port-of" }
-  - { title: Conclusion, url: "#conclusion" }
+  - { title: TL;DR, url: '#tl-dr' }
+  - {
+      title: Finding the offending process,
+      url: '#finding-the-offending-process',
+    }
+  - { title: Killing in the port of, url: '#killing-in-the-port-of' }
+  - { title: Conclusion, url: '#conclusion' }
 ---
 
 ## TL;DR
