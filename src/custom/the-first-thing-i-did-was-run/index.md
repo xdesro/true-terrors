@@ -1,6 +1,8 @@
 ---
 title: 'The first thing I did last year was run'
 slug: the-first-thing-i-did-last-year-was-run
+permalink: writing/the-first-thing-i-did-last-year-was-run/index.html
+layout: 'layouts/base.njk'
 abstract: Plenty of work was done, plenty of websites made. Here's a recap of everything I did that has nothing at all to do with work or websites.
 publishDate: 2026-01-07T09:00
 heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1767749658/IMG_8499_rp2l31.jpg
@@ -15,9 +17,16 @@ topics:
   - road trips
 ---
 
-The first thing I did in 2025 was run.
+<link data-taxi-reload rel="stylesheet" href="/css/custom/the-first-thing-i-did-was-run/index.css" />
+<header class="hero">
+  <h1>The first thing I did in 2025 was run.</h1>
+  <canvas class="hero__canvas"></canvas>
+</header>
 
-I found myself on the eve of the new year lying restlessly on the floor of my apartment (on this great Persian rug from Mashhad from like 1917 which is ornate and beautiful, and on which I negotiated a screaming deal on a few years back, but which of course has nothing to do with this story). Most of my friends were taking the year off hosting; I didn't want to go out for the evening and sit in cold traffic around Denver to cheers with strangers, and I would be damned if I'd start my grand adventurous year with a story of staying home. So I grabbed the keys.
+<article class="article-content rendered">
+<!-- The first thing I did in 2025 was run. -->
+
+I found myself on the eve of the new year lying restlessly on the floor of my apartment (on this great Persian rug from Mashhad from like 1917 which is ornate and beautiful, and for which I negotiated a blood-curdlingly screaming deal on a few years back, but which of course has nothing to do with this story). Most of my friends were taking the year off hosting; I didn't want to go out for the evening and sit in cold traffic around Denver to cheers with strangers, and I would be damned if I'd start my grand adventurous year with a story of staying home. So I grabbed the keys.
 
 A quick maps search showed if I left my house at 10pm, I could arrive at the foot of the Rocky Mountain Grand Tetons range, at an old beautiful building called Moulton Barn, exactly at sunrise. I'd spend the dawn of the year on an adventure, watching the furious red of the first sun of 2025 summit the peaks, while I drank hot coffee and The Rest Of My Life began.
 
@@ -63,16 +72,16 @@ There's a delightful little bakery & restaurant in Jackson called The Bunnery, w
 
 ¶
 
-<div class="subgrid flow two-col" style="--standard-column: 2 / span 10;">
-    <img style="height: 100%;width: auto;object-fit: cover;" alt="A frigid Wyoming two-lane mountain road, as seen through the windshield of the author's car. White snowy Voronoi patterns snake across the asphalt." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751623/DSCF0157_ipbjz8.jpg" />
-    <video style="height: 100%;width: auto;object-fit: cover;" autoplay muted loop src="https://res.cloudinary.com/henry-codes/video/upload/v1767751618/IMG_8505_ickr3b.mp4" />
-</div>
+  <div class="subgrid flow two-col" style="--standard-column: 2 / span 10;">
+      <img style="height: 100%;width: auto;object-fit: cover;" alt="A frigid Wyoming two-lane mountain road, as seen through the windshield of the author's car. White snowy Voronoi patterns snake across the asphalt." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751623/DSCF0157_ipbjz8.jpg" />
+      <video style="height: 100%;width: auto;object-fit: cover;" autoplay muted loop src="https://res.cloudinary.com/henry-codes/video/upload/v1767751618/IMG_8505_ickr3b.mp4" />
+  </div>
 
 The daylight drive of return was beautiful. A couple of stressful moments where the blizzard raged its hardest, but mostly it was peace. Snaking patterns of drift over the asphalt, volumetric beams intermittently reaching the road like the sideways glances of god, an ice-covered river caught halfway between polar blue and seafoam green in the rare bright light that filtered down through the storm. Once I was out of the Rockies again and onto the planes, the storm cleared, and I saw in that great, yawning, too-big Wyoming sky the first morning of the year. I kept the stereo silent, and I drove with a steady foot. I felt my manic energy of the night before — and truthfully, from the months before — melt away from me as the snow slipped off the roof and hood of my silly black car.
 
-<div class="subgrid flow" style="--standard-column: 3 / span 8;">
-<img alt="An immense winter sky in Wyoming, landscape seen from the seat of the author's car, blurry and temporal." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751991/DSCF0164_a3jg73.jpg" />
-</div>
+  <div class="subgrid flow" style="--standard-column: 3 / span 8;">
+  <img alt="An immense winter sky in Wyoming, landscape seen from the seat of the author's car, blurry and temporal." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751991/DSCF0164_a3jg73.jpg" />
+  </div>
 
 By the time I got back to Colorado, the sun had crested its wintertime noon and was starting to set once more. I called an old friend on the phone and we talked about love and our awful taste in men, and our grand plans for 2025.
 
@@ -80,6 +89,9 @@ I pulled into my garage, and as I sat there in the salt-blasted, filthy and wear
 
 ❦ {.flow .text-center}
 
-<div class="flow" style="--standard-column: 3 / span 8">
-    <img alt="A black coupe covered in snow, parked aside a national parks sign for Grand Teton National Park. The fore and background are both completely snowy and white." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751225/DSCF0153_1_zskdo0.jpg" />
+  <div class="flow" style="--standard-column: 3 / span 8">
+      <img alt="A black coupe covered in snow, parked aside a national parks sign for Grand Teton National Park. The fore and background are both completely snowy and white." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751225/DSCF0153_1_zskdo0.jpg" />
+  </div>
 </div>
+
+<script data-taxi-reload src="/js/the-first-thing-i-did-was-run/index.js"></script>

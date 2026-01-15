@@ -1,0 +1,20 @@
+.callout {
+  background-color: transparent;
+}
+.hero {
+  height: 100vh;
+  position: relative;
+  display: grid;
+  margin-block-start: -3.5rem;
+  place-content: center;
+  z-index: 0;
+  margin-block-end: 3rem;
+  h1 {
+    font-style: italic;
+  }
+  &__canvas {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+}
