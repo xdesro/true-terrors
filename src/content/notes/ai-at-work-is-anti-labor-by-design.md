@@ -8,10 +8,14 @@ publishDate: 2025-10-28T23:18:59.018Z
 hasToc: false
 ---
 
-In regards to [a recent announcement by Amazon](https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts) that they'd be laying off historical numbers of workers, only a few months after CEO [Andrew Jassy announced AI adoption would be directly responsible for reductions in workforce](https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai):
+In regards to [recent announcements by Amazon](https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts) [and Pinterest](https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861) that they'd be laying off historical numbers of workers, only a few months after CEO [Andrew Jassy announced AI adoption would be directly responsible for reductions in workforce](https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai):
 
 {% renderTemplate 'webc' %}
 <embed-card :external="true" title="Is artificial intelligence to blame for Amazon job cuts?" url="https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts" author="Al Jazeera" :show-url="false">Amazon confirms 14,000 layoffs after CEO says AI likely to lead to job losses.</embed-card>
+{% endrenderTemplate %}
+
+{% renderTemplate 'webc' %}
+<embed-card :external="true" title="Pinterest will lay off 15% of its workforce as the platform pivots resources to AI" url="https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861" author="AP News" :show-url="false">Pinterest will lay off 15% of its workforce as the platform pivots resources to AI</embed-card>
 {% endrenderTemplate %}
 
 AI/LLMs are _by design_ anti-labor technology. The feverish pushing of <abbr title="Large Language Model">LLM</abbr> adoption by all levels of management is exemplary of this: You are not asked to use this tech because it will enable better work and ideas, but because it is cheaper to your boss than your coworker's salary.
