@@ -8,7 +8,7 @@ publishDate: 2025-10-28T23:18:59.018Z
 hasToc: false
 ---
 
-In regards to [recent announcements by Amazon](https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts) [and Pinterest](https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861) that they'd be laying off historical numbers of workers, only a few months after CEO [Andrew Jassy announced AI adoption would be directly responsible for reductions in workforce](https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai):
+In regards to [recent announcements by Amazon](https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts) [and now Pinterest](https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861) that they'd be laying off historical numbers of workers, only a few months after Amazon CEO [Andrew Jassy announced AI adoption would be directly responsible for reductions in workforce](https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai):
 
 {% renderTemplate 'webc' %}
 <embed-card :external="true" title="Is artificial intelligence to blame for Amazon job cuts?" url="https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts" author="Al Jazeera" :show-url="false">Amazon confirms 14,000 layoffs after CEO says AI likely to lead to job losses.</embed-card>
