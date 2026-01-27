@@ -4,7 +4,7 @@ drafted: false
 topics:
   - ai
   - labor
-publishDate: 2025-10-28T23:18:59.018Z
+publishDate: 2026-01-27T22:30:43.694Z
 hasToc: false
 ---
 
@@ -18,7 +18,7 @@ In regards to [recent announcements by Amazon](https://www.aljazeera.com/news/20
 <embed-card :external="true" title="Pinterest will lay off 15% of its workforce as the platform pivots resources to AI" url="https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861" author="AP News" :show-url="false">Pinterest will lay off 15% of its workforce as the platform pivots resources to AI</embed-card>
 {% endrenderTemplate %}
 
-AI/LLMs are _by design_ anti-labor technology. The feverish pushing of <abbr title="Large Language Model">LLM</abbr> adoption by all levels of management is exemplary of this: You are not asked to use this tech because it will enable better work and ideas, but because it is cheaper to your boss than your coworker's salary.
+AI/LLMs are by design anti-labor technology. The feverish pushing of <abbr title="Large Language Model">LLM</abbr> adoption by all levels of management is exemplary of this: You are not asked to use this tech because it will enable better work and ideas, but because it is cheaper to your boss than your coworker's salary.
 
 The goals of capital are not interested in the lofty ideals of magically improving your day-to-day workload, or enhancing your ability to think, be creative, enact your will — these are marketing promises made by those who benefit from eliminating your role when your coworker's output increases.
 
