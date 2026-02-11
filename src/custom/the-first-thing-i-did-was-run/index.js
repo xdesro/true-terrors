@@ -1,217 +1,91 @@
-import createShader from '../../js/utils/createShader';
+import gsap from 'gsap';
+import NightSky from './NightSky';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-import frag from './frag.glsl';
-import vert from './vert.glsl';
-import { gsap } from 'gsap';
+import Clock from './Clock';
+import axialPrecessionAtTime from './axialPrecessionAtTime';
+// import dayNightTl from './dayNightCycle';
 
-class NightSky {
-  constructor(gl) {
-    this.gl = gl;
-    this.startTime = Date.now();
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(MotionPathPlugin);
 
-    // Shader sources
-    this.vertexShaderSource = `
-                    attribute vec2 position;
-                    void main() {
-                        gl_Position = vec4(position, 0.0, 1.0);
-                    }
-                `;
-
-    this.fragmentShaderSource = `
-                    precision highp float;
-                    
-                    uniform vec2 u_resolution;
-                    uniform float u_time;
-                    uniform vec3 u_bgColor;
-                    uniform vec3 u_starColor;
-                    uniform float u_density;
-                    uniform float u_minSize;
-                    uniform float u_maxSize;
-                    uniform float u_twinkleSpeed;
-                    uniform float u_twinkleIntensity;
-                    uniform float u_brightness;
-                    
-                    // Hash function for pseudo-random numbers
-                    float hash(vec2 p) {
-                        return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
-                    }
-                    
-                    void main() {
-                        vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-                        vec3 color = u_bgColor;
-                        
-                        // Scale UV for star distribution
-                        vec2 starUV = uv * u_density;
-                        vec2 gridID = floor(starUV);
-                        vec2 gridUV = fract(starUV);
-                        
-                        // Check neighboring cells for stars
-                        for(float y = -1.0; y <= 1.0; y++) {
-                            for(float x = -1.0; x <= 1.0; x++) {
-                                vec2 offset = vec2(x, y);
-                                vec2 neighborID = gridID + offset;
-                                
-                                // Random position within cell
-                                float randX = hash(neighborID);
-                                float randY = hash(neighborID + vec2(42.0, 42.0));
-                                vec2 starPos = offset + vec2(randX, randY);
-                                
-                                // Distance to star
-                                float dist = length(gridUV - starPos);
-                                
-                                // Random size for this star
-                                float sizeRand = hash(neighborID + vec2(100.0, 100.0));
-                                float starSize = mix(u_minSize, u_maxSize, sizeRand) * 0.01;
-                                
-                                // Random twinkle phase and speed
-                                float phaseRand = hash(neighborID + vec2(200.0, 200.0));
-                                float speedRand = hash(neighborID + vec2(300.0, 300.0));
-                                float twinklePhase = phaseRand * 6.28318;
-                                float twinkleSpeed = 0.5 + speedRand * 1.5;
-                                
-                                // Twinkle effect
-                                float twinkle = sin(u_time * u_twinkleSpeed * twinkleSpeed + twinklePhase);
-                                twinkle = twinkle * 0.5 + 0.5; // Normalize to 0-1
-                                twinkle = mix(1.0 - u_twinkleIntensity, 1.0, twinkle);
-                                
-                                // Star brightness based on distance
-                                float star = smoothstep(starSize, 0.0, dist);
-                                star *= twinkle * u_brightness;
-                                
-                                // Add glow
-                                float glow = smoothstep(starSize * 3.0, 0.0, dist) * 0.3;
-                                glow *= twinkle * u_brightness;
-                                
-                                color = mix(color, u_starColor, star + glow);
-                            }
-                        }
-                        
-                        gl_FragColor = vec4(color, 1.0);
-                    }
-                `;
-
-    this.initShaders();
-    this.initBuffers();
-    this.initUniforms();
-  }
-
-  initShaders() {
-    const vertexShader = createShader(
-      this.gl,
-      this.gl.VERTEX_SHADER,
-      this.vertexShaderSource
-    );
-    const fragmentShader = createShader(
-      this.gl,
-      this.gl.FRAGMENT_SHADER,
-      this.fragmentShaderSource
-    );
-
-    this.program = this.gl.createProgram();
-    this.gl.attachShader(this.program, vertexShader);
-    this.gl.attachShader(this.program, fragmentShader);
-    this.gl.linkProgram(this.program);
-
-    if (!this.gl.getProgramParameter(this.program, this.gl.LINK_STATUS)) {
-      console.error(this.gl.getProgramInfoLog(this.program));
-    }
-
-    this.gl.useProgram(this.program);
-  }
-
-  initBuffers() {
-    const positionBuffer = this.gl.createBuffer();
-    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, positionBuffer);
-    const positions = [-1, -1, 1, -1, -1, 1, 1, 1];
-    this.gl.bufferData(
-      this.gl.ARRAY_BUFFER,
-      new Float32Array(positions),
-      this.gl.STATIC_DRAW
-    );
-
-    const positionLocation = this.gl.getAttribLocation(
-      this.program,
-      'position'
-    );
-    this.gl.enableVertexAttribArray(positionLocation);
-    this.gl.vertexAttribPointer(
-      positionLocation,
-      2,
-      this.gl.FLOAT,
-      false,
-      0,
-      0
-    );
-  }
-
-  initUniforms() {
-    this.uniforms = {
-      resolution: this.gl.getUniformLocation(this.program, 'u_resolution'),
-      time: this.gl.getUniformLocation(this.program, 'u_time'),
-      bgColor: this.gl.getUniformLocation(this.program, 'u_bgColor'),
-      starColor: this.gl.getUniformLocation(this.program, 'u_starColor'),
-      density: this.gl.getUniformLocation(this.program, 'u_density'),
-      minSize: this.gl.getUniformLocation(this.program, 'u_minSize'),
-      maxSize: this.gl.getUniformLocation(this.program, 'u_maxSize'),
-      twinkleSpeed: this.gl.getUniformLocation(this.program, 'u_twinkleSpeed'),
-      twinkleIntensity: this.gl.getUniformLocation(
-        this.program,
-        'u_twinkleIntensity'
-      ),
-      brightness: this.gl.getUniformLocation(this.program, 'u_brightness'),
-    };
-  }
-
-  render(params) {
-    const time = (Date.now() - this.startTime) * 0.001;
-
-    this.gl.uniform2f(this.uniforms.resolution, params.width, params.height);
-    this.gl.uniform1f(this.uniforms.time, time);
-    this.gl.uniform3fv(this.uniforms.bgColor, params.bgColor);
-    this.gl.uniform3fv(this.uniforms.starColor, params.starColor);
-    this.gl.uniform1f(this.uniforms.density, params.density);
-    this.gl.uniform1f(this.uniforms.minSize, params.minSize);
-    this.gl.uniform1f(this.uniforms.maxSize, params.maxSize);
-    this.gl.uniform1f(this.uniforms.twinkleSpeed, params.twinkleSpeed);
-    this.gl.uniform1f(this.uniforms.twinkleIntensity, params.twinkleIntensity);
-    this.gl.uniform1f(this.uniforms.brightness, params.brightness);
-
-    this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
-  }
-}
-
-// Initialize
-const canvas = document.querySelector('canvas');
+const canvas = document.querySelector('.stars');
 const gl = canvas.getContext('webgl');
-
-if (!gl) {
-  alert('WebGL not supported');
-}
-
 const nightSky = new NightSky(gl);
+const clock = new Clock({ el: document.querySelector('.clock') });
 
-// Starting uniforms constant
-const UNIFORMS = {
-  bgColor: [0.04, 0.09, 0.16], // Dark blue [R, G, B]
-  starColor: [1.0, 1.0, 1.0], // White [R, G, B]
-  density: 100, // Number of stars
-  minSize: 0.5, // Minimum star size
-  maxSize: 3.0, // Maximum star size
-  twinkleSpeed: 1.0, // Speed of twinkling
-  twinkleIntensity: 0.6, // How much stars twinkle (0-1)
-  brightness: 1.0, // Overall star brightness
+const moonPath = () => {
+  const inset = document.querySelector('.moon').offsetWidth;
+  const w = window.innerWidth - inset;
+  const h = window.innerHeight - inset;
+  return `M 0 ${h / 2} L 0 0 L ${w} 0 L ${w} ${h / 2}`;
 };
 
-// Resize canvas
+const scenes = {
+  default: {
+    sky: '#030f21',
+    text: '#efefef',
+    clock: '#cca000',
+    starColor: '#efefef',
+    dateTime: 'December 31 2024, 7:30:24 PM',
+  },
+  light: {
+    sky: '#fafafa',
+    text: '#2a2722',
+    clock: '#666666',
+    dateTime: 'December 31 2024, 8:30:24 PM',
+  },
+  lateNight: {
+    sky: '#030f21',
+    text: '#efefef',
+    clock: '#cca000',
+    dateTime: 'December 31 2024, 10:00:38 PM',
+  },
+  midnight: {
+    sky: '#010314',
+    text: '#efefef',
+    clock: '#DFAE1C',
+    dateTime: 'December 31 2024, 11:30:11 PM',
+  },
+  pitchBlack: {
+    sky: '#030303',
+    text: '#efefef',
+    clock: '#8a8a8a',
+    dateTime: 'January 01 2025, 2:30 AM',
+  },
+  nearDawn: {
+    sky: '#000919',
+    text: '#efefef',
+    clock: '#8a8a8a',
+    dateTime: 'January 01 2025, 5:30 AM',
+  },
+  dawn: {
+    sky: '#D4DEF2',
+    text: '#030303',
+    clock: '#777',
+    starColor: '#D4DEF2',
+    dateTime: 'January 01 2025, 7:30 AM',
+  },
+};
+const UNIFORMS = {
+  bgColor: scenes.default.sky,
+  starColor: scenes.default.starColor,
+  starSize: 0.05,
+  starDensity: 20.0,
+  twinkleBrightness: 0.6,
+  twinkleSpeed: 3.0,
+  panSpeed: axialPrecessionAtTime('December 31 2024, 7:30:24 PM'),
+};
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   gl.viewport(0, 0, canvas.width, canvas.height);
 }
 window.addEventListener('resize', resize);
+document.addEventListener('DOMContentLoaded', resize);
 resize();
 
-// Render loop
 function render() {
   const params = {
     width: canvas.width,
@@ -223,3 +97,145 @@ function render() {
   requestAnimationFrame(render);
 }
 render();
+
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: '.article-content p:first-child',
+      start: 'top bottom',
+      end: 'top center',
+      scrub: true,
+      fastScrollEnd: true,
+    },
+  })
+  .to(
+    'h1',
+    {
+      color: '#030303',
+      filter: 'blur(4px)',
+      opacity: 0,
+      y: '-2em',
+    },
+    '<',
+  )
+  .from(
+    '.article-content',
+    {
+      opacity: 0,
+    },
+    '<',
+  )
+  .fromTo(
+    '.clock',
+    { opacity: 0 },
+    {
+      opacity: 1,
+    },
+    '<',
+  );
+
+document.querySelectorAll('[data-hide-clock]').forEach((el, i) => {
+  const tl = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: 'top center+=200px',
+        end: 'top center',
+        scrub: 1,
+        fastScrollEnd: true,
+      },
+    })
+    .fromTo(
+      '.clock',
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+      },
+    );
+});
+
+const scenesTl = gsap.timeline({ paused: true });
+const sceneSetters = document.querySelectorAll('[data-set-scene]');
+sceneSetters.forEach((scene, i) => {
+  const themeToSet = scene.dataset.setScene;
+  const sceneToSet = scenes[themeToSet];
+  const propsToSet = {};
+
+  if (sceneToSet.sky) propsToSet.bgColor = sceneToSet.sky;
+  if (sceneToSet.panSpeed) propsToSet.panSpeed = sceneToSet.panSpeed;
+  if (sceneToSet.starColor) propsToSet.starColor = sceneToSet.starColor;
+  if (sceneToSet.dateTime)
+    propsToSet.panSpeed = axialPrecessionAtTime(sceneToSet.dateTime);
+
+  const tl = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: scene,
+        start: 'top center+=200px',
+        end: 'top center',
+        scrub: 1,
+      },
+    })
+    .to(
+      UNIFORMS,
+      {
+        ...propsToSet,
+        ease: 'power4.inOut',
+        duration: 1,
+      },
+      '<',
+    );
+
+  if (sceneToSet.text) {
+    tl.to(
+      '.article-content',
+      {
+        color: sceneToSet.text,
+      },
+      '<',
+    );
+  }
+  if (sceneToSet.clock) {
+    tl.to(
+      '.clock',
+      {
+        color: sceneToSet.clock,
+      },
+      '<',
+    );
+  }
+  if (sceneToSet.dateTime) {
+    const progressFromRadians = (radians) => radians / (Math.PI * 2);
+    tl.to(
+      clock,
+      {
+        currentTime() {
+          const offsetMs = 300 * 60000; // timezone offset * ms in 1m
+          return (
+            (new Date(sceneToSet.dateTime).getTime() + offsetMs) % 86400000
+          );
+        },
+        onUpdate: () => {
+          clock.el.textContent = clock.msToTime(clock.currentTime);
+        },
+        onStart: function () {
+          if (!clock.isRunning) clock.start();
+        },
+      },
+      '<',
+    );
+  }
+  if (sceneToSet.sky) {
+    tl.to(
+      document.documentElement,
+      {
+        '--color-sky': sceneToSet.sky,
+      },
+      '<',
+    );
+  }
+
+  scenesTl.add(tl);
+});

@@ -1,84 +1,59 @@
 precision highp float;
-
-uniform vec2 u_resolution;
-uniform float u_time;
 uniform vec3 u_bgColor;
 uniform vec3 u_starColor;
-uniform float u_density;
-uniform float u_minSize;
-uniform float u_maxSize;
+uniform float u_starSize;
+uniform float u_starDensity;
+uniform float u_twinkleBrightness;
 uniform float u_twinkleSpeed;
-uniform float u_twinkleIntensity;
-uniform float u_brightness;
+uniform float u_panSpeed;
+uniform float u_time;
 
-            // Hash function for pseudo-random numbers
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+float noise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  float a = fract(sin(i.x * 73.0 + i.y * 251.0) * 13.5453);
+  float b = fract(sin((i.x + 1.0) * 73.0 + i.y * 251.0) * 13.5453);
+  float c = fract(sin(i.x * 73.0 + (i.y + 1.0) * 251.0) * 13.5453);
+  float d = fract(sin((i.x + 1.0) * 73.0 + (i.y + 1.0) * 251.0) * 13.5453);
+  float ab = mix(a, b, f.x);
+  float cd = mix(c, d, f.x);
+  return mix(ab, cd, f.y);
 }
 
-            // 2D noise function
-float noise(vec2 p) {
-    vec2 i = floor(p);
-    vec2 f = fract(p);
-    f = f * f * (3.0 - 2.0 * f);
-
-    float a = hash(i);
-    float b = hash(i + vec2(1.0, 0.0));
-    float c = hash(i + vec2(0.0, 1.0));
-    float d = hash(i + vec2(1.0, 1.0));
-
-    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+vec2 noise2d(vec2 p) {
+  return vec2(noise(p), noise(p + vec2(17.0, 23.0)));
 }
 
 void main() {
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-    vec3 color = u_bgColor;
+  vec2 screenUv = gl_FragCoord.xy / vec2(800.0, 600.0);
 
-                // Scale UV for star distribution
-    vec2 starUV = uv * u_density;
-    vec2 gridID = floor(starUV);
-    vec2 gridUV = fract(starUV);
+  vec2 centered = screenUv - vec2(0.5, 0.0);
 
-                // Check neighboring cells for stars
-    for(float y = -1.0; y <= 1.0; y++) {
-        for(float x = -1.0; x <= 1.0; x++) {
-            vec2 offset = vec2(x, y);
-            vec2 neighborID = gridID + offset;
+  float dist = length(centered);
+  float angle = atan(centered.y, centered.x);
 
-                        // Random position within cell
-            float randX = hash(neighborID);
-            float randY = hash(neighborID + vec2(42.0, 42.0));
-            vec2 starPos = offset + vec2(randX, randY);
+  angle += u_panSpeed;
 
-                        // Distance to star
-            float dist = length(gridUV - starPos);
+  vec2 rotated = vec2(cos(angle), sin(angle)) * dist;
 
-                        // Random size for this star
-            float sizeRand = hash(neighborID + vec2(100.0, 100.0));
-            float starSize = mix(u_minSize, u_maxSize, sizeRand) * 0.01;
+  vec2 uv = rotated + vec2(0.5, 0.0);
 
-                        // Random twinkle phase and speed
-            float phaseRand = hash(neighborID + vec2(200.0, 200.0));
-            float speedRand = hash(neighborID + vec2(300.0, 300.0));
-            float twinklePhase = phaseRand * 6.28318;
-            float twinkleSpeed = 0.5 + speedRand * 1.5;
+  vec2 scaledUv = uv * u_starDensity;
+  vec2 gridPos = floor(scaledUv);
+  vec2 cellUv = fract(scaledUv);
 
-                        // Twinkle effect
-            float twinkle = sin(u_time * u_twinkleSpeed * twinkleSpeed + twinklePhase);
-            twinkle = twinkle * 0.5 + 0.5; // Normalize to 0-1
-            twinkle = mix(1.0 - u_twinkleIntensity, 1.0, twinkle);
+  vec2 gridOffset = noise2d(gridPos);
 
-                        // Star brightness based on distance
-            float star = smoothstep(starSize, 0.0, dist);
-            star *= twinkle * u_brightness;
+  vec2 starPos = gridOffset + noise2d(gridPos + vec2(0.5, 0.5)) * 0.3;
 
-                        // Add glow
-            float glow = smoothstep(starSize * 3.0, 0.0, dist) * 0.3;
-            glow *= twinkle * u_brightness;
+  float dist_star = length(cellUv - starPos);
 
-            color = mix(color, u_starColor, star + glow);
-        }
-    }
+  float star = smoothstep(u_starSize, 0.0, dist_star);
 
-    gl_FragColor = vec4(color, 1.0);
+  float twinkle = sin(noise(gridPos + vec2(3.0, 7.0)) * 6.28318 + u_twinkleSpeed * u_time) * 0.5 + 0.5;
+  star *= mix(1.0, twinkle, u_twinkleBrightness);
+
+  vec3 col = mix(u_bgColor, u_starColor, star);
+  gl_FragColor = vec4(col, 1.0);
 }
