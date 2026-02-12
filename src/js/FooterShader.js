@@ -1,18 +1,7 @@
 import vert from './shaders/vert.glsl';
 import frag from './shaders/frag.glsl';
 import * as dat from 'dat.gui';
-
-const createShader = (gl, type, source) => {
-  const shader = gl.createShader(type);
-  gl.shaderSource(shader, source);
-  gl.compileShader(shader);
-  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    console.error(gl.getShaderInfoLog(shader));
-    gl.deleteShader(shader);
-    return null;
-  }
-  return shader;
-};
+import createShader from './utils/createShader';
 
 export default class FooterShader {
   constructor() {
