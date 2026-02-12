@@ -28,7 +28,8 @@ vec2 noise2d(vec2 p) {
 void main() {
   vec2 screenUv = gl_FragCoord.xy / vec2(800.0, 600.0);
 
-  vec2 centered = screenUv - vec2(0.5, 0.0);
+// this would be vec2(.5, 0.0), but I'm doubling the resolution of the canvas...
+  vec2 centered = screenUv - vec2(1.0, 0.0);
 
   float dist = length(centered);
   float angle = atan(centered.y, centered.x);

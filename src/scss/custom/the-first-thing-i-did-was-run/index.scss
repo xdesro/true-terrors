@@ -18,9 +18,18 @@
   src: url('/fonts/PPEditorialOld-Ultralight.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Goudy Initialen';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/GoudyInitialen.woff2') format('woff2');
+}
+
 $font-display: 'PP Editorial Old', serif;
 $font-serif: 'Louize', serif;
 $font-sans: 'Neue Montreal', sans-serif;
+$font-initial: 'Goudy Initialen', cursive;
 $font-mono: 'SFMono', 'SF Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono',
   'Ubuntu Mono', monospace;
 
@@ -31,6 +40,7 @@ $font-mono: 'SFMono', 'SF Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono',
 body {
   background-color: #030f21;
 }
+
 img {
   max-width: 100%;
   height: auto;
@@ -51,12 +61,12 @@ nav {
   position: absolute;
   inset-block-start: 1rem;
   inset-inline: 1rem;
+  overflow-x: clip;
+  max-width: calc(100vw - 2rem);
   text-align: center;
   text-wrap: balance;
   text-wrap: pretty;
   color: #b8b8b8;
-  max-width: calc(100vw - 2rem);
-  overflow-x: clip;
 
   @include screen(737px) {
     display: grid;
@@ -118,9 +128,8 @@ nav {
     position: absolute;
     inset: 3rem 2rem 2rem;
     pointer-events: none;
-    display: none;
+
     @include screen(737px) {
-      display: block;
       border-inline-start: 1px solid $color-border;
       &:before,
       &:after {
@@ -155,42 +164,44 @@ nav {
     inset-inline-end: -1rem;
     display: none;
     width: 100%;
-    max-width: 15rem;
     color: #fefefe;
+    max-width: 10rem;
 
     @include screen(1000px) {
+      max-width: 15rem;
       display: block;
     }
   }
 
   .sun {
-    display: none;
-    max-width: 12rem;
-    // opacity: 0;
-    color: #fefefe;
     position: absolute;
+    bottom: 1rem;
+    left: 1rem;
     width: 100%;
-    bottom: 3rem;
+    max-width: 8rem;
     opacity: 0.8;
+    color: #fefefe;
 
-    left: 3rem;
     @include screen(952px) {
-      display: block;
+      bottom: 3rem;
+      left: 3rem;
+      max-width: 12rem;
     }
   }
   .moon {
-    display: none;
-    max-width: 8rem;
-    width: 100%;
     position: absolute;
-    top: 3rem;
+    top: 1rem;
+    right: 1rem;
+    width: 100%;
+    max-width: 6rem;
     opacity: 0.8;
-    right: 3rem;
     // opacity: 0;
     color: #fefefe;
 
     @include screen(952px) {
-      display: block;
+      top: 3rem;
+      right: 3rem;
+      max-width: 8rem;
     }
   }
   .paths {
@@ -228,6 +239,14 @@ nav {
   }
   p {
     margin-block-end: 2em;
+    &:first-child {
+      &:first-letter {
+        font-family: $font-initial;
+        font-size: 5.2em;
+        float: left;
+        margin-inline-end: 0.1ch;
+      }
+    }
   }
 }
 .flow {
@@ -238,7 +257,7 @@ nav {
   column-gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
-  width: calc(100vw - 2rem);
+  width: calc(100vw - 4rem);
   max-width: 1000px;
   margin-inline-start: calc(50% - min(500px, 50vw) + 1rem);
   img,
@@ -333,4 +352,33 @@ del {
       }
     }
   }
+}
+
+.hover-images {
+  --x: 0;
+  --y: 0;
+  --angle: 0deg;
+}
+
+.hover {
+  color: inherit;
+
+  text-decoration-style: dashed;
+}
+.hover-image {
+  position: fixed;
+  top: var(--y);
+  left: var(--x);
+  width: min(30rem, calc(100vw - 2rem));
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+  transform: translateX(-50%) translateY(-50%) rotate(var(--angle));
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 0.2rem;
+}
+
+.hover-image--active {
+  opacity: 1;
 }

@@ -1,0 +1,55 @@
+export const SCENES = {
+  default: {
+    sky: '#030f21',
+    text: '#efefef',
+    clock: '#cca000',
+    starColor: '#efefef',
+    dateTime: 'December 31 2024, 7:30:24 PM',
+  },
+  light: {
+    sky: '#fefefe',
+    text: '#2a2722',
+    clock: '#666666',
+    dateTime: 'December 31 2024, 8:30:24 PM',
+  },
+  lateNight: {
+    sky: '#030f21',
+    text: '#efefef',
+    clock: '#cca000',
+    dateTime: 'December 31 2024, 10:00:38 PM',
+  },
+  midnight: {
+    sky: '#010314',
+    text: '#c1c5cd',
+    clock: '#DFAE1C',
+    dateTime: 'December 31 2024, 11:30:11 PM',
+  },
+  pitchBlack: {
+    sky: '#030303',
+    text: '#c1c5cd',
+    clock: '#8a8a8a',
+    starColor: '#bdbdbd',
+    dateTime: 'January 01 2025, 2:30 AM',
+  },
+  nearDawn: {
+    sky: '#000919',
+    text: '#efefef',
+    clock: '#8a8a8a',
+    starColor: '#efefef',
+    dateTime: 'January 01 2025, 5:30 AM',
+  },
+  dawn: {
+    sky: '#D3D3DB',
+    text: '#030303',
+    clock: '#777',
+    starColor: '#D3D3DB',
+    dateTime: 'January 01 2025, 7:30 AM',
+  },
+  final: {
+    sky: '#fefefe',
+    text: '#030303',
+    clock: '#777',
+    starColor: '#fefefe',
+    dateTime: 'January 01 2025, 9:04 AM',
+  },
+};

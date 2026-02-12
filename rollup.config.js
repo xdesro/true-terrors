@@ -40,7 +40,7 @@ export default [
     },
     plugins: [
       glsl({
-        include: 'src/custom/the-first-thing-i-did-was-run/*.glsl',
+        include: 'src/custom/the-first-thing-i-did-was-run/**/*.glsl',
       }),
       nodeResolve(),
       // terser({ format: { comments: false } })

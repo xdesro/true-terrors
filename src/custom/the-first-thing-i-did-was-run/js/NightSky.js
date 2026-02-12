@@ -1,13 +1,10 @@
 import gsap from 'gsap';
-import createShader from '../../js/utils/createShader';
-import frag from './frag.glsl';
-import vert from './vert.glsl';
 
-const skyRgbToNormalizedStr = (rgb) => {
-  const [r, g, b, a] = rgb.map((channel) => channel / 255);
+import createShader from '../../../js/utils/createShader';
+import { skyRgbToNormalizedStr } from './utils';
 
-  return [r, g, b];
-};
+import frag from '../shaders/frag.glsl';
+import vert from '../shaders/vert.glsl';
 
 export default class NightSky {
   constructor(gl) {
