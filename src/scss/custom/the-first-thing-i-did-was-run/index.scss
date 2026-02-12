@@ -28,7 +28,9 @@ $font-mono: 'SFMono', 'SF Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono',
   --color-text: #030303;
   --color-sky: #030f21;
 }
-
+body {
+  background-color: #030f21;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -53,6 +55,35 @@ nav {
   text-wrap: balance;
   text-wrap: pretty;
   color: #b8b8b8;
+  max-width: calc(100vw - 2rem);
+  overflow-x: clip;
+
+  @include screen(737px) {
+    display: grid;
+    grid-auto-flow: dense;
+    gap: 1rem;
+    grid-template-columns: auto 1fr auto 1fr auto;
+    align-items: center;
+    justify-content: space-between;
+    max-width: calc(100vw - 4rem);
+    margin-inline: auto;
+    &:before,
+    &:after {
+      display: block;
+      grid-row: 1;
+      width: 100%;
+      height: 1px;
+      content: '';
+      background-color: #b8b8b8;
+    }
+    &:before {
+      grid-column: 2;
+    }
+    &:after {
+      grid-column: 4;
+    }
+  }
+
   > div {
     display: inline;
   }
@@ -62,6 +93,8 @@ nav {
 }
 
 .hero {
+  $color-border: #b8b8b8;
+
   display: grid;
   place-content: center;
   height: 100vh;
@@ -72,19 +105,104 @@ nav {
     font-size: clamp(3rem, 10vw, 7.25rem);
     font-weight: 200;
     font-style: normal;
+    font-feature-settings: 'dlig';
     line-height: 1;
+    max-width: 14ch;
     margin-inline: 1rem;
     color: #fefefe;
     span {
       font-style: italic;
     }
   }
+  &__background {
+    position: absolute;
+    inset: 3rem 2rem 2rem;
+    pointer-events: none;
+    display: none;
+    @include screen(737px) {
+      display: block;
+      border-inline-start: 1px solid $color-border;
+      &:before,
+      &:after {
+        position: absolute;
+        display: block;
+        content: '';
+      }
+      &:before {
+        inset-block-start: 0;
+        inset-inline-end: 1px;
+        height: 100%;
+        border-inline-start: 1px solid $color-border;
+      }
+      &:after {
+        inset-block-end: 0;
+        width: 100%;
+        border-block-end: 1px solid $color-border;
+      }
+    }
+    @include screen(1000px) {
+      &:before {
+        height: calc(100vh - 4rem - ((670 / 464) * 15rem) - 1rem);
+      }
+      &:after {
+        width: calc(100vw - 4rem - 15rem);
+      }
+    }
+  }
+  &__corner {
+    position: absolute;
+    inset-block-end: -1rem;
+    inset-inline-end: -1rem;
+    display: none;
+    width: 100%;
+    max-width: 15rem;
+    color: #fefefe;
+
+    @include screen(1000px) {
+      display: block;
+    }
+  }
+
+  .sun {
+    display: none;
+    max-width: 12rem;
+    // opacity: 0;
+    color: #fefefe;
+    position: absolute;
+    width: 100%;
+    bottom: 3rem;
+    opacity: 0.8;
+
+    left: 3rem;
+    @include screen(952px) {
+      display: block;
+    }
+  }
+  .moon {
+    display: none;
+    max-width: 8rem;
+    width: 100%;
+    position: absolute;
+    top: 3rem;
+    opacity: 0.8;
+    right: 3rem;
+    // opacity: 0;
+    color: #fefefe;
+
+    @include screen(952px) {
+      display: block;
+    }
+  }
+  .paths {
+    position: absolute;
+    inset: 0;
+  }
 }
 
 .article-content {
   font-family: $font-serif;
   font-size: 1.2rem;
-  max-width: 666px;
+  max-width: min(calc(100vw - 1rem), 666px);
   margin-block-end: 10rem;
   margin-inline: auto;
   padding-inline: 1rem;
@@ -144,8 +262,8 @@ nav {
 }
 
 .clock {
-  font-family: $font-mono;
-  font-size: 0.9rem;
+  font-family: $font-serif;
+  font-size: 1rem;
   position: fixed;
   inset-block-start: calc(50vh - 0.5lh);
   inset-block-end: 0;
@@ -214,29 +332,5 @@ del {
         rotate: 165deg;
       }
     }
-  }
-}
-
-.background {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-}
-.sun {
-  display: none;
-  max-width: 12rem;
-  color: #fefefe;
-  opacity: 0;
-  @include screen(952px) {
-    display: block;
-  }
-}
-.moon {
-  display: none;
-  max-width: 8rem;
-  color: #fefefe;
-  opacity: 0;
-  @include screen(952px) {
-    display: block;
   }
 }

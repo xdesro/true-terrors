@@ -2,25 +2,40 @@ import gsap from 'gsap';
 import NightSky from './NightSky';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-
+import { MotionPathHelper } from 'gsap/MotionPathHelper';
 import Clock from './Clock';
 import axialPrecessionAtTime from './axialPrecessionAtTime';
 // import dayNightTl from './dayNightCycle';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(MotionPathHelper);
+
+const getCelestialBodiesPaths = () => {
+  const moon = document.querySelector('.moon');
+  const sun = document.querySelector('.sun');
+
+  const { top: moontop, left: moonleft } = moon.getBoundingClientRect();
+  const { top: suntop, left: sunleft } = sun.getBoundingClientRect();
+  console.log(moonleft - sunleft);
+  console.log(suntop - moontop);
+  // return `M 0 0 A 2 1 90 1 1 -${window.innerWidth - 64 - 96} ${suntop - top}`;
+  return {
+    moonPath: `M0 0 C0, ${suntop - moontop} -${
+      sunleft - moonleft / 2
+    },711.483 -${moonleft - sunleft},${suntop - moontop}`,
+    sunPath: `M0,0 C0,${moontop - suntop} 0,${moontop - suntop - 100} ${
+      moonleft - sunleft
+    },${moontop - suntop}`,
+  };
+};
+
+let { moonPath, sunPath } = getCelestialBodiesPaths();
 
 const canvas = document.querySelector('.stars');
 const gl = canvas.getContext('webgl');
 const nightSky = new NightSky(gl);
 const clock = new Clock({ el: document.querySelector('.clock') });
-
-const moonPath = () => {
-  const inset = document.querySelector('.moon').offsetWidth;
-  const w = window.innerWidth - inset;
-  const h = window.innerHeight - inset;
-  return `M 0 ${h / 2} L 0 0 L ${w} 0 L ${w} ${h / 2}`;
-};
 
 const scenes = {
   default: {
@@ -31,7 +46,7 @@ const scenes = {
     dateTime: 'December 31 2024, 7:30:24 PM',
   },
   light: {
-    sky: '#fafafa',
+    sky: '#fefefe',
     text: '#2a2722',
     clock: '#666666',
     dateTime: 'December 31 2024, 8:30:24 PM',
@@ -44,13 +59,13 @@ const scenes = {
   },
   midnight: {
     sky: '#010314',
-    text: '#efefef',
+    text: '#a5aab6',
     clock: '#DFAE1C',
     dateTime: 'December 31 2024, 11:30:11 PM',
   },
   pitchBlack: {
     sky: '#030303',
-    text: '#efefef',
+    text: '#a5aab6',
     clock: '#8a8a8a',
     dateTime: 'January 01 2025, 2:30 AM',
   },
@@ -67,19 +82,28 @@ const scenes = {
     starColor: '#D4DEF2',
     dateTime: 'January 01 2025, 7:30 AM',
   },
+  final: {
+    sky: '#fefefe',
+    text: '#030303',
+    clock: '#777',
+    starColor: '#fefefe',
+    dateTime: 'January 01 2025, 10:30 AM',
+  },
 };
 const UNIFORMS = {
   bgColor: scenes.default.sky,
   starColor: scenes.default.starColor,
   starSize: 0.05,
   starDensity: 20.0,
-  twinkleBrightness: 0.6,
+  twinkleBrightness: 0.8,
   twinkleSpeed: 3.0,
   panSpeed: axialPrecessionAtTime('December 31 2024, 7:30:24 PM'),
 };
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  moonPath = getCelestialBodiesPaths().moonPath;
+  sunPath = getCelestialBodiesPaths().sunPath;
   gl.viewport(0, 0, canvas.width, canvas.height);
 }
 window.addEventListener('resize', resize);
@@ -103,21 +127,22 @@ gsap
     scrollTrigger: {
       trigger: '.article-content p:first-child',
       start: 'top bottom',
-      end: 'top center',
-      scrub: true,
+      end: 'center center',
+      scrub: 1,
       fastScrollEnd: true,
     },
   })
+
   .to(
-    'h1',
+    '.hero',
     {
       color: '#030303',
       filter: 'blur(4px)',
       opacity: 0,
-      y: '-2em',
     },
     '<',
   )
+
   .from(
     '.article-content',
     {
@@ -130,6 +155,28 @@ gsap
     { opacity: 0 },
     {
       opacity: 1,
+    },
+    '<',
+  )
+  .to(
+    '.moon',
+    {
+      motionPath: {
+        path: moonPath,
+        alignOrigin: [0.5, 0.5],
+      },
+      ease: 'Power4.inOut',
+    },
+    '<',
+  )
+  .to(
+    '.sun',
+    {
+      motionPath: {
+        path: sunPath,
+        alignOrigin: [0.5, 0.5],
+      },
+      ease: 'Power4.inOut',
     },
     '<',
   );
@@ -176,6 +223,7 @@ sceneSetters.forEach((scene, i) => {
         start: 'top center+=200px',
         end: 'top center',
         scrub: 1,
+        fastScrollEnd: true,
       },
     })
     .to(

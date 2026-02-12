@@ -64,6 +64,13 @@ topics:
     </nav>
     <header class="hero">
       <h1>The <span>first thing</span> I did last year <span>was run</span>.</h1>
+
+      <div class="hero__background">
+        <div class="moon">{% include 'graphics/moon.svg' %}</div>
+        <div class="sun">{% include 'graphics/sun.svg' %}</div>
+        <div class="hero__corner">{% include 'graphics/nouveau-corner.svg' %}</div>
+        <svg class="paths" fill="none" stroke="none"><path id="moon-path" /><path id="sun-path" /></svg>
+      </div>
     </header>
     <div class="clock">00:00:00:00</div>
     <article class="article-content rendered">
@@ -113,7 +120,7 @@ topics:
 
           I elected to drive over to Jenny Lake, a popular destination that I expected would still be plowed. It would be much closer to the mountains, but in my current circumstances I was happy to see what there was to see.
 
-          Back in the car and heading back down _Gros Ventre Road_ the way I came, it started to become clear that "what there was to see" was also a rapidly-narrowing margin. It was now 7:30 in the morning, and the sun was just starting to illuminate the landscape, though it remained beyond the horizon. As if in a silly tablecloth magic trick, the dawn of January 1st, after a perfectly clear night, exchanged the impenetrable cover of darkness for an even more impenetrable cover of blizzard. {data-set-scene="dawn"}
+          Back in the car and heading back down Gros Ventre Road the way I came, it started to become clear that "what there was to see" was also a rapidly-narrowing margin. It was now 7:30 in the morning, and the sun was just starting to illuminate the landscape, though it remained beyond the horizon. As if in a silly tablecloth magic trick, the dawn of January 1st, after a perfectly clear night, exchanged the impenetrable cover of darkness for an even more impenetrable cover of blizzard. {data-set-scene="dawn"}
 
           I had driven 9 and a half hours into the wilderness of Wyoming to look at a snow fog so thick I couldn't see the shoulder on the other side of the road.
         {% endasMarkdown %}
@@ -127,7 +134,7 @@ topics:
           There's a delightful little bakery & restaurant in Jackson called The Bunnery, where they'll serve you oatmeal with berries, and a cup of coffee so bad you'll worry you offended someone on the way in. I know this because I went there and I had both of these things, and I tipped very well as a profuse apology for whatever I did to the waiter. Back in the car, I reviewed my options. Park: closed, trails: unmaintained, snowshoes: not owned, sunrise: unwitnessed. As the LCD screen ticked up to 10 am, I turned the ignition for the last time, and started driving home.
         {% endasMarkdown %}
       </section>
-      <section class="section" data-hide-clock>
+      <section class="section" data-hide-clock data-set-scene="final">
         <div class="two-col">
             <img alt="A frigid Wyoming two-lane mountain road, as seen through the windshield of the author's car. White snowy Voronoi patterns snake across the asphalt." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751623/DSCF0157_ipbjz8.jpg" />
             <video autoplay muted loop src="https://res.cloudinary.com/henry-codes/video/upload/v1767751618/IMG_8505_ickr3b.mp4" />
@@ -157,12 +164,6 @@ topics:
         <img alt="A black coupe covered in snow, parked aside a national parks sign for Grand Teton National Park. The fore and background are both completely snowy and white." src="https://res.cloudinary.com/henry-codes/image/upload/v1767751225/DSCF0153_1_zskdo0.jpg" />
       </div>
     </article>
-    <div class="background">
-      <div class="moon">
-        {% include 'graphics/moon.svg' %}
-      </div>
-      <div class="sun">{% include 'graphics/sun.svg' %}</div>
-    </div>
       <script data-taxi-reload src="/js/the-first-thing-i-did-was-run/index.js"></script>
   </main>
 </body>
