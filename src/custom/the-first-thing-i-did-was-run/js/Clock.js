@@ -25,11 +25,11 @@ export default class Clock {
     const totalSeconds = Math.floor(ms / 1000);
     const seconds = totalSeconds % 60;
     const minutes = Math.floor(totalSeconds / 60) % 60;
-    const hours = Math.floor(totalSeconds / 3600);
+    const hours = Math.floor(totalSeconds / 3600) + 12;
     const centiseconds = Math.floor((ms % 1000) / 10);
 
     const pad = (num) => String(num).padStart(2, '0');
-    return `${pad(hours % 12)}:${pad(minutes)}:${pad(seconds)}.${pad(
+    return `${pad(hours % 24)}:${pad(minutes)}:${pad(seconds)}.${pad(
       centiseconds,
     )}`;
   }
@@ -57,10 +57,6 @@ export default class Clock {
         this.el.textContent = this.msToTime(this.currentTime);
       },
     });
-  }
-
-  update() {
-    this.el.textContent = this.formatTime(this.currentTime);
   }
 
   start() {
