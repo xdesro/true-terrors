@@ -20,13 +20,11 @@
     </div>
 </header>
 <div class="container">
-    <div class="article-content rendered">
-        {% for update in collections['now'] %}
-        <article class="now-update">
+    <div class="article-content">
+        {% for update in collections['now'] | reverse %}
+        <article class="now-update rendered">
             <h2>{{ update.date | humanReadableDate }}</h2>
-            <div>
-                {{ update.content | safe }}
-            </div>
+            {{ update.content | safe }}
         </article>
         {% endfor %}
     </div>
