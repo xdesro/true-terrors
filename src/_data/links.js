@@ -91,4 +91,8 @@ export default [
     text: 'eva.town',
     url: 'https://eva.town/',
   },
+  {
+    text: 'patience.toys',
+    url: 'https://patience.toys/',
+  },
 ];
