@@ -4,11 +4,15 @@ drafted: false
 topics:
   - ai
   - labor
-publishDate: 2026-01-27T22:30:43.694Z
+publishDate: 2026-03-04T19:14:13.792Z
 hasToc: false
 ---
 
-In regards to [recent announcements by Amazon](https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts) [and now Pinterest](https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861) that they'd be laying off historical numbers of workers, only a few months after Amazon CEO [Andrew Jassy announced AI adoption would be directly responsible for reductions in workforce](https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai):
+- *27 January 2026* — Added Pinterest layoff news.
+- *4 March 2026* — Added Block layoff news.
+{.changelog}
+
+In regards to [recent announcements by Amazon](https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts) [and now Pinterest](https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861), [and now Block](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey) that they'd be laying off historical numbers of workers, only a few months after Amazon CEO [Andrew Jassy announced AI adoption would be directly responsible for reductions in workforce](https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai):
 
 {% renderTemplate 'webc' %}
 <embed-card :external="true" title="Is artificial intelligence to blame for Amazon job cuts?" url="https://www.aljazeera.com/news/2025/10/28/is-artificial-intelligence-to-blame-for-amazon-job-cuts" author="Al Jazeera" :show-url="false">Amazon confirms 14,000 layoffs after CEO says AI likely to lead to job losses.</embed-card>
@@ -16,6 +20,10 @@ In regards to [recent announcements by Amazon](https://www.aljazeera.com/news/20
 
 {% renderTemplate 'webc' %}
 <embed-card :external="true" title="Pinterest will lay off 15% of its workforce as the platform pivots resources to AI" url="https://apnews.com/article/pinterest-layoffs-ai-cf278cf06929db07d5b1310ab7f91861" author="AP News" :show-url="false">Pinterest will lay off 15% of its workforce as the platform pivots resources to AI</embed-card>
+{% endrenderTemplate %}
+
+{% renderTemplate 'webc' %}
+<embed-card :external="true" title="Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same" url="https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey" author="AP News" :show-url="false">Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same</embed-card>
 {% endrenderTemplate %}
 
 AI/LLMs are by design anti-labor technology. The feverish pushing of <abbr title="Large Language Model">LLM</abbr> adoption by all levels of management is exemplary of this: You are not asked to use this tech because it will enable better work and ideas, but because it is cheaper to your boss than your coworker's salary.

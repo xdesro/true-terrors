@@ -73,7 +73,13 @@
     border-inline-start: 0.5rem solid $color-border-light;
   }
 
-  > :is(.editors-note, .target-audience, .under-construction, .twitter-tweet) {
+  > :is(
+      .editors-note,
+      .target-audience,
+      .under-construction,
+      .twitter-tweet,
+      .changelog
+    ) {
     margin-block: 2rem;
     border-inline-start-color: var(--callout-color, #{$color-border-light});
   }
@@ -88,7 +94,8 @@ figcaption {
 .editors-note,
 .target-audience,
 .under-construction,
-.twitter-tweet {
+.twitter-tweet,
+.changelog {
   font-family: $font-sans;
   display: block;
   width: calc(100vw - 1rem);
@@ -119,6 +126,16 @@ figcaption {
 .editors-note {
   &::before {
     content: 'Editor’s Note';
+  }
+}
+
+.changelog {
+  &::before {
+    content: 'Changelog';
+  }
+
+  li {
+    list-style-type: none;
   }
 }
 
