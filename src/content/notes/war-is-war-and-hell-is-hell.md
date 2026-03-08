@@ -6,6 +6,7 @@ topics:
   - rants
 publishDate: 2026-03-08T18:44:50.312Z
 hasToc: false
+drafted: false
 ---
 
 It just seemed natural that the thing to come after proxy war of imperial aggression for us is *direct* war of imperial aggression. The other day, I was shown this quote [from an episode of M\*A\*S\*H](https://www.imdb.com/title/tt0638432/):
