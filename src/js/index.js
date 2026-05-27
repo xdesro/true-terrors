@@ -128,9 +128,9 @@ class DefaultRenderer extends Renderer {
             new DitheredImage({
               img: document.querySelector('.article-header__image'),
               wrapper: document.querySelector(
-                '.article-header__graphic-wrapper'
+                '.article-header__graphic-wrapper',
               ),
-            })
+            }),
           );
         })
         .catch((error) => {
@@ -203,7 +203,7 @@ class DefaultRenderer extends Renderer {
     }
     if (
       document.querySelector(
-        '.article-block, .case-study-block, .card:has(> a)'
+        '.article-block, .case-study-block, .card:has(> a)',
       )
     ) {
       import('./utils/linkifyCards')
@@ -288,11 +288,6 @@ const loadTransitions = async () => ({
   for (const transitionName in Transitions) {
     taxi.transitions[transitionName] = Transitions[transitionName];
   }
-  taxi.addRoute(
-    '*',
-    '/writing/a-website-to-destroy-all-websites',
-    'homeToAWebsiteToDestroy'
-  );
   taxi.addRoute('/', '/work', 'homeToWork');
   taxi.addRoute('/', '/(writing|notes)', 'homeToWriting');
   taxi.addRoute(`\/work`, '', 'workToHome');
@@ -304,12 +299,12 @@ const loadTransitions = async () => ({
   taxi.addRoute(
     `\/(writing|notes)`,
     `\/(writing|notes)\/.*`,
-    'writingToArticle'
+    'writingToArticle',
   );
   taxi.addRoute(
     `\/(writing|notes)\/.*`,
     `\/(writing|notes)`,
-    'articleToWriting'
+    'articleToWriting',
   );
   taxi.addRoute(`\/(writing|notes)`, `\/(writing|notes)`, 'writingToWriting');
   taxi.addRoute(`\/(writing|notes)\/.*`, ``, 'articleToHome');
@@ -317,7 +312,7 @@ const loadTransitions = async () => ({
   taxi.addRoute(
     `\/(writing|notes)\/.*`,
     `\/(writing|notes)\/.*`,
-    'articleToArticle'
+    'articleToArticle',
   );
   // TODO dont fade for RSS links
   // taxi.addRoute(`.*`, `\/(rss)\/.*`, false);
