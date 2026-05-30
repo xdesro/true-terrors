@@ -81,6 +81,15 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.setLibrary('md', markdownLibrary);
 
+  // This needs to skip the RSS stuff
+  eleventyConfig.addTransform('restore-at-uris', (content, outputPath) => {
+    if (!outputPath?.endsWith('.html')) return content;
+    return content.replace(
+      /<link([^>]*)\sdata-href="(at:\/\/[^"]+)"([^>]*)>/g,
+      '<link$1 href="$2"$3>',
+    );
+  });
+
   return {
     dir: {
       input: 'src',
