@@ -2,10 +2,12 @@
 title: How to use Vue to template your Eleventy projects
 slug: how-to-use-vue-to-template-your-eleventy-projects
 heroImage: ./img/4HJ.grant-whitty-ExV72ahe4sE-unsplash.jpg
-excerpt: If you like using Eleventy, but would love to leverage Vue syntax in your templates, here's a guide on how to do that.
-publishDate: 2021-12-17T00:00-05:00
+excerpt: >-
+  If you like using Eleventy, but would love to leverage Vue syntax in your
+  templates, here's a guide on how to do that.
+publishDate: '2021-12-17T00:00-05:00'
 socialSharingImage: ./img/4SF.how-to-use-vue-eleventy-og.jpg
-templateEngineOverride: 'md'
+templateEngineOverride: md
 tags:
   - article
 category: tutorial
@@ -13,6 +15,7 @@ topics:
   - vue
   - eleventy
   - static site generation
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc5degs2y'
 ---
 
 Okay quick disclaimer before I kick this off — this post does not cover how to use interactive Vue components in an Eleventy project. This post covers using Vue entirely server-side! The client will not receive any Vue code.

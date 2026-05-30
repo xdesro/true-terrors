@@ -1,11 +1,11 @@
 ---
-title: "Animated link underlines with skip-ink effect"
+title: Animated link underlines with skip-ink effect
 drafted: false
 topics:
   - code snippet
   - css
 date: 2021-10-13T06:00:00.000Z
-
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zccj36c2y'
 ---
 
 You can use `-webkit-text-stroke` and `paint-order` in CSS to animate a link underline without losing the really neat `text-decoration-skip-ink` effect from standard text-decoration.  

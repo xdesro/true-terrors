@@ -1,10 +1,11 @@
 ---
-title: "Hinting & autocompletion for JSON in VS Code"
+title: Hinting & autocompletion for JSON in VS Code
 topics:
   - code snippet
   - json
   - vscode
 hasToc: true
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcbd6bs2y'
 ---
 
 Here’s a short and sweet guide to typing your JSON with JSON Schema and having VSCode validate and autocomplete based on that schema. Shoot me an email with questions or corrections!

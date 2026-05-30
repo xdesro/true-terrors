@@ -1,8 +1,11 @@
 ---
 title: How to convert variable TTF font files to WOFF2
 slug: how-to-convert-variable-ttf-font-files-to-woff2
-excerpt: I recently received a variable font file from a client to use on their website, but not in a webfont format, so I figured I'd hunt down a route to convert that TTF into a WOFF2 for use in @font-face declarations!
-publishDate: 2020-01-09T12:30-07:00
+excerpt: >-
+  I recently received a variable font file from a client to use on their
+  website, but not in a webfont format, so I figured I'd hunt down a route to
+  convert that TTF into a WOFF2 for use in @font-face declarations!
+publishDate: '2020-01-09T12:30-07:00'
 hasHero: false
 tags:
   - article
@@ -10,6 +13,7 @@ category: tutorial
 topics:
   - variable fonts
   - web fonts
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc6ifyc2y'
 ---
 
 ## Impetus

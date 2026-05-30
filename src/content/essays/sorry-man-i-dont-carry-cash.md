@@ -1,9 +1,10 @@
 ---
-title: "A case for unconditional giving"
+title: A case for unconditional giving
 slug: a-case-for-unconditional-giving
 abstract: It's time for a new paradigm for how we treat folks that ask us for help.
 publishDate: 2025-03-06T04:09:30.927Z
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1741240711/eddi-aguirre-Qglg6kUrCCw-unsplash_a6fibv.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1741240711/eddi-aguirre-Qglg6kUrCCw-unsplash_a6fibv.jpg
 customThreshold: 135
 useHero: true
 tags:
@@ -13,6 +14,7 @@ topics:
   - rants
   - civic duty
   - the other world
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcaccjk2y'
 ---
 
 I’ll be honest — I am ashamed of how long it took me to get here. Too many half-hearted hypothetical protestations, hands sweatily-wrung. I read someone’s blog post about this a few years back _(I'll link it when I find it)_ and it hit me square in the middle of the forehead with how obvious this all ought to be:

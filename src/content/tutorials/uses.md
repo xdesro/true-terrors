@@ -2,11 +2,15 @@
 title: Uses
 slug: uses
 heroImage: ./img/362.stormy-sky.jpg
-excerpt: A detailed list of all the software and hardware I use to get through my daily life. Inspired by Wes Bos' [/uses](https://wesbos.com/uses/).
-publishDate: 2019-05-01T00:00-06:00
+excerpt: >-
+  A detailed list of all the software and hardware I use to get through my daily
+  life. Inspired by Wes Bos' [/uses](https://wesbos.com/uses/).
+publishDate: '2019-05-01T00:00-06:00'
 socialSharingImage: ./img/1re.Frame 14.png
 category: resource
-topics: [tooling]
+topics:
+  - tooling
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc4pshk2y'
 ---
 
 This is a non-exhaustive list of the tools I use in my day-to-day operation for design, development, and life as a human. If I'm missing something, [let me know](mailto:yo@henry.codes?subject=Request%20To%20Add%20To%20Uses%3A)!

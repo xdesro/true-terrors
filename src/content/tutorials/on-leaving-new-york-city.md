@@ -1,15 +1,19 @@
 ---
 title: On leaving New York City
 slug: leaving-new-york
-heroImage: https://nyc.henry.codes/img/skyline-sunset.jpg
+heroImage: 'https://nyc.henry.codes/img/skyline-sunset.jpg'
 useHero: true
-excerpt: Lmao why does every writer in tech have to do this post about why they’re leaving their city? It’s punishing! Anyway here’s mine. :)
+excerpt: >-
+  Lmao why does every writer in tech have to do this post about why they’re
+  leaving their city? It’s punishing! Anyway here’s mine. :)
 tags:
   - article
 category: journal
-topics: [rants]
-publishDate: 2023-02-12T12:00-05:00
+topics:
+  - rants
+publishDate: '2023-02-12T12:00-05:00'
 socialSharingImage: ./img/7HI.on-leaving-new-york-og.png
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc4tims2y'
 ---
 
 ## This Is That Dreaded Blog Post That Was Foretold

@@ -1,11 +1,12 @@
 ---
-title: 'AI at work is anti-labor by design'
+title: AI at work is anti-labor by design
 drafted: false
 topics:
   - ai
   - labor
 publishDate: 2026-03-04T19:14:13.792Z
 hasToc: false
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zccncw22y'
 ---
 
 - *27 January 2026* — Added Pinterest layoff news.

@@ -61,6 +61,11 @@
     <!-- Aperture -->
     <link rel="microsub" href="https://aperture.p3k.io/microsub/816">
 
+    <!-- AT Proto -->
+    {% if atUri %}
+        <link rel="site.standard.document" href="{{ atUri }}">
+    {% endif %}
+
     {% if page.url === '/' %}
         <link rel="preload" href="/img/gargoyle-with-texture-400w.avif" as="image" type="image/avif" crossorigin>
         <link rel="preload" href="/fonts/manuka-black.woff2" as="font" type="font/woff2" crossorigin />

@@ -2,8 +2,11 @@
 title: Can you be a designer if you have no training?
 slug: can-you-be-a-designer-if-you-have-no-training
 heroImage: ./img/1VP.can-you-be-a-designer-if-you-have-no-training.png
-excerpt: I recently saw it asserted that “if you don't have formal design training, you’re not a designer”. That’s a flawed statement because of the ubiquitous nature of design.
-publishDate: 2023-02-09T13:00-05:00
+excerpt: >-
+  I recently saw it asserted that “if you don't have formal design training,
+  you’re not a designer”. That’s a flawed statement because of the ubiquitous
+  nature of design.
+publishDate: '2023-02-09T13:00-05:00'
 socialSharingImage: ./img/1VP.can-you-be-a-designer-if-you-have-no-training.png
 tags:
   - article
@@ -11,6 +14,7 @@ category: journal
 topics:
   - rants
   - design
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc7gb2s2y'
 ---
 
 I recently saw an online acquaintance of mine share a Controversial Opinion™ that I found challenging:

@@ -1,10 +1,11 @@
 ---
-title: 'Quickly checking HTTP response headers'
+title: Quickly checking HTTP response headers
 drafted: false
 topics:
   - code snippet
   - http
 publishDate: 2025-05-06T12:41:00.689Z
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zccatis2y'
 ---
 
 Fastest cleanest way if you're a Terminal Enjoyer™ is with `curl`:

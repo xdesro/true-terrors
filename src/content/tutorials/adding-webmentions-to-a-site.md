@@ -1,10 +1,13 @@
 ---
 title: How to collect Webmentions for your site
 slug: collecting-webmentions
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1748024029/diane-picchiottino-_7VlBuRHsC4-unsplash_estxsa.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1748024029/diane-picchiottino-_7VlBuRHsC4-unsplash_estxsa.jpg
 customThreshold: 138
 useHero: true
-excerpt: Here’s a quick blog post on how to use Webmention.io and some other IndieWeb services to collect webmentions for your site!
+excerpt: >-
+  Here’s a quick blog post on how to use Webmention.io and some other IndieWeb
+  services to collect webmentions for your site!
 publishDate: 2025-05-23T17:59:28.792Z
 tags:
   - article
@@ -12,6 +15,7 @@ category: tutorial
 topics:
   - indieweb
   - webmentions
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc7rhhk2y'
 ---
 
 Quick disclaimer before we start. This is well-trod ground. Nothing here is new or revolutionary, nothing about this implementation hasn't already been done by [smarter folks than I](#further-reading) :) This is just my blog post about it.{.editors-note}

@@ -2,18 +2,27 @@
 title: How to map a number between two ranges
 slug: how-to-map-a-number-between-two-ranges
 heroImage: ./img/5w9.og-map-range.png
-excerpt: A common task in creative web development and animation is converting a number in one range to a new range, also known as linear transformation. Here’s a basic rundown on executing that operation in a mathematical context, and how to translate that to JavaScript.
-publishDate: 2023-10-18T14:00-07:00
+excerpt: >-
+  A common task in creative web development and animation is converting a number
+  in one range to a new range, also known as linear transformation. Here’s a
+  basic rundown on executing that operation in a mathematical context, and how
+  to translate that to JavaScript.
+publishDate: '2023-10-18T14:00-07:00'
 socialSharingImage: ./img/5w9.og-map-range.png
 category: tutorial
 topics:
   - math
   - javascript
 toc:
-  - { title: TL;DR, url: '#tl-dr' }
-  - { title: The Math Part, url: '#the-math-part' }
-  - { title: The Code Part, url: '#the-code-part' }
-  - { title: Conclusion, url: '#conclusion' }
+  - title: TL;DR
+    url: '#tl-dr'
+  - title: The Math Part
+    url: '#the-math-part'
+  - title: The Code Part
+    url: '#the-code-part'
+  - title: Conclusion
+    url: '#conclusion'
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc5x6a22y'
 ---
 
 Often in creative web projects, I find myself having to take a number, which exists in a specific range of numbers, and find the number that would be in the same position if the range were changed. Examples of this type of operation can vary anywhere from converting Fahrenheit to Celsius, to my recent use-case of creating an array of 500 “particles” with 3D coordinates and assigning each one a position between `{ z: -10 }` and `{ z: 12 }` relative to its position in the original array (i.e. `particles[0].z = -10` and `particles[499].z = 12`).

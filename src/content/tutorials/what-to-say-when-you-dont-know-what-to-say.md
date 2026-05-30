@@ -2,8 +2,12 @@
 title: What to say when you don't know what to say
 slug: what-to-say
 heroImage: ./img/4HJ.grant-whitty-ExV72ahe4sE-unsplash.jpg
-excerpt: I have this weird relationship with Incredible Amounts Of Grief where, like, I’ve literally been there — I know there’s nothing to say, and nothing will heal but time. But I know well the urge to say ~something~. Here's what to say, and maybe more importantly, what not to say.
-publishDate: 2021-03-06T19:00-05:00
+excerpt: >-
+  I have this weird relationship with Incredible Amounts Of Grief where, like,
+  I’ve literally been there — I know there’s nothing to say, and nothing will
+  heal but time. But I know well the urge to say ~something~. Here's what to
+  say, and maybe more importantly, what not to say.
+publishDate: '2021-03-06T19:00-05:00'
 hasHero: false
 tags:
   - article
@@ -11,6 +15,7 @@ category: journal
 topics:
   - rants
   - grief
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc464zs2y'
 ---
 
 I have this weird relationship with Incredible Amounts Of Grief where, like, I've literally been there — I know there's nothing to say, and nothing will heal but time. When The Bad Thing™ happened, I felt angry so often with people wasting both my time and theirs trying to string together something moralizing and impactful, either to Make It Better, or to make themselves feel like they tried. When The Bad Thing™ happened, the only thing that would've made it better in any capacity, in any universe, was The Thing un-happening, or (the more common path) simply many years of hurt, of crying in the middle of the day for seemingly no reason, until the sun started to rise on my world each morning again.

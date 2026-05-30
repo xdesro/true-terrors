@@ -2,9 +2,11 @@
 title: How to make an animated interactive vue.js slider
 slug: how-to-make-an-animated-interactive-vue-js-slider
 heroImage: ./img/bxo.boat.jpg
-excerpt: My guide, start to finish, floor to ceiling, on coding, styling, and animating a slider element with Vue.js.
-publishDate: 2019-06-04T20:36-06:00
-templateEngineOverride: 'md'
+excerpt: >-
+  My guide, start to finish, floor to ceiling, on coding, styling, and animating
+  a slider element with Vue.js.
+publishDate: '2019-06-04T20:36-06:00'
+templateEngineOverride: md
 hasHero: false
 tags:
   - article
@@ -14,6 +16,7 @@ topics:
   - interaction
   - css
   - css grid
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc62ojs2y'
 ---
 
 So, I was looking for a fun example of UI interactivity to prototype on Codepen, and I stumbled upon [this really cool shot](https://dribbble.com/shots/6566320-Kalli-Hero) that [Alexsander Barhon](http://alexsanderbarhon.dribbble.com/) shared.

@@ -1,14 +1,24 @@
 ---
-title: How to use the Spotify API and Netlify Functions to build a “Now Playing” widget
+title: >-
+  How to use the Spotify API and Netlify Functions to build a “Now Playing”
+  widget
 slug: spotify-now-playing
 hasHero: false
-excerpt: I recently* built this really cool feature for my personal website that allows me to use Netlify Functions to show my most-recently-listened-to tracks from Spotify. Here's how I did it!
+excerpt: >-
+  I recently* built this really cool feature for my personal website that allows
+  me to use Netlify Functions to show my most-recently-listened-to tracks from
+  Spotify. Here's how I did it!
 tags:
   - article
 category: tutorial
-topics: [netlify, serverless, lambda, node.js]
-publishDate: 2020-12-12T09:00-07:00
-templateEngineOverride: 'md'
+topics:
+  - netlify
+  - serverless
+  - lambda
+  - node.js
+publishDate: '2020-12-12T09:00-07:00'
+templateEngineOverride: md
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc5jye22y'
 ---
 
 I recently\* built this really cool feature for my personal website that allows me to use Netlify Functions to show my most-recently-listened-to tracks from Spotify.

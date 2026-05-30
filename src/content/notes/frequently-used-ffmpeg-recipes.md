@@ -1,10 +1,11 @@
 ---
-title: 'Frequently-used ffmpeg recipes'
+title: Frequently-used ffmpeg recipes
 topics:
   - terminal
   - ffmpeg
   - encoding
 publishDate: 2025-05-26T23:02:03.118Z
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcbuwnc2y'
 ---
 
 I use a `ffmpeg` at least twice weekly for stupid side projects and non-stupid side projects; here's a list for posterity and for my future self (who I adore) to keep track of commonly-used recipes.

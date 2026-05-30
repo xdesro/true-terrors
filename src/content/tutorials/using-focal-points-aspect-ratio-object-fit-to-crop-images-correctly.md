@@ -1,13 +1,26 @@
 ---
-title: Using focal points, aspect ratio & object-fit to crop images correctly
+title: 'Using focal points, aspect ratio & object-fit to crop images correctly'
 slug: pure-css-focal-points
-heroImage: ./img/35A.Using Focal Points, Aspect Ratio and Object-Fit To Crop Images Correctly.png
-excerpt: CSS has a lot of pretty rad and powerful features for managing image rendering these days. Let’s leverage some of these, like aspect-ratio, object-fit, and object-position for when we need to use a single image in many different contexts.
-publishDate: 2023-02-18T22:27-05:00
-socialSharingImage: ./img/35A.Using Focal Points, Aspect Ratio and Object-Fit To Crop Images Correctly.png
+heroImage: >-
+  ./img/35A.Using Focal Points, Aspect Ratio and Object-Fit To Crop Images
+  Correctly.png
+excerpt: >-
+  CSS has a lot of pretty rad and powerful features for managing image rendering
+  these days. Let’s leverage some of these, like aspect-ratio, object-fit, and
+  object-position for when we need to use a single image in many different
+  contexts.
+publishDate: '2023-02-18T22:27-05:00'
+socialSharingImage: >-
+  ./img/35A.Using Focal Points, Aspect Ratio and Object-Fit To Crop Images
+  Correctly.png
 templateEngineOverride: md
 category: tutorial
-topics: [css, css variables, aspect-ratio, object-fit]
+topics:
+  - css
+  - css variables
+  - aspect-ratio
+  - object-fit
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc4d2b22y'
 ---
 
 Before I even get into the impetus for this blog post, if you came from a search engine and you just want the code, [here’s a demo](https://codepen.io/xdesro/pen/bGxVorV). Pleasure doing business with you.

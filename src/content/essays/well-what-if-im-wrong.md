@@ -1,9 +1,12 @@
 ---
-title: "Well, what if I'm wrong?"
+title: 'Well, what if I''m wrong?'
 slug: well-what-if-im-wrong
-abstract: There’s an indundation of folks asking for aid via GoFundMe, etc. on social media these days. What if it's a mistake to donate to them?
+abstract: >-
+  There’s an indundation of folks asking for aid via GoFundMe, etc. on social
+  media these days. What if it's a mistake to donate to them?
 publishDate: 2025-05-19T16:19:30.133Z
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1747671523/raimond-klavins-030ZIU1Rook-unsplash_ecuwmp.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1747671523/raimond-klavins-030ZIU1Rook-unsplash_ecuwmp.jpg
 customThreshold: 135
 useHero: true
 tags:
@@ -13,6 +16,7 @@ topics:
   - rants
   - civic duty
   - the other world
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zca6x422y'
 ---
 
 Anyone online has seen over the past years how the frequency of Palestinian accounts on Bluesky and other platforms has increased, two- and four-fold, folks asking for help and linking to GoFundMes. They share their stories and plea for help, to flee Gaza, to buy price-gouged food for their children, to afford healthcare. I have made the choice to move from my values, namely that [_no one asks for help that doesn't need it_](/writing/a-case-for-unconditional-giving/): I make an effort to give aid to everyone who asks me to. But what if it's a mistake to do so?

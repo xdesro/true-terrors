@@ -1,10 +1,15 @@
 ---
 title: Using Figma to design perfect gallery walls
 slug: using-figma-to-design-gallery-walls
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1739910453/DSCF9710_oenpul.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1739910453/DSCF9710_oenpul.jpg
 customThreshold: 138
 useHero: true
-excerpt: I'm a twisted animal with a penchant for moving every two years, and the universal upside of moving every two years, as everyone will agree, is hanging new gallery walls. Here’s a guide for how I use Figma to make the process super simple.
+excerpt: >-
+  I'm a twisted animal with a penchant for moving every two years, and the
+  universal upside of moving every two years, as everyone will agree, is hanging
+  new gallery walls. Here’s a guide for how I use Figma to make the process
+  super simple.
 publishDate: 2025-02-21T18:50:52.557Z
 tags:
   - article
@@ -13,6 +18,7 @@ topics:
   - design
   - figma
   - irl
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc4lsjs2y'
 ---
 
 Quick heads up: Since writing this, I’ve found one or two fairly sizeable bugs in the Galleria plugin. I’ve published anyway cause the guide is not entirely dependent on Galleria, and Galleria is _mostly_ functional. You can still give it a shot, or alternately use Photoshop’s Perspective Warp tool, or come back soon and I should have it worked out :) _(cir. Feb 21 2025)_ {.under-construction}

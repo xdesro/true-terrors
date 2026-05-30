@@ -1,16 +1,23 @@
 ---
 title: 'Bad ux in everyday life: kitchen nightmares'
 slug: bad-ux-in-everyday-life-kitchen-nightmares
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1735169308/kitchen_i26rt7.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1735169308/kitchen_i26rt7.jpg
 useHero: true
-excerpt: It’s come to my attention lately that my kitchen is absolutely riddled with poor experiences. Most of the appliances and apparatus one uses on a day-to-day basis in the kitchen were invented or last revolutionized in the early part of the 20th century, and many of them have seen very little innovation, if any, since that time. I'd like to file a complaint.
-publishDate: 2016-06-09T00:00-06:00
+excerpt: >-
+  It’s come to my attention lately that my kitchen is absolutely riddled with
+  poor experiences. Most of the appliances and apparatus one uses on a
+  day-to-day basis in the kitchen were invented or last revolutionized in the
+  early part of the 20th century, and many of them have seen very little
+  innovation, if any, since that time. I'd like to file a complaint.
+publishDate: '2016-06-09T00:00-06:00'
 socialSharingImage: ./img/6TQ.Frame 15.png
 tags:
   - article
 category: journal
 topics:
   - ux
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc7jvbk2y'
 ---
 
 This article was originally posted on the [Universal Mind blog](http://www.universalmind.com/blog/bad-ux-in-everyday-life-part-1-the-kitchen/) in June 2016.{.editors-note}

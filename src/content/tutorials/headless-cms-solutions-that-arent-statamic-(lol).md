@@ -2,14 +2,19 @@
 title: Headless CMS solutions that aren’t Statamic (lol)
 slug: headless-cms-solutions-that-arent-statamic-lol
 hasHero: false
-excerpt: The founder of Statamic recently revealed some extremely unfortunate views he holds about controlling women's bodies and destroying democracy. For those whom that might be troubling, I’ve compiled a brief list of alternatives to Statamic.
-publishDate: 2020-11-03T15:00-07:00
+excerpt: >-
+  The founder of Statamic recently revealed some extremely unfortunate views he
+  holds about controlling women's bodies and destroying democracy. For those
+  whom that might be troubling, I’ve compiled a brief list of alternatives to
+  Statamic.
+publishDate: '2020-11-03T15:00-07:00'
 tags:
   - article
 category: journal
 topics:
   - rants
   - politics
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc6zops2y'
 ---
 
 <aside class="editors-note">

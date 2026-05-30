@@ -1,5 +1,5 @@
 ---
-title: 'Disabling WebGL in your browser'
+title: Disabling WebGL in your browser
 drafted: false
 topics:
   - code snippet
@@ -7,6 +7,7 @@ topics:
   - browsers
 publishDate: 2025-05-07T15:58:00.000Z
 hasToc: true
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcbyros2y'
 ---
 
 For testing different scenarios and user preferences, you can use these steps to disable WebGL in different browsers. These work for MacOS. If someone tells me how to do it in Windows or I get the gumption I'll update this post lol.

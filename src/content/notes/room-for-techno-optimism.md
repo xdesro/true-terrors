@@ -1,5 +1,5 @@
 ---
-title: 'There is yet room for techno-optimism'
+title: There is yet room for techno-optimism
 drafted: false
 topics:
   - ai
@@ -8,6 +8,7 @@ topics:
 publishDate: 2026-03-31T01:00:36.681Z
 hasToc: false
 templateEngineOverride: 'md,njk'
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcaxn5c2y'
 ---
 
 Earlier today, in a particularly enthusiastic scroll-sesh, I read a reply to an article about AI use that read something to the effect of:

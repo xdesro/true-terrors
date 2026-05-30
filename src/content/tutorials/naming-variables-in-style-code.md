@@ -2,12 +2,20 @@
 title: Naming variables in style code
 slug: naming-variables-in-style-code
 hasHero: false
-excerpt: Brad Frost Tweeted recently about a color variable naming problem, and rather than write a 69-Tweet thread about how I think about these sorts of problems, I figured I'd do a quick write-up on Tokenizing & Contextualizing in style code variables.
+excerpt: >-
+  Brad Frost Tweeted recently about a color variable naming problem, and rather
+  than write a 69-Tweet thread about how I think about these sorts of problems,
+  I figured I'd do a quick write-up on Tokenizing & Contextualizing in style
+  code variables.
 tags:
   - article
 category: resource
-topics: [design systems, css, scss]
-publishDate: 2020-12-10T13:00-07:00
+topics:
+  - design systems
+  - css
+  - scss
+publishDate: '2020-12-10T13:00-07:00'
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc4xtcc2y'
 ---
 
 This morning, the atomic design <abbr title="greatest of all time">GOAT</abbr> [Brad Frost](https://bradfrost.com) Tweeted a question about variable naming for colors:

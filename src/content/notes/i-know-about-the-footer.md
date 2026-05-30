@@ -1,8 +1,9 @@
 ---
-title: "I Know About The Date In The Footer"
+title: I Know About The Date In The Footer
 topics:
   - string interpolation
   - jokes that didn’t land
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcbhixc2y'
 ---
 
 I appreciate you looking out, but thankfully [this is just a bit of tongue-in-cheek humor](https://github.com/xdesro/true-terrors/blob/9beed8c771730845307e8a3f1782202ff9a06cf3/src/_includes/footer.njk#L40-L44) and I am eternally my own ~~worst enemy~~ target audience. A better man with a better sense of humor might stop trying to beat this particular horse, but I’m not him bro.

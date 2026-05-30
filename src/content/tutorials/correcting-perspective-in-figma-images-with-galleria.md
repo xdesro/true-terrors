@@ -1,8 +1,11 @@
 ---
 title: Correcting perspective in Figma images with the Galleria plugin
-abstract: Here’s a basic guide to using my Figma plugin to correct planar perspective warp in images.
+abstract: >-
+  Here’s a basic guide to using my Figma plugin to correct planar perspective
+  warp in images.
 publishDate: 2025-02-17T18:20:02.974Z
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1739824201/frames_ejugp2.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1739824201/frames_ejugp2.jpg
 customThreshold: 190
 useHero: true
 tags:
@@ -11,6 +14,7 @@ category: resource
 topics:
   - figma
   - figma plugins
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc7ckvk2y'
 ---
 
 Whether it’s a framed image that was taken at a slight angle, or a product photo that just doesn't quite match the rest in the grid, I’ve frequently had the need to adjust the perspective of an image in my design work. In the past I’ve just used the Perspective Warp tool in Photoshop, but it felt silly to boot up a whole separate graphics program for a two-second adjustment, so I made _Galleria_, a Figma plugin which lets you do exactly this.

@@ -6,7 +6,8 @@
     "start": "concurrently 'sass --no-source-map --watch src/scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve'",
     "start:quiet": "concurrently 'sass --no-source-map --watch src/scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve --quiet'",
     "build": "sass --no-source-map src/scss:_site/css --style compressed && rollup --config && npx @11ty/eleventy",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "syndicate:atproto": "node scripts/generate-standard-records.js"
   },
   "type": "module",
   "keywords": [],

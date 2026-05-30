@@ -1,9 +1,12 @@
 ---
-title: "2019: Year in review"
+title: '2019: Year in review'
 slug: 2019-year-in-review
 heroImage: ./img/5eR.berenice-melis-UdEmQZUBc2s-unsplash.jpg
-excerpt: I let myself down a little bit this year with my goals, and I'd like to examine how and why that happened. I'm staying hopeful, estimating better, and executing better in 2020.
-publishDate: 2019-12-30T10:00-07:00
+excerpt: >-
+  I let myself down a little bit this year with my goals, and I'd like to
+  examine how and why that happened. I'm staying hopeful, estimating better, and
+  executing better in 2020.
+publishDate: '2019-12-30T10:00-07:00'
 socialSharingImage: ./img/6wj.Frame 10.png
 tags:
   - article
@@ -11,6 +14,7 @@ category: journal
 topics:
   - rants
   - professional development
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zca333c2y'
 ---
 
 ## Introduction

@@ -1,5 +1,5 @@
 ---
-title: 'A bookmarklet for clearing cookies for the current page'
+title: A bookmarklet for clearing cookies for the current page
 drafted: false
 topics:
   - code snippet
@@ -7,6 +7,7 @@ topics:
   - cookies
 publishDate: 2025-05-13T13:22:00.000Z
 hasToc: true
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zccfdzs2y'
 ---
 
 ## TL;DR

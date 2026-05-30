@@ -2,8 +2,10 @@
 title: How to use Contentful with Eleventy
 slug: how-to-use-contentful-with-eleventy
 heroImage: ./img/2R9.how-to-use-contentful-eleventy-og.jpg
-excerpt: Here's a pretty 0-60 tutorial on integrating Contentful headless content with Eleventy static site generation! I hope you think it's nice!
-publishDate: 2021-12-23T00:00-07:00
+excerpt: >-
+  Here's a pretty 0-60 tutorial on integrating Contentful headless content with
+  Eleventy static site generation! I hope you think it's nice!
+publishDate: '2021-12-23T00:00-07:00'
 hasHero: false
 tags:
   - article
@@ -12,6 +14,7 @@ topics:
   - contentful
   - eleventy
   - static site generation
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc5t4ds2y'
 ---
 
 Contentful is an immensely well-featured headless content management system, but the density of its featureset can be daunting to integrate with static site generators. The great news is, Eleventy is so well-designed and modular — it doesn't have to be nearly so challenging.

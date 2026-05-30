@@ -1,9 +1,12 @@
 ---
-title: 'Things I did in 2025 that have nothing to do with the internet'
+title: Things I did in 2025 that have nothing to do with the internet
 slug: 2025
-abstract: Plenty of work was done, plenty of websites made. Here's a recap of everything I did that has nothing at all to do with work or websites.
-publishDate: 2026-01-03T15:03
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1767479089/IMG_8463_uf0kgy.jpg
+abstract: >-
+  Plenty of work was done, plenty of websites made. Here's a recap of everything
+  I did that has nothing at all to do with work or websites.
+publishDate: '2026-01-03T15:03'
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1767479089/IMG_8463_uf0kgy.jpg
 useHero: true
 customThreshold: 150
 tags:
@@ -12,6 +15,7 @@ category: journal
 topics:
   - year-in-review
   - personal
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcajou22y'
 ---
 
 ## What I did

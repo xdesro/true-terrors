@@ -1,11 +1,15 @@
 ---
-title: 'Economics & labor rights in AI skepticism'
+title: Economics & labor rights in AI skepticism
 slug: economics-and-labor-rights-in-ai-skepticism
-abstract: There's a growing attitude in the technology industry is that LLM technology is or will be the next great innovation to our work, but uncritical adoption will be disastrous for labor rights.
+abstract: >-
+  There's a growing attitude in the technology industry is that LLM technology
+  is or will be the next great innovation to our work, but uncritical adoption
+  will be disastrous for labor rights.
 publishDate: 2025-06-03T18:30:55.064Z
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1748977311/623e9f92-e556-439a-85eb-15c691a7c1d9_kayg0l.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1748977311/623e9f92-e556-439a-85eb-15c691a7c1d9_kayg0l.jpg
 eleventyComputed:
-  og: https://henry.codes/img/og/og-economic-theory-in-ai-skepticism.png
+  og: 'https://henry.codes/img/og/og-economic-theory-in-ai-skepticism.png'
 customThreshold: 150
 useHero: true
 tags:
@@ -15,6 +19,7 @@ topics:
   - rants
   - labor
   - the other world
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcag7jk2y'
 ---
 
 There's a growing attitude in the technology industry that LLM technology is, or will be, the next great innovation to our work. Business owners and workers alike seem to be in unlikely agreement: owners are thrilled at the prospect of making their businesses more efficient and productive, and workers are thrilled at the prospect of simplifying their workstreams or making their jobs easier. It's a surprising alliance in the prevailing economic system.

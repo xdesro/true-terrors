@@ -39,7 +39,7 @@ export default {
       }
       const ogTargetUrl = `https://henry.codes/opengraph/writing/${slugged}`;
       const ogScreenshotUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(
-        ogTargetUrl
+        ogTargetUrl,
       )}/opengraph`;
       return ogScreenshotUrl;
     },

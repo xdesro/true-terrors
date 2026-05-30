@@ -1,11 +1,16 @@
 ---
 title: How To Make a Website
 slug: how-to-make-a-website
-heroImage: https://res.cloudinary.com/henry-codes/image/upload/v1735169303/blog-post-header-birds_ipctdx.jpg
+heroImage: >-
+  https://res.cloudinary.com/henry-codes/image/upload/v1735169303/blog-post-header-birds_ipctdx.jpg
 customThreshold: 128
 useHero: true
-excerpt: I got an email recently from a kind online friend asking to learn about my process or what makes a good website. It's also good impetus for me to be a little more candid and critical about my practice — here's my breakdown on how to make a Good Website.
-publishDate: 2023-01-16T22:31-05:00
+excerpt: >-
+  I got an email recently from a kind online friend asking to learn about my
+  process or what makes a good website. It's also good impetus for me to be a
+  little more candid and critical about my practice — here's my breakdown on how
+  to make a Good Website.
+publishDate: '2023-01-16T22:31-05:00'
 socialSharingImage: ./img/ct5.how-to-make-a-website.png
 featured: false
 highlighted: true
@@ -17,6 +22,7 @@ topics:
   - css
   - javascript
   - rants
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc6763k2y'
 ---
 
 I got an email recently from a kind online friend who said they thought my work was swell, and that they'd like to ask about my process or what makes a good website. Aside from that being a really nice email to receive, it's also good impetus for me to be a little more candid and critical about my practice. Here's my breakdown on how to make a Good Website.

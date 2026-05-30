@@ -2,8 +2,10 @@
 title: How to distort text with SVG filters
 slug: how-to-distort-text-with-svg
 heroImage: ./img/3Tb.CleanShot 2021-12-23 at 01.14.19@2x.png
-excerpt: Just doin’ a quick one today on SVG filter primitives and how to do cool text effects with them.
-publishDate: 2022-12-22T17:33-07:00
+excerpt: >-
+  Just doin’ a quick one today on SVG filter primitives and how to do cool text
+  effects with them.
+publishDate: '2022-12-22T17:33-07:00'
 socialSharingImage: ./img/2AD.how-to-distort-text-with-svg-filters-og.png
 tags:
   - article
@@ -13,6 +15,7 @@ topics:
   - filters
   - html
   - css
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc6d5222y'
 ---
 
 A lot of the SVG filter primitive content out there is some really rad, deep-dive type content _(I'll link some of these at the end!)_, so I reckoned it might be nice to do a quick write-up on some effects I use pretty commonly. These are more-or-less plug-and-play; simple filters for making your friends go "ooh how did u do that lmao".

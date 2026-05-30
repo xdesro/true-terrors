@@ -2,8 +2,10 @@
 title: Let’s talk about banning political ads on Twitter
 slug: lets-talk-about-banning-political-ads-on-twitter
 heroImage: ./img/1vy.blog-post-header-birds.jpg
-excerpt: Jack Dorsey recently banned all political advertising on Twitter — here's why that's actually a super dangerous and violent thing to do.
-publishDate: 2019-10-31T12:00-06:00
+excerpt: >-
+  Jack Dorsey recently banned all political advertising on Twitter — here's why
+  that's actually a super dangerous and violent thing to do.
+publishDate: '2019-10-31T12:00-06:00'
 hasHero: false
 hasToc: false
 tags:
@@ -12,6 +14,7 @@ category: journal
 topics:
   - rants
   - politics
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc53qcc2y'
 ---
 
 Before you get started, fair warning that this post has "takes", some of which could be considered "hot". This post is not about web development.{.editors-note}

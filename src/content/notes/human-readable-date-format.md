@@ -1,11 +1,12 @@
 ---
-title: 'Human-readable date formatting with vanilla JavaScript'
+title: Human-readable date formatting with vanilla JavaScript
 drafted: false
 topics:
   - code snippet
   - js
 publishDate: 2025-03-02T00:06:56.689Z
 hasToc: true
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcbkve22y'
 ---
 
 Have one of these?

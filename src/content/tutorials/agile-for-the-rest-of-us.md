@@ -2,8 +2,10 @@
 title: Agile for the rest of us
 slug: agile-for-the-rest-of-us
 heroImage: ./img/5yF.plane.jpg
-excerpt: For the folks at home or those who might be new to the industry, what *is* agile development? Where did it come from? Who let it in? Should we feed it?
-publishDate: 2015-01-05T00:00-06:00
+excerpt: >-
+  For the folks at home or those who might be new to the industry, what *is*
+  agile development? Where did it come from? Who let it in? Should we feed it?
+publishDate: '2015-01-05T00:00-06:00'
 socialSharingImage: ./img/SRx.Frame 16.png
 tags:
   - article
@@ -12,6 +14,7 @@ topics:
   - agile
   - industry
   - software dev
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zc7nnfc2y'
 ---
 
 This article was originally written for the [Fusionbox blog](https://www.fusionbox.com/blog/detail/agile-for-the-rest-of-us/540/) in January 2015.{.editors-note}
