@@ -53,6 +53,6 @@ The widespread deployment of AI/LLMs constitutes an existential threat to labor 
 
 The answer to that question, is capitalists, who have a persistent vested interest in weakening the labor market — so it is imperative for workers to join forces in defense of their work. If a functional future of AI is realized, labor must be strong enough to withstand its seismic effects. If the brilliant AI future never dawns, labor must be strong enough to survive the ramifications of all of these companies making existential threats. 
 
-> This means of course both bargaining for protections against successful widespread automation of the workforce, but protection against widespread automation *as pretext*. {.editors-note}
+This means of course both bargaining for protections against successful widespread automation of the workforce, but protection against widespread automation *as pretext*. {.editors-note}
 
 Throughout history, workers have proven that when they stand together, they take control of their fate and the fate of their industries. [You deserve a tech union](https://ethanmarcotte.com/books/you-deserve-a-tech-union/).
