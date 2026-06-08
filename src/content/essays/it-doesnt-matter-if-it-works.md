@@ -38,7 +38,7 @@ As the average skill level of a worker goes down, the easier it becomes for capi
 
 In this future where LLMs really are the be-all end-all many techno-optimists purport them to be, they will expand to wider and wider industries. Benefitting from narrowed and more specific job requirements, they will capture more roles, automate and de-skill more industries, and result in a widespread lowering of wages, job security, and employment.
 
- nd while those tech leaders on the optimistic far end of the axis pretend to believe this will open doors for some utopia where mankind does not work, it is plain to see the dishonesty of this when looking at how those tech leaders treat humans of any class lower than theirs, be it in their [brutal mass layoffs of white collar workers](https://webflow.com/blog/evolving-webflow-for-the-agentic-web), or the [criminalization of homeless folks](https://www.rollingstone.com/politics/politics-features/joe-lonsdale-cicero-trump-leo-homeless-crime-1235078795/). 
+ And while those tech leaders on the optimistic far end of the axis pretend to believe this will open doors for some utopia where mankind does not work, it is plain to see the dishonesty of this when looking at how those tech leaders treat humans of any class lower than theirs, be it in their [brutal mass layoffs of white collar workers](https://webflow.com/blog/evolving-webflow-for-the-agentic-web), or the [criminalization of homeless folks](https://www.rollingstone.com/politics/politics-features/joe-lonsdale-cicero-trump-leo-homeless-crime-1235078795/). 
 
 ## AI doesn't work
 
