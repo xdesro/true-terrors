@@ -1,7 +1,10 @@
 ---
-title: "It doesn’t matter if it works"
+title: It doesn’t matter if it works
 slug: it-doesnt-matter-if-it-works
-abstract: Ultimately, whether LLMs "work" as a technology or not doesn't matter. The widespread adoption and deployment should be regarded firstly as a threat to the labor force.
+abstract: >-
+  Ultimately, whether LLMs "work" as a technology or not doesn't matter. The
+  widespread adoption and deployment should be regarded firstly as a threat to
+  the labor force.
 publishDate: '2026-06-08T12:04'
 useHero: false
 tags:
@@ -10,6 +13,7 @@ category: journal
 topics:
   - rants
   - labor
+atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mnsbedkuo222'
 ---
 
 
