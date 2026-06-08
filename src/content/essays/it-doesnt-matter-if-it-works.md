@@ -1,8 +1,10 @@
 ---
 title: It doesn’t matter if it works
 slug: it-doesnt-matter-if-it-works
-abstract: >-
-  Ultimately, whether LLMs "work" as a technology or not doesn't matter. The
+abstract: Ultimately, whether LLMs "work" as a technology or not doesn't matter. The
+  widespread adoption and deployment should be regarded firstly as a threat to
+  the labor force.
+description: Ultimately, whether LLMs "work" as a technology or not doesn't matter. The
   widespread adoption and deployment should be regarded firstly as a threat to
   the labor force.
 publishDate: '2026-06-08T12:04'
@@ -18,7 +20,7 @@ atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mnsbedkuo2
 
 
 
-There are about a thousand and one debates about the ecology of AI, the ethics of AI, the governance of AI. As the technology advances, the debate with the slipperiest footing is on the actually efficacy of AI: does this work for this application? Or for this one? Ultimately, whether LLMs "work" as a technology or not doesn't matter. *The function of a system is its output*, and no matter what utility individuals find in the tech, the widespread adoption and deployment should be considered and regarded firstly as a threat to the labor force.
+There are about a thousand and one debates about the ecology of AI, the ethics of AI, the governance of AI. As the technology advances, the debate with the slipperiest footing is on the actual efficacy of AI: does this work for this application? Or for this one? Ultimately, whether LLMs "work" as a technology or not doesn't matter. *The function of a system is its output*, and no matter what utility individuals find in the tech, the widespread adoption and deployment should be considered and regarded firstly as a threat to the labor force.
 
 To illustrate, we'll consider a few scenarios. 
 
