@@ -95,4 +95,8 @@ export default [
     text: 'patience.toys',
     url: 'https://patience.toys/',
   },
+  {
+    text: 'delphi.tools',
+    url: 'https://tools.rmv.fyi'
+  }
 ];
