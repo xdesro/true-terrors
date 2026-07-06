@@ -25,7 +25,7 @@
 <section class="writing-section" id="notes">
     <div class="container">
         <div class="articles-list">
-            {% for article in collections['note'] | sortedByDate %}
+            {% for article in collections['note'] | sortedByPublishDate %}
                 {{ articleBlock(article) }}
             {% endfor %}
         </div>
