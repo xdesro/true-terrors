@@ -37,12 +37,6 @@ export default async function (eleventyConfig) {
       decoding: 'async',
       sizes: '100vw',
     },
-    filenameFormat: function (id, src, width, format, options) {
-      const extension = path.extname(src);
-      const name = path.basename(src, extension);
-
-      return `${name}-${width}w.${format}`;
-    },
     sharpOptions: {
       animated: true,
       limitInputPixels: false,
