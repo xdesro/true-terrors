@@ -4,7 +4,7 @@ drafted: false
 topics:
   - future of computing
   - indieweb
-publishDate: 2026-07-06T18:34:33.363Z
+date: 2026-07-06T18:34:33.363Z
 hasToc: false
 atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mpyw7zhrhs2i'
 ---
