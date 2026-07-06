@@ -6,7 +6,7 @@
     "start": "concurrently 'sass --no-source-map --watch src/scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve'",
     "start:quiet": "concurrently 'sass --no-source-map --watch src/scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve --quiet'",
     "build": "sass --no-source-map src/scss:_site/css --style compressed && rollup --config && npx @11ty/eleventy",
-    "build:debug": "echo '--- BEFORE ---' && ls -la _site/img/ 2>&1 | head -20 && sass --no-source-map src/scss:_site/css --style compressed && rollup --config && npx @11ty/eleventy && echo '--- AFTER ---' && ls -la _site/img/ | head -20",
+    "build:debug": "ls -la _site/img/ > /tmp/before.txt && sass --no-source-map src/scss:_site/css --style compressed && rollup --config && bun x @11ty/eleventy && ls -la _site/img/ > /tmp/after.txt && diff /tmp/before.txt /tmp/after.txt; cat /tmp/before.txt",
     "test": "echo \"Error: no test specified\" && exit 1",
     "syndicate:atproto": "node scripts/generate-standard-records.js"
   },
