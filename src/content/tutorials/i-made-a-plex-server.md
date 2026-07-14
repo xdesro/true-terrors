@@ -100,6 +100,9 @@ Important to note that Synology has very strict rules about which RAM you can us
 ### Adding transcoding drivers
 The DS225+ actually does have an integrated graphics processing unit, *but* Synology removed hardware transcoding drivers for some reason. Someone added the necessary modules for adding those drivers back, and I would recommend installing those. You can [read more about improving that transcoding functionality on GitHub](https://github.com/007revad/Transcode_for_x25).
 
+### Plex Pass
+Plex actually does charge users to use features like skipping intros/credits, downloading media offline, and manage additional server settings. They do *unfortunately* offer this as a subscription, but they also offer it as a lifetime buy-once pass. When I bought the lifetime Plex Pass it was literally $500 cheaper than it apparently is now, which to me sounds absurd, and I'd be interested to hear if anyone's found a better route. 
+
 ### Additional pieces
 You can host tools like [Seerr](https://seerr.dev/) and additionally the [Servarr](https://wiki.servarr.com/) stack on your NAS via Docker, to allow users to discover, request, and source additional media. This is tentative territory and if you go, go with caution and with care.
 
