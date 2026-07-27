@@ -4,8 +4,8 @@ topics:
   - terminal
   - ffmpeg
   - encoding
-publishDate: 2025-05-26T23:02:03.118Z
-date: 2026-07-27T22:21:14.024Z
+publishDate: 2026-07-27T22:21:14.024Z
+date: 2025-05-26T23:02:03.118Z
 atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcbuwnc2y'
 ---
 
