@@ -10,6 +10,15 @@ atUri: 'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.document/3mn3zcbuwnc
 
 I use a `ffmpeg` at least twice weekly for stupid side projects and non-stupid side projects; here's a list for posterity and for my future self (who I adore) to keep track of commonly-used recipes.
 
+### Pulling the audio out of an .mp4 video as .mp3
+
+```sh
+ffmpeg -i video.mp4 -b:a 192K -vn audio.mp3
+```
+
+The `-b:a 192K` flag sets the audio bitrate to 192kbps, and the `-vn` drops the video stream from the output. 
+
+
 ### Converting .webm to .mp4
 
 ```sh
