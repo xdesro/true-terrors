@@ -1,0 +1,72 @@
+{
+  "lexicon": 1,
+  "id": "website.strange.ephemera",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "Short note published on henry.codes/micro. Canonical and contains syndication information.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["content", "createdAt"],
+        "properties": {
+          "content": {
+            "type": "string",
+            "maxLength": 100000,
+            "description": "Post body, in Markdown format."
+          },
+          "createdAt": { "type": "string", "format": "datetime" },
+          "updatedAt": { "type": "string", "format": "datetime" },
+          "tags": {
+            "type": "array",
+            "maxLength": 8,
+            "items": { "type": "string", "maxGraphemes": 64, "maxLength": 640 }
+          },
+          "embed": { "type": "union", "refs": ["#externalLink"] },
+          "reply": { "type": "ref", "ref": "#replyRef" },
+          "syndications": {
+            "type": "array",
+            "items": { "type": "ref", "ref": "#syndication" }
+          }
+        }
+      }
+    },
+    "replyRef": {
+      "type": "object",
+      "description": "Threading information, mirrors app.bsky.feed.post#replyRef.",
+      "required": ["root", "parent"],
+      "properties": {
+        "root": { "type": "ref", "ref": "com.atproto.repo.strongRef" },
+        "parent": { "type": "ref", "ref": "com.atproto.repo.strongRef" }
+      }
+    },
+    "syndication": {
+      "type": "object",
+      "required": ["network", "syndicatedAt"],
+      "properties": {
+        "network": { "type": "string", "knownValues": ["bluesky", "mastodon"] },
+        "url": { "type": "string", "format": "uri" },
+        "uri": { "type": "string", "format": "at-uri" },
+        "cid": {
+          "type": "string",
+          "format": "cid",
+          "description": "Needed to reply to this post when threading."
+        },
+        "text": {
+          "type": "string",
+          "description": "Exactly what was posted to this network."
+        },
+        "syndicatedAt": { "type": "string", "format": "datetime" }
+      }
+    },
+    "externalLink": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": { "type": "string", "format": "uri" },
+        "title": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    }
+  }
+}

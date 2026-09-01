@@ -1,7 +1,6 @@
 [dev]
     command = 'bun run start:quiet'
     publish = '_site'
-    functions = '.netlify/functions'
 
 [functions]
   directory = "src/functions"
