@@ -18,7 +18,11 @@
     {% else %}
     <meta name="description" content="The personal site &amp; portfolio of creative web developer Henry (from Online)." />
     {% endif %}
-
+    
+    {% if noindex %}
+    <meta name="robots" content="noindex" />
+    {% endif %}
+    
     <link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png" />
@@ -52,7 +56,6 @@
     <!-- Indieweb -->
     <link rel="authorization_endpoint" href="https://indieauth.com/auth">
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-    <link rel="micropub" href="https://henry.codes/.netlify/functions/micropub">
 
     <!-- Webmentions -->
     <link rel="webmention" href="https://webmention.io/henry.codes/webmention" />

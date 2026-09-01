@@ -1,0 +1,251 @@
+---js
+{
+  permalink: 'compose/index.html',
+  layout: 'layouts/base.njk',
+  eleventyExcludeFromCollections: true,
+  noindex: true
+}
+---
+<form id="composer" class="layout-post container">
+
+  <h1>Compose</h1>
+
+  <label>Token
+    <input name="token" type="password" autocomplete="off" required>
+  </label>
+
+  <label>Reply to (rkey)
+    <input name="replyTo" autocomplete="off">
+  </label>
+
+  <fieldset>
+    <legend>Syndicate to</legend>
+    <label>
+      <input type="checkbox" name="network" value="bluesky" checked> Bluesky
+    </label>
+    <label>
+      <input type="checkbox" name="network" value="mastodon" checked> Mastodon
+    </label>
+  </fieldset>
+
+  <div id="segments"></div>
+
+  <p>
+    <button type="button" id="add">Add reply</button>
+    <button type="submit">Preview all</button>
+    <button type="button" id="post" disabled>Post thread</button>
+  </p>
+
+  <output id="result" hidden></output>
+
+  <template id="segmentTemplate">
+    <fieldset class="segment">
+      <label>Post
+        <textarea class="content" placeholder="markdown" required></textarea>
+      </label>
+
+      <div class="rendered" hidden>
+        <label>Bluesky
+          <textarea class="blueskyText"></textarea>
+          <output class="blueskyCount"></output>
+        </label>
+        <label>Mastodon
+          <textarea class="mastodonText"></textarea>
+          <output class="mastodonCount"></output>
+        </label>
+        <output class="embed"></output>
+      </div>
+
+      <output class="status"></output>
+      <button type="button" class="remove">Remove</button>
+    </fieldset>
+  </template>
+</form>
+<script type="module">
+  const NETWORKS = ['bluesky', 'mastodon'];
+
+  const composer = document.querySelector('#composer');
+  const addButton = document.querySelector('#add');
+  const postButton = document.querySelector('#post');
+  const segmentList = document.querySelector('#segments');
+  const segmentTemplate = document.querySelector('#segmentTemplate');
+  const resultBox = document.querySelector('#result');
+
+  const { token, replyTo, network } = composer.elements;
+
+  const segments = () => [...document.querySelectorAll('#segments .segment')];
+
+  token.value = localStorage.getItem('composerToken') ?? '';
+  token.addEventListener('input', () =>
+    localStorage.setItem('composerToken', token.value)
+  );
+
+  const call = (query, body) =>
+    fetch(`/.netlify/functions/compose${query}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token.value}`,
+      },
+      body: JSON.stringify(body),
+    }).then(async (res) => {
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.message ?? `no response (${res.status})`);
+      return data;
+    });
+
+  const targets = () =>
+    [...network].filter((box) => box.checked).map((box) => box.value);
+
+  const normalize = ({ bluesky, mastodon }) => ({
+    bluesky: {
+      text: bluesky.record.text,
+      total: bluesky.graphemes,
+      overBy: bluesky.overBy,
+    },
+    mastodon: {
+      text: mastodon.params.status,
+      total: mastodon.chars,
+      overBy: mastodon.overBy,
+    },
+  });
+
+  const status = (segment, message, isError = false) => {
+    const el = segment.querySelector('.status');
+    el.textContent = message;
+    el.classList.toggle('error', isError);
+  };
+
+  const report = (message) => {
+    resultBox.textContent = message;
+    resultBox.hidden = false;
+  };
+
+  const addSegment = () => {
+    const segment = segmentTemplate.content.firstElementChild.cloneNode(true);
+
+    segment.querySelector('.remove').addEventListener('click', () => {
+      if (segment.rkey || segments().length === 1) return;
+      segment.remove();
+      postButton.disabled = true;
+    });
+
+    segment.querySelector('.content').addEventListener('input', () => {
+      segment.rendered = null;
+      segment.querySelector('.rendered').hidden = true;
+      postButton.disabled = true;
+    });
+
+    segmentList.append(segment);
+  };
+
+  addButton.addEventListener('click', addSegment);
+
+  composer.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    resultBox.hidden = true;
+    let ready = true;
+
+    for (const segment of segments()) {
+      if (segment.rkey) continue;
+
+      try {
+        const data = await call('?preview=1', {
+          content: segment.querySelector('.content').value,
+          targets: targets(),
+        });
+
+        segment.rendered = normalize(data);
+
+        for (const name of NETWORKS) {
+          const { text, total, overBy } = segment.rendered[name];
+          segment.querySelector(`.${name}Text`).value = text;
+
+          const badge = segment.querySelector(`.${name}Count`);
+          badge.textContent = overBy > 0 ? `${total} (${overBy} over)` : total;
+          badge.classList.toggle('over', overBy > 0);
+        }
+
+        segment.querySelector('.embed').textContent = data.embed
+          ? JSON.stringify(data.embed, null, 2)
+          : 'no embed';
+        segment.querySelector('.rendered').hidden = false;
+        status(segment, '');
+      } catch (error) {
+        ready = false;
+        status(segment, error.message, true);
+      }
+    }
+
+    postButton.disabled = !ready;
+  });
+
+  postButton.addEventListener('click', async () => {
+    postButton.disabled = true;
+    resultBox.hidden = true;
+
+    let parent = replyTo.value || undefined;
+
+    // Only the final segment triggers a deploy; the rest would rebuild a
+    // thread that is not finished yet.
+    const queue = segments();
+    const last = queue.findLast((segment) => !segment.rkey);
+
+    for (const segment of queue) {
+      if (segment.rkey) {
+        parent = segment.rkey;
+        continue;
+      }
+
+      const overrides = Object.fromEntries(
+        NETWORKS.map((name) => [
+          name,
+          segment.querySelector(`.${name}Text`).value,
+        ]).filter(([name, text]) => text !== segment.rendered[name].text)
+      );
+
+      status(segment, 'posting');
+
+      try {
+        const { url, uri, failures } = await call('', {
+          content: segment.querySelector('.content').value,
+          targets: targets(),
+          overrides,
+          replyTo: parent,
+          skipBuild: segment !== last,
+        });
+
+        segment.rkey = uri.split('/').pop();
+        parent = segment.rkey;
+
+        segment.classList.add('done');
+        segment.querySelector('.content').readOnly = true;
+
+        const failed = failures.map(
+          ({ network, message }) => `${network}: ${message}`
+        );
+        status(segment, [url, ...failed].join(' / '), failed.length > 0);
+
+        if (failed.length) {
+          report(
+            `Syndication failed on ${segment.rkey}. Add it manually, then post again to resume.`
+          );
+          postButton.disabled = false;
+          return;
+        }
+      } catch (error) {
+        status(segment, error.message, true);
+        report(
+          'Stopped here. Earlier segments are live. Fix and post again to resume.'
+        );
+        postButton.disabled = false;
+        return;
+      }
+    }
+
+    replyTo.value = segments().at(-1).rkey;
+    report('Thread posted.');
+  });
+
+  addSegment();
+</script>

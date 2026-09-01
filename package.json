@@ -7,8 +7,9 @@
     "start:quiet": "concurrently 'sass --no-source-map --watch src/scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve --quiet'",
     "build": "sass --no-source-map src/scss:_site/css --style compressed && rollup --config && npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "syndicate:atproto": "node scripts/generate-standard-records.js",
-    "publish:lexicon": "node scripts/publish-lexicon.js"
+    "publish:lexicon": "node scripts/publish-lexicon.js",
+    "syndicate:standard-site": "node scripts/generate-standard-records.js",
+    "syndicate:bluesky": "node scripts/add-syndication-bluesky.js"
   },
   "type": "module",
   "keywords": [],
@@ -28,6 +29,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
+    "@atproto/api": "^0.20.42",
     "@octokit/rest": "^21.1.1",
     "@rollup/plugin-dynamic-import-vars": "^2.1.5",
     "@rollup/plugin-terser": "^0.4.4",
