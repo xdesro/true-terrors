@@ -3,25 +3,10 @@ import { readFileSync, writeFileSync } from 'fs';
 import { glob } from 'glob';
 import matter from 'gray-matter';
 import slugify from '@sindresorhus/slugify';
+import { authenticate, PDS, DID } from '../lib/atproto.js';
 
-const DID = 'did:plc:pbr2nzfsr6bcqjeqlvohmh5y';
-const PDS = 'https://pds.strange.website';
 const PUBLICATION_URI =
   'at://did:plc:pbr2nzfsr6bcqjeqlvohmh5y/site.standard.publication/3mn3xvj3ouc2y';
-
-async function authenticate() {
-  const res = await fetch(`${PDS}/xrpc/com.atproto.server.createSession`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      identifier: process.env.ATPROTO_HANDLE,
-      password: process.env.ATPROTO_APP_PASSWORD,
-    }),
-  });
-  const json = await res.json();
-  if (!json.accessJwt) throw new Error(`Auth failed: ${JSON.stringify(json)}`);
-  return json.accessJwt;
-}
 
 function getPath(data) {
   const slug = data.slug || slugify(data.title);

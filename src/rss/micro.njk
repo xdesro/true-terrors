@@ -14,13 +14,12 @@
     }
 }
 ---
-{%- for post in collections.micro | sortedByPublishDate %}
+{%- for post in micro %}
 {%- set absolutePostUrl = post.url | htmlBaseUrl(metadata.base) %}
 <item>
-    <title>{{ post.data.title }}</title>
     <link>{{ absolutePostUrl }}</link>
-    <description>{{ post.content | renderTransforms(post.data.page, metadata.base) }}</description>
-    <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+    <description>{% for entry in post.thread %}{{ entry.html }}{% endfor %}</description>
+    <pubDate>{{ post.createdAt | dateToRfc822 }}</pubDate>
     <dc:creator>{{ metadata.author.name }}</dc:creator>
     <guid>{{ absolutePostUrl }}</guid>
 </item>
