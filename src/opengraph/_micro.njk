@@ -1,0 +1,17 @@
+---
+pagination:
+  data: micro
+  size: 1
+  alias: post
+layout: layouts/og.njk
+permalink: "/opengraph{{ post.url }}"
+bodyClass: light
+---
+<div class="container container--bottom">
+  <p class="intro"><span class="accent">Discarded ephemera</span> from the tumultuous desk of <span class="accent">Henry (From Online)</span></p>
+  <h1 class="micro-title">{{ post.createdAt | localDateTime }}</h1>
+  <p class="micro-text">{{- post.html | striptags -}}</p>
+</div>
+<div class="background-art background-art--knight">
+  {% include 'graphics/knight.svg' %}
+</div>
