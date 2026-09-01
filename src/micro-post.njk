@@ -4,14 +4,6 @@ pagination:
   size: 1
   alias: post
 permalink: "/micro/{{ post.slug }}/"
-layout: layouts/base.njk
-bodyClass: article
+layout: layouts/_micro.njk
 eleventyExcludeFromCollections: true
 ---
-{% from './_includes/_micro.njk' import microEntry %}
-
-<div class="layout-post container">
-    {% for entry in post.thread %}
-    {{ microEntry(entry, { current: entry.slug === post.slug }) }}
-    {% endfor %}
-</div>
