@@ -54,6 +54,7 @@ export default async function () {
 
   for (const root of roots) {
     root.thread = flatten(root);
+    root.startsThread = root.thread.length > 1;
 
     for (const entry of root.thread) {
       entry.url =
@@ -63,7 +64,11 @@ export default async function () {
     }
 
     for (const entry of root.thread) {
-      for (const child of childrenByUri.get(entry.uri) ?? []) {
+      const children = childrenByUri.get(entry.uri) ?? [];
+
+      entry.hasReplies = children.length > 0;
+
+      for (const child of children) {
         child.parentUrl = entry.url;
       }
     }

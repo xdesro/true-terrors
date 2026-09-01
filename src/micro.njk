@@ -23,7 +23,7 @@
     ]
 }
 ---
-{% from './_includes/social-icon.njk' import socialIcon %}
+{% from './_includes/_micro.njk' import microEntry %}
 
 <div class="infinite-scroll">
     <header class="micro-header">
@@ -49,23 +49,9 @@
                 clip-rule="evenodd" />
         </svg>
         {% for post in micro %}
-        <article class="h-entry post post--by-self">
-            <div class="e-content post__content">
-                {{ post.html | safe }}
-            </div>
-            <footer class="post__footer">
-                <time class="dt-published post__date" datetime="{{post.createdAt}}">{{ post.createdAt | localDateTime }}</time>
-                <div class="post__links">
-                    {% for syndication in post.syndications %}
-                    <a class="post__link u-syndication" href="{{ syndication.url }}">
-                        {{ socialIcon({ icon: syndication.network }) }}
-                        <span class="visually-hidden">View on {{ syndication.network | capitalize }}</span>
-                    </a>
-                    {% endfor %}
-                    <a class="post__permalink u-url" href="{{ post.url }}">Permalink</a>
-                </div>
-            </footer>
-        </article>
+        {% for entry in post.thread %}
+        {{ microEntry(entry) }}
+        {% endfor %}
         {% endfor %}
     </div>
 </div>
