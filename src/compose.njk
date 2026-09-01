@@ -21,10 +21,10 @@
   <fieldset>
     <legend>Syndicate to</legend>
     <label>
-      <input type="checkbox" name="network" value="bluesky" checked> Bluesky
+      <input type="checkbox" name="network" value="bluesky"> Bluesky
     </label>
     <label>
-      <input type="checkbox" name="network" value="mastodon" checked> Mastodon
+      <input type="checkbox" name="network" value="mastodon"> Mastodon
     </label>
   </fieldset>
 
@@ -97,6 +97,19 @@
   const targets = () =>
     [...network].filter((box) => box.checked).map((box) => box.value);
 
+  // A preview only describes the syndicated copies. With no targets there is
+  // nothing to preview, so the canonical write goes straight out.
+  const postable = (segment) =>
+    segment.rkey ||
+    (segment.querySelector('.content').value.trim() &&
+      (!targets().length || segment.rendered));
+
+  const refresh = () => {
+    postButton.disabled = !segments().every(postable);
+  };
+
+  [...network].forEach((box) => box.addEventListener('change', refresh));
+
   const normalize = ({ bluesky, mastodon }) => ({
     bluesky: {
       text: bluesky.record.text,
@@ -127,16 +140,17 @@
     segment.querySelector('.remove').addEventListener('click', () => {
       if (segment.rkey || segments().length === 1) return;
       segment.remove();
-      postButton.disabled = true;
+      refresh();
     });
 
     segment.querySelector('.content').addEventListener('input', () => {
       segment.rendered = null;
       segment.querySelector('.rendered').hidden = true;
-      postButton.disabled = true;
+      refresh();
     });
 
     segmentList.append(segment);
+    refresh();
   };
 
   addButton.addEventListener('click', addSegment);
@@ -144,7 +158,8 @@
   composer.addEventListener('submit', async (event) => {
     event.preventDefault();
     resultBox.hidden = true;
-    let ready = true;
+
+    const chosen = targets();
 
     for (const segment of segments()) {
       if (segment.rkey) continue;
@@ -152,14 +167,18 @@
       try {
         const data = await call('?preview=1', {
           content: segment.querySelector('.content').value,
-          targets: targets(),
+          targets: chosen,
         });
 
         segment.rendered = normalize(data);
 
         for (const name of NETWORKS) {
           const { text, total, overBy } = segment.rendered[name];
-          segment.querySelector(`.${name}Text`).value = text;
+          const field = segment.querySelector(`.${name}Text`);
+          field.value = text;
+          // Both networks always render, but an override on one you are not
+          // posting to goes nowhere, so hide it.
+          field.closest('label').hidden = !chosen.includes(name);
 
           const badge = segment.querySelector(`.${name}Count`);
           badge.textContent = overBy > 0 ? `${total} (${overBy} over)` : total;
@@ -172,12 +191,11 @@
         segment.querySelector('.rendered').hidden = false;
         status(segment, '');
       } catch (error) {
-        ready = false;
         status(segment, error.message, true);
       }
     }
 
-    postButton.disabled = !ready;
+    refresh();
   });
 
   postButton.addEventListener('click', async () => {
@@ -197,12 +215,16 @@
         continue;
       }
 
-      const overrides = Object.fromEntries(
-        NETWORKS.map((name) => [
-          name,
-          segment.querySelector(`.${name}Text`).value,
-        ]).filter(([name, text]) => text !== segment.rendered[name].text)
-      );
+      const overrides = segment.rendered
+        ? Object.fromEntries(
+            targets()
+              .map((name) => [
+                name,
+                segment.querySelector(`.${name}Text`).value,
+              ])
+              .filter(([name, text]) => text !== segment.rendered[name].text)
+          )
+        : {};
 
       status(segment, 'posting');
 
@@ -230,7 +252,7 @@
           report(
             `Syndication failed on ${segment.rkey}. Add it manually, then post again to resume.`
           );
-          postButton.disabled = false;
+          refresh();
           return;
         }
       } catch (error) {
@@ -238,7 +260,7 @@
         report(
           'Stopped here. Earlier segments are live. Fix and post again to resume.'
         );
-        postButton.disabled = false;
+        refresh();
         return;
       }
     }

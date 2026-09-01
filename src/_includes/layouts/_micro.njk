@@ -1,0 +1,11 @@
+---
+layout: "layouts/base.njk"
+bodyClass: "article"
+---
+{% from '../micro-entry.njk' import microEntry %}
+
+<div class="layout-post container">
+    {% for entry in post.thread %}
+    {{ microEntry(entry, { current: entry.slug === post.slug }) }}
+    {% endfor %}
+</div>
