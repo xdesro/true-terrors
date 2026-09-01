@@ -18,6 +18,7 @@ import {
   toISOString,
   getSocialUrl,
 } from './_11ty/filters.js';
+import { localDateTime } from './lib/dates.js';
 import { markdownLibrary } from './_11ty/libraries.js';
 import { collectionHostedCaseStudy } from './_11ty/collections.js';
 import { asMarkdown } from './_11ty/shortcodes.js';
@@ -76,6 +77,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('humanReadableDate', humanReadableDate);
   eleventyConfig.addFilter('toISOString', toISOString);
   eleventyConfig.addFilter('getSocialUrl', getSocialUrl);
+  eleventyConfig.addFilter('localDateTime', localDateTime);
 
   eleventyConfig.addPairedShortcode('asMarkdown', asMarkdown);
 

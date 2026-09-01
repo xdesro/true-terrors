@@ -1,0 +1,24 @@
+{% from './social-icon.njk' import socialIcon %}
+
+{% macro microEntry(entry, params) %}
+<article class="h-entry post post--by-self{% if params.current %} post--current{% endif %}" id="{{ entry.slug }}">
+    <div class="e-content post__content">
+        {{ entry.html | safe }}
+    </div>
+    <footer class="post__footer">
+        <time class="dt-published post__date" datetime="{{ entry.createdAt }}">{{ entry.createdAt | localDateTime }}</time>
+        <div class="post__links">
+            {% for syndication in entry.syndications %}
+            <a class="post__link u-syndication" href="{{ syndication.url }}">
+                {{ socialIcon({ icon: syndication.network }) }}
+                <span class="visually-hidden">View on {{ syndication.network | capitalize }}</span>
+            </a>
+            {% endfor %}
+            {% if entry.parentUrl %}
+            <a class="u-in-reply-to visually-hidden" href="{{ entry.parentUrl }}">In reply to the previous entry</a>
+            {% endif %}
+            <a class="post__permalink u-url" href="{{ entry.url }}">Permalink</a>
+        </div>
+    </footer>
+</article>
+{% endmacro %}

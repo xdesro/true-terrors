@@ -1,0 +1,17 @@
+---
+pagination:
+  data: micro
+  size: 1
+  alias: post
+permalink: "/micro/{{ post.slug }}/"
+layout: layouts/base.njk
+bodyClass: article
+eleventyExcludeFromCollections: true
+---
+{% from './_includes/_micro.njk' import microEntry %}
+
+<div class="layout-post container">
+    {% for entry in post.thread %}
+    {{ microEntry(entry, { current: entry.slug === post.slug }) }}
+    {% endfor %}
+</div>

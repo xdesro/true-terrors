@@ -7,7 +7,8 @@
     "start:quiet": "concurrently 'sass --no-source-map --watch src/scss:_site/css --style compressed' 'rollup --config --watch' 'npx @11ty/eleventy --serve --quiet'",
     "build": "sass --no-source-map src/scss:_site/css --style compressed && rollup --config && npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "syndicate:atproto": "node scripts/generate-standard-records.js"
+    "syndicate:atproto": "node scripts/generate-standard-records.js",
+    "publish:lexicon": "node scripts/publish-lexicon.js"
   },
   "type": "module",
   "keywords": [],
