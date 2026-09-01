@@ -4,7 +4,7 @@ bodyClass: "article"
 ---
 {% from '../micro-entry.njk' import microEntry %}
 
-<div class="layout-post container">
+<div class="layout-post layout-micro container">
     {% for entry in post.thread %}
     {{ microEntry(entry, { current: entry.slug === post.slug }) }}
     {% endfor %}
