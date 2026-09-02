@@ -1,3 +1,6 @@
+[build]
+  edge_functions = "edge-functions"
+  
 [dev]
     command = 'bun run start:quiet'
     publish = '_site'
@@ -5,6 +8,10 @@
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
+
+[[edge_functions]]
+  path = "/*"
+  function = "hn"
 
 [[plugins]]
   package = "netlify-plugin-cache"
