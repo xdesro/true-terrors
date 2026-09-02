@@ -2,7 +2,7 @@
 
 {% macro microEntry(entry, params) %}
 {% set threaded = entry.hasReplies or entry.parentUrl %}
-<article class="h-entry post{% if not threaded %} post--by-self{% endif %}{% if entry.startsThread %} post--with-thread{% endif %}{% if entry.hasReplies %} post--with-reply{% endif %}{% if entry.parentUrl %} post--in-reply-to{% endif %}{% if params.current %} post--current{% endif %}" id="{{ entry.slug }}"  data-rkey="{{ entry.rkey }}">>
+<article class="h-entry post{% if not threaded %} post--by-self{% endif %}{% if entry.startsThread %} post--with-thread{% endif %}{% if entry.hasReplies %} post--with-reply{% endif %}{% if entry.parentUrl %} post--in-reply-to{% endif %}{% if params.current %} post--current{% endif %}" id="{{ entry.slug }}"  data-rkey="{{ entry.rkey }}">
     <div class="e-content post__content">
         {{ entry.html | safe }}
     </div>
