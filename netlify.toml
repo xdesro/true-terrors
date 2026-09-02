@@ -4,8 +4,6 @@
 
 [functions]
   directory = "src/functions"
-
-[functions."compose"]
   node_bundler = "esbuild"
 
 [[plugins]]

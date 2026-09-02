@@ -14,12 +14,14 @@ import DefaultTransition from './transitions/Default';
 
 import graffiti, { aSecretMessage } from './graffiti';
 
-const fetchSpotify = () =>
-  fetch('https://henry.codes/.netlify/functions/spotify')
+const fetchTidal = () =>
+  fetch('/.netlify/functions/tidal')
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       const trackEls = document.querySelectorAll('.spotify-widget__track');
       const artistsEls = document.querySelectorAll('.spotify-widget__artists');
+      console.log(trackEls);
 
       trackEls.forEach((trackEl) => {
         trackEl.setAttribute('href', data.url);
@@ -27,9 +29,7 @@ const fetchSpotify = () =>
       });
 
       artistsEls.forEach((artistEl) => {
-        artistEl.innerHTML = `${data.artists
-          .map((artist) => artist.name)
-          .join(', ')}`;
+        artistEl.innerHTML = data.artists;
       });
     })
     .catch((err) => {
@@ -60,7 +60,7 @@ class DefaultRenderer extends Renderer {
         document.body.classList.toggle('with-grid');
       }
     });
-    fetchSpotify();
+    fetchTidal();
 
     if (window.location.pathname === '/') {
       navManager.hide(true);

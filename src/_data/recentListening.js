@@ -1,9 +1,12 @@
-import fetch from 'node-fetch';
-
+import { getTidal } from '../../lib/tidal.js';
 export default async () => {
-  return await fetch(`http://henry.codes/.netlify/functions/spotify`)
-    .then((res) => res.json())
-    .catch((error) => {
-      console.log(error);
-    });
+  try {
+    return await getTidal();
+  } catch {
+    return {
+      artists: 'Boy Harsher',
+      name: 'Jeans',
+      url: 'https://tidal.com/track/549253923/u',
+    };
+  }
 };
