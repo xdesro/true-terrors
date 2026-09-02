@@ -2,9 +2,9 @@ import { createHash, timingSafeEqual } from 'node:crypto';
 
 import dotenv from 'dotenv';
 
-import { DID, PDS, EPHEMERA_NSID, authenticate } from '../../lib/atproto.js';
-import { slugFor } from '../../lib/dates.js';
-import { renderForBluesky, renderForMastodon } from '../../lib/render.js';
+import { DID, PDS, EPHEMERA_NSID, authenticate } from '../lib/atproto.js';
+import { slugFor } from '../lib/dates.js';
+import { renderForBluesky, renderForMastodon } from '../lib/render.js';
 
 dotenv.config();
 

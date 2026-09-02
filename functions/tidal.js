@@ -1,4 +1,4 @@
-import { getTidal } from '../../lib/tidal.js';
+import { getTidal } from '../lib/tidal.js';
 export const handler = async (event, context) => {
   try {
     const tidalData = await getTidal();

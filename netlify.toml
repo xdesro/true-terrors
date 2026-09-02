@@ -3,7 +3,7 @@
     publish = '_site'
 
 [functions]
-  directory = "src/functions"
+  directory = "functions"
   node_bundler = "esbuild"
 
 [[plugins]]
