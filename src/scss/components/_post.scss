@@ -25,7 +25,8 @@
     &::before {
       border: 2px solid #dadada;
       border-radius: 100%;
-      background-image: url('/img/avatar.png');
+      background-image: url('/img/knight-avatar.png');
+      background-size: contain;
     }
   }
   &--with-thread {
@@ -37,7 +38,8 @@
       content: '';
       border: 2px solid #dadada;
       border-radius: 100%;
-      background-image: url('/img/avatar.png');
+      background-image: url('/img/knight-avatar.png');
+      background-size: contain;
     }
   }
   &--with-reply {
