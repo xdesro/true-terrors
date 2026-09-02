@@ -67,9 +67,9 @@
 }
 
 .layout-micro {
-  margin-block-start: 8rem;
+  margin-block: 13rem 10rem;
   @include screen(sm) {
-    margin-block-start: 0;
+    margin-block-start: 10rem;
   }
 }
 
