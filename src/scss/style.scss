@@ -73,6 +73,29 @@
   }
 }
 
+.layout-hn {
+  position: relative;
+  margin-block: 13rem 10rem;
+
+  @include screen(sm) {
+    margin-block-start: 10rem;
+  }
+  h1 {
+    line-height: 1;
+    margin-block-end: 1em;
+    text-align: center;
+  }
+  &__graphic {
+    position: absolute;
+    z-index: -1;
+    inset-block-start: 0;
+    inset-inline: 0;
+    width: 65ch;
+    max-width: calc(100vw - 3rem);
+    margin-inline: auto;
+  }
+}
+
 .further-reading {
   max-width: 50ch;
   margin-block-end: 4.5rem;
