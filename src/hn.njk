@@ -40,16 +40,3 @@
         </svg>
     </div>
 </div>
-<script>
-    const goBackLink = document.querySelector('#go-back-link');
-    goBackLink.addEventListener('click', e => {
-        e.preventDefault();
-        console.log('BANISHING SPELL');
-        if (window.history.length > 1) { 
-            history.back(); 
-        } else { 
-            window.location.href = 'https://news.ycombinator.com'; 
-        } 
-        return false;
-    });
-</script>
