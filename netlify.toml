@@ -12,6 +12,7 @@
 [[edge_functions]]
   path = "/*"
   function = "hn"
+  excludedPath = "/hn"
 
 [[plugins]]
   package = "netlify-plugin-cache"
