@@ -27,7 +27,7 @@
             Ultimately I can’t and won’t stop anyone from diving any deeper, but to be frank: _most of you road-weary HN
             travelers are not going to like what you find here, and you’ll be better off at the next link on the list_.
 
-            <a id="go-back-link" class="with-arrow with-arrow--out" href="#">Kindly, gently, go back from whence thou
+            <a id="go-back-link" class="with-arrow with-arrow--out" href="https://news.ycombinator.com">Kindly, gently, go back from whence thou
                 camest.</a>
 
             <a class="with-arrow" href="https://youtu.be/AtHeGZTMAo8">No, I insist. Show me that blasted post I came
@@ -44,6 +44,8 @@
 <script>
     const goBackLink = document.querySelector('#go-back-link');
     goBackLink.addEventListener('click', e => {
+        e.preventDefault();
+        console.log('BANISHING SPELL');
         if (window.history.length > 1) { 
             history.back(); 
         } else { 
