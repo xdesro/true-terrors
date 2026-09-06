@@ -83,7 +83,10 @@
   h1 {
     line-height: 1;
     margin-block-end: 1em;
-    text-align: center;
+
+    @include screen(magazine) {
+      text-align: center;
+    }
   }
   &__graphic {
     position: absolute;
@@ -93,6 +96,10 @@
     width: 65ch;
     max-width: calc(100vw - 3rem);
     margin-inline: auto;
+  }
+
+  .rendered {
+    margin-inline: 0;
   }
 }
 
