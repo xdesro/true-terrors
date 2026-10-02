@@ -1,0 +1,180 @@
+@use '../../abstract/variables' as g;
+@use '../../abstract/mixins' as *;
+
+// @use './abstract' as *;
+
+@font-face {
+  font-family: 'Forevs';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/fonts/forevs-thin.woff2') format('woff2');
+}
+$font-display: 'Forevs';
+
+:root {
+  --color-background: #efefef;
+  --color-text: #030303;
+}
+body {
+  margin: 0;
+  font-family: g.$font-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+ul {
+  padding-inline-start: 1rem;
+  max-width: 60ch;
+  margin-inline: auto;
+  margin-block-start: 5rem;
+  list-style-type: '❧';
+  li {
+    padding-inline-start: 1ch;
+  }
+}
+picture img {
+  width: 100%;
+  height: 100%;
+  //   background-color: $color-ash;
+}
+
+.intro {
+  position: relative;
+  padding: 1rem;
+  color: #fefefe;
+  margin-block-end: 5rem;
+  @include screen(680px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: min(50rem, 100vh);
+  }
+  &__title {
+    font-family: $font-display;
+    font-size: 15vw;
+    font-size: min(21vw, 12.5rem);
+    font-weight: normal;
+    line-height: 0.8;
+    margin-block-start: 10rem;
+    margin-block-end: 0;
+    text-align: center;
+  }
+  &__subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1;
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 10rem;
+    text-align: center;
+    text-wrap: balance;
+  }
+  &__label {
+    display: block;
+    text-align: center;
+    @include screen(680px) {
+      display: inline-block;
+    }
+
+    &--author {
+      font-style: italic;
+      @include screen(680px) {
+        text-align: left;
+      }
+    }
+    &--word-count {
+      //   text-align: center;
+    }
+    &--photo-cite {
+      //   text-align: center;
+    }
+  }
+  &__footer {
+    @include screen(680px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  picture {
+    position: absolute;
+    inset: 0;
+  }
+  &__background {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    object-fit: cover;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:is(:hover, :focus) {
+      text-decoration: underline;
+    }
+  }
+}
+
+.section {
+  margin-inline: 1rem;
+  margin-block-end: 7rem;
+  padding-block-end: 7rem;
+  position: relative;
+  a {
+    color: inherit;
+    &:is(:focus, :hover, :active) {
+      color: #888;
+    }
+    &:visited {
+      opacity: 0.8;
+    }
+  }
+  p {
+    max-width: 60ch;
+    margin-inline: auto;
+  }
+  p:last-child {
+    margin-block-end: 0;
+  }
+  &:after {
+    content: '';
+    background-image: url('/img/custom/dark-forestry/divider.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    max-width: 100%;
+    aspect-ratio: 200 / 48;
+    display: block;
+    position: absolute;
+    inset-inline: 0;
+    margin-inline: auto;
+    inset-block-end: -1.5rem;
+  }
+}
+
+:is(.punch, blockquote) {
+  font-size: 1.25rem;
+  color: #888;
+}
+.punch {
+  font-style: italic;
+  text-align: center;
+}
+blockquote {
+  display: block;
+  // width: 100vw;
+  margin-block: 2rem;
+  margin-inline: auto;
+  padding-inline-start: calc(1.25rem - 0.5rem);
+  //   padding-inline-end: 1.25rem;
+  border-inline-start: 0.5rem solid #ccc;
+  max-width: 60ch;
+  @include screen(680px) {
+    border-inline-start: 0;
+    text-align: center;
+    text-wrap: balance;
+    text-wrap: pretty;
+    margin-block: 4rem;
+  }
+}
+.center {
+  text-align: center;
+}
