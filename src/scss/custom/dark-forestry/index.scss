@@ -16,19 +16,26 @@ $font-display: 'Forevs';
   --color-text: #030303;
 }
 body {
-  margin: 0;
   font-family: g.$font-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
   color: var(--color-text);
   background-color: var(--color-background);
 }
 ul {
-  padding-inline-start: 1rem;
   max-width: 60ch;
-  margin-inline: auto;
   margin-block-start: 5rem;
+  margin-inline: auto;
+  padding-inline-start: 1rem;
   list-style-type: '❧';
   li {
     padding-inline-start: 1ch;
+  }
+}
+p {
+  @include screen(lg) {
+    font-size: 1.25rem;
   }
 }
 picture img {
@@ -39,13 +46,14 @@ picture img {
 
 .intro {
   position: relative;
+  margin-block-end: 5rem;
   padding: 1rem;
   color: #fefefe;
-  margin-block-end: 5rem;
+
   @include screen(680px) {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    flex-direction: column;
     min-height: min(50rem, 100vh);
   }
   &__title {
@@ -71,12 +79,14 @@ picture img {
   &__label {
     display: block;
     text-align: center;
+
     @include screen(680px) {
       display: inline-block;
     }
 
     &--author {
       font-style: italic;
+
       @include screen(680px) {
         text-align: left;
       }
@@ -114,10 +124,10 @@ picture img {
 }
 
 .section {
-  margin-inline: 1rem;
-  margin-block-end: 7rem;
-  padding-block-end: 7rem;
   position: relative;
+  margin-block-end: 7rem;
+  margin-inline: 1rem;
+  padding-block-end: 7rem;
   a {
     color: inherit;
     &:is(:focus, :hover, :active) {
@@ -130,23 +140,27 @@ picture img {
   p {
     max-width: 60ch;
     margin-inline: auto;
+
+    @include screen(lg) {
+      max-width: 37.5rem;
+    }
   }
   p:last-child {
     margin-block-end: 0;
   }
   &:after {
-    content: '';
-    background-image: url('/img/custom/dark-forestry/divider.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+    position: absolute;
+    inset-block-end: -1.5rem;
+    inset-inline: 0;
+    display: block;
     width: 200px;
     max-width: 100%;
     aspect-ratio: 200 / 48;
-    display: block;
-    position: absolute;
-    inset-inline: 0;
     margin-inline: auto;
-    inset-block-end: -1.5rem;
+    content: '';
+    background-image: url('/img/custom/dark-forestry/divider.png');
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
@@ -160,19 +174,20 @@ picture img {
 }
 blockquote {
   display: block;
+  max-width: 60ch;
   // width: 100vw;
   margin-block: 2rem;
   margin-inline: auto;
   padding-inline-start: calc(1.25rem - 0.5rem);
   //   padding-inline-end: 1.25rem;
   border-inline-start: 0.5rem solid #ccc;
-  max-width: 60ch;
+
   @include screen(680px) {
-    border-inline-start: 0;
+    margin-block: 4rem;
     text-align: center;
     text-wrap: balance;
     text-wrap: pretty;
-    margin-block: 4rem;
+    border-inline-start: 0;
   }
 }
 .center {
