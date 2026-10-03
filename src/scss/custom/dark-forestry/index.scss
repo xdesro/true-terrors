@@ -34,14 +34,11 @@ ul {
   }
 }
 p {
-  @include screen(lg) {
-    font-size: 1.25rem;
-  }
+  font-size: 1.25rem;
 }
 picture img {
   width: 100%;
   height: 100%;
-  //   background-color: $color-ash;
 }
 
 .forest {
@@ -65,10 +62,6 @@ picture img {
   padding: 1rem;
   color: #fefefe;
 
-  .no-js & {
-    visibility: visible;
-  }
-
   @include screen(680px) {
     display: flex;
     justify-content: space-between;
@@ -78,9 +71,12 @@ picture img {
   @include screen(lg) {
     margin-block-end: 10rem;
   }
+
+  .no-js & {
+    visibility: visible;
+  }
   &__title {
     font-family: $font-display;
-    font-size: 15vw;
     font-size: min(21vw, 12.5rem);
     font-weight: normal;
     line-height: 0.8;
@@ -112,12 +108,6 @@ picture img {
       @include screen(680px) {
         text-align: left;
       }
-    }
-    &--word-count {
-      //   text-align: center;
-    }
-    &--photo-cite {
-      //   text-align: center;
     }
   }
   &__footer {
@@ -196,17 +186,16 @@ picture img {
 }
 
 :is(.punch, blockquote) {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #888;
 
-  @include screen(lg) {
-    font-size: 1.5rem;
+  @include screen(sm) {
+    font-size: 2rem;
   }
 }
 .punch {
   font-style: italic;
   text-align: center;
-  //   text-wrap: balance;
   &--first {
     margin-block-end: 5rem;
 
@@ -217,19 +206,16 @@ picture img {
 }
 blockquote {
   display: block;
-  max-width: 60ch;
-  // width: 100vw;
   margin-block: 2rem;
   margin-inline: auto;
   padding-inline-start: calc(1.25rem - 0.5rem);
-  //   padding-inline-end: 1.25rem;
+  text-wrap: pretty;
+  text-wrap: balance;
   border-inline-start: 0.5rem solid #ccc;
 
   @include screen(680px) {
     margin-block: 4rem;
     text-align: center;
-    text-wrap: balance;
-    text-wrap: pretty;
     border-inline-start: 0;
   }
 }
