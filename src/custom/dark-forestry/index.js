@@ -15,6 +15,7 @@ const intro = document.querySelector('.intro');
 const canvas = document.querySelector('.forest');
 const gl = canvas.getContext('webgl');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const canHover = window.matchMedia('(hover: hover)');
 
 let lastScrollY = window.scrollY;
 let velocity = 0;
@@ -84,7 +85,8 @@ const init = () => {
 };
 
 document.fonts.ready.then(() => {
-  const rasterizer = gl && !reducedMotion.matches ? init() : null;
+  const rasterizer =
+    gl && canHover.matches && !reducedMotion.matches ? init() : null;
 
   introTimeline({
     prefersReducedMotion: reducedMotion.matches,
