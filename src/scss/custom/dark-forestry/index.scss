@@ -15,6 +15,11 @@ $font-display: 'Forevs';
   --color-background: #efefef;
   --color-text: #030303;
 }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 body {
   font-family: g.$font-serif;
   -webkit-font-smoothing: antialiased;

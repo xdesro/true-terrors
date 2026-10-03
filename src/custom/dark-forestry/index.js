@@ -48,10 +48,14 @@ const init = () => {
     }
     lastScrollY = scrollY;
 
+    const hero = rasterizer.hero();
+    if (hero) darkForest.updateHero(hero.image);
+
     darkForest.render({
       width: canvas.width,
       height: canvas.height,
       velocity,
+      heroRect: hero?.rect ?? [0, 0, 1, 1],
     });
   };
 
@@ -90,7 +94,6 @@ document.fonts.ready.then(() => {
       {
         yPercent: 20,
         ease: 'none',
-        onUpdate: () => rasterizer?.invalidate(),
         scrollTrigger: {
           trigger: intro,
           scrub: 0.5,
