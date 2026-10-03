@@ -1,4 +1,3 @@
-// hyphens are line-break opportunities too
 const WORD = /[^\s-]+-?|-/g;
 const SELECTION_COLOR = 'rgba(136, 136, 136, 0.35)';
 
@@ -133,15 +132,11 @@ export default class PageRasterizer {
     if (!this.styles.has(el)) {
       const style = getComputedStyle(el);
       let opacity = style.visibility === 'hidden' ? 0 : 1;
-      const filters = [];
       for (let node = el; this.root.contains(node); node = node.parentElement) {
-        const nodeStyle = getComputedStyle(node);
-        opacity *= parseFloat(nodeStyle.opacity);
-        if (nodeStyle.filter !== 'none') filters.push(nodeStyle.filter);
+        opacity *= parseFloat(getComputedStyle(node).opacity);
       }
       this.styles.set(el, {
         opacity,
-        filter: filters.join(' ') || 'none',
         color: style.color,
         backgroundColor: style.backgroundColor,
         font: `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
@@ -166,17 +161,14 @@ export default class PageRasterizer {
   }
   paint(el, draw) {
     const { ctx } = this;
-    const { opacity, filter } = this.style(el);
+    const { opacity } = this.style(el);
     if (!opacity) return;
-    if (opacity === 1 && filter === 'none') return draw();
+    if (opacity === 1) return draw();
 
-    ctx.save();
     ctx.globalAlpha = opacity;
-    ctx.filter = filter;
     draw();
-    ctx.restore();
+    ctx.globalAlpha = 1;
   }
-  // srcset makes naturalWidth lie about the bitmap size, so draw from a plain copy
   loadImage(src) {
     if (!this.images.has(src)) {
       const img = new Image();
@@ -187,7 +179,21 @@ export default class PageRasterizer {
     const img = this.images.get(src);
     return img.complete && img.naturalWidth ? img : null;
   }
-  // object-fit: cover, scaled once to device pixels
+  hero() {
+    const [picture] = this.pictures;
+    const img = picture && this.loadImage(picture.el.currentSrc);
+    if (!img) return null;
+    const { left, top, width, height } = picture.el.getBoundingClientRect();
+    return {
+      image: this.cover(img, width, height),
+      rect: [
+        left / this.width,
+        top / this.height,
+        width / this.width,
+        height / this.height,
+      ],
+    };
+  }
   cover(img, width, height) {
     const w = Math.round(width * this.pixelRatio);
     const h = Math.round(height * this.pixelRatio);
@@ -199,7 +205,7 @@ export default class PageRasterizer {
     cover.height = h;
     const scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
     cover
-      .getContext('2d', { alpha: false })
+      .getContext('2d')
       .drawImage(
         img,
         (img.naturalWidth - w / scale) / 2,
@@ -239,34 +245,16 @@ export default class PageRasterizer {
     ctx.fillStyle = this.background;
     ctx.fillRect(scrollX, scrollY, width, height);
 
-    this.pictures.forEach(({ el, clip }) => {
-      if (!isVisible(clip)) return;
-      // read live so scroll-driven transforms don't need a re-measure
-      const { x, y, width, height } = this.toDocument(
-        el.getBoundingClientRect(),
-      );
-      const img = this.loadImage(el.currentSrc);
-
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(clip.x, clip.y, clip.width, clip.height);
-      ctx.clip();
-      this.paint(el, () => {
-        if (!img) {
+    this.pictures
+      .filter(({ clip }) => isVisible(clip))
+      .forEach(({ el, clip }) => {
+        if (this.loadImage(el.currentSrc)) {
+          ctx.clearRect(clip.x, clip.y, clip.width, clip.height);
+        } else {
           ctx.fillStyle = this.style(el).backgroundColor;
-          ctx.fillRect(x, y, width, height);
-          return;
+          ctx.fillRect(clip.x, clip.y, clip.width, clip.height);
         }
-        ctx.drawImage(
-          this.cover(img, width, height),
-          Math.round(x * pixelRatio) / pixelRatio,
-          Math.round(y * pixelRatio) / pixelRatio,
-          width,
-          height,
-        );
       });
-      ctx.restore();
-    });
 
     this.dividers.forEach(({ style, x, y, width, height }) => {
       const img = this.loadImage(style.backgroundImage.slice(5, -2));

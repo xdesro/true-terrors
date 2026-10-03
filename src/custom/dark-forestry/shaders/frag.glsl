@@ -1,5 +1,7 @@
 precision highp float;
 uniform sampler2D u_page;
+uniform sampler2D u_hero;
+uniform vec4 u_heroRect;
 uniform vec2 u_resolution;
 uniform float u_velocity;
 
@@ -22,15 +24,21 @@ vec2 lens(vec2 uv, float amount) {
   return 0.5 + centered * (1.0 - amount * edge(uv) * radius);
 }
 
+vec3 scene(vec2 uv) {
+  vec4 page = texture2D(u_page, uv);
+  vec3 hero = texture2D(u_hero, (uv - u_heroRect.xy) / u_heroRect.zw).rgb;
+  return page.rgb + hero * (1.0 - page.a);
+}
+
 void main() {
   vec2 uv = v_texCoord;
   float strength = clamp(abs(u_velocity) * VELOCITY_SCALE, 0.0, 1.0);
   float amount = DISTORTION * strength;
   vec2 split = vec2(0.0, sign(u_velocity) * CHANNEL_SPLIT * strength * edge(uv));
 
-  float r = texture2D(u_page, lens(uv, amount * 1.1) + split).r;
-  float g = texture2D(u_page, lens(uv, amount)).g;
-  float b = texture2D(u_page, lens(uv, amount * 0.9) - split).b;
+  float r = scene(lens(uv, amount * 1.1) + split).r;
+  float g = scene(lens(uv, amount)).g;
+  float b = scene(lens(uv, amount * 0.9) - split).b;
 
   gl_FragColor = vec4(r, g, b, 1.0);
 }
