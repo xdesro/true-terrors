@@ -112,4 +112,19 @@ document.fonts.ready.then(() => {
       },
     );
   }
+  if (!canHover.matches && !reducedMotion.matches) {
+    gsap.utils.toArray('.section p').forEach((paragraph) => {
+      gsap.from(paragraph, {
+        autoAlpha: 0,
+        filter: 'blur(2px)',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: paragraph,
+          scrub: true,
+          start: 'top bottom',
+          end: 'top bottom-=128',
+        },
+      });
+    });
+  }
 });
