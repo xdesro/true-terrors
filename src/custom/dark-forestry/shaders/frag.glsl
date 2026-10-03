@@ -2,7 +2,6 @@ precision highp float;
 uniform sampler2D u_page;
 uniform vec2 u_resolution;
 uniform float u_velocity;
-uniform float u_time;
 
 varying vec2 v_texCoord;
 

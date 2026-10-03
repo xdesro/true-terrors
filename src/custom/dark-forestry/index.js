@@ -1,5 +1,6 @@
 import PageRasterizer from './js/PageRasterizer';
 import DarkForest from './js/DarkForest';
+import introTimeline from './js/animations/intro';
 import { lerp } from '../the-first-thing-i-did-was-run/js/utils';
 
 const PIXEL_RATIO = Math.min(window.devicePixelRatio, 2);
@@ -60,6 +61,14 @@ const init = () => {
   );
 
   render();
+  return rasterizer;
 };
 
-if (gl && !reducedMotion.matches) document.fonts.ready.then(init);
+document.fonts.ready.then(() => {
+  const rasterizer = gl && !reducedMotion.matches ? init() : null;
+
+  introTimeline({
+    prefersReducedMotion: reducedMotion.matches,
+    onUpdate: () => rasterizer?.measure(),
+  });
+});

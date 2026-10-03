@@ -6,7 +6,6 @@ import vert from '../../../js/shaders/vert.glsl';
 export default class DarkForest {
   constructor(gl) {
     this.gl = gl;
-    this.startTime = Date.now();
     this.vertexShaderSource = vert;
     this.fragmentShaderSource = frag;
     this.initShaders();
@@ -71,15 +70,12 @@ export default class DarkForest {
   }
   initUniforms() {
     this.uniforms = {
-      time: this.gl.getUniformLocation(this.program, 'u_time'),
       page: this.gl.getUniformLocation(this.program, 'u_page'),
       resolution: this.gl.getUniformLocation(this.program, 'u_resolution'),
       velocity: this.gl.getUniformLocation(this.program, 'u_velocity'),
     };
   }
   render(params) {
-    const time = (Date.now() - this.startTime) * 0.001;
-
     this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture);
     this.gl.texImage2D(
       this.gl.TEXTURE_2D,
@@ -91,7 +87,6 @@ export default class DarkForest {
     );
 
     this.gl.uniform1i(this.uniforms.page, 0);
-    this.gl.uniform1f(this.uniforms.time, time);
     this.gl.uniform2f(this.uniforms.resolution, params.width, params.height);
     this.gl.uniform1f(this.uniforms.velocity, params.velocity);
     this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
