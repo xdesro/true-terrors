@@ -60,9 +60,14 @@ picture img {
 
 .intro {
   position: relative;
+  visibility: hidden;
   margin-block-end: 5rem;
   padding: 1rem;
   color: #fefefe;
+
+  .no-js & {
+    visibility: visible;
+  }
 
   @include screen(680px) {
     display: flex;

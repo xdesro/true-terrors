@@ -102,7 +102,16 @@ export default class PageRasterizer {
   style(el) {
     if (!this.styles.has(el)) {
       const style = getComputedStyle(el);
+      let opacity = style.visibility === 'hidden' ? 0 : 1;
+      const filters = [];
+      for (let node = el; this.root.contains(node); node = node.parentElement) {
+        const nodeStyle = getComputedStyle(node);
+        opacity *= parseFloat(nodeStyle.opacity);
+        if (nodeStyle.filter !== 'none') filters.push(nodeStyle.filter);
+      }
       this.styles.set(el, {
+        opacity,
+        filter: filters.join(' ') || 'none',
         color: style.color,
         font: `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
         fontSize: parseFloat(style.fontSize),
@@ -123,6 +132,17 @@ export default class PageRasterizer {
     }
     const [ascent, descent] = this.metrics.get(font);
     return y + (height - ascent - descent) / 2 + ascent;
+  }
+  paint(el, draw) {
+    const { ctx } = this;
+    const { opacity, filter } = this.style(el);
+    if (!opacity) return;
+
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.filter = filter;
+    draw();
+    ctx.restore();
   }
   // srcset makes naturalWidth lie about the bitmap size, so draw from a plain copy
   loadImage(src) {
@@ -165,16 +185,18 @@ export default class PageRasterizer {
         width / img.naturalWidth,
         height / img.naturalHeight,
       );
-      ctx.drawImage(
-        img,
-        (img.naturalWidth - width / scale) / 2,
-        (img.naturalHeight - height / scale) / 2,
-        width / scale,
-        height / scale,
-        x,
-        y,
-        width,
-        height,
+      this.paint(el, () =>
+        ctx.drawImage(
+          img,
+          (img.naturalWidth - width / scale) / 2,
+          (img.naturalHeight - height / scale) / 2,
+          width / scale,
+          height / scale,
+          x,
+          y,
+          width,
+          height,
+        ),
       );
     });
 
@@ -206,21 +228,25 @@ export default class PageRasterizer {
 
     this.words.filter(isVisible).forEach((word) => {
       const { font, color } = this.style(word.el);
-      ctx.font = font;
-      ctx.fillStyle = color;
-      ctx.fillText(word.text, word.x, this.baseline(word));
+      this.paint(word.el, () => {
+        ctx.font = font;
+        ctx.fillStyle = color;
+        ctx.fillText(word.text, word.x, this.baseline(word));
+      });
     });
 
     this.lines.filter(isVisible).forEach((line) => {
       const { underline, color, fontSize } = this.style(line.el);
       if (!underline) return;
-      ctx.fillStyle = color;
-      ctx.fillRect(
-        line.x,
-        this.baseline(line) + fontSize * 0.12,
-        line.width,
-        Math.max(1, fontSize / 16),
-      );
+      this.paint(line.el, () => {
+        ctx.fillStyle = color;
+        ctx.fillRect(
+          line.x,
+          this.baseline(line) + fontSize * 0.12,
+          line.width,
+          Math.max(1, fontSize / 16),
+        );
+      });
     });
 
     ctx.textAlign = 'right';
