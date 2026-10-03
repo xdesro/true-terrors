@@ -56,21 +56,22 @@ topics:
 </head>
 <body>
     <main>
+        <canvas class="forest" aria-hidden="true"></canvas>
         <section class="intro">
             <a class="intro__label intro__label--author" href="/">A tiny website by Henry (from Online)</a>
             <div>
-            <h1 class="intro__title">Dark Forestry</h1>
-            <p class="intro__subtitle">some fragments regarding a new season for technologists</p>
+                <h1 class="intro__title">Dark Forestry</h1>
+                <p class="intro__subtitle">some fragments regarding a new season for technologists</p>
             </div>
             <div class="intro__footer">
-            <span class="intro__label intro__label--word-count">~1232 words; about a 5 minute read</span>
+                <span class="intro__label intro__label--word-count">~1232 words; about a 5 minute read</span>
                 <a class="intro__label intro__label--photo-cite" href="https://www.nga.gov/artworks/166427-buffalo-trail-impending-storm">Bierstadt, Albert. <em>Buffalo Trail: The Impending Storm</em>. 1869.</a>
             </div>
-                <img class="intro__background" src="{{ imgDir }}/albert-bierstadt_buffalo-trail.jpg" alt="">
+            <img class="intro__background" src="{{ imgDir }}/albert-bierstadt_buffalo-trail.jpg" alt="">
         </section>
         <section class="section" id="a-walk-in-the-woods">
         {% asMarkdown %}
-            We walk together in an autumnal spruce-fir forest on a crisp mountain morning. 
+            We walk together in an autumnal spruce-fir forest on a crisp mountain morning. {.punch .punch--first}
             
             The peaks are yet enwreathed in fog, and the sunlight comes at an uncanny angle through the conifers and aspens. The air is cool and the understory is damp, all but silencing our footfall at the trailhead. As we make our way up the trail through the woods, the path forward becomes harder to find and follow. The underbrush overgrows, the canopy above weeps heavy yellow leaves and rusty needles, and the pines lift snide roots to catch unwary heels and ankles. 
 
@@ -137,9 +138,14 @@ topics:
             > <cite>— Simone de Beauvoir</cite>
 
             Thanks for reading. If you liked this, you can find me on my personal websites or [on Bluesky](https://bsky.app/profile/strange.website) and [Mastodon](https://front-end.social/@henry/), and if you didn't like this, I must tell you that you dreamed the whole thing. Henry (from Online) was never real. Anyway feel free to reach out to me [by email](mailto:yo@henry.codes), and as ever, unionize, free Palestine, trans rights are human rights, fix your heart or die.
+
+            *fin.* {.fin}
+
+            [go home](/){.go-home}
         {% endasMarkdown %}
         </section>
     </main>
+    <script data-taxi-reload src="/js/dark-forestry/index.js"></script>
     <script data-taxi-reload src="https://cdn.usefathom.com/script.js" data-site="ADEBIAUD" defer></script>
 </body>
 </html>
