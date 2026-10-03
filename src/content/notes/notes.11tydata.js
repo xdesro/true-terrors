@@ -1,7 +1,8 @@
 import getReadTime from '../../_11ty/utils/getReadTime.js';
 
 export default {
-  permalink: function ({ title }) {
+  permalink: function ({ title, slug }) {
+    if (slug) return `/writing/${slug}/index.html`;
     return `/writing/${this.slugify(title)}/index.html`;
   },
   hasToc: false,
