@@ -51,6 +51,10 @@ topics:
     <!-- AT Proto -->
     <link rel="site.standard.document" data-href="{{ atUri }}" />
 
+    <link rel="preload" href="/fonts/subset-Louize.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="{{ imgDir }}/albert-bierstadt_buffalo-trail.jpg" as="image" type="image/jpeg" />
+    <link rel="preload" href="/fonts/forevs-thin.woff2" as="font" type="font/woff2" crossorigin />
+
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/custom/dark-forestry/index.css">
 </head>
@@ -67,7 +71,7 @@ topics:
                 <span class="intro__label intro__label--word-count">~1232 words; about a 5 minute read</span>
                 <a class="intro__label intro__label--photo-cite" href="https://www.nga.gov/artworks/166427-buffalo-trail-impending-storm">Bierstadt, Albert. <em>Buffalo Trail: The Impending Storm</em>. 1869.</a>
             </div>
-            <img class="intro__background" src="{{ imgDir }}/albert-bierstadt_buffalo-trail.jpg" alt=" "loading="eager" fetchpriority="high" >
+            <img class="intro__background" src="{{ imgDir }}/albert-bierstadt_buffalo-trail.jpg" alt=" "loading="eager" fetchpriority="high" formats: ["avif", "webp", "jpeg"] >
         </section>
         <section class="section" id="a-walk-in-the-woods">
         {% asMarkdown %}
