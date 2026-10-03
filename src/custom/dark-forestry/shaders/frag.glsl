@@ -8,7 +8,7 @@ uniform float u_velocity;
 varying vec2 v_texCoord;
 
 #define VELOCITY_SCALE 25.0
-#define DISTORTION 0.1
+#define DISTORTION 0.3
 #define CHANNEL_SPLIT 0.008
 #define EDGE_START 0.1
 #define EDGE_END 0.8

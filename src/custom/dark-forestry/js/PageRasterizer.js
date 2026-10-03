@@ -54,10 +54,11 @@ export default class PageRasterizer {
         const [text] = match;
         range.setStart(node, match.index);
         range.setEnd(node, match.index + text.length);
+        const rects = [...range.getClientRects()];
         this.words.push({
           el,
           text,
-          ...this.toDocument(range.getClientRects()[0]),
+          ...this.toDocument(rects.find((rect) => rect.width) ?? rects[0]),
         });
       }
     }
