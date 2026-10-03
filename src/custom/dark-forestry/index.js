@@ -24,9 +24,16 @@ const init = () => {
   const darkForest = new DarkForest(gl);
 
   const resize = () => {
-    canvas.width = canvas.clientWidth * PIXEL_RATIO;
-    canvas.height = canvas.clientHeight * PIXEL_RATIO;
-    rasterizer.resize(canvas.clientWidth, canvas.clientHeight);
+    const { clientWidth, clientHeight } = canvas;
+    if (
+      clientWidth === rasterizer.width &&
+      clientHeight === rasterizer.height
+    ) {
+      return;
+    }
+    canvas.width = clientWidth * PIXEL_RATIO;
+    canvas.height = clientHeight * PIXEL_RATIO;
+    rasterizer.resize(clientWidth, clientHeight);
     gl.viewport(0, 0, canvas.width, canvas.height);
   };
   const render = () => {
