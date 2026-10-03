@@ -46,4 +46,22 @@ export default [
       // terser({ format: { comments: false } })
     ],
   },
+  {
+    input: ['src/custom/dark-forestry/index.js'],
+    output: {
+      dir: '_site/js/dark-forestry',
+      format: 'es',
+      sourcemap: false,
+    },
+    plugins: [
+      glsl({
+        include: [
+          'src/custom/dark-forestry/**/*.glsl',
+          'src/js/shaders/vert.glsl',
+        ],
+      }),
+      nodeResolve(),
+      // terser({ format: { comments: false } })
+    ],
+  },
 ];

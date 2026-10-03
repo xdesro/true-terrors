@@ -24,7 +24,7 @@ body {
   background-color: var(--color-background);
 }
 ul {
-  max-width: 60ch;
+  max-width: 70ch;
   margin-block-start: 5rem;
   margin-inline: auto;
   padding-inline-start: 1rem;
@@ -44,6 +44,20 @@ picture img {
   //   background-color: $color-ash;
 }
 
+.forest {
+  display: none;
+
+  .is-shaded & {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+}
+
 .intro {
   position: relative;
   margin-block-end: 5rem;
@@ -55,6 +69,9 @@ picture img {
     justify-content: space-between;
     flex-direction: column;
     min-height: min(50rem, 100vh);
+  }
+  @include screen(lg) {
+    margin-block-end: 10rem;
   }
   &__title {
     font-family: $font-display;
@@ -106,6 +123,7 @@ picture img {
   }
   picture {
     position: absolute;
+    z-index: -1;
     inset: 0;
   }
   &__background {
@@ -128,6 +146,11 @@ picture img {
   margin-block-end: 7rem;
   margin-inline: 1rem;
   padding-block-end: 7rem;
+
+  @include screen(lg) {
+    margin-block-end: 10rem;
+    padding-block-end: 10rem;
+  }
   a {
     color: inherit;
     &:is(:focus, :hover, :active) {
@@ -162,15 +185,30 @@ picture img {
     background-repeat: no-repeat;
     background-size: contain;
   }
+  &:last-of-type:after {
+    content: unset;
+  }
 }
 
 :is(.punch, blockquote) {
   font-size: 1.25rem;
   color: #888;
+
+  @include screen(lg) {
+    font-size: 1.5rem;
+  }
 }
 .punch {
   font-style: italic;
   text-align: center;
+  //   text-wrap: balance;
+  &--first {
+    margin-block-end: 5rem;
+
+    @include screen(lg) {
+      margin-block-end: 7rem;
+    }
+  }
 }
 blockquote {
   display: block;
@@ -192,4 +230,14 @@ blockquote {
 }
 .center {
   text-align: center;
+}
+.fin {
+  font-size: 2rem;
+  text-align: center;
+}
+.go-home {
+  font-style: italic;
+  display: block;
+  text-align: center;
+  color: #888;
 }
