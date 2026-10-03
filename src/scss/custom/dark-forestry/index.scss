@@ -58,6 +58,7 @@ picture img {
 
 .intro {
   position: relative;
+  overflow: clip;
   visibility: hidden;
   margin-block-end: 5rem;
   padding: 1rem;

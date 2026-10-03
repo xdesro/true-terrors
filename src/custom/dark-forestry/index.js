@@ -1,11 +1,17 @@
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import PageRasterizer from './js/PageRasterizer';
 import DarkForest from './js/DarkForest';
 import introTimeline from './js/animations/intro';
 import { lerp } from '../the-first-thing-i-did-was-run/js/utils';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const PIXEL_RATIO = Math.min(window.devicePixelRatio, 2);
 
 const root = document.querySelector('main');
+const intro = document.querySelector('.intro');
 const canvas = document.querySelector('.forest');
 const gl = canvas.getContext('webgl');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -35,16 +41,18 @@ const init = () => {
       : (scrollY - lastScrollY) / canvas.clientHeight;
 
     velocity = lerp(velocity, scrollSpeed, hitEdge ? 0.3 : 0.08);
+
+    if (rasterizer.isDirty || scrollY !== lastScrollY) {
+      rasterizer.draw();
+      darkForest.updatePage(rasterizer.canvas);
+    }
     lastScrollY = scrollY;
 
-    rasterizer.draw();
     darkForest.render({
-      page: rasterizer.canvas,
       width: canvas.width,
       height: canvas.height,
       velocity,
     });
-    requestAnimationFrame(render);
   };
 
   document.documentElement.classList.add('is-shaded');
@@ -57,10 +65,10 @@ const init = () => {
     rasterizer.measureSelection(),
   );
   ['pointerover', 'pointerout', 'focusin', 'focusout'].forEach((type) =>
-    root.addEventListener(type, () => rasterizer.styles.clear()),
+    root.addEventListener(type, () => rasterizer.restyle()),
   );
 
-  render();
+  gsap.ticker.add(render);
   return rasterizer;
 };
 
@@ -69,6 +77,27 @@ document.fonts.ready.then(() => {
 
   introTimeline({
     prefersReducedMotion: reducedMotion.matches,
-    onUpdate: () => rasterizer?.measure(),
+    onUpdate: () => rasterizer?.measure(intro),
   });
+  if (!reducedMotion.matches) {
+    gsap.fromTo(
+      '.intro picture',
+      {
+        yPercent: 0,
+        scale: 1.2,
+        transformOrigin: 'center bottom',
+      },
+      {
+        yPercent: 20,
+        ease: 'none',
+        onUpdate: () => rasterizer?.invalidate(),
+        scrollTrigger: {
+          trigger: intro,
+          scrub: 0.5,
+          start: 'top top',
+          end: 'bottom top',
+        },
+      },
+    );
+  }
 });
