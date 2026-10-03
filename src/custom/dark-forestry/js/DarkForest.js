@@ -75,7 +75,7 @@ export default class DarkForest {
       velocity: this.gl.getUniformLocation(this.program, 'u_velocity'),
     };
   }
-  render(params) {
+  updatePage(page) {
     this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture);
     this.gl.texImage2D(
       this.gl.TEXTURE_2D,
@@ -83,9 +83,10 @@ export default class DarkForest {
       this.gl.RGBA,
       this.gl.RGBA,
       this.gl.UNSIGNED_BYTE,
-      params.page,
+      page,
     );
-
+  }
+  render(params) {
     this.gl.uniform1i(this.uniforms.page, 0);
     this.gl.uniform2f(this.uniforms.resolution, params.width, params.height);
     this.gl.uniform1f(this.uniforms.velocity, params.velocity);

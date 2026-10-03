@@ -7,16 +7,11 @@ export default class PageRasterizer {
     this.root = root;
     this.pixelRatio = pixelRatio;
     this.canvas = document.createElement('canvas');
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
     this.styles = new Map();
     this.metrics = new Map();
     this.images = new Map();
-  }
-  toDocument({ left, top, width, height }) {
-    return { x: left + window.scrollX, y: top + window.scrollY, width, height };
-  }
-  measure() {
-    this.styles.clear();
+    this.covers = new WeakMap();
     this.background = getComputedStyle(document.body).backgroundColor;
     this.textNodes = [];
     this.words = [];
@@ -25,8 +20,25 @@ export default class PageRasterizer {
     this.pictures = [];
     this.dividers = [];
     this.markers = [];
+  }
+  toDocument({ left, top, width, height }) {
+    return { x: left + window.scrollX, y: top + window.scrollY, width, height };
+  }
+  measure(scope = this.root) {
+    this.invalidate();
+    const isOutside = (node) => node.isConnected && !scope.contains(node);
+    const keepOutside = (items) => items.filter(({ el }) => isOutside(el));
 
-    const walker = document.createTreeWalker(this.root, NodeFilter.SHOW_TEXT);
+    this.styles.forEach((_, el) => !isOutside(el) && this.styles.delete(el));
+    this.textNodes = this.textNodes.filter(isOutside);
+    this.words = keepOutside(this.words);
+    this.lines = keepOutside(this.lines);
+    this.borders = keepOutside(this.borders);
+    this.pictures = keepOutside(this.pictures);
+    this.dividers = keepOutside(this.dividers);
+    this.markers = keepOutside(this.markers);
+
+    const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
     const range = document.createRange();
     while (walker.nextNode()) {
       const node = walker.currentNode;
@@ -51,7 +63,7 @@ export default class PageRasterizer {
       }
     }
 
-    this.root.querySelectorAll('*').forEach((el) => {
+    [scope, ...scope.querySelectorAll('*')].forEach((el) => {
       const rect = this.toDocument(el.getBoundingClientRect());
       const style = getComputedStyle(el);
       const after = getComputedStyle(el, '::after');
@@ -60,10 +72,20 @@ export default class PageRasterizer {
         this.borders.push({ el, ...rect });
       }
       if (el.matches('img')) {
-        this.pictures.push({ el, ...rect });
+        let clip = el.parentElement;
+        while (
+          clip !== this.root &&
+          getComputedStyle(clip).overflow === 'visible'
+        ) {
+          clip = clip.parentElement;
+        }
+        this.pictures.push({
+          el,
+          clip: this.toDocument(clip.getBoundingClientRect()),
+        });
       }
       if (after.backgroundImage !== 'none') {
-        this.dividers.push({ style: after, ...rect });
+        this.dividers.push({ el, style: after, ...rect });
       }
       if (el.matches('li')) {
         this.markers.push({
@@ -78,6 +100,7 @@ export default class PageRasterizer {
     this.measureSelection();
   }
   measureSelection() {
+    this.invalidate();
     this.selection = [];
     const selection = document.getSelection();
     if (!selection.rangeCount) return;
@@ -98,6 +121,13 @@ export default class PageRasterizer {
           this.selection.push(this.toDocument(rect)),
         );
       });
+  }
+  invalidate() {
+    this.isDirty = true;
+  }
+  restyle() {
+    this.invalidate();
+    this.styles.clear();
   }
   style(el) {
     if (!this.styles.has(el)) {
@@ -138,6 +168,7 @@ export default class PageRasterizer {
     const { ctx } = this;
     const { opacity, filter } = this.style(el);
     if (!opacity) return;
+    if (opacity === 1 && filter === 'none') return draw();
 
     ctx.save();
     ctx.globalAlpha = opacity;
@@ -149,19 +180,49 @@ export default class PageRasterizer {
   loadImage(src) {
     if (!this.images.has(src)) {
       const img = new Image();
+      img.onload = () => this.invalidate();
       img.src = src;
       this.images.set(src, img);
     }
     const img = this.images.get(src);
     return img.complete && img.naturalWidth ? img : null;
   }
+  // object-fit: cover, scaled once to device pixels
+  cover(img, width, height) {
+    const w = Math.round(width * this.pixelRatio);
+    const h = Math.round(height * this.pixelRatio);
+    let cover = this.covers.get(img);
+    if (cover?.width === w && cover?.height === h) return cover;
+
+    cover = document.createElement('canvas');
+    cover.width = w;
+    cover.height = h;
+    const scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+    cover
+      .getContext('2d', { alpha: false })
+      .drawImage(
+        img,
+        (img.naturalWidth - w / scale) / 2,
+        (img.naturalHeight - h / scale) / 2,
+        w / scale,
+        h / scale,
+        0,
+        0,
+        w,
+        h,
+      );
+    this.covers.set(img, cover);
+    return cover;
+  }
   resize(width, height) {
+    this.invalidate();
     this.width = width;
     this.height = height;
     this.canvas.width = width * this.pixelRatio;
     this.canvas.height = height * this.pixelRatio;
   }
   draw() {
+    this.isDirty = false;
     const { ctx, pixelRatio, width, height } = this;
     const { scrollX, scrollY } = window;
     const isVisible = (rect) =>
@@ -178,33 +239,33 @@ export default class PageRasterizer {
     ctx.fillStyle = this.background;
     ctx.fillRect(scrollX, scrollY, width, height);
 
-    this.pictures.filter(isVisible).forEach(({ el, x, y, width, height }) => {
+    this.pictures.forEach(({ el, clip }) => {
+      if (!isVisible(clip)) return;
+      // read live so scroll-driven transforms don't need a re-measure
+      const { x, y, width, height } = this.toDocument(
+        el.getBoundingClientRect(),
+      );
       const img = this.loadImage(el.currentSrc);
-      if (!img) {
-        this.paint(el, () => {
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(clip.x, clip.y, clip.width, clip.height);
+      ctx.clip();
+      this.paint(el, () => {
+        if (!img) {
           ctx.fillStyle = this.style(el).backgroundColor;
           ctx.fillRect(x, y, width, height);
-        });
-        return;
-      }
-      // object-fit: cover
-      const scale = Math.max(
-        width / img.naturalWidth,
-        height / img.naturalHeight,
-      );
-      this.paint(el, () =>
+          return;
+        }
         ctx.drawImage(
-          img,
-          (img.naturalWidth - width / scale) / 2,
-          (img.naturalHeight - height / scale) / 2,
-          width / scale,
-          height / scale,
-          x,
-          y,
+          this.cover(img, width, height),
+          Math.round(x * pixelRatio) / pixelRatio,
+          Math.round(y * pixelRatio) / pixelRatio,
           width,
           height,
-        ),
-      );
+        );
+      });
+      ctx.restore();
     });
 
     this.dividers.forEach(({ style, x, y, width, height }) => {
