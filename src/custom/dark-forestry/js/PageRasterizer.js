@@ -113,6 +113,7 @@ export default class PageRasterizer {
         opacity,
         filter: filters.join(' ') || 'none',
         color: style.color,
+        backgroundColor: style.backgroundColor,
         font: `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,
         fontSize: parseFloat(style.fontSize),
         underline: style.textDecorationLine.includes('underline'),
@@ -179,7 +180,13 @@ export default class PageRasterizer {
 
     this.pictures.filter(isVisible).forEach(({ el, x, y, width, height }) => {
       const img = this.loadImage(el.currentSrc);
-      if (!img) return;
+      if (!img) {
+        this.paint(el, () => {
+          ctx.fillStyle = this.style(el).backgroundColor;
+          ctx.fillRect(x, y, width, height);
+        });
+        return;
+      }
       // object-fit: cover
       const scale = Math.max(
         width / img.naturalWidth,
