@@ -1,5 +1,5 @@
-{% macro articleBlock(article, isFeatured = false) %}
-<article class="article-block{% if isFeatured %} article-block--featured themed dark{% endif %}">
+{% macro articleBlock(article, isFeatured = false, isHero = false) %}
+<article class="article-block{% if isFeatured %} article-block--featured themed dark{% endif %}{% if article.data.cardTheme %} themed article-block--themed article-block--{{ article.data.cardTheme }}{% endif %}{% if isHero %} article-block--hero{% endif %}">
     <dl class="article-block__meta">
         <div>
             <dt class="visually-hidden">Category</dt>
@@ -14,7 +14,10 @@
             </dd>
         </div>
     </dl>
-    <h1 class="article-block__title">{{ article.data.title }}</h1>
+    <h1 class="article-block__title">{% if article.data.cardTheme %}{% include "graphics/card-titles/" + article.data.cardTheme + ".svg" %}{% else %}{{ article.data.title }}{% endif %}</h1>
+    {% if isHero and article.data.subtitle %}
+        <p class="article-block__description">{{ article.data.subtitle }}</p>
+    {% endif %}
     <dl class="article-block__meta">
         <div>
             <dt class="visually-hidden">Reading Time</dt>

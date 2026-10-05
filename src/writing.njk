@@ -36,6 +36,14 @@
     </div>
 </header>
 
+{% for article in collections['article'] | sortedByPublishDate %}
+    {% if article.data.hero %}
+        <div class="container">
+            {{ articleBlock(article, isFeatured = true, isHero = true) }}
+        </div>
+    {% endif %}
+{% endfor %}
+
 {% include 'recent-reading-block.njk' %}
 
 <section class="writing-section" id="blog">
@@ -47,7 +55,7 @@
         <div class="articles-list">
             {# Render featured articles first #}
             {% for article in collections['article'] | sortedByPublishDate %}
-                {% if article.data.featured %}
+                {% if article.data.featured and not article.data.hero %}
                     {{ articleBlock(article, isFeatured = true) }}
                 {% endif %}
             {% endfor %}
@@ -56,7 +64,7 @@
             {% for article in collections['article'] | sortedByPublishDate %}
                 {% if article.data.highlighted %}
                     {{ articleBlock(article, isFeatured = true) }}
-                {% elseif not article.data.featured %}
+                {% elseif not article.data.featured and not article.data.hero %}
                     {{ articleBlock(article) }}
                 {% endif %}
             {% endfor %}
