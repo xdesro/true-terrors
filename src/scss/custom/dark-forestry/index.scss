@@ -12,8 +12,12 @@
 $font-display: 'Forevs';
 
 :root {
-  --color-background: #efefef;
+  // --color-background: #efefef;
+  --color-background: hsl(103, 7%, 88%);
   --color-text: #030303;
+  --color-focus: #4c5f63;
+  --color-focus-highlight: hsl(190, 13%, 84%);
+  --color-border-mid: #bdbdbd;
 }
 *,
 *:before,
@@ -27,6 +31,9 @@ body {
   margin: 0;
   color: var(--color-text);
   background-color: var(--color-background);
+}
+a {
+  @include with-focus-outline;
 }
 ul {
   max-width: 70ch;
@@ -114,6 +121,7 @@ picture img {
 
       @include screen(680px) {
         text-align: left;
+        max-width: max-content;
       }
     }
   }
@@ -243,4 +251,9 @@ blockquote {
   display: block;
   text-align: center;
   color: #888;
+}
+
+.focus {
+  // color: var(--color-focus);
+  background-color: var(--color-focus-highlight);
 }
