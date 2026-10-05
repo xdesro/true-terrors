@@ -16,6 +16,7 @@ export default class PageRasterizer {
     this.words = [];
     this.lines = [];
     this.borders = [];
+    this.backgrounds = [];
     this.pictures = [];
     this.dividers = [];
     this.markers = [];
@@ -33,6 +34,7 @@ export default class PageRasterizer {
     this.words = keepOutside(this.words);
     this.lines = keepOutside(this.lines);
     this.borders = keepOutside(this.borders);
+    this.backgrounds = keepOutside(this.backgrounds);
     this.pictures = keepOutside(this.pictures);
     this.dividers = keepOutside(this.dividers);
     this.markers = keepOutside(this.markers);
@@ -70,6 +72,14 @@ export default class PageRasterizer {
 
       if (parseFloat(style.borderLeftWidth)) {
         this.borders.push({ el, ...rect });
+      }
+      if (
+        style.backgroundColor !== 'rgba(0, 0, 0, 0)' &&
+        !el.matches('picture, img')
+      ) {
+        [...el.getClientRects()].forEach((rect) =>
+          this.backgrounds.push({ el, ...this.toDocument(rect) }),
+        );
       }
       if (el.matches('img')) {
         let clip = el.parentElement;
@@ -246,6 +256,13 @@ export default class PageRasterizer {
     ctx.fillStyle = this.background;
     ctx.fillRect(scrollX, scrollY, width, height);
 
+    this.backgrounds.filter(isVisible).forEach(({ el, x, y, width, height }) => {
+      this.paint(el, () => {
+        ctx.fillStyle = this.style(el).backgroundColor;
+        ctx.fillRect(x, y, width, height);
+      });
+    });
+
     this.pictures
       .filter(({ clip }) => isVisible(clip))
       .forEach(({ el, clip }) => {
@@ -317,12 +334,26 @@ export default class PageRasterizer {
 
     const focused = document.activeElement;
     if (this.root.contains(focused) && focused.matches(':focus-visible')) {
-      ctx.strokeStyle = this.style(focused).color;
-      ctx.lineWidth = 2;
+      const outline = getComputedStyle(focused);
+      const lineWidth = parseFloat(outline.outlineWidth);
+      const offset = parseFloat(outline.outlineOffset) + lineWidth / 2;
+      if (outline.outlineStyle === 'none' || !lineWidth) return;
+
+      ctx.strokeStyle = outline.outlineColor;
+      ctx.lineWidth = lineWidth;
+      ctx.setLineDash(
+        outline.outlineStyle === 'dashed' ? [lineWidth * 3, lineWidth * 3] : [],
+      );
       [...focused.getClientRects()].forEach((rect) => {
         const { x, y, width, height } = this.toDocument(rect);
-        ctx.strokeRect(x - 2, y - 2, width + 4, height + 4);
+        ctx.strokeRect(
+          x - offset,
+          y - offset,
+          width + offset * 2,
+          height + offset * 2,
+        );
       });
+      ctx.setLineDash([]);
     }
   }
 }
