@@ -9,11 +9,6 @@
   directory = "functions"
   node_bundler = "esbuild"
 
-[[edge_functions]]
-  path = "/*"
-  function = "hn"
-  excludedPath = "/hn"
-
 [[plugins]]
   package = "netlify-plugin-cache"
 
