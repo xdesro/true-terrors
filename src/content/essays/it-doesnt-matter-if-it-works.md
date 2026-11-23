@@ -24,8 +24,6 @@ There are about a thousand and one debates about the ecology of AI, the ethics o
 
 To illustrate, we'll consider a few scenarios. 
 
-This is a short preface to a larger piece I'm working on called *The Threat*, which covers AI mandates at work, harm reduction in the use of LLMs, and long-term strategies as industries expand their adoption of this technology.{.editors-note}
-
 ## AI works
 
 O, great miracle — the tech advances! It will soon be as good or better per dollar than its human equivalent. Under the current economic system, there exists no incentive for corporations to keep those human equivalents employed. Humans necessitate sticky conversations about benefits, work hours, protections, and accountability that AI frankly does not. What happens to those jobs?
